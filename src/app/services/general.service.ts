@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {Usuario} from "../models/Usuario";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,9 @@ export class GeneralService {
 
   constructor(private http: HttpClient) { }
 
-  crearUsuario(data: Usuario): Observable<string> {
+  crearUsuario(data: Usuario) :Observable<string> {
 
-    console.log('Datos enviados al backend:', data);
-    return this.http.get<string>(`${this.apiUrl}/usuario/crear`, data);
+    return this.http.post<string>(`${this.apiUrl}/usuario/crear?XDEBUG_SESSION_START=16175`, data);
 
   }
 

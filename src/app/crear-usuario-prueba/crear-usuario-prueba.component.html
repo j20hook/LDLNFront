@@ -29,11 +29,11 @@
           <div class="input-boxes">
 
             <div class="input-box">
-              <input type="text" id="username" name="username" placeholder="Usuario" required>
+              <input type="text" id="username" name="username" placeholder="Usuario" [(ngModel)]="usuario.username"  required>
             </div>
 
             <div class="input-box">
-              <input type="password" name="password" id="password" placeholder="Contraseña" required>
+              <input type="password" name="password" id="password" placeholder="Contraseña" [(ngModel)]="usuario.password"  required>
             </div>
 
             <div class="boton input-box">
