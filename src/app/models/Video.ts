@@ -1,3 +1,5 @@
+import {Canal} from "./Canal";
+
 export class Video {
   id?: number;
   titulo: string = '';
@@ -8,5 +10,5 @@ export class Video {
   fecha_publicacion? : string = ''
   fecha_creacion? : string = ''
   activo?: boolean;
-  canal?: number;
+  canal: Canal = new Canal();
 }

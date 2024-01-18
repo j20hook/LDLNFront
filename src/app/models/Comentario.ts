@@ -1,4 +1,5 @@
 import {Usuario} from "./Usuario";
+import {Video} from "./Video"
 
 export class Canal{
   id?: bigint;
