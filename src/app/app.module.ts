@@ -16,10 +16,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { CommonModule } from '@angular/common';
+import { CrearUsuarioPruebaComponent } from './crear-usuario-prueba/crear-usuario-prueba.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CrearUsuarioPruebaComponent,
 
   ],
 
