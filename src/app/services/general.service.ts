@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Usuario} from "../models/Usuario";
 
 @Injectable({
@@ -12,9 +12,15 @@ export class GeneralService {
 
   constructor(private http: HttpClient) { }
 
-  crearUsuario(data: Usuario) :Observable<string> {
+  listarUsuario() :Observable<Usuario[]> {
 
-    return this.http.post<string>(`${this.apiUrl}/usuario/crear?XDEBUG_SESSION_START=16175`, data);
+    return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
+
+  }
+
+  crearUsuario(data: Usuario) :Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/usuario/crear`, data);
 
   }
 
