@@ -1,4 +1,5 @@
-// Importamos el servidor de Angular
+;
+import { ErrorcuatrocientoscuatroComponent } from './errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'// Importamos el servidor de Angular
 import { NgModule } from '@angular/core';
 
 // Importamos el browser
@@ -22,6 +23,7 @@ import { CrearUsuarioPruebaComponent } from './crear-usuario-prueba/crear-usuari
   declarations: [
     AppComponent,
     CrearUsuarioPruebaComponent,
+    ErrorcuatrocientoscuatroComponent,
 
   ],
 
