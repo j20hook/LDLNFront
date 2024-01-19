@@ -1,4 +1,5 @@
-// Importamos el servidor de Angular
+;
+import { ErrorcuatrocientoscuatroComponent } from './errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'// Importamos el servidor de Angular
 import { NgModule } from '@angular/core';
 
 // Importamos el browser
@@ -17,13 +18,12 @@ import { AppComponent } from './app.component';
 
 import { CommonModule } from '@angular/common';
 import { CrearUsuarioPruebaComponent } from './crear-usuario-prueba/crear-usuario-prueba.component';
-import { WebsiteHomeComponent } from './website-home/website-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearUsuarioPruebaComponent,
-    WebsiteHomeComponent,
+    ErrorcuatrocientoscuatroComponent,
 
   ],
 

@@ -1,27 +1,50 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GeneralService} from "../services/general.service";
 import {Router} from "@angular/router";
 import {Usuario} from "../models/Usuario";
-import {HttpClient} from "@angular/common/http";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-crear-usuario-prueba',
   templateUrl: './crear-usuario-prueba.component.html',
   styleUrls: ['./crear-usuario-prueba.component.css']
 })
-export class CrearUsuarioPruebaComponent {
+export class CrearUsuarioPruebaComponent implements OnInit{
 
   usuario = new Usuario();
+  usuarios : any = [];
+  mensaje: string | undefined;
 
-  constructor(private service:GeneralService, public router: Router, http: HttpClient) {
+  constructor(private service:GeneralService, public router: Router) {
+  }
+
+  ngOnInit() {
+
+    this.service.listarUsuario().subscribe(data => {
+
+      this.usuarios = data
+
+    });
+
   }
 
   crearUsuario(){
 
-    console.log(this.usuario);
     this.usuario.rol = 1;
 
-    this.service.crearUsuario(this.usuario).subscribe(data=>{console.log(data)});
+    this.service.crearUsuario(this.usuario).subscribe((data :any)=>{
+      console.log(data)
+      if (data['message'] == 'Usuario creado'){
+
+        window.location.reload()
+
+      }
+
+      this.mensaje = data['message'] || 'Mensaje no disponible';
+
+    });
+
 
   }
+
 }
