@@ -17,11 +17,13 @@ import { AppComponent } from './app.component';
 
 import { CommonModule } from '@angular/common';
 import { CrearUsuarioPruebaComponent } from './crear-usuario-prueba/crear-usuario-prueba.component';
+import { WebsiteHomeComponent } from './website-home/website-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearUsuarioPruebaComponent,
+    WebsiteHomeComponent,
 
   ],
 
