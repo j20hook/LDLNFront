@@ -1,5 +1,5 @@
 ;
-import { ErrorcuatrocientoscuatroComponent } from './errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'// Importamos el servidor de Angular
+import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'// Importamos el servidor de Angular
 import { NgModule } from '@angular/core';
 
 // Importamos el browser
@@ -17,8 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { CommonModule } from '@angular/common';
-import { CrearUsuarioPruebaComponent } from './crear-usuario-prueba/crear-usuario-prueba.component';
-import { WebsiteHomeComponent } from './website-home/website-home.component';
+import { CrearUsuarioPruebaComponent } from './components/crear-usuario-prueba/crear-usuario-prueba.component';
+import { WebsiteHomeComponent } from './components/website-home/website-home.component';
 
 @NgModule({
   declarations: [

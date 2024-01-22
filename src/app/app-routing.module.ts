@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CrearUsuarioPruebaComponent} from "./crear-usuario-prueba/crear-usuario-prueba.component";
-import {ErrorcuatrocientoscuatroComponent} from "./errorcuatrocientoscuatro/errorcuatrocientoscuatro.component";
-import {WebsiteHomeComponent} from "./website-home/website-home.component";
+import {CrearUsuarioPruebaComponent} from "./components/crear-usuario-prueba/crear-usuario-prueba.component";
+import {ErrorcuatrocientoscuatroComponent} from "./components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component";
+import {WebsiteHomeComponent} from "./components/website-home/website-home.component";
 
 const routes: Routes = [
 

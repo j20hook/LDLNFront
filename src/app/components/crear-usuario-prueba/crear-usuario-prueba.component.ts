@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {GeneralService} from "../services/general.service";
+import {GeneralService} from "../../services/general.service";
 import {Router} from "@angular/router";
-import {Usuario} from "../models/Usuario";
+import {Usuario} from "../../models/Usuario";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
