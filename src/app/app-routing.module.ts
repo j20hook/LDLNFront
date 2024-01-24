@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import {CrearUsuarioPruebaComponent} from "./components/crear-usuario-prueba/crear-usuario-prueba.component";
 import {ErrorcuatrocientoscuatroComponent} from "./components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component";
 import {WebsiteHomeComponent} from "./components/website-home/website-home.component";
+import {IncioLogComponent} from "./components/incio-log/incio-log.component";
+
+import {HeaderComponent} from "./components/header/header.component";
 
 const routes: Routes = [
 
   {path:'apollo', component: WebsiteHomeComponent},
   {path:'', redirectTo:'/apollo', pathMatch:'full'},
+  {path:'apollo_log', component : IncioLogComponent},
   {path:'apollo/usuario/crear', component : CrearUsuarioPruebaComponent},
   {path:'error404', component : ErrorcuatrocientoscuatroComponent},
 

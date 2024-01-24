@@ -1,0 +1,77 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.img_header{
+  width: 10%;
+}
+
+.imagen_logo{
+  width: 100%;
+}
+
+/*Buscador*/
+
+.dispo_botones{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 100%;
+}
+
+.buscador{
+  display: inline-block;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.buscador:hover input {
+  width: 200px;
+  padding: 0 36px 0 8px;
+}
+
+input {
+  width: 0px;
+  height: 35px;
+  border: 0;
+  transition: all 0.3s;
+}
+
+button {
+  width: 35px;
+  height: 35px;
+  background-color: #333;
+  color: #fff;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Botones*/
+.btn_header{
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+.btn_user{
+  display: flex;
+  justify-content: center;
+  width: 7%;
+}
+.imagen_user{
+  width: 50%;
+  border-radius: 50%;
+  border: 3px black solid;
+  padding: 4px;
+}

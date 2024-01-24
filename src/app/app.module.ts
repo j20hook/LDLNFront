@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Importamos el generador de iconos
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+
 
 // Importamos los componentes
 import { AppComponent } from './app.component';
@@ -19,6 +23,9 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { CrearUsuarioPruebaComponent } from './components/crear-usuario-prueba/crear-usuario-prueba.component';
 import { WebsiteHomeComponent } from './components/website-home/website-home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { IncioLogComponent } from './components/incio-log/incio-log.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +33,8 @@ import { WebsiteHomeComponent } from './components/website-home/website-home.com
     CrearUsuarioPruebaComponent,
     ErrorcuatrocientoscuatroComponent,
     WebsiteHomeComponent,
-
+    HeaderComponent,
+    IncioLogComponent,
   ],
 
   imports: [
@@ -37,6 +45,7 @@ import { WebsiteHomeComponent } from './components/website-home/website-home.com
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
