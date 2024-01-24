@@ -20,8 +20,9 @@ export class GeneralService {
 
   crearUsuario(data: Usuario) :Observable<JSON> {
 
-    return this.http.post<JSON>(`${this.apiUrl}/usuario/crear`, data);
+    return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
 
   }
+
 
 }

@@ -2,6 +2,6 @@ export class Usuario {
   id?: bigint;
   username: string = '';
   password: string = '';
-  rol?: number;
+  id_rol_usuario?: number;
   activo?: boolean;
 }

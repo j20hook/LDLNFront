@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { CrearUsuarioPruebaComponent } from './components/crear-usuario-prueba/crear-usuario-prueba.component';
 import { WebsiteHomeComponent } from './components/website-home/website-home.component';
+import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { WebsiteHomeComponent } from './components/website-home/website-home.com
     CrearUsuarioPruebaComponent,
     ErrorcuatrocientoscuatroComponent,
     WebsiteHomeComponent,
+    LoginUsuarioComponent,
 
   ],
 
