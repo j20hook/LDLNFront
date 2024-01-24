@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Usuario} from "../models/Usuario";
+import {Video} from "../models/Video";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,24 @@ export class GeneralService {
 
   constructor(private http: HttpClient) { }
 
+  tipoNotificaciones() :Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones?XDEBUG_SESSION_START=19036`);
+
+  }
+
+  tipoVideos() :Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);
+
+  }
+
+  getEtiquetas() :Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/etiquetas`);
+
+  }
+
   listarUsuario() :Observable<Usuario[]> {
 
     return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
@@ -20,8 +39,15 @@ export class GeneralService {
 
   crearUsuario(data: Usuario) :Observable<JSON> {
 
-    return this.http.post<JSON>(`${this.apiUrl}/usuario/crear`, data);
+    return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
 
   }
+
+  subirVideo(data: Video) :Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
+
+  }
+
 
 }
