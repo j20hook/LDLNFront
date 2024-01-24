@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="subir-video.component.css">
+  <title>Subir Video - Apollo LDLN</title>
+</head>
+
+<body>
+
+<div class="navbar">
+  <li class="logo">
+    <a href="#">
+      <img src="../../../assets/img/logoApolloSinBG.png" alt="Apollo Logo">
+    </a>
+  </li>
+  <a href="#" class="buttons">Login</a>
+</div>
+
+
+<div class="login-container">
+  <form class="login-form">
+    <h2>Subir Video</h2>
+
+    <input type="text" placeholder="Título" required>
+
+    <input type="text" placeholder="Descripción" required>
+
+    <h3>Tipo de Video</h3>
+    <select type="text" placeholder="Tipo de Visualizacion" required>
+      <option *ngFor="let tipo of tiposVideo">{{ tipo }}</option>
+    </select>
+
+    <h3>Etiquetas</h3>
+    <select type="text" placeholder="Etiquetas" required multiple>
+      <option *ngFor="let etiqueta of etiquetas">{{ etiqueta }}</option>
+    </select>
+
+    <input type="datetime-local" placeholder="Fecha Publicación" required>
+
+    <input type="text" placeholder="Url" required>
+
+    <button type="submit">Subir</button>
+  </form>
+</div>
+
+</body>
+
+</html>
+
