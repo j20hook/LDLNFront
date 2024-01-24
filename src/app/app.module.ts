@@ -20,6 +20,8 @@ import { CommonModule } from '@angular/common';
 import { CrearUsuarioPruebaComponent } from './components/crear-usuario-prueba/crear-usuario-prueba.component';
 import { WebsiteHomeComponent } from './components/website-home/website-home.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
+import { SubirVideoComponent } from './components/subir-video/subir-video.component';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.
     CrearUsuarioPruebaComponent,
     ErrorcuatrocientoscuatroComponent,
     WebsiteHomeComponent,
+    SubirVideoComponent,
+    VideoComponent,
     LoginUsuarioComponent,
 
   ],
