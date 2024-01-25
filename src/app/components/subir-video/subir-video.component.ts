@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GeneralService} from "../../services/general.service";
 import {Router} from "@angular/router";
 import {Tipos} from "../../models/Tipos";
+import {Video} from "../../models/Video";
 
 @Component({
   selector: 'app-subir-video',
@@ -13,6 +14,7 @@ export class SubirVideoComponent implements OnInit{
   constructor(private service:GeneralService, public router: Router) {
   }
 
+  video= new Video();
   tiposVideo : string[] = [];
   etiquetas : string[] = [];
 
@@ -33,6 +35,16 @@ export class SubirVideoComponent implements OnInit{
         this.etiquetas.push(desc['descripcion'])
 
     });
+
+  }
+
+  crearVideo(){
+
+    this.video.canal = 1;
+
+    this.service.subirVideo(this.video).subscribe(data=>{
+
+    })
 
   }
 

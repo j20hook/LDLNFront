@@ -21,26 +21,26 @@
 
 
 <div class="login-container">
-  <form class="login-form">
+  <form class="login-form" (submit)="crearVideo()">
     <h2>Subir Video</h2>
 
-    <input type="text" placeholder="Título" required>
+    <input type="text" id="titulo" name="titulo" placeholder="Titulo" [(ngModel)]="video.titulo" required>
 
-    <input type="text" placeholder="Descripción" required>
+    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción" [(ngModel)]="video.descripcion" required>
 
     <h3>Tipo de Video</h3>
-    <select type="text" placeholder="Tipo de Visualizacion" required>
+    <select type="text" id="tipo" name="tipo" placeholder="Tipo" [(ngModel)]="video.tipo" required>
       <option *ngFor="let tipo of tiposVideo">{{ tipo }}</option>
     </select>
 
     <h3>Etiquetas</h3>
-    <select type="text" placeholder="Etiquetas" required multiple>
+    <select type="text" id="etiquetas" name="etiquetas" placeholder="Etiquetas" [(ngModel)]="video.etiquetas" multiple required>
       <option *ngFor="let etiqueta of etiquetas">{{ etiqueta }}</option>
     </select>
 
-    <input type="datetime-local" placeholder="Fecha Publicación" required>
+    <input type="datetime-local" id="fecha_publicacion" name="fecha_publicacion" placeholder="Fecha Publicación" [(ngModel)]="video.fecha_publicacion" required>
 
-    <input type="text" placeholder="Url" required>
+    <input type="text" id="url" name="url" placeholder="Url" [(ngModel)]="video.url" required>
 
     <button type="submit">Subir</button>
   </form>
