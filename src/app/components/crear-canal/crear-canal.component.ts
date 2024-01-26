@@ -1,43 +1,34 @@
-import {Component, OnInit} from '@angular/core';
-import {GeneralService} from "../../services/general.service";
-import {Router} from "@angular/router";
-import {Usuario} from "../../models/Usuario";
-import {HttpErrorResponse} from "@angular/common/http";
-import {Canal} from "../../models/Canal";
-import any = jasmine.any;
+import { Component, OnInit } from '@angular/core';
+import { GeneralService } from '../../services/general.service';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Canal } from '../../models/Canal';
 
 @Component({
-  selector: 'app-crear-usuario-prueba',
-  templateUrl: './crear-canal.component.html',
-  styleUrls: ['./crear-canal.component.css']
+    selector: 'app-crear-canal',
+    templateUrl: './crear-canal.component.html',
+    styleUrls: ['./crear-canal.component.css'],
 })
-export class CrearCanalComponent implements OnInit{
+export class CrearCanalComponent implements OnInit {
+    // Introducimos variables que vamos a necesitar en el componente.
+    nuevoCanal = new Canal();
+    usuario: any;
+    canales: any = [];
 
-  canal = new Canal();
-  usuario : any;
-  canales : any = [];
+    // Introducimos en el constructor el service y el routing
+    constructor(
+        private service: GeneralService,
+        public router: Router
+    ) {}
 
-  constructor(private service:GeneralService, public router: Router) {
-  }
+    // Solicitamos el usuario para sacar el id
+    ngOnInit() {
+        this.usuario = localStorage.getItem('usuario');
+        this.service.getUsuarioById().subscribe();
+    }
 
-  ngOnInit() {
-    this.usuario = localStorage.getItem('usuario')
-  }
-
-  crearCanal(){
-
-
-    this.service.crearCanal(this.canal).subscribe((data :any)=>{
-      console.log(data)
-      if (data['message'] == 'Canal creado'){
-
-        window.location.reload()
-
-      }
-
-    });
-
-
-  }
-
+    // Funcion para crear canal
+    crearCanal() {
+        this.service.crearCanal(this.nuevoCanal);
+    }
 }
