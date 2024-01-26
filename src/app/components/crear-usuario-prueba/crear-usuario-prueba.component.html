@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Crear Usuario de Prueba | LDLN </title>
+  <link rel="stylesheet" type="text/css" href="crear-usuario-prueba.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+
+<div *ngFor="let usuario of usuarios"  class="carta">
+
+  <span>{{usuario.id}} {{usuario.username}}</span>
+  <br>
+  <a [routerLink]="['/detallesEvento', usuario.id]">
+    <span>{{usuario.password}} {{usuario.rol}}</span>
+  </a>
+  <br>
+</div>
+
+
+
+<div class="contenedor">
+
+  <div class="forms">
+
+    <div class="form-content">
+
+      <div class="signup-form">
+
+        <div class="titulo">Registrar</div>
+
+        <form name="form" id="form" (ngSubmit)="crearUsuario()">
+
+          <div class="input-boxes">
+
+            <div class="input-box">
+              <input type="text" id="username" name="username" placeholder="Usuario" [(ngModel)]="usuario.username"  required>
+            </div>
+
+            <div class="input-box">
+              <input type="password" name="password" id="password" placeholder="Contraseña" [(ngModel)]="usuario.password"  required>
+            </div>
+
+            <div class="boton input-box">
+              <input type="submit" value="Continuar">
+            </div>
+
+            <span>{{mensaje}}</span>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
