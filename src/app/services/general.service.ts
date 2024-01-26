@@ -15,7 +15,7 @@ export class GeneralService {
 
   tipoNotificaciones() :Observable<JSON> {
 
-    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones?XDEBUG_SESSION_START=19036`);
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
 
   }
 
@@ -45,9 +45,8 @@ export class GeneralService {
 
   subirVideo(data: Video) :Observable<JSON> {
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=10101`, data);
+    return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=16092`, data);
 
   }
-
 
 }
