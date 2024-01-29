@@ -13,11 +13,11 @@ export class GeneralService {
 
     constructor(private http: HttpClient) {}
 
-    tipoNotificaciones(): Observable<JSON> {
-        return this.http.get<JSON>(
-            `${this.apiUrl}/tipos/notificaciones?XDEBUG_SESSION_START=19036`
-        );
-    }
+  tipoNotificaciones() :Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
+
+  }
 
     tipoVideos(): Observable<JSON> {
         return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);

@@ -34,16 +34,25 @@
     </select>
 
     <h3>Etiquetas</h3>
-    <select type="text" id="etiquetas" name="etiquetas" placeholder="Etiquetas" [(ngModel)]="video.etiquetas" multiple required>
+    <select type="text" id="etiquetas" name="etiquetas" placeholder="Etiquetas" [(ngModel)]="video.etiquetas" multiple required size="13">
       <option *ngFor="let etiqueta of etiquetas">{{ etiqueta }}</option>
     </select>
 
     <input type="datetime-local" id="fecha_publicacion" name="fecha_publicacion" placeholder="Fecha Publicación" [(ngModel)]="video.fecha_publicacion" required>
 
-    <input type="text" id="url" name="url" placeholder="Url" [(ngModel)]="video.url" required>
+    <input type="url" id="url" name="url" placeholder="Url" [(ngModel)]="video.url" required>
 
-    <button type="submit">Subir</button>
+    <button type="submit" id="subir-button">Subir</button>
   </form>
+
+  <div class="modal" id="progress-modal">
+    <div class="modal-content">
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">0%</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 </body>
