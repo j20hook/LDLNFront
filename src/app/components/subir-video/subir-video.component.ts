@@ -44,8 +44,6 @@ export class SubirVideoComponent implements OnInit{
 
     this.service.subirVideo(this.video).subscribe(data=>{
 
-      this.router.navigate(['/apollo']);
-
     })
 
   }
@@ -84,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(interval); // Detiene el intervalo cuando alcanza el 100%
         // Oculta el modal al finalizar
         modal!.style.display = 'none';
+        window.location.href = '/apollo';
+
       }
     }, 20); // Intervalo de actualización (en milisegundos)
   }
