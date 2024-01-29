@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {GeneralService} from "../../services/general.service";
+import {Router} from "@angular/router";
+import {Usuario} from "../../models/Usuario";
 
 @Component({
   selector: 'app-login-usuario',
@@ -6,5 +9,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-usuario.component.css']
 })
 export class LoginUsuarioComponent {
+
+  usuario = new Usuario();
+
+  constructor(private service: GeneralService, public router: Router) {
+  }
+
+
+  login() {
+
+    this.service.login(this.usuario).subscribe((data:any) => {
+
+      console.log(data)
+      localStorage.setItem("token", data['token'] )
+
+      this.router.navigate(['/apollo']).then(() => window.location.href = '/apollo');
+
+
+    })
+
+  }
 
 }

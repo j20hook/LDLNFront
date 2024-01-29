@@ -17,10 +17,10 @@
 
 
 <div class="login-container">
-  <form class="login-form">
+  <form class="login-form" (submit)="login()">
     <h2>Login</h2>
-    <input type="text" placeholder="Usuario" required>
-    <input type="password" placeholder="Contraseña" required>
+    <input type="text" id="username" name="username" placeholder="Usuario" [(ngModel)]="usuario.username" required>
+    <input type="password" id="password" name="password" placeholder="Contraseña" [(ngModel)]="usuario.password" required>
     <button type="submit">Iniciar sesión</button>
   </form>
 </div>

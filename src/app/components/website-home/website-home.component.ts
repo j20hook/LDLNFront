@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-website-home',
   templateUrl: './website-home.component.html',
   styleUrls: ['./website-home.component.css']
 })
-export class WebsiteHomeComponent {
+export class WebsiteHomeComponent implements OnInit{
+
+  ngOnInit() {
+
+    console.log(localStorage.getItem('token'))
+
+  }
 
 }

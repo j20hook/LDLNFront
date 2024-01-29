@@ -45,7 +45,13 @@ export class GeneralService {
 
   subirVideo(data: Video) :Observable<JSON> {
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=16092`, data);
+    return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=10787`, data);
+
+  }
+
+  login(data: Usuario) :Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
 
   }
 
