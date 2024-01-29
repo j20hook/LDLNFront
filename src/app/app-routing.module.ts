@@ -14,6 +14,7 @@ const routes: Routes = [
   {path:'registro', component : CrearUsuarioPruebaComponent},
   {path:'error404', component : ErrorcuatrocientoscuatroComponent},
   {path:'apollo/video', component : VideoComponent},
+  {path:'apollo/video/:id', component : VideoComponent},
   {path:'apollo/video/subir', component : SubirVideoComponent},
   {path:'login' , component : LoginUsuarioComponent}
 

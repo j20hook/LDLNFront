@@ -55,4 +55,10 @@ export class GeneralService {
 
   }
 
+  getVideoPorId(id_video:number):Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
+
+  }
+
 }

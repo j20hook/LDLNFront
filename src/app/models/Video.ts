@@ -4,7 +4,7 @@ export class Video {
   descripcion: string = '';
   url: string = '';
   etiquetas?: string[] = [];
-  tipo?: number;
+  tipo?: string;
   fecha_publicacion? : string = ''
   fecha_creacion? : string = ''
   activo?: boolean;
