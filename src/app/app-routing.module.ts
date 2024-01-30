@@ -16,9 +16,8 @@ const routes: Routes = [
   {path:'error404', component : ErrorcuatrocientoscuatroComponent},
   {path:'apollo/video/:id', component : VideoComponent},
   {path:'apollo/video/subir', component : SubirVideoComponent},
-  {path:'login' , component : LoginUsuarioComponent}
+  {path:'apollo/login' , component : LoginUsuarioComponent},
   { path: 'apollo/canal/crear', component: CrearCanalComponent },
-
 
 ];
 

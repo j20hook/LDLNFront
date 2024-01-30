@@ -62,7 +62,16 @@ export class GeneralService {
 
   }
 
-    getUsuarioByUsername(data: string): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
-    }
+  getUsuarioByUsername(data: Usuario): Observable<JSON> {
+
+      return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
+
+  }
+
+  crearCanal(data: Canal): Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
+
+  }
+
 }

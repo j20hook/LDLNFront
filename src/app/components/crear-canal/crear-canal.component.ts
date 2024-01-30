@@ -3,6 +3,7 @@ import { GeneralService } from '../../services/general.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Canal } from '../../models/Canal';
+import {Usuario} from "../../models/Usuario";
 
 @Component({
     selector: 'app-crear-canal',
@@ -12,7 +13,7 @@ import { Canal } from '../../models/Canal';
 export class CrearCanalComponent implements OnInit {
     // Introducimos variables que vamos a necesitar en el componente.
     nuevoCanal = new Canal();
-    username: any;
+    usuario1 = new Usuario();
     usuario: any;
     canales: any = [];
 
@@ -24,10 +25,14 @@ export class CrearCanalComponent implements OnInit {
 
     // Solicitamos el usuario para sacar el id
     ngOnInit() {
-        this.username = localStorage.getItem('username');
-        this.usuario = this.service.getUsuarioByUsername(this.username);
+        this.usuario1.username = localStorage.getItem('username') || '';
+        this.service.getUsuarioByUsername(this.usuario1).subscribe(data=>{
 
-        console.log(this.usuario);
+          this.usuario = data;
+          console.log(this.usuario)
+
+        });
+
     }
 
     // Funcion para crear canal
