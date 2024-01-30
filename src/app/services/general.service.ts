@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Usuario} from "../models/Usuario";
 import {Video} from "../models/Video";
+import { Canal } from '../models/Canal';
 
 @Injectable({
   providedIn: 'root'
@@ -61,4 +62,7 @@ export class GeneralService {
 
   }
 
+    getUsuarioByUsername(data: string): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
+    }
 }
