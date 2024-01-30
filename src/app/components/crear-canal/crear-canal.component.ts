@@ -12,6 +12,7 @@ import { Canal } from '../../models/Canal';
 export class CrearCanalComponent implements OnInit {
     // Introducimos variables que vamos a necesitar en el componente.
     nuevoCanal = new Canal();
+    username: any;
     usuario: any;
     canales: any = [];
 
@@ -23,8 +24,10 @@ export class CrearCanalComponent implements OnInit {
 
     // Solicitamos el usuario para sacar el id
     ngOnInit() {
-        this.usuario = localStorage.getItem('usuario');
-        this.service.getUsuarioById().subscribe();
+        this.username = localStorage.getItem('username');
+        this.usuario = this.service.getUsuarioByUsername(this.username);
+
+        console.log(this.usuario);
     }
 
     // Funcion para crear canal

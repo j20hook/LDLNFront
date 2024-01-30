@@ -13,11 +13,9 @@ export class GeneralService {
 
     constructor(private http: HttpClient) {}
 
-  tipoNotificaciones() :Observable<JSON> {
-
-    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
-
-  }
+    tipoNotificaciones(): Observable<JSON> {
+        return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
+    }
 
     tipoVideos(): Observable<JSON> {
         return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);
@@ -36,24 +34,18 @@ export class GeneralService {
     }
 
     subirVideo(data: Video): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/video/crear`,
-            data
-        );
+        return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
     }
 
-  login(data: Usuario) :Observable<JSON> {
-
-    return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
-
-  }
+    login(data: Usuario): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
+    }
 
     crearCanal(data: Canal): Observable<JSON> {
         return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
     }
 
-
-    getUsuarioById(): Observable<Usuario> {
-        return this.http.get<Usuario>(`${this.apiUrl}/usuario/{id}`);
+    getUsuarioByUsername(data: string): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
     }
 }
