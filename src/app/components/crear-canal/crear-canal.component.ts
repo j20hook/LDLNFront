@@ -3,7 +3,8 @@ import { GeneralService } from '../../services/general.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Canal } from '../../models/Canal';
-import {Usuario} from "../../models/Usuario";
+import { Usuario } from '../../models/Usuario';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-crear-canal',
@@ -26,17 +27,37 @@ export class CrearCanalComponent implements OnInit {
     // Solicitamos el usuario para sacar el id
     ngOnInit() {
         this.usuario1.username = localStorage.getItem('username') || '';
-        this.service.getUsuarioByUsername(this.usuario1).subscribe(data=>{
-
-          this.usuario = data;
-          console.log(this.usuario)
-
+        this.service.getUsuarioByUsername(this.usuario1).subscribe((data) => {
+            this.usuario = data;
+            console.log(this.usuario);
         });
-
     }
 
     // Funcion para crear canal
     crearCanal() {
-        this.service.crearCanal(this.nuevoCanal);
+        this.nuevoCanal.usuario = this.usuario.id;
+        //this.nuevoCanal.fecha_nacimiento += 'T00:00';
+        this.service.crearCanal(this.nuevoCanal).subscribe(
+            (response) => {
+                console.log(response); // Manejo de la respuesta del backend
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: '¡Canal Creado!',
+                    showConfirmButton: false,
+                    timer: 1000,
+                });
+
+                this.router.navigateByUrl(`apollo`);
+            },
+            (error) => {
+                console.error(error); // Manejo de errores
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...!',
+                    text: '¡Algo salio mal!',
+                });
+            }
+        );
     }
 }

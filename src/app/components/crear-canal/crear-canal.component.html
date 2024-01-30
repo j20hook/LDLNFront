@@ -15,6 +15,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
+        <nav class="navbar">
+            <li class="logo">
+                <a href="#">
+                    <img
+                        src="../../../assets/img/logoApolloSinBG.png"
+                        alt="Apollo Logo"
+                    />
+                </a>
+            </li>
+            <a href="#" class="buttons">Login</a>
+        </nav>
+
         <div class="contenedor">
             <div class="forms">
                 <div class="form-content">
@@ -34,7 +46,7 @@
                                         id="nombre"
                                         name="nombre"
                                         placeholder="Nombre"
-                                        [ngModel]="nuevoCanal.nombre"
+                                        [(ngModel)]="nuevoCanal.nombre"
                                         required
                                     />
                                 </div>
@@ -46,7 +58,7 @@
                                         name="apellidos"
                                         id="apellidos"
                                         placeholder="Apellidos"
-                                        [ngModel]="nuevoCanal.apellidos"
+                                        [(ngModel)]="nuevoCanal.apellidos"
                                         required
                                     />
                                 </div>
@@ -58,7 +70,7 @@
                                         name="nombre_canal"
                                         id="nombre_canal"
                                         placeholder="Nombre del Canal"
-                                        [ngModel]="nuevoCanal.nombre_canal"
+                                        [(ngModel)]="nuevoCanal.nombre_canal"
                                         required
                                     />
                                 </div>
@@ -70,7 +82,7 @@
                                         name="telefono"
                                         id="telefono"
                                         placeholder="Teléfono"
-                                        [ngModel]="nuevoCanal.telefono"
+                                        [(ngModel)]="nuevoCanal.telefono"
                                         required
                                     />
                                 </div>
@@ -78,11 +90,13 @@
                                 <div class="input-box">
                                     <span>Fecha de Nacimiento: </span>
                                     <input
-                                        type="text"
+                                        type="datetime-local"
                                         name="fecha_nacimiento"
                                         id="fecha_nacimiento"
                                         placeholder="dd/mm/aaaa"
-                                        [ngModel]="nuevoCanal.fecha_nacimiento"
+                                        [(ngModel)]="
+                                            nuevoCanal.fecha_nacimiento
+                                        "
                                         required
                                     />
                                 </div>
@@ -94,7 +108,7 @@
                                         size="8"
                                         name="etiquetas"
                                         id="etiquetas"
-                                        [ngModel]="nuevoCanal.etiquetas"
+                                        [(ngModel)]="nuevoCanal.etiquetas"
                                     >
                                         <option value="ANIMALES">
                                             ANIMALES

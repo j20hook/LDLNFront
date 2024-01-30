@@ -1,5 +1,3 @@
-import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
-
 import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'; // Importamos el servidor de Angular
 import { NgModule } from '@angular/core';
 
@@ -24,6 +22,7 @@ import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
 import { VideoComponent } from './components/video/video.component';
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
+import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +34,7 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
         VideoComponent,
         LoginUsuarioComponent,
         CrearCanalComponent,
+        BotonSuscripcionComponent,
     ],
 
     imports: [
