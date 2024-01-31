@@ -23,6 +23,8 @@ import { SubirVideoComponent } from './components/subir-video/subir-video.compon
 import { VideoComponent } from './components/video/video.component';
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
+import { FooterComponent } from './components/Footer/footer.component';
+import { HeaderComponent } from './components/Header/header.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +37,8 @@ import { CrearCanalComponent } from './components/crear-canal/crear-canal.compon
         LoginUsuarioComponent,
         CrearCanalComponent,
         BotonSuscripcionComponent,
+        FooterComponent,
+        HeaderComponent,
     ],
 
     imports: [
