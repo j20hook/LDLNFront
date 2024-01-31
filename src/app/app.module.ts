@@ -1,4 +1,5 @@
-import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'; // Importamos el servidor de Angular
+
+import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'// Importamos el servidor de Angular
 import { NgModule } from '@angular/core';
 
 // Importamos el browser
@@ -11,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Importamos el generador de iconos
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+
 
 // Importamos los componentes
 import { AppComponent } from './app.component';
@@ -23,6 +28,10 @@ import { SubirVideoComponent } from './components/subir-video/subir-video.compon
 import { VideoComponent } from './components/video/video.component';
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
+import { HeaderComponent } from './components/header/header.component';
+import { IncioLogComponent } from './components/incio-log/incio-log.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
     declarations: [
@@ -34,19 +43,23 @@ import { CrearCanalComponent } from './components/crear-canal/crear-canal.compon
         VideoComponent,
         LoginUsuarioComponent,
         CrearCanalComponent,
-        BotonSuscripcionComponent,
+        BotonSuscripcionComponent
     ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
 
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        RouterModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        CommonModule,
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
+  ],
+
+
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

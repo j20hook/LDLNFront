@@ -112,16 +112,6 @@ body {
 
 }
 
-.search input {
-
-  outline: none;
-  padding-left: 25px;
-  font-size: large;
-  font-family: sans-serif;
-  height: 66px;
-
-}
-
 .box {
   width: 100%;
   min-height: 65px;
@@ -404,13 +394,6 @@ li a {
   font-size:16px;
 }
 
-.try a {
-
-  cursor: pointer;
-  text-decoration: none;
-
-}
-
 @media (min-width: 250px) and (max-width: 980px) {
   body {
     display: flex;
@@ -531,6 +514,13 @@ li a {
     min-height: 75px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .try a{
+    cursor: pointer;
+    color:blue;
+  }
+  .texto{
+    color: red;
   }
 
 }

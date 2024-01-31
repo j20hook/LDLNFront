@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { IncioLogComponent } from './incio-log.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('IncioLogComponent', () => {
+  let component: IncioLogComponent;
+  let fixture: ComponentFixture<IncioLogComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent]
+      declarations: [IncioLogComponent]
     });
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(IncioLogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
