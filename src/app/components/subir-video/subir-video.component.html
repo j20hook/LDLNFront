@@ -21,38 +21,29 @@
 
 
 <div class="login-container">
-  <form class="login-form" (submit)="crearVideo()">
+  <form class="login-form">
     <h2>Subir Video</h2>
 
-    <input type="text" id="titulo" name="titulo" placeholder="Titulo" [(ngModel)]="video.titulo" required>
+    <input type="text" placeholder="Título" required>
 
-    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción" [(ngModel)]="video.descripcion" required>
+    <input type="text" placeholder="Descripción" required>
 
     <h3>Tipo de Video</h3>
-    <select type="text" id="tipo" name="tipo" placeholder="Tipo" [(ngModel)]="video.tipo" required>
+    <select type="text" placeholder="Tipo de Visualizacion" required>
       <option *ngFor="let tipo of tiposVideo">{{ tipo }}</option>
     </select>
 
     <h3>Etiquetas</h3>
-    <select type="text" id="etiquetas" name="etiquetas" placeholder="Etiquetas" [(ngModel)]="video.etiquetas" multiple required size="13">
+    <select type="text" placeholder="Etiquetas" required multiple>
       <option *ngFor="let etiqueta of etiquetas">{{ etiqueta }}</option>
     </select>
 
-    <input type="datetime-local" id="fecha_publicacion" name="fecha_publicacion" placeholder="Fecha Publicación" [(ngModel)]="video.fecha_publicacion" required>
+    <input type="datetime-local" placeholder="Fecha Publicación" required>
 
-    <input type="url" id="url" name="url" placeholder="Url" [(ngModel)]="video.url" required>
+    <input type="text" placeholder="Url" required>
 
-    <button type="submit" id="subir-button">Subir</button>
+    <button type="submit">Subir</button>
   </form>
-
-  <div class="modal" id="progress-modal">
-    <div class="modal-content">
-      <div class="progress-container">
-        <div class="progress-bar" id="progress-bar">0%</div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 </body>

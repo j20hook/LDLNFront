@@ -9,18 +9,20 @@ import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 
 const routes: Routes = [
-    { path: 'apollo', component: WebsiteHomeComponent },
-    { path: '', redirectTo: '/apollo', pathMatch: 'full' },
-    { path: 'registro', component: CrearUsuarioPruebaComponent },
-    { path: 'error404', component: ErrorcuatrocientoscuatroComponent },
-    { path: 'apollo/video/:id', component: VideoComponent },
-    { path: 'apollo/video/subir', component: SubirVideoComponent },
-    { path: 'apollo/login', component: LoginUsuarioComponent },
-    { path: 'apollo/canal/crear', component: CrearCanalComponent },
+
+  {path:'apollo', component: WebsiteHomeComponent},
+  {path:'', redirectTo:'/apollo', pathMatch:'full'},
+  {path:'registro', component : CrearUsuarioPruebaComponent},
+  {path:'apollo/video/subir', component : SubirVideoComponent},
+  {path:'error404', component : ErrorcuatrocientoscuatroComponent},
+  {path:'apollo/video/:id', component : VideoComponent},
+  {path:'apollo/login' , component : LoginUsuarioComponent},
+   { path: 'apollo/canal/crear', component: CrearCanalComponent },
+
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

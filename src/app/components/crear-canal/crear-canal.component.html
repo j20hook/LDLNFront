@@ -1,153 +1,154 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Crear Usuario de Prueba | LDLN</title>
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="crear-canal.component.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-    <body>
-        <nav class="navbar">
-            <li class="logo">
-                <a href="#">
-                    <img
-                        src="../../../assets/img/logoApolloSinBG.png"
-                        alt="Apollo Logo"
-                    />
-                </a>
-            </li>
-            <a href="#" class="buttons">Login</a>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <title>Crear Usuario de Prueba | LDLN</title>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="crear-canal.component.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+<nav class="navbar">
+  <li class="logo">
+    <a href="#">
+      <img
+        src="../../../assets/img/logoApolloSinBG.png"
+        alt="Apollo Logo"
+      />
+    </a>
+  </li>
+  <a href="#" class="buttons">Login</a>
+</nav>
 
-        <div class="contenedor">
-            <div class="forms">
-                <div class="form-content">
-                    <div class="signup-form">
-                        <div class="titulo">Registrar Canal</div>
+<div class="contenedor">
+  <div class="forms">
+    <div class="form-content">
+      <div class="signup-form">
+        <div class="titulo">Registrar Canal</div>
 
-                        <form
-                            name="canal-form"
-                            id="canal-form"
-                            (ngSubmit)="crearCanal()"
-                        >
-                            <div class="input-boxes">
-                                <div class="input-box">
-                                    <span>Nombre: </span>
-                                    <input
-                                        type="text"
-                                        id="nombre"
-                                        name="nombre"
-                                        placeholder="Nombre"
-                                        [(ngModel)]="nuevoCanal.nombre"
-                                        required
-                                    />
-                                </div>
+        <form
+          name="canal-form"
+          id="canal-form"
+          (ngSubmit)="crearCanal()"
+        >
+          <div class="input-boxes">
+            <div class="input-box">
+              <span>Nombre: </span>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Nombre"
+                [(ngModel)]="nuevoCanal.nombre"
+                required
+              />
+            </div>
 
-                                <div class="input-box">
-                                    <span>Apellidos: </span>
-                                    <input
-                                        type="text"
-                                        name="apellidos"
-                                        id="apellidos"
-                                        placeholder="Apellidos"
-                                        [(ngModel)]="nuevoCanal.apellidos"
-                                        required
-                                    />
-                                </div>
+            <div class="input-box">
+              <span>Apellidos: </span>
+              <input
+                type="text"
+                name="apellidos"
+                id="apellidos"
+                placeholder="Apellidos"
+                [(ngModel)]="nuevoCanal.apellidos"
+                required
+              />
+            </div>
 
-                                <div class="input-box">
-                                    <span>Nombre del Canal: </span>
-                                    <input
-                                        type="text"
-                                        name="nombre_canal"
-                                        id="nombre_canal"
-                                        placeholder="Nombre del Canal"
-                                        [(ngModel)]="nuevoCanal.nombre_canal"
-                                        required
-                                    />
-                                </div>
+            <div class="input-box">
+              <span>Nombre del Canal: </span>
+              <input
+                type="text"
+                name="nombre_canal"
+                id="nombre_canal"
+                placeholder="Nombre del Canal"
+                [(ngModel)]="nuevoCanal.nombre_canal"
+                required
+              />
+            </div>
 
-                                <div class="input-box">
-                                    <span>Teléfono: </span>
-                                    <input
-                                        type="text"
-                                        name="telefono"
-                                        id="telefono"
-                                        placeholder="Teléfono"
-                                        [(ngModel)]="nuevoCanal.telefono"
-                                        required
-                                    />
-                                </div>
+            <div class="input-box">
+              <span>Teléfono: </span>
+              <input
+                type="text"
+                name="telefono"
+                id="telefono"
+                placeholder="Teléfono"
+                [(ngModel)]="nuevoCanal.telefono"
+                required
+              />
+            </div>
 
-                                <div class="input-box">
-                                    <span>Fecha de Nacimiento: </span>
-                                    <input
-                                        type="datetime-local"
-                                        name="fecha_nacimiento"
-                                        id="fecha_nacimiento"
-                                        placeholder="dd/mm/aaaa"
-                                        [(ngModel)]="
+            <div class="input-box">
+              <span>Fecha de Nacimiento: </span>
+              <input
+                type="datetime-local"
+                name="fecha_nacimiento"
+                id="fecha_nacimiento"
+                placeholder="dd/mm/aaaa"
+                [(ngModel)]="
                                             nuevoCanal.fecha_nacimiento
                                         "
-                                        required
-                                    />
-                                </div>
-
-                                <div class="input-box">
-                                    <span>Etiquetas: </span>
-                                    <select
-                                        multiple
-                                        size="8"
-                                        name="etiquetas"
-                                        id="etiquetas"
-                                        [(ngModel)]="nuevoCanal.etiquetas"
-                                    >
-                                        <option value="ANIMALES">
-                                            ANIMALES
-                                        </option>
-                                        <option value="CIENCIA">CIENCIA</option>
-                                        <option value="CINE">CINE</option>
-                                        <option value="COCINA">COCINA</option>
-                                        <option value="EDUCACION">
-                                            EDUCACION
-                                        </option>
-                                        <option value="EJERCICIO">
-                                            EJERCICIO
-                                        </option>
-                                        <option value="ENTRETENIMIENTO">
-                                            ENTRETENIMIENTO
-                                        </option>
-                                        <option value="MODA">MODA</option>
-                                        <option value="MÚSICA">MÚSICA</option>
-                                        <option value="NOTICIAS">
-                                            NOTICIAS
-                                        </option>
-                                        <option value="PROGRAMACIÓN">
-                                            PROGRAMACIÓN
-                                        </option>
-                                        <option value="VIAJES">VIAJES</option>
-                                        <option value="VIDEOJUEGOS">
-                                            VIDEOJUEGOS
-                                        </option>
-                                    </select>
-                                </div>
-
-                                <div class="boton input-box">
-                                    <input type="submit" value="Continuar" />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                required
+              />
             </div>
-        </div>
-    </body>
+
+            <div class="input-box">
+              <span>Etiquetas: </span>
+              <select
+                multiple
+                size="8"
+                name="etiquetas"
+                id="etiquetas"
+                [(ngModel)]="nuevoCanal.etiquetas"
+              >
+                <option value="ANIMALES">
+                  ANIMALES
+                </option>
+                <option value="CIENCIA">CIENCIA</option>
+                <option value="CINE">CINE</option>
+                <option value="COCINA">COCINA</option>
+                <option value="EDUCACION">
+                  EDUCACION
+                </option>
+                <option value="EJERCICIO">
+                  EJERCICIO
+                </option>
+                <option value="ENTRETENIMIENTO">
+                  ENTRETENIMIENTO
+                </option>
+                <option value="MODA">MODA</option>
+                <option value="MÚSICA">MÚSICA</option>
+                <option value="NOTICIAS">
+                  NOTICIAS
+                </option>
+                <option value="PROGRAMACIÓN">
+                  PROGRAMACIÓN
+                </option>
+                <option value="VIAJES">VIAJES</option>
+                <option value="VIDEOJUEGOS">
+                  VIDEOJUEGOS
+                </option>
+              </select>
+            </div>
+
+            <div class="boton input-box">
+              <input type="submit" value="Continuar" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<app-footer></app-footer>
 </html>

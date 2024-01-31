@@ -46,7 +46,7 @@ export class GeneralService {
 
   subirVideo(data: Video) :Observable<JSON> {
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=10787`, data);
+    return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
 
   }
 
@@ -61,6 +61,23 @@ export class GeneralService {
     return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
 
   }
+
+  etiqueta_json: any;
+
+  mandarEtiquetaQuery(etiqueta: string): Observable<Video[]>{
+
+    let json = {
+      "etiqueta": etiqueta
+    };
+
+    let body = JSON.stringify(json)
+
+    console.log(body)
+    return this.http.post<Video[]>('http://127.0.0.1:8000/api/video/poretiquetas', body);
+
+  }
+
+
 
   getUsuarioByUsername(data: Usuario): Observable<JSON> {
 

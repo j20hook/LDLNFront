@@ -1,0 +1,161 @@
+.pantalla_inicio{
+  margin-top: 2%;
+}
+
+.plantilla{
+}
+
+/*Etiquetas*/
+.listado_etiquetas{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.palabra_lista{
+  margin-left: 20px;
+  border: 1px #9b8e8e solid;
+  border-radius: 10px ;
+  padding: 0 10px;
+  color: black;
+  background-color: #9b8e8e;
+  text-transform: lowercase;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.palabra_lista:first-letter {
+  text-transform: uppercase;
+}
+
+.palabra_lista:hover{
+  border-color:black ;
+  color: white;
+  background-color: #000000;
+  transition: 0.5s ;
+}
+
+.selected-color{
+  border-color:black ;
+  color: white;
+  background-color: #000000;
+}
+/*Videos*/
+.listado_videos{
+  margin-top: 60px;
+}
+
+.texto_videos{
+  margin-bottom: 3%;
+}
+
+
+.texto_videos h2{
+  width: 100%;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  font-size: 30px;
+  margin-right: 20px;
+
+}
+
+.texto_videos h2 span{
+  background:white;
+  padding-right: 20px;
+  padding-left: 40px ;
+  margin-right: 40px;
+}
+
+
+/*Tarjeta pelicula*/
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 450px;
+  background: url('https://television.mxdwn.com/wp-content/uploads/2016/08/stranger-things1-770x470.jpeg') no-repeat center/cover;
+  border-radius: 10px;
+  border: transparent;
+  box-shadow: 0 10px 25px 0 black;
+  transform: translateX(-50%);
+  transition: .5s;
+  cursos: pointer;
+}
+
+.card:hover {
+  transition: .5s;
+  cursor: pointer;
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  font-size: 26px;
+  font-weight: 300;
+  padding: 30px 0;
+  background: linear-gradient(to top, #000, transparent);
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0;
+  transition: .5s;
+}
+
+.card:hover .title{
+  padding-bottom: 50px;
+  opacity: 1;
+  transition: .5s;
+  color: white;
+}
+
+.catagory {
+  position: absolute;
+  left: 10px;
+  top: 140px;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease;
+}
+
+.views {
+  position: absolute;
+  left: 10px;
+  top: 175px;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  background: #8b2463;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease 0.15s;
+}
+.card:hover .views,
+.card:hover .catagory{
+  transform: translate(0);
+}
+
+/*VIDEOs*/
+
+.videos{
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 4%;
+  margin-left: 4%;
+  margin-top:2%;
+}
+
+.video{
+  display: flex;
+}

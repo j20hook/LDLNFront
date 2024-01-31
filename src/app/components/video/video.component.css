@@ -197,7 +197,7 @@ body {
   flex-wrap: wrap;
 }
 
-#video {
+.video {
   flex: 2;
   padding: 20px;
   box-sizing: border-box;

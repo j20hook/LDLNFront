@@ -25,17 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-
-## Colour Pallete
-**Índigo** (`#4B0082`): Representa innovación y creatividad, adecuado para encabezados o secciones clave.
-
-**Anaranjado rojizo** (`#FF4500`): Atrae la atención y puede utilizarse para elementos interactivos.
-
-**Gris Pizarra Oscuro** (`#2F4F4F`): Crea un fuerte contraste para texto y aspectos destacados.
-
-**Verde Menta** (`#98FB98`): Refrescante y calmante, adecuado para botones secundarios o indicadores.
-
-**Orquídea Oscura** (`#9932CC`): Aporta profundidad y puede usarse para acentos únicos o iconos.
-
-**Crema** (`#FFFDD0`): Color suave e invitante para áreas de contenido."

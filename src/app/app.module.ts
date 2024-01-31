@@ -1,4 +1,4 @@
-import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'; // Importamos el servidor de Angular
+import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'
 import { NgModule } from '@angular/core';
 
 // Importamos el browser
@@ -14,17 +14,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Importamos los componentes
 import { AppComponent } from './app.component';
-
 import { CommonModule } from '@angular/common';
 import { CrearUsuarioPruebaComponent } from './components/crear-usuario-prueba/crear-usuario-prueba.component';
 import { WebsiteHomeComponent } from './components/website-home/website-home.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
 import { VideoComponent } from './components/video/video.component';
-import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { HeaderComponent } from './components/header/header.component';
+import { IncioLogComponent } from './components/incio-log/incio-log.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
-import { FooterComponent } from './components/Footer/footer.component';
-import { HeaderComponent } from './components/Header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -35,10 +36,10 @@ import { HeaderComponent } from './components/Header/header.component';
         SubirVideoComponent,
         VideoComponent,
         LoginUsuarioComponent,
-        CrearCanalComponent,
-        BotonSuscripcionComponent,
-        FooterComponent,
         HeaderComponent,
+        IncioLogComponent,
+        CrearCanalComponent,
+        FooterComponent,
     ],
 
     imports: [
@@ -49,6 +50,8 @@ import { HeaderComponent } from './components/Header/header.component';
         HttpClientModule,
         ReactiveFormsModule,
         CommonModule,
+        YouTubePlayerModule,
+        FontAwesomeModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
