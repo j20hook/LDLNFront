@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Usuario} from "../models/Usuario";
 import {Video} from "../models/Video";
+import { Canal } from '../models/Canal';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class GeneralService {
 
   tipoNotificaciones() :Observable<JSON> {
 
-    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones?XDEBUG_SESSION_START=19036`);
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
 
   }
 
@@ -45,7 +46,19 @@ export class GeneralService {
 
   subirVideo(data: Video) :Observable<JSON> {
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
+    return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=10787`, data);
+
+  }
+
+  login(data: Usuario) :Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
+
+  }
+
+  getVideoPorId(id_video:number):Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
 
   }
 
@@ -66,5 +79,16 @@ export class GeneralService {
 
 
 
+  getUsuarioByUsername(data: Usuario): Observable<JSON> {
+
+      return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
+
+  }
+
+  crearCanal(data: Canal): Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
+
+  }
 
 }

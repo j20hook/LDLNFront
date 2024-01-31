@@ -1,6 +1,4 @@
-import {CarouselModule} from "ngx-bootstrap/carousel";
 
-;
 import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'// Importamos el servidor de Angular
 import { NgModule } from '@angular/core';
 
@@ -28,38 +26,39 @@ import { WebsiteHomeComponent } from './components/website-home/website-home.com
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
 import { VideoComponent } from './components/video/video.component';
+import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
+import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarruselComponent } from './components/carrusel/carrusel.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CrearUsuarioPruebaComponent,
-    ErrorcuatrocientoscuatroComponent,
-    WebsiteHomeComponent,
-    SubirVideoComponent,
-    VideoComponent,
-    LoginUsuarioComponent,
-    HeaderComponent,
-    IncioLogComponent,
-    CarruselComponent,
+    declarations: [
+        AppComponent,
+        CrearUsuarioPruebaComponent,
+        ErrorcuatrocientoscuatroComponent,
+        WebsiteHomeComponent,
+        SubirVideoComponent,
+        VideoComponent,
+        LoginUsuarioComponent,
+        CrearCanalComponent,
+        BotonSuscripcionComponent
+    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+
   ],
 
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        RouterModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        CommonModule,
-        FontAwesomeModule,
-        BrowserAnimationsModule,
-        CarouselModule,
-    ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
