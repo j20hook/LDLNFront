@@ -37,6 +37,7 @@ export class CrearCanalComponent implements OnInit {
     crearCanal() {
         this.nuevoCanal.usuario = this.usuario.id;
         //this.nuevoCanal.fecha_nacimiento += 'T00:00';
+
         this.service.crearCanal(this.nuevoCanal).subscribe(
             (response) => {
                 console.log(response); // Manejo de la respuesta del backend
