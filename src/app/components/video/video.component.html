@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="video.component.css">
+  <title>Video - Apollo LDLN</title>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <li class="logo">
+      <a href="#">
+        <img src="../../../assets/img/logoApolloSinBG.png" alt="Apollo Logo">
+      </a>
+    </li>
+    <a href="/apollo/login" class="buttons">Login</a>
+  </div>
+
+  <div id="container">
+
+    <youtube-player *ngIf="video"
+      videoId="{{ obtenerIdDeVideo(video.url) }}"
+      suggestedQuality="highres"
+      [height]="250"
+      [width]="500"
+      [startSeconds]="0">
+    </youtube-player>
+
+    <div id="recommended">
+      <!-- Lista de videos recomendados -->
+      <ul>
+        <li><a href="#">Video 1</a></li>
+        <li><a href="#">Video 2</a></li>
+        <li><a href="#">Video 3</a></li>
+        <!-- Agrega más elementos según sea necesario -->
+      </ul>
+    </div>
+
+    <div id="details" *ngIf="video">
+      <h2>{{ video.titulo }}</h2>
+      <p>{{ video.descripcion }}</p>
+      <!-- Otros detalles, comentarios, etc. -->
+    </div>
+
+  </div>
+
+</body>
+
+</html>
