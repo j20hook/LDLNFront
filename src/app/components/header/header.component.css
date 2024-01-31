@@ -3,6 +3,10 @@
   flex-direction: row;
   width: 100%;
   align-items: center;
+  box-shadow: 0px 12px 20px 2px rgba(0,0,0,0.77);
+  background-color: #9b8e8e;
+
+;
 }
 
 .img_header{
@@ -23,10 +27,10 @@
 }
 
 .buscador{
-  display: inline-block;
+  display: flex;
   position: relative;
-  justify-content: center;
-  align-items: center;
+  align-items: center !important;
+  border-radius: 20px;
 }
 
 .buscador:hover input {
@@ -36,33 +40,31 @@
 
 input {
   width: 0px;
-  height: 35px;
+  height: 60px;
   border: 0;
   transition: all 0.3s;
 }
 
-button {
+.buscador button {
   width: 35px;
-  height: 35px;
+  height: 60px;
   background-color: #333;
   color: #fff;
   border: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 28px;
 }
 
 /*Botones*/
 .btn_header{
   display: flex;
   justify-content: center;
-
+  align-items: center;
+  font-size: 60px;
+  margin-left: 20px;
 }
-
-
 
 .btn_user{
   display: flex;
@@ -74,4 +76,5 @@ button {
   border-radius: 50%;
   border: 3px black solid;
   padding: 4px;
+  background-color: white;
 }

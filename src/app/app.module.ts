@@ -1,3 +1,5 @@
+import {CarouselModule} from "ngx-bootstrap/carousel";
+
 ;
 import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'// Importamos el servidor de Angular
 import { NgModule } from '@angular/core';
@@ -28,6 +30,8 @@ import { SubirVideoComponent } from './components/subir-video/subir-video.compon
 import { VideoComponent } from './components/video/video.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IncioLogComponent } from './components/incio-log/incio-log.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarruselComponent } from './components/carrusel/carrusel.component';
 
 
 @NgModule({
@@ -39,21 +43,23 @@ import { IncioLogComponent } from './components/incio-log/incio-log.component';
     SubirVideoComponent,
     VideoComponent,
     LoginUsuarioComponent,
-
     HeaderComponent,
     IncioLogComponent,
+    CarruselComponent,
   ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    CommonModule,
-    FontAwesomeModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        RouterModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        CommonModule,
+        FontAwesomeModule,
+        BrowserAnimationsModule,
+        CarouselModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

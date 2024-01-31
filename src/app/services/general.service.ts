@@ -49,5 +49,22 @@ export class GeneralService {
 
   }
 
+  etiqueta_json: any;
+
+  mandarEtiquetaQuery(etiqueta: string): Observable<Video[]>{
+
+    let json = {
+      "etiqueta": etiqueta
+    };
+
+    let body = JSON.stringify(json)
+
+    console.log(body)
+    return this.http.post<Video[]>('http://127.0.0.1:8000/api/video/poretiquetas', body);
+
+  }
+
+
+
 
 }
