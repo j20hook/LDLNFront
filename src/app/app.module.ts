@@ -24,6 +24,7 @@ import {YouTubePlayerModule} from "@angular/youtube-player";
 import { HeaderComponent } from './components/header/header.component';
 import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { CrearCanalComponent } from './crear-canal/crear-canal.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
         LoginUsuarioComponent,
         HeaderComponent,
         IncioLogComponent,
+        CrearCanalComponent,
     ],
 
   imports: [
