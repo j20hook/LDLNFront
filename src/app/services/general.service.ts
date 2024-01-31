@@ -32,6 +32,12 @@ export class GeneralService {
 
   }
 
+  getDatos() :Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/perfil/datos`);
+
+  }
+
   listarUsuario() :Observable<Usuario[]> {
 
     return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);

@@ -6,7 +6,8 @@ import { WebsiteHomeComponent } from './components/website-home/website-home.com
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
 import { VideoComponent } from './components/video/video.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
-import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
+import {MiPerfilComponent} from "./mi-perfil/mi-perfil.component";
+// import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 
 const routes: Routes = [
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'error404', component : ErrorcuatrocientoscuatroComponent},
   {path:'apollo/video/:id', component : VideoComponent},
   {path:'apollo/login' , component : LoginUsuarioComponent},
-   { path: 'apollo/canal/crear', component: CrearCanalComponent },
+  {path:'apollo/perfil/datos' , component : MiPerfilComponent},
+   // { path: 'apollo/canal/crear', component: CrearCanalComponent },
 
 ];
 
