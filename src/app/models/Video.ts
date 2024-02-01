@@ -9,8 +9,9 @@ export class Video {
   tipo?: string;
   fecha_publicacion? : string = ''
   fecha_creacion? : string = ''
+  miniatura? : string = ''
   activo?: boolean;
   canal_nombre?:string=''
-  canal: Canal = new Canal();
+  canal?: number;
   //canal?: number;
 }
