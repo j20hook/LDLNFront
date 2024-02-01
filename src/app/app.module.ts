@@ -26,7 +26,7 @@ import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
+import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 
 import { CanalComponent } from './components/canal/canal.component';
 
