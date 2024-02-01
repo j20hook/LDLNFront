@@ -14,7 +14,10 @@ usuario = new Usuario();
   constructor(private service: GeneralService) {}
 
   ngOnInit() {
+
     this.service.getDatos().subscribe((data:any) => {
+
+
     });
   }
 

@@ -27,7 +27,7 @@ export class LoginUsuarioComponent {
 
       })
 
-      this.router.navigate(['/apollo'])
+      this.router.navigate(['/apollo/inicio_log'])
 
     })
 
