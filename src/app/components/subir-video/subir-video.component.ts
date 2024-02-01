@@ -40,7 +40,7 @@ export class SubirVideoComponent implements OnInit{
 
   crearVideo(){
 
-    this.video.canal = 1;
+    this.video.id_canal = 1;
 
     this.service.subirVideo(this.video).subscribe(data=>{
 

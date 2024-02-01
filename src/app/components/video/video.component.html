@@ -27,8 +27,32 @@
       </div>
 
       <div id="details" *ngIf="video">
-        <h2>{{ video.titulo }}</h2>
-        <p>{{ video.descripcion }}</p>
+
+        <div class="titulo_canal">
+
+          <h1>{{ video.titulo }}</h1>
+
+          <div id="canal">
+
+            <div id="imagen_canal">
+              <img class="imagen_user" src="assets/img/user_default.png">
+            </div>
+
+            <div class="nombre_canal_suscripciones">
+              <h4>{{video.canal.nombreCanal}}</h4>
+            </div>
+
+            <button class="suscribirse">Suscribirme</button>
+
+          </div>
+
+        </div>
+
+        <div class="descripcion">
+          <p>{{ formatearFecha(video.fechaPublicacion) }}</p>
+          <p>{{ video.descripcion }}</p>
+        </div>
+
       </div>
 
     </div>
@@ -36,18 +60,16 @@
     <div class="bloque2">
 
       <div id="recommended">
-        <ul>
-          <li *ngFor="let video of videosRecomendados">
 
-            <a routerLink="/apollo/video/{{video.id}}">
+        <ul class="recomendado">
+
+          <li *ngFor="let v of videosRecomendados">
+
+            <a *ngIf="v.id != video.id" href="/apollo/video/{{v.id}}">
               <div class="ratio ratio-16x9 videochico" #demoYouTubePlayer>
-                <youtube-player
-                  videoId="{{ obtenerIdDeVideo(video.url) }}"
-                  suggestedQuality="highres"
-                  [height]="150"
-                  [width]="250"
-                  [startSeconds]="0">
-                </youtube-player>
+
+                <img src="{{v.miniatura}}" width="250px" height="150px">
+
               </div>
 
             </a>
