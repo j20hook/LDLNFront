@@ -7,7 +7,8 @@ import { SubirVideoComponent } from './components/subir-video/subir-video.compon
 import { VideoComponent } from './components/video/video.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import {MiPerfilComponent} from "./mi-perfil/mi-perfil.component";
-// import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
+import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
+import {IncioLogComponent} from "./components/incio-log/incio-log.component";
 
 const routes: Routes = [
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'apollo/login' , component : LoginUsuarioComponent},
   {path:'apollo/perfil/datos' , component : MiPerfilComponent},
    // { path: 'apollo/canal/crear', component: CrearCanalComponent },
+   { path: 'apollo/inicio_log', component: IncioLogComponent },
 
 ];
 

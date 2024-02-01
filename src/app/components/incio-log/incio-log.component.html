@@ -2,20 +2,31 @@
   <app-header></app-header>
   <div class="pantalla_inicio">
     <div class="listado_etiquetas">
+
       <button class="palabra_lista" *ngFor="let etiqueta of etiquetas" (click)="tomar_valor(etiqueta)"
               [ngClass]="{'selected-color' : etiqueta==selectedIndex}">
         <h2>{{etiqueta}}</h2>
       </button>
+
     </div>
+
     <div class="listado_videos">
+
       <div class="texto_videos" *ngIf="etiqueta_elegida; else sin_etiqueta">
+
         <h2><span>Los videos de {{etiqueta_elegida | lowercase}}</span></h2>
+
         <div class="videos">
+
           <div *ngFor="let video of videos" class="video">
-              <a class="card">
+
+              <a class="card" routerLink="/apollo/video/{{video.id}}">
+
                 <div class="title">{{video.titulo}}</div>
+
                 <a href="#"><div class="catagory">{{video.canal_nombre}}<i class="fas fa-film"></i></div></a>
                 <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+
               </a>
           </div>
         </div>

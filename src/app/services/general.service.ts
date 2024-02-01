@@ -83,8 +83,6 @@ export class GeneralService {
 
   }
 
-
-
   getUsuarioByUsername(data: Usuario): Observable<JSON> {
 
       return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
@@ -94,6 +92,12 @@ export class GeneralService {
   crearCanal(data: Canal): Observable<JSON> {
 
     return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
+
+  }
+
+  getVideosRecomendados(data: Usuario):Observable<JSON>{
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario`, data);
 
   }
 

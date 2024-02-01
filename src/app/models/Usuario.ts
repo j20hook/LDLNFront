@@ -1,5 +1,5 @@
 export class Usuario {
-  id?: bigint;
+  id?: number;
   username: string = '';
   password: string = '';
   id_rol?: number;

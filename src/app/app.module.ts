@@ -20,10 +20,12 @@ import { WebsiteHomeComponent } from './components/website-home/website-home.com
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
 import { VideoComponent } from './components/video/video.component';
-import {YouTubePlayerModule} from "@angular/youtube-player";
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { HeaderComponent } from './components/header/header.component';
 import { IncioLogComponent } from './components/incio-log/incio-log.component';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
 
 
@@ -38,6 +40,8 @@ import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
         LoginUsuarioComponent,
         HeaderComponent,
         IncioLogComponent,
+        CrearCanalComponent,
+        FooterComponent,
         MiPerfilComponent,
     ],
 
