@@ -1,0 +1,175 @@
+/* Reset de estilos y estilos globales */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* Cambia el color de fondo según tus preferencias */
+}
+
+/* Estilos de la barra de navegación */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+}
+
+.navbar li {
+  list-style-type: none;
+}
+
+.logo img {
+  width: 130px;
+}
+
+.buttons {
+  background-color: #4B0082;
+  padding: 7px 17px;
+  color: white;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+/* Estilos de la sección principal */
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-color: black;
+  color: white;
+}
+
+.area {
+  text-align: center;
+}
+
+.area h1 {
+  font-size: 2.5rem;
+  line-height: 1.5;
+  color: #FF4500;
+}
+
+.area h3 {
+  font-size: 1.2rem;
+  margin-top: -15px;
+}
+
+.search {
+  margin-top: 15px;
+}
+
+.box {
+  width: 100%;
+  padding: 8px;
+}
+
+.try {
+  display: inline-block;
+  background-color: #4B0082;
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: white;
+  border-radius: 3px;
+}
+
+/* Estilos del formulario de login */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.login-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.login-form h2 {
+  color: #4B0082;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-form button {
+  background-color: #4B0082;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #2a0059;
+}
+
+/* Estilos del formulario de registro */
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.forms {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.signup-form .titulo {
+  color: #4B0082;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signup-form input[type="submit"] {
+  background-color: #4B0082;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-form input[type="submit"]:hover {
+  background-color: #2a0059;
+}
+
+/* Estilos del footer */

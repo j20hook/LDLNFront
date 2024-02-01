@@ -28,6 +28,7 @@ import { CrearCanalComponent } from './components/crear-canal/crear-canal.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
 
+import { CanalComponent } from './components/canal/canal.component';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
         CrearCanalComponent,
         FooterComponent,
         MiPerfilComponent,
+        CanalComponent,
     ],
 
   imports: [
