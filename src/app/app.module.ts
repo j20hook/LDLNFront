@@ -1,4 +1,4 @@
-import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'
+import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component';
 import { NgModule } from '@angular/core';
 
 // Importamos el browser
@@ -26,6 +26,7 @@ import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { FooterComponent } from './components/footer/footer.component';
         IncioLogComponent,
         CrearCanalComponent,
         FooterComponent,
+        BotonSuscripcionComponent,
     ],
 
     imports: [
