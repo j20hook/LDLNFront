@@ -32,9 +32,9 @@ export class GeneralService {
 
   }
 
-  getDatos() :Observable<JSON> {
+  getDatos(id:number) :Observable<JSON> {
 
-    return this.http.get<JSON>(`${this.apiUrl}/perfil/datos`);
+    return this.http.get<JSON>(`${this.apiUrl}/usuario/${id}`);
 
   }
 

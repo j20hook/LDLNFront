@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'error404', component : ErrorcuatrocientoscuatroComponent},
   {path:'apollo/video/:id', component : VideoComponent},
   {path:'apollo/login' , component : LoginUsuarioComponent},
-  {path:'apollo/perfil/datos' , component : MiPerfilComponent},
+  {path:'apollo/perfil' , component : MiPerfilComponent},
    { path: 'apollo/canal/crear', component: CrearCanalComponent },
    { path: 'apollo/inicio_log', component: IncioLogComponent },
 
