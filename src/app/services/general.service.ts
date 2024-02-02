@@ -38,12 +38,8 @@ export class GeneralService {
     return this.http.get<JSON>(`${this.apiUrl}/perfil/datos`);
 
   }
-
     listarUsuario(): Observable<Usuario[]> {
-        return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
-    }
-    getDatos(): Observable<JSON> {
-        return this.http.get<JSON>(`${this.apiUrl}/perfil/datos`);
+      return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
     }
 
     crearUsuario(data: Usuario): Observable<JSON> {
@@ -110,7 +106,7 @@ export class GeneralService {
 
   getCanalPorId(id_canal:number):Observable<JSON> {
 
-    return this.http.get<JSON>(`http://127.0.0.1:8000/api/canal/${id_canal}?XDEBUG_SESSION_START=17921` );
+    return this.http.get<JSON>(`http://127.0.0.1:8000/api/canal/${id_canal}` );
 
   }
 

@@ -45,6 +45,7 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
         FooterComponent,
         MiPerfilComponent,
         CanalComponent,
+      BotonSuscripcionComponent,
     ],
 
   imports: [
