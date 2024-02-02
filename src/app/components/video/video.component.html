@@ -32,17 +32,33 @@
 
           <h1>{{ video.titulo }}</h1>
 
-          <div id="canal">
+          <div id="info_canal">
 
-            <div id="imagen_canal">
-              <img class="imagen_user" src="assets/img/user_default.png">
+            <div class="info_canal1">
+
+              <div id="imagen_canal">
+                <img class="imagen_user" src="assets/img/user_default.png">
+              </div>
+
+              <div class="nombre_canal_suscripciones">
+                <h4>{{video.canal.nombreCanal}}</h4>
+              </div>
+
+              <button class="suscribirse">Suscribirme</button>
+
             </div>
 
-            <div class="nombre_canal_suscripciones">
-              <h4>{{video.canal.nombreCanal}}</h4>
-            </div>
+            <div class="botones_likes">
 
-            <button class="suscribirse">Suscribirme</button>
+              <div class="like_dislike">
+                <button class="like">Like</button>
+                <button class="dislike">Dislike</button>
+              </div>
+
+              <button class="compartir">Compartir</button>
+              <button class="guardar">Guardar</button>
+
+            </div>
 
           </div>
 
@@ -66,9 +82,17 @@
           <li *ngFor="let v of videosRecomendados">
 
             <a *ngIf="v.id != video.id" href="/apollo/video/{{v.id}}">
-              <div class="ratio ratio-16x9 videochico" #demoYouTubePlayer>
 
-                <img src="{{v.miniatura}}" width="250px" height="150px">
+              <div class="containerv">
+
+                <div class="image">
+                  <img src="{{ v.miniatura }}">
+                </div>
+
+                <div class="content">
+                  <h4>{{v.titulo}}</h4>
+<!--                  <p>{{v.canal.nombreCanal}}</p>-->
+                </div>
 
               </div>
 
