@@ -29,6 +29,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 
 import { CanalComponent } from './components/canal/canal.component';
+import { VideosCanalComponent } from './components/canal/videos-canal/videos-canal.component';
+import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/sucriptores-canal.component';
 
 @NgModule({
     declarations: [
@@ -45,6 +47,8 @@ import { CanalComponent } from './components/canal/canal.component';
         FooterComponent,
         MiPerfilComponent,
         CanalComponent,
+        VideosCanalComponent,
+        SucriptoresCanalComponent,
     ],
 
   imports: [

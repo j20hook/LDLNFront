@@ -42,8 +42,6 @@ export class IncioLogComponent implements OnInit{
 
       this.videos=data;
 
-
-
       console.log(this.videos)
 
     });

@@ -103,7 +103,27 @@ export class GeneralService {
 
   getCanalPorId(id_canal:number):Observable<JSON> {
 
-    return this.http.get<JSON>(`${this.apiUrl}/canal/${id_canal}`);
+    return this.http.get<JSON>(`${this.apiUrl}/canal/${id_canal}` );
+
+  }
+
+  getNumSuscriptoresCanal(id_canal:number):Observable<JSON> {
+
+    let jsonCanal = {
+      "id": id_canal
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/numsuscriptoresporcanal`, jsonCanal );
+
+  }
+
+  getEtiquetasCanal(id_canal:number):Observable<JSON> {
+
+    let jsonCanal = {
+      "id": id_canal
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/etiquetasporcanal`, jsonCanal );
 
   }
 
