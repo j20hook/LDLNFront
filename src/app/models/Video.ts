@@ -11,7 +11,7 @@ export class Video {
   fecha_creacion? : string = ''
   miniatura? : string = ''
   activo?: boolean;
-  canal_nombre?:string=''
+  nombre_canal?:string=''
   id_canal?: number;
   canal = new Canal();
   //canal?: number;

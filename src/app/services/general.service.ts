@@ -127,4 +127,15 @@ export class GeneralService {
 
   }
 
+  getVideosRecomendados1(usuario:Usuario):Observable<JSON> {
+
+    let json_id = {
+      "id": usuario.id
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario?XDEBUG_SESSION_START=10901`, json_id );
+
+  }
+
+
 }
