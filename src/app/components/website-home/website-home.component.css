@@ -103,7 +103,7 @@ body {
 
 .search {
   width: 150%;
-  min-height: 80px;
+  min-height: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -114,8 +114,8 @@ body {
 }
 
 .box {
-  width: 100%;
-  min-height: 65px;
+  width: 50%;
+  min-height: 50px;
 }
 
 .try {
@@ -124,8 +124,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #4B0082;
-  min-height: 70px;
-  width: 70%;
+  min-height: 50px;
+  width: 15%;
   font-size: 30px;
   text-transform: uppercase;
 }
