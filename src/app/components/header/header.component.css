@@ -40,8 +40,9 @@ body {
 
 .lupa_text {
   padding: 8px;
-  border: none;
   border-radius: 5px 0 0 5px;
+  outline: none;
+  border: 0.5px solid black;
 }
 
 .lupa {

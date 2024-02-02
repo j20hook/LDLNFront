@@ -15,18 +15,16 @@
 
 .palabra_lista{
   margin-left: 20px;
-  border: 1px #9b8e8e solid;
-  border-radius: 10px ;
-  padding: 0 10px;
   color: black;
   background-color: #4B0082;
   text-transform: lowercase;
-  font-size: 15px;
+  font-size: 5px;
   cursor: pointer;
 }
 
 .palabra_lista:first-letter {
   text-transform: uppercase;
+
 }
 
 .palabra_lista:hover{
@@ -48,6 +46,9 @@
 
 .texto_videos{
   margin-bottom: 3%;
+  overflow-x: scroll;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
 }
 
 
@@ -82,6 +83,7 @@
   transform: translateX(-50%);
   transition: .5s;
   cursos: pointer;
+  margin-left: 20px;
 }
 
 .card:hover {

@@ -6,7 +6,7 @@ import { WebsiteHomeComponent } from './components/website-home/website-home.com
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
 import { VideoComponent } from './components/video/video.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
-import {MiPerfilComponent} from "./mi-perfil/mi-perfil.component";
+import {MiPerfilComponent} from "./components/mi-perfil/mi-perfil.component";
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 import {IncioLogComponent} from "./components/incio-log/incio-log.component";
 import {CanalComponent} from "./components/canal/canal.component";

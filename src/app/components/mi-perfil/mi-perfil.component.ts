@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Usuario} from "../models/Usuario";
-import {GeneralService} from "../services/general.service";
+import {Usuario} from "../../models/Usuario";
+import {GeneralService} from "../../services/general.service";
 
 @Component({
   selector: 'app-mi-perfil',
@@ -9,16 +9,22 @@ import {GeneralService} from "../services/general.service";
 })
 export class MiPerfilComponent implements OnInit{
 
-usuario = new Usuario();
+usuario : any;
+
+
 
   constructor(private service: GeneralService) {}
 
   ngOnInit() {
 
-    this.service.getDatos().subscribe((data:any) => {
+      this.service.getDatos((Number(localStorage.getItem('id_usuario')))).subscribe(data => {
 
+        this.usuario = data;
+        console.log(data)
 
-    });
+      })
+
+    ;
   }
 
 

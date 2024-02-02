@@ -12,6 +12,7 @@ export class Video {
   miniatura? : string = ''
   activo?: boolean;
   canal_nombre?:string=''
-  canal?: number;
+  id_canal?: number;
+  canal = new Canal();
   //canal?: number;
 }
