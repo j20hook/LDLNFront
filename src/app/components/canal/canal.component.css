@@ -362,7 +362,7 @@ a {
 
 .featured-video {
   display: flex;
-  cursor: pointer;
+  flex-direction: column;
 }
 
 .featured-video .video-info {
@@ -370,7 +370,18 @@ a {
 }
 
 .featured-video .video-thumbnail {
+  display: flex;
+  flex-direction: row;
   margin-right: 1.5rem;
+}
+
+.etiqueta{
+  background-color: #9b8e8e;
+  border-radius:10px;
+  margin-right: 20px;
+  padding: 3px 12px 3px 12px;
+  color:black;
+  font-size: 23px;
 }
 
 .featured-video .video-title {
@@ -525,7 +536,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
   }
 
   .featured-video {
-    display: grid;
+
     grid-template-columns: auto 1fr;
     grid-gap: 1.5rem;
   }

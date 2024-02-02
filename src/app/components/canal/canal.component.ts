@@ -12,14 +12,18 @@ import {Canal} from "../../models/Canal";
   templateUrl: './canal.component.html',
   styleUrls: ['./canal.component.css']
 })
-export class CanalComponent implements OnInit{
+export class CanalComponent implements OnInit {
 
   icon_twitter = faTwitter;
   icon_facebook = faFacebook;
   icon_instagram = faInstagram;
   canal: any;
+  suscriptores: any;
+  etiquetas: any;
 
-  constructor ( private route:ActivatedRoute, private dataservice: GeneralService, private router:Router){}
+  constructor(private route: ActivatedRoute, private dataservice: GeneralService, private router: Router) {
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
         const canalId = +params['id'];
@@ -34,8 +38,30 @@ export class CanalComponent implements OnInit{
                 console.error("no funciona", error);
               }
             )
+
+          this.dataservice.getNumSuscriptoresCanal(canalId)
+            .subscribe(
+              data => {
+                this.suscriptores = data;
+                console.log(this.suscriptores)
+              },
+              error => {
+                console.error("no funciona", error);
+              }
+            )
+
+          this.dataservice.getEtiquetasCanal(canalId)
+            .subscribe(
+              data => {
+                this.etiquetas = data;
+                console.log(this.etiquetas)
+              },
+              error => {
+                console.error("no funciona", error);
+              }
+            )
         }
-     }
+      }
     )
   }
 }
