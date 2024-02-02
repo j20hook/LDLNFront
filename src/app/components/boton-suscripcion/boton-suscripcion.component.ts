@@ -16,6 +16,7 @@ export class BotonSuscripcionComponent implements OnInit {
     canal: any;
     canal1: any;
     suscripcion = new Suscripcion();
+    estado_suscripcion: any;
 
     constructor(
         private service: GeneralService,
@@ -45,6 +46,8 @@ export class BotonSuscripcionComponent implements OnInit {
             }
         });
     }
+
+    async comprobarSuscripcion() {}
 
     async suscribirse() {
         this.suscripcion.usuario = this.usuario.id;

@@ -95,4 +95,8 @@ export class GeneralService {
             `http://127.0.0.1:8000/api/canal/${id_canal}`
         );
     }
+
+    getSuscripcionByIdUsuario(data: Suscripcion): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/suscripcion/buscar`, data);
+    }
 }

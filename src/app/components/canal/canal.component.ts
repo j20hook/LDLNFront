@@ -7,6 +7,7 @@ import { GeneralService } from '../../services/general.service';
 import { Canal } from '../../models/Canal';
 import { Usuario } from '../../models/Usuario';
 import { Suscripcion } from '../../models/Suscripcion';
+import { ErrorcuatrocientoscuatroComponent } from '../errorcuatrocientoscuatro/errorcuatrocientoscuatro.component';
 
 @Component({
     selector: 'app-canal',
@@ -45,24 +46,11 @@ export class CanalComponent implements OnInit {
                         console.log(this.canal);
                     },
                     (error) => {
+                        this.router.navigate(['/error404']);
                         console.error('no funciona', error);
                     }
                 );
             }
         });
-    }
-
-    async suscribirse() {
-        this.suscripcion.usuario = this.usuario.id;
-        this.suscripcion.canal = this.canal.id;
-
-        this.dataservice.crearSuscripcion(this.suscripcion).subscribe(
-            (response) => {
-                console.log(response); // Manejo de la respuesta del backend
-            },
-            (error) => {
-                console.error(error); // Manejo de errores
-            }
-        );
     }
 }
