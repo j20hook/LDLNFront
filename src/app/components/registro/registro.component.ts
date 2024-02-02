@@ -5,11 +5,11 @@ import {Usuario} from "../../models/Usuario";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-crear-usuario-prueba',
-  templateUrl: './crear-usuario-prueba.component.html',
-  styleUrls: ['./crear-usuario-prueba.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class CrearUsuarioPruebaComponent implements OnInit{
+export class RegistroComponent implements OnInit{
 
   usuario = new Usuario();
   usuarios : any = [];
@@ -19,12 +19,6 @@ export class CrearUsuarioPruebaComponent implements OnInit{
   }
 
   ngOnInit() {
-
-    this.service.listarUsuario().subscribe(data => {
-
-      this.usuarios = data
-
-    });
 
   }
 

@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Usuario} from "../models/Usuario";
 import {Video} from "../models/Video";
 import { Canal } from '../models/Canal';
+import { Suscripcion } from '../models/Suscripcion';
 
 @Injectable({
   providedIn: 'root'
@@ -37,18 +38,13 @@ export class GeneralService {
     return this.http.get<JSON>(`${this.apiUrl}/usuario/${id}`);
 
   }
+    listarUsuario(): Observable<Usuario[]> {
+      return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
+    }
 
-  listarUsuario() :Observable<Usuario[]> {
-
-    return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
-
-  }
-
-  crearUsuario(data: Usuario) :Observable<JSON> {
-
-    return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
-
-  }
+    crearUsuario(data: Usuario): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
+    }
 
   subirVideo(data: Video) :Observable<JSON> {
 
@@ -83,23 +79,30 @@ export class GeneralService {
 
   }
 
-  getUsuarioByUsername(data: Usuario): Observable<JSON> {
-
+    getUsuarioByUsername(data: Usuario): Observable<JSON> {
       return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
+    }
 
-  }
+    crearCanal(data: Canal): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
+    }
 
-  crearCanal(data: Canal): Observable<JSON> {
+    getCanalByName(data: Canal): Observable<JSON> {
+        return this.http.post<JSON>(
+            `${this.apiUrl}/canal/busquedanombre`,
+            data
+        );
+    }
 
-    return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
-
-  }
-
-  getVideosRecomendados(data: Usuario):Observable<JSON>{
-
-    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario`, data);
-
-  }
+    crearSuscripcion(data: Suscripcion): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/suscripcion/crear`, data);
+    }
+    getVideosRecomendados(data: Usuario): Observable<JSON> {
+        return this.http.post<JSON>(
+            `${this.apiUrl}/video/poretiquetausuario`,
+            data
+        );
+    }
 
   getCanalPorId(id_canal:number):Observable<JSON> {
 

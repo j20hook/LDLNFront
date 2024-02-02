@@ -1,4 +1,4 @@
-import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component'
+import { ErrorcuatrocientoscuatroComponent } from './components/errorcuatrocientoscuatro/errorcuatrocientoscuatro.component';
 import { NgModule } from '@angular/core';
 
 // Importamos el browser
@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Importamos los componentes
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { CrearUsuarioPruebaComponent } from './components/crear-usuario-prueba/crear-usuario-prueba.component';
+import { RegistroComponent } from './components/registro/registro.component';
 import { WebsiteHomeComponent } from './components/website-home/website-home.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
@@ -27,15 +27,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
-
 import { CanalComponent } from './components/canal/canal.component';
 import { VideosCanalComponent } from './components/canal/videos-canal/videos-canal.component';
 import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/sucriptores-canal.component';
+import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CrearUsuarioPruebaComponent,
+        RegistroComponent,
         ErrorcuatrocientoscuatroComponent,
         WebsiteHomeComponent,
         SubirVideoComponent,
@@ -49,6 +49,7 @@ import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/
         CanalComponent,
         VideosCanalComponent,
         SucriptoresCanalComponent,
+        BotonSuscripcionComponent,
     ],
 
   imports: [

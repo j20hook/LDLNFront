@@ -16,6 +16,7 @@ export class CrearCanalComponent implements OnInit {
   usuario1 = new Usuario();
   usuario: any;
   canales: any = [];
+  etiquetas : string[] = [];
 
   // Introducimos en el constructor el service y el routing
   constructor(
@@ -25,17 +26,25 @@ export class CrearCanalComponent implements OnInit {
 
   // Solicitamos el usuario para sacar el id
   ngOnInit() {
+
     this.usuario1.username = localStorage.getItem('username') || '';
     this.service.getUsuarioByUsername(this.usuario1).subscribe((data) => {
       this.usuario = data;
       console.log(this.usuario);
+    });
+
+    this.service.getEtiquetas().subscribe((data:any) => {
+
+      for (var desc of data)
+
+        this.etiquetas.push(desc['descripcion'])
+
     });
   }
 
   // Funcion para crear canal
   crearCanal() {
     this.nuevoCanal.usuario = this.usuario.id;
-    //this.nuevoCanal.fecha_nacimiento += 'T00:00';
 
     this.service.crearCanal(this.nuevoCanal).subscribe(
       (response) => {

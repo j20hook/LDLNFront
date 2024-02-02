@@ -1,154 +1,44 @@
-<!doctype html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Crear Usuario de Prueba | LDLN</title>
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="crear-canal.component.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="crear-canal.component.css">
+  <title>Crear Canal - Apollo LDLN</title>
 </head>
+
 <body>
-<nav class="navbar">
-  <li class="logo">
-    <a href="/apollo/inicio_log">
-      <img
-        src="../../../assets/img/logoApolloSinBG.png"
-        alt="Apollo Logo"
-      />
-    </a>
-  </li>
-  <a href="#" class="buttons">Login</a>
-</nav>
 
-<div class="contenedor">
-  <div class="forms">
-    <div class="form-content">
-      <div class="signup-form">
-        <div class="titulo">Registrar Canal</div>
+<app-header></app-header>
 
-        <form
-          name="canal-form"
-          id="canal-form"
-          (ngSubmit)="crearCanal()"
-        >
-          <div class="input-boxes">
-            <div class="input-box">
-              <span>Nombre: </span>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Nombre"
-                [(ngModel)]="nuevoCanal.nombre"
-                required
-              />
-            </div>
+<div class="login-container">
+  <form class="login-form" (submit)="crearCanal()">
+    <h2>Crear Canal</h2>
 
-            <div class="input-box">
-              <span>Apellidos: </span>
-              <input
-                type="text"
-                name="apellidos"
-                id="apellidos"
-                placeholder="Apellidos"
-                [(ngModel)]="nuevoCanal.apellidos"
-                required
-              />
-            </div>
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre" [(ngModel)]="nuevoCanal.nombre" required>
 
-            <div class="input-box">
-              <span>Nombre del Canal: </span>
-              <input
-                type="text"
-                name="nombre_canal"
-                id="nombre_canal"
-                placeholder="Nombre del Canal"
-                [(ngModel)]="nuevoCanal.nombre_canal"
-                required
-              />
-            </div>
+    <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" [(ngModel)]="nuevoCanal.apellidos" required>
 
-            <div class="input-box">
-              <span>Teléfono: </span>
-              <input
-                type="text"
-                name="telefono"
-                id="telefono"
-                placeholder="Teléfono"
-                [(ngModel)]="nuevoCanal.telefono"
-                required
-              />
-            </div>
+    <input type="text" id="nombre_canal" name="nombre_canal" placeholder="Nombre del canal" [(ngModel)]="nuevoCanal.nombre_canal" required>
 
-            <div class="input-box">
-              <span>Fecha de Nacimiento: </span>
-              <input
-                type="datetime-local"
-                name="fecha_nacimiento"
-                id="fecha_nacimiento"
-                placeholder="dd/mm/aaaa"
-                [(ngModel)]="
-                                            nuevoCanal.fecha_nacimiento
-                                        "
-                required
-              />
-            </div>
+    <input type="tel" id="telefono" name="telefono" placeholder="Telefono" [(ngModel)]="nuevoCanal.telefono" required>
 
-            <div class="input-box">
-              <span>Etiquetas: </span>
-              <select
-                multiple
-                size="8"
-                name="etiquetas"
-                id="etiquetas"
-                [(ngModel)]="nuevoCanal.etiquetas"
-              >
-                <option value="ANIMALES">
-                  ANIMALES
-                </option>
-                <option value="CIENCIA">CIENCIA</option>
-                <option value="CINE">CINE</option>
-                <option value="COCINA">COCINA</option>
-                <option value="EDUCACION">
-                  EDUCACION
-                </option>
-                <option value="EJERCICIO">
-                  EJERCICIO
-                </option>
-                <option value="ENTRETENIMIENTO">
-                  ENTRETENIMIENTO
-                </option>
-                <option value="MODA">MODA</option>
-                <option value="MÚSICA">MÚSICA</option>
-                <option value="NOTICIAS">
-                  NOTICIAS
-                </option>
-                <option value="PROGRAMACIÓN">
-                  PROGRAMACIÓN
-                </option>
-                <option value="VIAJES">VIAJES</option>
-                <option value="VIDEOJUEGOS">
-                  VIDEOJUEGOS
-                </option>
-              </select>
-            </div>
+    <input type="datetime-local" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa" [(ngModel)]="nuevoCanal.fecha_nacimiento" required>
 
-            <div class="boton input-box">
-              <input type="submit" value="Continuar" />
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+    <h3>Etiquetas</h3>
+    <select type="text" id="etiquetas" name="etiquetas" placeholder="Etiquetas" [(ngModel)]="nuevoCanal.etiquetas" multiple required size="13">
+      <option *ngFor="let etiqueta of etiquetas">{{ etiqueta }}</option>
+    </select>
+
+    <button type="submit" id="subir-button">Subir</button>
+  </form>
+
 </div>
+
 </body>
+
 <app-footer></app-footer>
+
 </html>
+
