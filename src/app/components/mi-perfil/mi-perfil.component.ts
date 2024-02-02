@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Usuario} from "../models/Usuario";
-import {GeneralService} from "../services/general.service";
+import {Usuario} from "../../models/Usuario";
+import {GeneralService} from "../../services/general.service";
 
 @Component({
   selector: 'app-mi-perfil',

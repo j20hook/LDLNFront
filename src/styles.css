@@ -2,3 +2,11 @@
 body{
   margin:0 !important;
 }
+
+iframe{
+
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 12px ;
+
+}

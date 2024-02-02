@@ -58,8 +58,11 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.service.getUsuarioByUsername(this.usuario).subscribe((data:any)=>{
 
       console.log(data)
-      // this.usuario.id = data['id']
-      this.usuario.id = 3
+
+      // comentamos el codigo de verdad y le ponemos el 3 de momento porque es el unico usuario con videos recomendados
+        // this.usuario.id = data['id']
+        this.usuario.id = 3
+
       this.service.getVideosRecomendados(this.usuario).subscribe(data=>{
 
           this.videosRecomendados = data;
@@ -77,15 +80,16 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.service.getVideoPorId(Number(this.id_video)).subscribe(data => {
 
       this.video = data;
+      console.log(this.video)
 
     })
 
-    console.log(this.video)
-
   }
 
-
   protected readonly obtenerIdDeVideo = obtenerIdDeVideo;
+  protected readonly window = window;
+  protected readonly setTimeout = setTimeout;
+  protected readonly formatearFecha = formatearFecha;
 }
 
 function obtenerIdDeVideo(url: string): string | null {
@@ -97,4 +101,20 @@ function obtenerIdDeVideo(url: string): string | null {
 
   // Si hay coincidencias, devuelve el identificador del video, de lo contrario, devuelve null
   return coincidencias ? coincidencias[1] : null;
+
+}
+
+function formatearFecha(fechaString: string): string {
+  // Crear un objeto de fecha a partir de la cadena proporcionada
+  const fecha = new Date(fechaString);
+
+  // Obtener día, mes y año
+  const dia = fecha.getDate();
+  const mes = fecha.toLocaleString('es-ES', { month: 'long' });
+  const anio = fecha.getFullYear();
+
+  // Crear la cadena de fecha formateada
+  const fechaFormateada = `${dia} ${mes} ${anio}`;
+
+  return fechaFormateada;
 }

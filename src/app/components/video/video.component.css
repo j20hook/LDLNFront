@@ -1,3 +1,4 @@
+
 /* Reset de estilos y estilos globales */
 
 * {
@@ -13,33 +14,231 @@ body {
   background-color: #f0f0f0;
 }
 
+#etiquetas{
+
+  overflow: hidden;
+
+}
+
 #container {
   display: flex;
   justify-content: space-between;
 }
 
 #recommended {
-  flex: 1;
-  padding: 20px;
+  padding: 50px;
   box-sizing: border-box;
   overflow-y: auto;
-  height: 500px; /* Altura fija para el área de videos recomendados */
 }
 
 #details {
   flex: 1;
-  padding: 20px;
+  padding: 20px 0;
   box-sizing: border-box;
+}
+
+#details h2 {
+
+  text-align: start;
+
+}
+
+#details p {
+
+  text-align: start;
+
 }
 
 .bloque1{
 
-  margin: 50px 20px;
+  margin: 50px;
+  width: 57%;
 
 }
 
 .bloque2{
 
-  width: 500px;
+  width: 30%;
+
+}
+
+.recomendado{
+
+  list-style: none;
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recomendado a{
+
+  text-decoration: none;
+  color: black;
+
+}
+
+.containerv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.containerv:hover{
+
+  background-color: #e0e0e0;
+
+}
+
+.containerv .image {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.containerv .image img {
+
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  border: 0.5px solid black;
+
+}
+
+.containerv .content {
+  margin-left: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+}
+
+.containerv h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.containerv p {
+  font-size: 16px;
+}
+
+.descripcion{
+
+  background-color: #272727;
+  border-radius: 15px;
+  padding: 15px;
+  color: white;
+
+}
+
+.descripcion p {
+
+  font-size: 18px;
+
+}
+
+.titulo_canal{
+
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 20px;
+
+}
+
+#canal{
+
+  display: flex;
+  margin: 20px 0;
+
+}
+
+.nombre_canal_suscripciones {
+
+  align-items: center;
+  display: flex;
+  margin-left: 12px;
+
+}
+
+#imagen_canal {
+
+  display: flex;
+  align-items: center;
+
+}
+
+.imagen_user{
+
+  width: 45px;
+  border-radius: 50%;
+  background-color: #303030;
+  padding: 5px;
+
+}
+
+#info_canal {
+
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.info_canal1{
+
+  display: flex;
+  align-items: center;
+
+}
+
+.botones_likes{
+
+  display: flex;
+  gap: 10%;
+  width: 35%;
+
+}
+
+.botones_likes button{
+
+  padding: 10px 22px;
+  background-color: #272727;
+  border-radius: 30px;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.suscribirse{
+
+  padding: 10px 22px;
+  background-color: #272727;
+  border-radius: 30px;
+  margin-left: 10%;
+  color: white;
+  border: none;
+  font-weight: bold;
+
+}
+
+.compartir{
+
+  margin: 10px 0;
+
+}
+
+.guardar{
+
+  margin: 10px 0;
+
+
+}
+
+.like_dislike{
+
+  display: flex;
+  align-items: center;
 
 }

@@ -101,4 +101,10 @@ export class GeneralService {
 
   }
 
+  getCanalPorId(id_canal:number):Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/canal/${id_canal}`);
+
+  }
+
 }
