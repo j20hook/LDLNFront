@@ -5,7 +5,7 @@
 
       <button class="palabra_lista" *ngFor="let etiqueta of etiquetas" (click)="tomar_valor(etiqueta)"
               [ngClass]="{'selected-color' : etiqueta==selectedIndex}">
-        <h2>{{etiqueta}}</h2>
+        <h4>{{etiqueta}}</h4>
       </button>
 
     </div>

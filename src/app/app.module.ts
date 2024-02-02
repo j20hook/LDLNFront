@@ -28,6 +28,8 @@ import { CrearCanalComponent } from './components/crear-canal/crear-canal.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 import { CanalComponent } from './components/canal/canal.component';
+import { VideosCanalComponent } from './components/canal/videos-canal/videos-canal.component';
+import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/sucriptores-canal.component';
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 
 @NgModule({
@@ -45,7 +47,9 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
         FooterComponent,
         MiPerfilComponent,
         CanalComponent,
-      BotonSuscripcionComponent,
+        VideosCanalComponent,
+        SucriptoresCanalComponent,
+        BotonSuscripcionComponent,
     ],
 
   imports: [

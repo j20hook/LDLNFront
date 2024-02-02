@@ -85,6 +85,7 @@ body {
   justify-content: center;
   text-align: center;
   margin-top: 70px;
+
 }
 
 .area h1 {
@@ -92,10 +93,10 @@ body {
   word-spacing: 15px;
   line-height: 75px;
   color: #FF4500;
+
 }
 
 .area h3 {
-  margin-top: -30px;
   font-size: 27px;
   font-weight: normal;
 }
@@ -212,7 +213,7 @@ body {
 .quest {
   width: 51%;
   min-height: 75px;
-  background-color: #303030;
+  background-color: #4B0082;
   color: white;
   align-items: center;
   justify-content: space-between;
@@ -224,7 +225,7 @@ body {
 
 .quest .textbox {
   display: flex;
-  text-align: left;
+  text-decoration: none;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -233,6 +234,9 @@ body {
   font-size: 25px;
   margin: 0 30px;
   word-spacing: 5px;
+  text-align: left;
+  cursor: pointer;
+  color: white;
 }
 
 .quest i {
@@ -247,6 +251,7 @@ body {
 
 .search1 {
   width: 50%;
+  background-color: none;
   min-height: 80px;
   display: flex;
   flex-direction: row;
@@ -259,8 +264,6 @@ body {
 .box1 {
   width: 100%;
   min-height: 65px;
-  outline: none;
-
 }
 
 .try1 {
@@ -392,22 +395,17 @@ li a {
   flex-direction: row;
   font-size:16px;
 }
-
 .try a{
-
-  color:blue;
-
-}
-.texto{
-  color: red;
-}
-
-a {
-
-  text-decoration: none;
   cursor: pointer;
-
+  color:#FF4500 !important;
+  text-decoration: none !important;
 }
+.try a :hover{
+
+  transition: background-color;
+}
+
+
 
 @media (min-width: 250px) and (max-width: 980px) {
   body {

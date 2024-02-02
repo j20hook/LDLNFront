@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Usuario } from '../models/Usuario';
-import { Video } from '../models/Video';
+import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {Usuario} from "../models/Usuario";
+import {Video} from "../models/Video";
 import { Canal } from '../models/Canal';
 import { Suscripcion } from '../models/Suscripcion';
 
@@ -33,9 +33,9 @@ export class GeneralService {
 
   }
 
-  getDatos() :Observable<JSON> {
+  getDatos(id:number) :Observable<JSON> {
 
-    return this.http.get<JSON>(`${this.apiUrl}/perfil/datos`);
+    return this.http.get<JSON>(`${this.apiUrl}/usuario/${id}`);
 
   }
     listarUsuario(): Observable<Usuario[]> {
@@ -106,7 +106,27 @@ export class GeneralService {
 
   getCanalPorId(id_canal:number):Observable<JSON> {
 
-    return this.http.get<JSON>(`http://127.0.0.1:8000/api/canal/${id_canal}` );
+    return this.http.get<JSON>(`${this.apiUrl}/canal/${id_canal}` );
+
+  }
+
+  getNumSuscriptoresCanal(id_canal:number):Observable<JSON> {
+
+    let jsonCanal = {
+      "id": id_canal
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/numsuscriptoresporcanal`, jsonCanal );
+
+  }
+
+  getEtiquetasCanal(id_canal:number):Observable<JSON> {
+
+    let jsonCanal = {
+      "id": id_canal
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/etiquetasporcanal`, jsonCanal );
 
   }
 

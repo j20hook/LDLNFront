@@ -1,68 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { ActivatedRoute, Router } from '@angular/router';
-import { GeneralService } from '../../services/general.service';
-import { Canal } from '../../models/Canal';
-import { Usuario } from '../../models/Usuario';
-import { Suscripcion } from '../../models/Suscripcion';
+import {Component, OnInit} from '@angular/core';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import {ActivatedRoute, Router} from "@angular/router";
+import {GeneralService} from "../../services/general.service";
+import {Canal} from "../../models/Canal";
+
 
 @Component({
-    selector: 'app-canal',
-    templateUrl: './canal.component.html',
-    styleUrls: ['./canal.component.css'],
+  selector: 'app-canal',
+  templateUrl: './canal.component.html',
+  styleUrls: ['./canal.component.css']
 })
 export class CanalComponent implements OnInit {
-    icon_twitter = faTwitter;
-    icon_facebook = faFacebook;
-    icon_instagram = faInstagram;
-    canal: any;
-    usuario1 = new Usuario();
-    usuario: any;
-    suscripcion = new Suscripcion();
 
-    constructor(
-        private route: ActivatedRoute,
-        private dataservice: GeneralService,
-        private router: Router
-    ) {}
-    ngOnInit() {
-        this.usuario1.username = localStorage.getItem('username') || '';
-        this.dataservice
-            .getUsuarioByUsername(this.usuario1)
-            .subscribe((data) => {
-                this.usuario = data;
-                console.log(this.usuario);
-            });
+  icon_twitter = faTwitter;
+  icon_facebook = faFacebook;
+  icon_instagram = faInstagram;
+  canal: any;
+  suscriptores: any;
+  etiquetas: any;
 
-        this.route.params.subscribe((params) => {
-            const canalId = +params['id'];
-            if (canalId) {
-                this.dataservice.getCanalPorId(canalId).subscribe(
-                    (data) => {
-                        this.canal = data;
-                        console.log(this.canal);
-                    },
-                    (error) => {
-                        console.error('no funciona', error);
-                    }
-                );
-            }
-        });
-    }
+  constructor(private route: ActivatedRoute, private dataservice: GeneralService, private router: Router) {
+  }
 
-    async suscribirse() {
-        this.suscripcion.usuario = this.usuario.id;
-        this.suscripcion.canal = this.canal.id;
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+        const canalId = +params['id'];
+        if (canalId) {
+          this.dataservice.getCanalPorId(canalId)
+            .subscribe(
+              data => {
+                this.canal = data;
+                console.log(this.canal)
+              },
+              error => {
+                console.error("no funciona", error);
+              }
+            )
 
-        this.dataservice.crearSuscripcion(this.suscripcion).subscribe(
-            (response) => {
-                console.log(response); // Manejo de la respuesta del backend
-            },
-            (error) => {
-                console.error(error); // Manejo de errores
-            }
-        );
-    }
+          this.dataservice.getNumSuscriptoresCanal(canalId)
+            .subscribe(
+              data => {
+                this.suscriptores = data;
+                console.log(this.suscriptores)
+              },
+              error => {
+                console.error("no funciona", error);
+              }
+            )
+
+          this.dataservice.getEtiquetasCanal(canalId)
+            .subscribe(
+              data => {
+                this.etiquetas = data;
+                console.log(this.etiquetas)
+              },
+              error => {
+                console.error("no funciona", error);
+              }
+            )
+        }
+      }
+    )
+  }
 }
