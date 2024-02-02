@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Importamos los componentes
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { CrearUsuarioPruebaComponent } from './components/crear-usuario-prueba/crear-usuario-prueba.component';
+import { RegistroComponent } from './components/registro/registro.component';
 import { WebsiteHomeComponent } from './components/website-home/website-home.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { SubirVideoComponent } from './components/subir-video/subir-video.component';
@@ -35,7 +35,7 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
 @NgModule({
     declarations: [
         AppComponent,
-        CrearUsuarioPruebaComponent,
+        RegistroComponent,
         ErrorcuatrocientoscuatroComponent,
         WebsiteHomeComponent,
         SubirVideoComponent,

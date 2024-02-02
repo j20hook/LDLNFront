@@ -49,6 +49,7 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
   usuario = new Usuario();
   video :any;
   id_video: string | null;
+  suscriptores: any;
 
   videosRecomendados : any;
 
@@ -81,6 +82,17 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.video = data;
       console.log(this.video)
+
+      this.service.getNumSuscriptoresCanal(this.video.canal.id)
+        .subscribe(
+          data => {
+            this.suscriptores = data;
+            console.log(this.suscriptores)
+          },
+          error => {
+            console.error("no funciona", error);
+          }
+        )
 
     })
 
