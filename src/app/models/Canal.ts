@@ -8,7 +8,7 @@ export class Canal{
   telefono?: string = '';
   fecha_nacimiento?: string = '';
   fecha_creacion?: string = '';
-  etiquetas?: number;
+  etiquetas?: string[] = [];
   usuario: Usuario = new Usuario();
   activo: boolean = true;
 }

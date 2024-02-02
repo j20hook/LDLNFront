@@ -20,11 +20,11 @@
 
           <div *ngFor="let video of videos" class="video">
 
-              <a class="card" routerLink="/apollo/video/{{video.id}}">
+              <a class="card" routerLink="/apollo/video/{{video.id}}" [style.background-image]="'url(' + video.miniatura + ')'">
 
                 <div class="title">{{video.titulo}}</div>
 
-                <a href="#"><div class="catagory">{{video.canal_nombre}}<i class="fas fa-film"></i></div></a>
+                <a href="#"><div class="catagory" routerLink="/apollo/canal/{{video.id_canal}}">{{video.nombre_canal}}<i class="fas fa-film"></i></div></a>
                 <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
 
               </a>

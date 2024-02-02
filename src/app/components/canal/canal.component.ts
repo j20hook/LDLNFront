@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-import {ActivatedRoute, Router} from "@angular/router";
-import {GeneralService} from "../../services/general.service";
-import {Canal} from "../../models/Canal";
-
+import { Component, OnInit } from '@angular/core';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GeneralService } from '../../services/general.service';
+import { Canal } from '../../models/Canal';
+import { Usuario } from '../../models/Usuario';
+import { Suscripcion } from '../../models/Suscripcion';
+import { ErrorcuatrocientoscuatroComponent } from '../errorcuatrocientoscuatro/errorcuatrocientoscuatro.component';
 
 @Component({
   selector: 'app-canal',
@@ -21,9 +23,11 @@ export class CanalComponent implements OnInit {
   suscriptores: any;
   etiquetas: any;
 
-  constructor(private route: ActivatedRoute, private dataservice: GeneralService, private router: Router) {
-  }
-
+    constructor(
+        private route: ActivatedRoute,
+        private dataservice: GeneralService,
+        private router: Router
+    ) {}
   ngOnInit() {
     this.route.params.subscribe(params => {
         const canalId = +params['id'];

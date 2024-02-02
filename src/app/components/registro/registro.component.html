@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title> Crear Usuario de Prueba | LDLN </title>
-  <link rel="stylesheet" type="text/css" href="crear-usuario-prueba.component.css">
+  <link rel="stylesheet" type="text/css" href="registro.component.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,17 +12,7 @@
 </head>
 <body>
 
-<div *ngFor="let usuario of usuarios"  class="carta">
-
-  <span>{{usuario.id}} {{usuario.username}}</span>
-  <br>
-  <a [routerLink]="['/detallesEvento', usuario.id]">
-    <span>{{usuario.password}} {{usuario.rol}}</span>
-  </a>
-  <br>
-</div>
-
-
+<app-header></app-header>
 
 <div class="contenedor">
 
@@ -65,4 +55,7 @@
 </div>
 
 </body>
+
+<app-footer></app-footer>
+
 </html>
