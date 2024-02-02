@@ -24,7 +24,6 @@ export class LoginUsuarioComponent {
       this.service.getUsuarioByUsername(this.usuario).subscribe((data:any)=>{
 
         localStorage.setItem('username', data['username'])
-        localStorage.setItem('id_usuario', data['id'])
 
       })
 
