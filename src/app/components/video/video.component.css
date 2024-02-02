@@ -1,3 +1,4 @@
+
 /* Reset de estilos y estilos globales */
 
 * {
@@ -185,22 +186,24 @@ body {
   overflow: hidden;
 
 }
+/* Reset de estilos y estilos globales */
 
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
 }
 
 #container {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.video {
-  flex: 2;
-  padding: 20px;
-  box-sizing: border-box;
+  justify-content: space-between;
 }
 
 #recommended {
@@ -217,7 +220,14 @@ body {
   box-sizing: border-box;
 }
 
-iframe {
-  width: 100%;
-  height: 100%;
+.bloque1{
+
+  margin: 50px 20px;
+
+}
+
+.bloque2{
+
+  width: 500px;
+
 }

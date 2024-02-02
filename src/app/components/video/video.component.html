@@ -10,39 +10,54 @@
 
 <body>
 
-  <div class="navbar">
-    <li class="logo">
-      <a href="#">
-        <img src="../../../assets/img/logoApolloSinBG.png" alt="Apollo Logo">
-      </a>
-    </li>
-    <a href="/apollo/login" class="buttons">Login</a>
-  </div>
+<app-header></app-header>
 
   <div id="container">
 
-    <youtube-player *ngIf="video"
-      videoId="{{ obtenerIdDeVideo(video.url) }}"
-      suggestedQuality="highres"
-      [height]="250"
-      [width]="500"
-      [startSeconds]="0">
-    </youtube-player>
+    <div class="bloque1">
 
-    <div id="recommended">
-      <!-- Lista de videos recomendados -->
-      <ul>
-        <li><a href="#">Video 1</a></li>
-        <li><a href="#">Video 2</a></li>
-        <li><a href="#">Video 3</a></li>
-        <!-- Agrega más elementos según sea necesario -->
-      </ul>
+      <div class="ratio ratio-16x9" #demoYouTubePlayer>
+        <youtube-player *ngIf="video"
+                        videoId="{{ obtenerIdDeVideo(video.url) }}"
+                        suggestedQuality="highres"
+                        [height]="videoHeight"
+                        [width]="videoWidth"
+                        [startSeconds]="0">
+        </youtube-player>
+      </div>
+
+      <div id="details" *ngIf="video">
+        <h2>{{ video.titulo }}</h2>
+        <p>{{ video.descripcion }}</p>
+      </div>
+
     </div>
 
-    <div id="details" *ngIf="video">
-      <h2>{{ video.titulo }}</h2>
-      <p>{{ video.descripcion }}</p>
-      <!-- Otros detalles, comentarios, etc. -->
+    <div class="bloque2">
+
+      <div id="recommended">
+        <ul>
+          <li *ngFor="let video of videosRecomendados">
+
+            <a routerLink="/apollo/video/{{video.id}}">
+              <div class="ratio ratio-16x9 videochico" #demoYouTubePlayer>
+                <youtube-player
+                  videoId="{{ obtenerIdDeVideo(video.url) }}"
+                  suggestedQuality="highres"
+                  [height]="150"
+                  [width]="250"
+                  [startSeconds]="0">
+                </youtube-player>
+              </div>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
     </div>
 
   </div>

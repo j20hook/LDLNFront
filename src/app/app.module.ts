@@ -26,6 +26,8 @@ import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
+import { CanalComponent } from './components/canal/canal.component';
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 
 @NgModule({
@@ -42,19 +44,21 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
         CrearCanalComponent,
         FooterComponent,
         BotonSuscripcionComponent,
+        MiPerfilComponent,
+        CanalComponent,
     ],
 
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        RouterModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        CommonModule,
-        YouTubePlayerModule,
-        FontAwesomeModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule,
+    YouTubePlayerModule,
+    FontAwesomeModule,
+  ],
     providers: [],
     bootstrap: [AppComponent],
 })

@@ -1,13 +1,14 @@
 <div class="header">
-    <a class="img_header"
-        ><img class="imagen_logo" src="assets/img/LogoApollo.png"
-    /></a>
+    <a class="img_header">
+      <a href="apollo/inicio_log"><img class="imagen_logo" src="assets/img/LogoApollo.png"/></a>
+    </a>
     <div class="dispo_botones">
         <div class="buscador">
             <input class="lupa_text" type="text" />
             <button class="lupa">
                 <i><fa-icon [icon]="icon_lupa"></fa-icon></i>
             </button>
+          <button class="logout-button" *ngIf="token !='' " (click)="logout()">Cerrar Sesión</button>
         </div>
         <a class="btn_header"
             ><i

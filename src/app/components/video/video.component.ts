@@ -1,4 +1,13 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Inject,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import {GeneralService} from "../../services/general.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Video} from "../../models/Video";
@@ -12,24 +21,51 @@ import {Usuario} from "../../models/Usuario";
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
-export class VideoComponent implements OnInit {
+export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('demoYouTubePlayer') demoYouTubePlayer: ElementRef<HTMLDivElement>;
+  videoWidth: number | undefined;
+  videoHeight: number | undefined;
+  constructor(private _route: ActivatedRoute, private router: Router, private service: GeneralService,private _changeDetectorRef: ChangeDetectorRef) {
+
+    this.demoYouTubePlayer = this.video;
+    this.id_video = this._route.snapshot.paramMap.get('id');
+  }
+
+  ngAfterViewInit(): void {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+  }
+
+  onResize = (): void => {
+    this.videoWidth = Math.min(this.demoYouTubePlayer.nativeElement.clientWidth, 1200);
+    this.videoHeight = this.videoWidth * 0.6;
+    this._changeDetectorRef.detectChanges();
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.onResize);
+  }
 
   usuario = new Usuario();
-  video = new Video();
+  video :any;
   id_video: string | null;
 
-  constructor(private service: GeneralService, public router: Router, public _route: ActivatedRoute) {
-
-    this.id_video = this._route.snapshot.paramMap.get('id');
-
-  }
+  videosRecomendados : any;
 
   ngOnInit() {
 
     this.usuario.username = localStorage.getItem('username') || '';
-    this.service.getUsuarioByUsername(this.usuario).subscribe(data=>{
+    this.service.getUsuarioByUsername(this.usuario).subscribe((data:any)=>{
 
       console.log(data)
+      // this.usuario.id = data['id']
+      this.usuario.id = 3
+      this.service.getVideosRecomendados(this.usuario).subscribe(data=>{
+
+          this.videosRecomendados = data;
+          console.log(this.videosRecomendados)
+
+      })
 
     });
 
@@ -38,17 +74,9 @@ export class VideoComponent implements OnInit {
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
 
-    this.service.getVideoPorId(Number(this.id_video)).subscribe((data: any) => {
+    this.service.getVideoPorId(Number(this.id_video)).subscribe(data => {
 
-      this.video.id = data['id'];
-      this.video.titulo = data['titulo'];
-      this.video.descripcion = data['descripcion'];
-      this.video.url = "https://www.youtube.com/embed/" + obtenerIdDeVideo(data['url']) || '';
-      this.video.tipo = data['tipoVideo']['descripcion'];
-      this.video.fecha_publicacion = data['fechaPublicacion'];
-      this.video.fecha_creacion = data['fechaCreacion'];
-      this.video.canal = data['canal'];
-      this.video.etiquetas = data['etiquetas'];
+      this.video = data;
 
     })
 

@@ -29,6 +29,12 @@ export class GeneralService {
     listarUsuario(): Observable<Usuario[]> {
         return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
     }
+  getDatos() :Observable<JSON> {
+
+    return this.http.get<JSON>(`${this.apiUrl}/perfil/datos`);
+
+  }
+
 
     crearUsuario(data: Usuario): Observable<JSON> {
         return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
@@ -80,4 +86,16 @@ export class GeneralService {
     crearSuscripcion(data: Suscripcion): Observable<JSON> {
         return this.http.post<JSON>(`${this.apiUrl}/suscripcion/crear`, data);
     }
+  getVideosRecomendados(data: Usuario):Observable<JSON>{
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario`, data);
+
+  }
+
+  getCanalPorId(id_canal:number):Observable<JSON> {
+
+    return this.http.get<JSON>(`http://127.0.0.1:8000/api/canal/${id_canal}?XDEBUG_SESSION_START=17921` );
+
+  }
+
 }
