@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { GeneralService } from '../../services/general.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { Suscripcion } from '../../models/Suscripcion';
 import Swal from 'sweetalert2';
+import { Usuario } from '../../models/Usuario';
 
 @Component({
     selector: 'app-boton-suscripcion',
@@ -11,14 +12,15 @@ import Swal from 'sweetalert2';
 })
 export class BotonSuscripcionComponent implements OnInit {
     usuario: any;
-    usuario1: any;
+    usuario1 = new Usuario();
     canal: any;
     canal1: any;
     suscripcion = new Suscripcion();
 
     constructor(
         private service: GeneralService,
-        public router: Router
+        public router: Router,
+        public route: ActivatedRoute
     ) {}
 
     ngOnInit() {
@@ -28,14 +30,25 @@ export class BotonSuscripcionComponent implements OnInit {
             console.log(this.usuario);
         });
 
-        this.service.getCanalByName(this.canal1).subscribe((data) => {
-            this.canal = data;
+        this.route.params.subscribe((params) => {
+            const canalId = +params['id'];
+            if (canalId) {
+                this.service.getCanalPorId(canalId).subscribe(
+                    (data) => {
+                        this.canal = data;
+                        console.log(this.canal);
+                    },
+                    (error) => {
+                        console.error('no funciona', error);
+                    }
+                );
+            }
         });
     }
 
-    suscribirse() {
-        this.suscripcion.usuario = this.usuario;
-        this.suscripcion.canal = this.canal;
+    async suscribirse() {
+        this.suscripcion.usuario = this.usuario.id;
+        this.suscripcion.canal = this.canal.id;
 
         this.service.crearSuscripcion(this.suscripcion).subscribe(
             (response) => {
