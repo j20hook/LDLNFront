@@ -15,6 +15,7 @@ export class MiPerfilComponent implements OnInit{
 
 
 
+
   constructor(private service: GeneralService) {}
 
   ngOnInit() {
