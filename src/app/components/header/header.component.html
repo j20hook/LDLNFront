@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" *ngIf="token !=''">
     <a class="img_header">
       <a href="apollo/inicio_log">
         <img class="imagen_logo" src="assets/img/Logo_Apollo_con_Nombre.png"/></a>
@@ -9,7 +9,7 @@
             <button class="lupa">
                 <i><fa-icon [icon]="icon_lupa"></fa-icon></i>
             </button>
-          <button class="logout-button" *ngIf="token !='' " (click)="logout()">Cerrar Sesión</button>
+          <button class="logout-button" *ngIf="token !=''" (click)="logout()">Cerrar Sesión</button>
         </div>
         <a class="btn_header"
             ><i

@@ -63,6 +63,9 @@ body {
 
 .btn_user {
   text-decoration: none;
+  background-color: white;
+  border-radius: 50%;
+  padding: 2px;
 }
 
 .imagen_user {

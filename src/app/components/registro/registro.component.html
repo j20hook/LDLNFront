@@ -40,6 +40,34 @@
               <input type="password" name="password" id="password" placeholder="Contraseña" [(ngModel)]="usuario.password"  required>
             </div>
 
+            <h4>¿A que comunidad autonoma perteneces?</h4>
+
+            <div class="input-box">
+              <select type="text" name="comunidad_autonoma" id="comunidad_autonoma" placeholder="Comunidad Autonoma" [(ngModel)]="usuario.comunidad_autonoma"  required>
+
+                <option value="Andalucia">Andalucía</option>
+                <option value="Aragón">Aragón</option>
+                <option value="Asturias">Asturias</option>
+                <option value="Islas Baleares">Islas Baleares</option>
+                <option value="Canarias">Canarias</option>
+                <option value="Cantabria">Cantabria</option>
+                <option value="Castilla y León">Castilla y León</option>
+                <option value="Castilla-La Mancha">Castilla-La Mancha</option>
+                <option value="Cataluña (Catalunya)">Cataluña (Catalunya)</option>
+                <option value="Extremadura">Extremadura</option>
+                <option value="Galicia">Galicia</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Murcia">Murcia</option>
+                <option value="Navarra">Navarra</option>
+                <option value="País Vasco (Euskadi)">País Vasco (Euskadi)</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Comunidad Valenciana">Comunidad Valenciana</option>
+
+
+
+              </select>
+            </div>
+
             <div class="boton input-box">
               <input type="submit" value="Continuar">
             </div>
