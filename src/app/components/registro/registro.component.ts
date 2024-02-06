@@ -3,6 +3,8 @@ import {GeneralService} from "../../services/general.service";
 import {Router} from "@angular/router";
 import {Usuario} from "../../models/Usuario";
 import {HttpErrorResponse} from "@angular/common/http";
+import {error} from "@angular/compiler-cli/src/transformers/util";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-registro',
@@ -13,7 +15,6 @@ export class RegistroComponent implements OnInit{
 
   usuario = new Usuario();
   usuarios : any = [];
-  mensaje: string | undefined;
 
   constructor(private service:GeneralService, public router: Router) {
   }
@@ -28,16 +29,26 @@ export class RegistroComponent implements OnInit{
 
     this.service.crearUsuario(this.usuario).subscribe((data :any)=>{
       console.log(data)
-      if (data['message'] == 'Usuario creado'){
 
-        window.location.reload()
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡Usuario Registrado!',
+        showConfirmButton: false,
+        timer: 1000,
+      })
 
-      }
+      this.router.navigate(['/apollo/login'])
 
-      this.mensaje = data['message'] || 'Mensaje no disponible';
+    }, (error)=> {
+      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...!',
+        text: '¡Algo salio mal!',
+      });
 
-    });
-
+    })
 
   }
 

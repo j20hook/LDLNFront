@@ -9,7 +9,9 @@ import {GeneralService} from "../../services/general.service";
 })
 export class MiPerfilComponent implements OnInit{
 
-usuario : any;
+  usuario1 = new Usuario()
+
+  usuario: any;
 
 
 
@@ -17,13 +19,21 @@ usuario : any;
 
   ngOnInit() {
 
-      this.service.getDatos((Number(localStorage.getItem('id_usuario')))).subscribe(data => {
-
-        this.usuario = data;
-        console.log(data)
-
-      })
-
+    this.usuario1.username = localStorage.getItem('username') || '';
+    this.service.getUsuarioByUsername(this.usuario1).subscribe((data:any) => {
+      this.usuario = data;
+      console.log(this.usuario);
+      this.service.getDatos(this.usuario)
+        .subscribe(
+          data => {
+            this.usuario = data;
+            console.log(this.usuario);
+          },
+          error => {
+            console.error("no funciona", error);
+          }
+        )
+    });
     ;
   }
 

@@ -33,9 +33,9 @@ export class GeneralService {
 
   }
 
-  getDatos(id:number) :Observable<JSON> {
+  getDatos(id_perfil:number) :Observable<JSON> {
 
-    return this.http.get<JSON>(`${this.apiUrl}/usuario/${id}`);
+    return this.http.get<JSON>(`${this.apiUrl}/usuario/${id_perfil}`);
 
   }
     listarUsuario(): Observable<Usuario[]> {

@@ -15,7 +15,7 @@ const routes: Routes = [
 
   { path:'apollo', component: WebsiteHomeComponent},
   { path:'', redirectTo:'/apollo', pathMatch:'full'},
-  { path:'registro', component : RegistroComponent},
+  { path:'apollo/registro', component : RegistroComponent},
   { path:'apollo/video/subir', component : SubirVideoComponent},
   { path:'error404', component : ErrorcuatrocientoscuatroComponent},
   { path:'apollo/video/:id', component : VideoComponent},
