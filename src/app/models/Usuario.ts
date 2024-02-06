@@ -4,6 +4,6 @@ export class Usuario {
   password: string = '';
   email: string = '';
   comunidad_autonoma : string = '';
-  id_rol?: number;
+  id_rol_usuario?: number;
   activo?: boolean;
 }

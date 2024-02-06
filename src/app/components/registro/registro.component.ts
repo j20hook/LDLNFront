@@ -25,7 +25,7 @@ export class RegistroComponent implements OnInit{
 
   crearUsuario(){
 
-    this.usuario.id_rol = 1;
+    this.usuario.id_rol_usuario = 1;
 
     this.service.crearUsuario(this.usuario).subscribe((data :any)=>{
       console.log(data)
