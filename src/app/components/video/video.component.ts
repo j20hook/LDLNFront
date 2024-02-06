@@ -84,12 +84,25 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
         this.service.getVideoPorId(Number(this.id_video)).subscribe(
             (data) => {
                 this.video = data;
+                console.log(data)
             },
             (error) => {
                 this.router.navigate(['/error404']);
                 console.error('no funciona', error);
             }
         );
+
+        this.service.getNumSuscriptoresCanal(Number(this.id_video))
+        .subscribe(
+          data => {
+            this.suscriptores = data;
+            console.log(this.suscriptores)
+          },
+          error => {
+            console.error("no funciona", error);
+          }
+        )
+
 
   }
 

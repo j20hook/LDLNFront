@@ -137,7 +137,14 @@ export class GeneralService {
       "id": usuario.id
     };
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario?XDEBUG_SESSION_START=10901`, json_id );
+    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario`, json_id );
+
+  }
+
+  getCanalPorUsuario( data: Usuario ):Observable<JSON> {
+
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/canalporusuario`, data );
 
   }
 

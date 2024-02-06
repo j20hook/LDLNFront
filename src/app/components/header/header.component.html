@@ -1,28 +1,60 @@
 <div class="header" *ngIf="token !=''">
-    <a class="img_header">
-      <a href="apollo/inicio_log">
-        <img class="imagen_logo" src="assets/img/Logo_Apollo_con_Nombre.png"/></a>
+
+  <a class="img_header">
+
+    <a href="apollo/inicio_log">
+      <img class="imagen_logo" src="assets/img/Logo_Apollo_con_Nombre.png"/>
     </a>
-    <div class="dispo_botones">
-        <div class="buscador">
-            <input class="lupa_text" type="text" />
-            <button class="lupa">
-                <i><fa-icon [icon]="icon_lupa"></fa-icon></i>
-            </button>
-          <button class="logout-button" *ngIf="token !=''" (click)="logout()">Cerrar Sesión</button>
-        </div>
-        <a class="btn_header"
-            ><i
-                ><fa-icon
-                    [icon]="icon_notificacion"
-                    class="btn_header"
-                ></fa-icon></i
-        ></a>
-        <a class="btn_header"
-            ><i><fa-icon [icon]="icon_camera" class="btn_header"></fa-icon></i
-        ></a>
-        <a class="btn_user" href="/apollo/perfil/datos"
-            ><img class="imagen_user" src="assets/img/user_default.png"
-        /></a>
+
+  </a>
+  <div class="dispo_botones">
+
+    <div class="buscador">
+
+      <input class="lupa_text" type="text"/>
+
+      <button class="lupa">
+        <i>
+          <fa-icon [icon]="icon_lupa"></fa-icon>
+        </i>
+      </button>
+
+      <button class="logout-button" *ngIf="token !=''" (click)="logout()">Cerrar Sesión</button>
+
     </div>
+
+    <a class="btn_header">
+      <i>
+        <fa-icon
+          [icon]="icon_notificacion"
+          class="btn_header">
+
+        </fa-icon>
+      </i>
+    </a>
+
+    <a class="btn_header">
+      <i>
+        <fa-icon [icon]="icon_camera" class="btn_header"></fa-icon>
+      </i>
+    </a>
+
+    <div class="dropdown">
+
+      <a class="btn_user">
+        <img class="imagen_user" src="assets/img/user_default.png"/>
+      </a>
+
+      <div class="desplegable">
+        <a href="/apollo/perfil/datos">Mi Perfil</a>
+        <a href="/apollo/canal/{{ canal.id }}">Mi Canal</a>
+        <a>ETC</a>
+        <a>ETC</a>
+      </div>
+
+    </div>
+
+
+  </div>
+
 </div>
