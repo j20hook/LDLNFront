@@ -25,9 +25,16 @@
 
     </div>
 
-    <h3>¿Quieres crearte un canal?</h3>
+    <div *ngIf="canalid==0">
+      <h3>¿Quieres crearte un canal?</h3>
+      <a href="/apollo/canal/crear">Vamos!</a>
+    </div>
 
-    <a href="/apollo/canal/crear">Vamos!</a>
+    <div *ngIf="canalid!=0">
+
+      <a href="/apollo/canal/{{canalid}}">Tu canal {{usuario.username}}</a>
+
+    </div>
 
   </div>
 

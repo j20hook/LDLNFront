@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Usuario} from "../../models/Usuario";
 import {GeneralService} from "../../services/general.service";
+import {Canal} from "../../models/Canal";
 
 @Component({
   selector: 'app-mi-perfil',
@@ -13,6 +14,7 @@ export class MiPerfilComponent implements OnInit{
 
   usuario: any;
 
+  canalid : any;
 
 
 
@@ -34,8 +36,15 @@ export class MiPerfilComponent implements OnInit{
             console.error("no funciona", error);
           }
         )
+      this.service.getCanalIdByUsuario(this.usuario).subscribe(data => {
+          this.canalid = data;
+          console.log(this.canalid);
+        },
+        error => {
+          console.error("no funciona", error);
+        })
     });
-    ;
+
   }
 
 
