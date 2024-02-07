@@ -1,37 +1,30 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {Usuario} from "../models/Usuario";
-import {Video} from "../models/Video";
+import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Usuario } from '../models/Usuario';
+import { Video } from '../models/Video';
 import { Canal } from '../models/Canal';
 import { Suscripcion } from '../models/Suscripcion';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class GeneralService {
+    private apiUrl = 'http://127.0.0.1:8000/api';
 
-  private apiUrl = 'http://127.0.0.1:8000/api';
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+    tipoNotificaciones(): Observable<JSON> {
+        return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
+    }
 
-  tipoNotificaciones() :Observable<JSON> {
+    tipoVideos(): Observable<JSON> {
+        return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);
+    }
 
-    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
-
-  }
-
-  tipoVideos() :Observable<JSON> {
-
-    return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);
-
-  }
-
-  getEtiquetas() :Observable<JSON> {
-
-    return this.http.get<JSON>(`${this.apiUrl}/tipos/etiquetas`);
-
-  }
+    getEtiquetas(): Observable<JSON> {
+        return this.http.get<JSON>(`${this.apiUrl}/tipos/etiquetas`);
+    }
 
   getDatos(id_perfil:number) :Observable<JSON> {
 
@@ -39,11 +32,10 @@ export class GeneralService {
 
   }
     listarUsuario(): Observable<Usuario[]> {
-      return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
+        return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
     }
 
     crearUsuario(data: Usuario): Observable<JSON> {
-        console.log(data)
         return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
     }
 
@@ -53,35 +45,32 @@ export class GeneralService {
 
   }
 
-  login(data: Usuario) :Observable<JSON> {
+    login(data: Usuario): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
+    }
 
-    return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
+    getVideoPorId(id_video: number): Observable<JSON> {
+        return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
+    }
 
-  }
+    etiqueta_json: any;
 
-  getVideoPorId(id_video:number):Observable<JSON> {
+    mandarEtiquetaQuery(etiqueta: string): Observable<Video[]> {
+        let json = {
+            etiqueta: etiqueta,
+        };
 
-    return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
+        let body = JSON.stringify(json);
 
-  }
-
-  etiqueta_json: any;
-
-  mandarEtiquetaQuery(etiqueta: string): Observable<Video[]>{
-
-    let json = {
-      "etiqueta": etiqueta
-    };
-
-    let body = JSON.stringify(json)
-
-    console.log(body)
-    return this.http.post<Video[]>('http://127.0.0.1:8000/api/video/poretiquetas', body);
-
-  }
+        console.log(body);
+        return this.http.post<Video[]>(
+            'http://127.0.0.1:8000/api/video/poretiquetas',
+            body
+        );
+    }
 
     getUsuarioByUsername(data: Usuario): Observable<JSON> {
-      return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
+        return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
     }
 
   getCanalIdByUsuario(data: Usuario): Observable<JSON> {
@@ -138,6 +127,23 @@ export class GeneralService {
 
   }
 
+    getSuscripcionByIdUsuario(data: Suscripcion): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/suscripcion/buscar`, data);
+    }
+
+    desactivarSuscripcion(id: number): Observable<any> {
+        return this.http.put<any>(
+            `http://127.0.0.1:8000/api/suscripcion/borrar/${id}`,
+            id
+        );
+    }
+
+    activarSuscripcion(id: number): Observable<any> {
+        return this.http.put<any>(
+            `http://127.0.0.1:8000/api/suscripcion/activar/${id}`,
+            id
+        );
+    }
   getVideosRecomendados1(usuario:Usuario):Observable<JSON> {
 
     let json_id = {

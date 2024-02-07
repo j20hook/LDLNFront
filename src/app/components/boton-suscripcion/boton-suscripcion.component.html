@@ -1,8 +1,30 @@
 <!doctype html>
 <html lang="en" dir="ltr">
     <body>
-        <button type="submit" value="Suscribirse" (click)="suscribirse()">
+        <button
+            *ngIf="estado_suscripcion == false"
+            type="submit"
+            value="Suscribirse"
+            (click)="suscribirse()"
+        >
             Suscribirse
+        </button>
+        <button
+            *ngIf="suscripcionCheck.activo == false"
+            type="submit"
+            value="Suscribirse"
+            (click)="activarSuscripcion()"
+        >
+            Suscribirse
+        </button>
+
+        <button
+            *ngIf="suscripcionCheck.activo == true"
+            type="submit"
+            value="Suscrito"
+            (click)="desuscribirse()"
+        >
+            Suscrito
         </button>
     </body>
 </html>
