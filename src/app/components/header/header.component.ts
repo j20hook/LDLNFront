@@ -4,6 +4,8 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import {Router} from "@angular/router";
 import {GeneralService} from "../../services/general.service";
+import {Usuario} from "../../models/Usuario";
+import {Canal} from "../../models/Canal";
 
 
 @Component({
@@ -20,8 +22,8 @@ export class HeaderComponent implements OnInit{
   icon_notificacion = faBell ;
   icon_camera = faCamera ;
 
-  usuario : any;
-  canal : any;
+  usuario = new Usuario();
+  canal = new Canal();
 
   constructor(private router: Router, private service: GeneralService) {
 
@@ -30,17 +32,24 @@ export class HeaderComponent implements OnInit{
   ngOnInit() {
 
     this.usuario.username = localStorage.getItem('username') || '';
+
+    console.log(localStorage.getItem('username'))
+    console.log(this.token)
     this.service
       .getUsuarioByUsername(this.usuario)
       .subscribe((data: any) => {
-        console.log(data);
+        // console.log(data);
         this.usuario = data
 
-        this.service.getCanalPorUsuario(this.usuario).subscribe(data=>{
+        this.service.getCanalPorUsuario(this.usuario).subscribe((data:any)=>{
 
-          this.canal = data;
+          this.canal = data[0];
 
-          console.log(data)
+          // console.log(data)
+
+        }, error => {
+
+          // console.log(error)
 
         })
 

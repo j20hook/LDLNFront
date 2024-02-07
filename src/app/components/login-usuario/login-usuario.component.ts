@@ -17,9 +17,9 @@ export class LoginUsuarioComponent {
 
   inciarSesion(){
 
-    this.service.login(this.usuario).subscribe(data=>{
+    this.service.login(this.usuario).subscribe((data:any)=>{
 
-      localStorage.setItem('token', data.toString())
+      localStorage.setItem('token', data)
 
       this.service.getUsuarioByUsername(this.usuario).subscribe((data:any)=>{
 
