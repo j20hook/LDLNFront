@@ -16,11 +16,19 @@ export class RegistroComponent implements OnInit{
   usuario = new Usuario();
   usuarios : any = [];
 
+  etiquetas : string[] = [];
+
   constructor(private service:GeneralService, public router: Router) {
   }
 
   ngOnInit() {
+    this.service.getEtiquetas().subscribe((data:any) => {
 
+      for (var desc of data)
+
+        this.etiquetas.push(desc['descripcion'])
+
+    });
   }
 
   crearUsuario(){
@@ -49,7 +57,6 @@ export class RegistroComponent implements OnInit{
       });
 
     })
-
   }
 
 }

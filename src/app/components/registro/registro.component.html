@@ -12,7 +12,9 @@
 </head>
 <body>
 
-<app-header></app-header>
+<div class="navbar">
+  <li class="logo"><a href="#"><img src="../../../assets/img/LogoApollo.png" alt="Apollo Logo"></a></li>
+</div>
 
 <div class="contenedor">
 
@@ -63,9 +65,13 @@
                 <option value="La Rioja">La Rioja</option>
                 <option value="Comunidad Valenciana">Comunidad Valenciana</option>
 
-
-
               </select>
+              <h4>¿A que se enfocará tu canal?</h4>
+
+              <select type="text" id="etiquetas" name="etiquetas" placeholder="Etiquetas" [(ngModel)]="usuario.etiquetas" multiple required size="13">
+                <option *ngFor="let etiqueta of etiquetas">{{ etiqueta }}</option>
+              </select>
+
             </div>
 
             <div class="boton input-box">

@@ -84,6 +84,13 @@ export class GeneralService {
       return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
     }
 
+  getCanalIdByUsuario(data: Usuario): Observable<JSON> {
+      let jsonCanal = {
+        "id": data.id
+      };
+    return this.http.post<JSON>(`${this.apiUrl}/canal/idcanalporusuario`, jsonCanal);
+  }
+
     crearCanal(data: Canal): Observable<JSON> {
         return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
     }
