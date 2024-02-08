@@ -31,6 +31,7 @@ import { CanalComponent } from './components/canal/canal.component';
 import { VideosCanalComponent } from './components/canal/videos-canal/videos-canal.component';
 import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/sucriptores-canal.component';
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
         VideosCanalComponent,
         SucriptoresCanalComponent,
         BotonSuscripcionComponent,
+        ChatComponent,
     ],
 
   imports: [
