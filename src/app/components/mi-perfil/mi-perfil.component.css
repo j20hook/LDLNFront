@@ -3,6 +3,12 @@
   margin-top: 20px; /* Ajusta el margen superior según tus preferencias */
 }
 
+.main{
+
+  margin: 150px 0 250px 0;
+
+}
+
 .area h1 {
   font-size: 2.5rem;
   line-height: 1.5;

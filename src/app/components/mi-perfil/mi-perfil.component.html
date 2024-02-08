@@ -13,28 +13,28 @@
 
 <div class="main">
   <div class="area">
+
     <h1>Hola! {{usuario.username}}</h1>
+
     <h3>TUS DATOS</h3>
+
     <div class="box">
+      
       <p>Correo Electrónico: {{usuario.email}}</p>
-      <p>Ubicación: Ciudad, País</p>
-      <p>Fecha de Nacimiento: DD/MM/AAAA</p>
+      <p>Ubicación: {{ usuario.comunidad_autonoma }}</p>
+      <p *ngIf="canal" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
 
     </div>
 
-    <h3>¿Quieres crearte un canal?</h3>
+    <h3 *ngIf="!canal">¿Quieres crearte un canal?</h3>
 
-    <a href="/apollo/canal/crear">Vamos!</a>
+    <a *ngIf="!canal" href="/apollo/canal/crear">Vamos!</a>
 
   </div>
 
 </div>
 
-<!-- Agrega más secciones o contenido según sea necesario -->
-
-<footer>
-  <!-- Contenido del footer -->
-</footer>
+<app-footer></app-footer>
 
 </body>
 </html>
