@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Usuario} from "../models/Usuario";
 import {Video} from "../models/Video";
@@ -12,6 +12,17 @@ import { Suscripcion } from '../models/Suscripcion';
 export class GeneralService {
 
   private apiUrl = 'http://127.0.0.1:8000/api';
+
+ /* Enviar datos de
+
+  private canalEtiquetas = new BehaviorSubject<any>(null);
+  currentVariable = this.canalEtiquetas.asObservable();
+
+  enviarEtiquetas(canal_etiquetas){
+    this.canalEtiquetas.next(canal_etiquetas);
+
+  }*/
+
 
   constructor(private http: HttpClient) { }
 
@@ -143,11 +154,21 @@ export class GeneralService {
   getVideosCanalId(id_canal:number):Observable<JSON> {
 
     let jsonCanal = {
-      "id": id_canal
+      "id_canal": id_canal
     };
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario?XDEBUG_SESSION_START=12104`, jsonCanal );
+    return this.http.post<JSON>(`${this.apiUrl}/video/porcanal`, jsonCanal );
 
+  }
+
+  getVideosEtiquetasCanalId(id_canal:number, etiqueta:string):Observable<JSON> {
+
+    let jsonCanal = {
+      "id_canal": id_canal,
+      "etiqueta": etiqueta
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetacanal`, jsonCanal );
 
   }
 

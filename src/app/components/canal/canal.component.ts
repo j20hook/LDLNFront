@@ -23,6 +23,7 @@ export class CanalComponent implements OnInit {
   suscriptores: any;
   etiquetas: any;
   videos_id_canal: any;
+  videos_etiquetas_canal:any;
 
     constructor(
         private route: ActivatedRoute,
@@ -66,7 +67,9 @@ export class CanalComponent implements OnInit {
               }
             )
 
-          this.dataservice.getVideoPorId(canalId)
+        /*  this.dataservice.enviarEtiquetas(this.etiquetas) */
+
+          this.dataservice.getVideosCanalId(canalId)
             .subscribe(
               data => {
                 this.videos_id_canal = data;
@@ -76,6 +79,19 @@ export class CanalComponent implements OnInit {
                 console.error("no funciona", error);
               }
             )
+
+          for (var eti of this.etiquetas){
+            this.dataservice.getVideosEtiquetasCanalId(canalId,eti)
+              .subscribe(
+                data => {
+                  this.videos_etiquetas_canal = data;
+                  console.log(this.videos_etiquetas_canal)
+                },
+                error => {
+                  console.error("no funciona", error);
+                }
+              )
+          }
 
 
         }
