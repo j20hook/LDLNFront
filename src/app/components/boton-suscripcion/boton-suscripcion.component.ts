@@ -56,16 +56,16 @@ export class BotonSuscripcionComponent implements OnInit {
         this.suscripcion.usuario = this.usuario.id;
         this.route.params.subscribe((params) => {
             this.canal1.id = params['id'];
-            this.suscripcion.canal.id = this.canal1.id;
+            this.suscripcion.canal!.id = this.canal1.id;
         });
         this.service.getSuscripcionByIdUsuario(this.suscripcion).subscribe(
-            (data) => {
+            (data: any) => {
                 this.suscripcionCheck = data;
                 if (this.suscripcionCheck) {
                     this.estado_suscripcion = true;
                 }
             },
-            (error) => {
+            (error: any) => {
                 console.error('no funciona', error);
             }
         );

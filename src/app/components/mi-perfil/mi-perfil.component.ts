@@ -14,7 +14,7 @@ export class MiPerfilComponent implements OnInit{
 
   usuario: any;
 
-  canalid : any;
+  canal = new Canal();
 
 
 
@@ -36,9 +36,9 @@ export class MiPerfilComponent implements OnInit{
             console.error("no funciona", error);
           }
         )
-      this.service.getCanalIdByUsuario(this.usuario).subscribe(data => {
-          this.canalid = data;
-          console.log(this.canalid);
+      this.service.getCanalPorUsuario(this.usuario).subscribe((data:any) => {
+          this.canal = data;
+          console.log(this.canal);
         },
         error => {
           console.error("no funciona", error);
