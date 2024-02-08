@@ -202,5 +202,17 @@ export class GeneralService {
 
   }
 
+  editarVideo(id_video: number, data:Video):Observable<JSON> {
+
+    return this.http.put<JSON>(`${this.apiUrl}/video/${ id_video }`, data)
+
+  }
+
+  eliminarVideo(id_video: number):Observable<JSON> {
+
+    return this.http.put<JSON>(`${this.apiUrl}/video/borrar/${ id_video }`, '')
+
+  }
+
 
 }

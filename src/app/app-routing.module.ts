@@ -27,7 +27,8 @@ const routes: Routes = [
   { path:'apollo/inicio_log', component: IncioLogComponent },
   { path:'apollo/canal/:id', component: CanalComponent},
   { path:'apollo/chat', component: ChatComponent},
-  { path:'apollo/videos', component: VideosCanalComponent}
+  { path:'apollo/videos', component: VideosCanalComponent},
+  { path:'apollo/video/editar/:id', component: VideosCanalComponent},
 ];
 
 @NgModule({
