@@ -10,6 +10,7 @@ import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 import { CrearCanalComponent } from './components/crear-canal/crear-canal.component';
 import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { CanalComponent } from './components/canal/canal.component';
+import {ChatComponent} from "./chat/chat.component";
 
 const routes: Routes = [
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path:'apollo/perfil/datos' , component : MiPerfilComponent},
   { path:'apollo/canal/crear', component: CrearCanalComponent },
   { path:'apollo/inicio_log', component: IncioLogComponent },
-  { path:'apollo/canal/:id', component: CanalComponent}
+  { path:'apollo/canal/:id', component: CanalComponent},
+  { path:'apollo/chat', component: ChatComponent}
 ];
 
 @NgModule({
