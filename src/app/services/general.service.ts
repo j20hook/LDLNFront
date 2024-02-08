@@ -1,17 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, BehaviorSubject} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Usuario} from '../models/Usuario';
 import {Video} from '../models/Video';
 import {Canal} from '../models/Canal';
 import {Suscripcion} from '../models/Suscripcion';
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {Usuario} from "../models/Usuario";
-import {Video} from "../models/Video";
-import { Canal } from '../models/Canal';
-import { Suscripcion } from '../models/Suscripcion';
+
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +13,6 @@ import { Suscripcion } from '../models/Suscripcion';
 export class GeneralService {
   private apiUrl = 'http://127.0.0.1:8000/api';
 
-  constructor(private http: HttpClient) {}
  /* Enviar datos de
 
   private canalEtiquetas = new BehaviorSubject<any>(null);
@@ -184,9 +177,7 @@ export class GeneralService {
 
   getCanalPorUsuario(data: Usuario): Observable<JSON> {
 
-
     return this.http.post<JSON>(`${this.apiUrl}/canal/canalporusuario`, data);
-    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario?XDEBUG_SESSION_START=12104`, json_id );
 
   }
 

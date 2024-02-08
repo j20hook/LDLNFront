@@ -26,7 +26,7 @@ const routes: Routes = [
   { path:'apollo/canal/crear', component: CrearCanalComponent },
   { path:'apollo/inicio_log', component: IncioLogComponent },
   { path:'apollo/canal/:id', component: CanalComponent},
-  { path:'apollo/chat', component: ChatComponent}
+  { path:'apollo/chat', component: ChatComponent},
   { path:'apollo/videos', component: VideosCanalComponent}
 ];
 
