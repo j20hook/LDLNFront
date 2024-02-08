@@ -132,5 +132,18 @@
   </div>
   <!-- End of main content container -->
 
+  <div class="container">
+    <div class="row" *ngFor="let videos_canal of videos_id_canal">
+      <a class="card" routerLink="/apollo/video/{{videos_canal.id}}" [style.background-image]="'url(' + videos_canal.miniatura + ')'">
+
+        <div class="title">{{videos_canal.titulo}}</div>
+
+        <a href="#"><div class="catagory" routerLink="/apollo/canal/{{videos_canal.id_canal}}">{{videos_canal.nombre_canal}}<i class="fas fa-film"></i></div></a>
+        <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+
+      </a>
+    </div>
+  </div>
+
 </main>
 <!-- End of main content -->
