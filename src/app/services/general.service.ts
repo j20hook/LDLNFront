@@ -47,8 +47,14 @@ export class GeneralService {
 
   }
 
-  login(data: Usuario): Observable<JSON> {
-    return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
+    login(data: Usuario): Observable<JSON> {
+        return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
+    }
+
+  listarMensaje(data: Usuario) :Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/chat`, data);
+
   }
 
   getVideoPorId(id_video: number): Observable<JSON> {
