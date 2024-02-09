@@ -67,8 +67,12 @@
 
         <div class="descripcion">
           <p>{{ formatearFecha(video.fechaPublicacion) }}</p>
-          <p>{{ video.descripcion }}</p>
+          <p id="descripcion">{{ video.descripcion }}</p>
         </div>
+
+        <button id="verMas" (click)="verMas()">Ver más</button>
+
+
 
       </div>
 
@@ -92,7 +96,7 @@
 
                 <div class="content">
                   <h4>{{v.titulo}}</h4>
-<!--                  <p>{{v.canal.nombreCanal}}</p>-->
+                  <p>{{v.nombre_canal}}</p>
                 </div>
 
               </div>

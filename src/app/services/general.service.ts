@@ -5,6 +5,7 @@ import {Usuario} from '../models/Usuario';
 import {Video} from '../models/Video';
 import {Canal} from '../models/Canal';
 import {Suscripcion} from '../models/Suscripcion';
+import {Comentario} from "../models/Comentario";
 
 
 @Injectable({
@@ -214,5 +215,16 @@ export class GeneralService {
 
   }
 
+  comentariosPorVideo(data:Video):Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/comentario/video`, data)
+
+  }
+
+  crearComentario(data:Comentario):Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/comentario/crear`, data)
+
+  }
 
 }

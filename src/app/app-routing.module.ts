@@ -12,6 +12,7 @@ import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { CanalComponent } from './components/canal/canal.component';
 import {ChatComponent} from "./components/chat/chat.component";
 import {VideosCanalComponent} from "./components/canal/videos-canal/videos-canal.component";
+import {EditarVideoComponent} from "./components/editar-video/editar-video.component";
 
 const routes: Routes = [
 
@@ -28,7 +29,7 @@ const routes: Routes = [
   { path:'apollo/canal/:id', component: CanalComponent},
   { path:'apollo/chat', component: ChatComponent},
   { path:'apollo/videos', component: VideosCanalComponent},
-  { path:'apollo/video/editar/:id', component: VideosCanalComponent},
+  { path:'apollo/video/:id/editar', component: EditarVideoComponent},
 ];
 
 @NgModule({
