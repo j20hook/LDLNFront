@@ -36,23 +36,11 @@ export class CanalComponent implements OnInit {
         private router: Router,
         private sharedService: SharedService
     ) {}
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            const canalId = +params['id'];
-            if (canalId) {
-                this.dataservice.getCanalPorId(canalId).subscribe(
-                    (data) => {
-                        this.canal = data;
-                        console.log(this.canal);
-                    },
-                    (error) => {
-                        console.error('no funciona', error);
-                    }
-                );
 
-  abrirChat() {
+
+  /*abrirChat() {
     this.sharedService.abrirChat();
-  }
+  }*/
 
   ngOnInit() {
 

@@ -47,7 +47,7 @@ export class GeneralService {
         return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
     }
 
-  listarMensaje(data: Usuario) :Observable<JSON> {
+  listarMensaje(data: Usuario, id_canal: number) :Observable<JSON> {
 
     return this.http.post<JSON>(`${this.apiUrl}/chat`, data);
 
