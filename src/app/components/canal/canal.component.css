@@ -263,6 +263,7 @@ a {
 
 .channel-subscribe {
   display: flex;
+  flex-direction: row;
   height: 3.7rem;
   color: var(--grey-text);
 }

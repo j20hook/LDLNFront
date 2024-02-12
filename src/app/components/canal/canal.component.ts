@@ -4,6 +4,7 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GeneralService } from '../../services/general.service';
+import { SharedService } from '../../services/shared.service';
 import { Canal } from '../../models/Canal';
 import { Usuario } from '../../models/Usuario';
 import { Suscripcion } from '../../models/Suscripcion';
@@ -20,17 +21,28 @@ export class CanalComponent implements OnInit {
   icon_facebook = faFacebook;
   icon_instagram = faInstagram;
   canal: any;
+  usuario: any;
+  usuari1 = new Usuario();
   suscriptores: any;
   etiquetas: any;
   videos_id_canal: any;
   videos_etiquetas_canal:any;
+  lista_mensajes: any;
+
 
     constructor(
         private route: ActivatedRoute,
         private dataservice: GeneralService,
-        private router: Router
+        private router: Router,
+        private sharedService: SharedService
     ) {}
+
+  abrirChat() {
+    this.sharedService.abrirChat();
+  }
+
   ngOnInit() {
+
     this.route.params.subscribe(params => {
         const canalId = +params['id'];
         if (canalId) {
@@ -44,6 +56,23 @@ export class CanalComponent implements OnInit {
                 console.error("no funciona", error);
               }
             )
+
+          this.usuari1.username = localStorage.getItem('username') || '';
+          this.dataservice.getUsuarioByUsername(this.usuari1).subscribe((data) => {
+            this.usuario = data;
+            console.log(this.usuario);
+
+
+            this.dataservice.listarMensaje(this.usuario, canalId)
+              .subscribe(
+                data => {
+                  this.lista_mensajes = data;
+                  console.log(this.lista_mensajes)
+                }, error => {
+                  console.error("no funciona", error);
+                }
+              );
+          });
 
           this.dataservice.getNumSuscriptoresCanal(canalId)
             .subscribe(
@@ -67,7 +96,7 @@ export class CanalComponent implements OnInit {
               }
             )
 
-        /*  this.dataservice.enviarEtiquetas(this.etiquetas) */
+          /*  this.dataservice.enviarEtiquetas(this.etiquetas) */
 
           this.dataservice.getVideosCanalId(canalId)
             .subscribe(
@@ -80,8 +109,9 @@ export class CanalComponent implements OnInit {
               }
             )
 
-          for (var eti of this.etiquetas){
-            this.dataservice.getVideosEtiquetasCanalId(canalId,eti)
+
+          for (var eti of this.etiquetas) {
+            this.dataservice.getVideosEtiquetasCanalId(canalId, eti)
               .subscribe(
                 data => {
                   this.videos_etiquetas_canal = data;
@@ -94,9 +124,13 @@ export class CanalComponent implements OnInit {
           }
 
 
-        }
-    }
 
+
+
+
+
+        }
+      }
     )
   }
 }

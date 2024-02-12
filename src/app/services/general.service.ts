@@ -62,7 +62,12 @@ export class GeneralService {
         return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
     }
 
-  listarMensaje(data: Usuario) :Observable<JSON> {
+  listarMensaje(data: Usuario, id_canal:number) :Observable<JSON> {
+
+    let jsonIdusuario = {
+      id_usario: data.id,
+      id_canal: id_canal,
+    };
 
     return this.http.post<JSON>(`${this.apiUrl}/chat`, data);
 
@@ -71,8 +76,6 @@ export class GeneralService {
   getVideoPorId(id_video: number): Observable<JSON> {
     return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
   }
-
-  etiqueta_json: any;
 
   mandarEtiquetaQuery(etiqueta: string): Observable<Video[]> {
     let json = {
@@ -172,12 +175,6 @@ export class GeneralService {
     };
 
     return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetausuario`, json_id);
-
-  }
-
-  getCanalPorUsuario(data: Usuario): Observable<JSON> {
-
-    return this.http.post<JSON>(`${this.apiUrl}/canal/canalporusuario`, data);
 
   }
 

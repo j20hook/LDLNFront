@@ -1,7 +1,7 @@
 import {Usuario} from "./Usuario";
 
 export class Canal{
-  id?: bigint;
+  id?: number;
   nombre: string = '';
   apellidos?: string = '';
   nombre_canal?: string = '';
