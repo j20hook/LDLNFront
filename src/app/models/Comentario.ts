@@ -6,8 +6,8 @@ export class Comentario{
   texto: string = '';
   apellidos?: string = '';
   fecha_publicacion: string = '';
-  video: Video = new Video();
-  usuario: Usuario = new Usuario();
+  id_video?: number;
+  id_usuario?: number;
   activo?: boolean;
 }
 

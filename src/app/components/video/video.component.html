@@ -72,7 +72,21 @@
 
         <button id="verMas" (click)="verMas()">Ver más</button>
 
+        <div class="comentarios">
 
+          <form name="form" id="form" (ngSubmit)="enviarComentario()">
+
+            <input type="text" name="texto" id="texto" placeholder="Comentario" [(ngModel)]="comentario.texto" required>
+
+          </form>
+
+          <div id="comentario" *ngFor="let c of comentarios">
+
+            {{ c.texto }}
+
+          </div>
+
+        </div>
 
       </div>
 

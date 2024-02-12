@@ -57,11 +57,14 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
   usuario = new Usuario();
   video :any;
   id_video: string | null;
+  id_usuario?: number;
   suscriptores: any;
   videosRecomendados: any;
 
   videoComentario = new Video();
   comentarios : any;
+
+  comentario = new Comentario();
 
     ngOnInit() {
 
@@ -69,7 +72,7 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
       this.service.comentariosPorVideo(this.videoComentario).subscribe(data=>{
 
         this.comentarios = data;
-        console.log(this.comentarios)
+        console.log(data)
 
       })
 
@@ -78,7 +81,7 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
           .getUsuarioByUsername(this.usuario)
           .subscribe((data: any) => {
               console.log(data);
-              // this.usuario.id = data['id']
+              this.id_usuario = data['id']
               this.usuario.id = 3;
               this.service
                   .getVideosRecomendados(this.usuario)
@@ -115,6 +118,24 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
           }
         )
 
+
+  }
+
+  enviarComentario(){
+
+    this.comentario.id_video = Number(this.id_video);
+    this.comentario.id_usuario = this.id_usuario;
+
+    this.service.crearComentario(this.comentario)
+      .subscribe(
+        data => {
+          console.log(data)
+          window.location.reload()
+        },
+        error => {
+          console.error("no funciona", error);
+        }
+      )
 
   }
 
