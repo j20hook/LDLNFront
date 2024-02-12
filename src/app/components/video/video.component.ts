@@ -106,6 +106,16 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 
+  // eliminarVideo(){
+  //
+  //     this.service.eliminarVideo(this.video.id).subscribe(data=>{
+  //
+  //       console.log(data)
+  //
+  //     })
+  //
+  // }
+
   protected readonly obtenerIdDeVideo = obtenerIdDeVideo;
   protected readonly window = window;
   protected readonly setTimeout = setTimeout;

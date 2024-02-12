@@ -11,9 +11,9 @@ import { Suscripcion } from '../../models/Suscripcion';
 import { ErrorcuatrocientoscuatroComponent } from '../errorcuatrocientoscuatro/errorcuatrocientoscuatro.component';
 
 @Component({
-  selector: 'app-canal',
-  templateUrl: './canal.component.html',
-  styleUrls: ['./canal.component.css']
+    selector: 'app-canal',
+    templateUrl: './canal.component.html',
+    styleUrls: ['./canal.component.css'],
 })
 export class CanalComponent implements OnInit {
 
@@ -36,6 +36,19 @@ export class CanalComponent implements OnInit {
         private router: Router,
         private sharedService: SharedService
     ) {}
+    ngOnInit() {
+        this.route.params.subscribe((params) => {
+            const canalId = +params['id'];
+            if (canalId) {
+                this.dataservice.getCanalPorId(canalId).subscribe(
+                    (data) => {
+                        this.canal = data;
+                        console.log(this.canal);
+                    },
+                    (error) => {
+                        console.error('no funciona', error);
+                    }
+                );
 
   abrirChat() {
     this.sharedService.abrirChat();
@@ -74,40 +87,37 @@ export class CanalComponent implements OnInit {
               );
           });
 
-          this.dataservice.getNumSuscriptoresCanal(canalId)
-            .subscribe(
-              data => {
-                this.suscriptores = data;
-                console.log(this.suscriptores)
-              },
-              error => {
-                console.error("no funciona", error);
-              }
-            )
+                this.dataservice.getNumSuscriptoresCanal(canalId).subscribe(
+                    (data) => {
+                        this.suscriptores = data;
+                        console.log(this.suscriptores);
+                    },
+                    (error) => {
+                        console.error('no funciona', error);
+                    }
+                );
 
-          this.dataservice.getEtiquetasCanal(canalId)
-            .subscribe(
-              data => {
-                this.etiquetas = data;
-                console.log(this.etiquetas)
-              },
-              error => {
-                console.error("no funciona", error);
-              }
-            )
+                this.dataservice.getEtiquetasCanal(canalId).subscribe(
+                    (data) => {
+                        this.etiquetas = data;
+                        console.log(this.etiquetas);
+                    },
+                    (error) => {
+                        console.error('no funciona', error);
+                    }
+                );
 
-          /*  this.dataservice.enviarEtiquetas(this.etiquetas) */
+        /*  this.dataservice.enviarEtiquetas(this.etiquetas) */
 
-          this.dataservice.getVideosCanalId(canalId)
-            .subscribe(
-              data => {
-                this.videos_id_canal = data;
-                console.log(this.videos_id_canal)
-              },
-              error => {
-                console.error("no funciona", error);
-              }
-            )
+                this.dataservice.getVideosCanalId(canalId).subscribe(
+                    (data) => {
+                        this.videos_id_canal = data;
+                        console.log(this.videos_id_canal);
+                    },
+                    (error) => {
+                        console.error('no funciona', error);
+                    }
+                );
 
 
           for (var eti of this.etiquetas) {

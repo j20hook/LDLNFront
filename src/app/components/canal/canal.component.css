@@ -626,4 +626,12 @@ Remove or comment-out the code block below to see how the browser will fall-back
 .row {
   margin: 15px;
 }
+.editar-canal-buton{
+
+  background-color: #4B0082;
+  color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+
+}
 
