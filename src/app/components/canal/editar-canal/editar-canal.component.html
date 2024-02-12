@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="editar-canal.component.css" />
+        <title>Editar Canal - Apollo LDLN</title>
+    </head>
+
+    <body>
+        <app-header></app-header>
+
+        <div class="login-container">
+            <form class="login-form" (submit)="editarCanal()">
+                <h2>Editar Canal</h2>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Nombre"
+                    [(ngModel)]="nuevoCanal.nombre"
+                    required
+                />
+
+                <input
+                    type="text"
+                    id="apellidos"
+                    name="apellidos"
+                    placeholder="Apellidos"
+                    [(ngModel)]="nuevoCanal.apellidos"
+                    required
+                />
+
+                <input
+                    type="text"
+                    id="nombre_canal"
+                    name="nombre_canal"
+                    placeholder="Nombre del canal"
+                    [(ngModel)]="nuevoCanal.nombre_canal"
+                    required
+                />
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="Telefono"
+                    [(ngModel)]="nuevoCanal.telefono"
+                    required
+                />
+
+                <input
+                    type="datetime-local"
+                    id="fecha_nacimiento"
+                    name="fecha_nacimiento"
+                    placeholder="dd/mm/aaaa"
+                    [(ngModel)]="nuevoCanal.fecha_nacimiento"
+                    required
+                />
+
+                <h3>Etiquetas</h3>
+                <select
+                    type="text"
+                    id="etiquetas"
+                    name="etiquetas"
+                    placeholder="Etiquetas"
+                    [(ngModel)]="nuevoCanal.etiquetas"
+                    multiple
+                    required
+                    size="13"
+                >
+                    <option *ngFor="let etiqueta of etiquetas">
+                        {{ etiqueta }}
+                    </option>
+                </select>
+
+                <button type="submit" id="subir-button">Subir</button>
+            </form>
+        </div>
+    </body>
+
+    <app-footer></app-footer>
+</html>

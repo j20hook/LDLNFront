@@ -48,24 +48,23 @@ export class BotonSuscripcionComponent implements OnInit {
                 );
             }
         });
-
         this.comprobarSuscripcion();
     }
 
-    async comprobarSuscripcion() {
+    comprobarSuscripcion() {
         this.suscripcion.usuario = this.usuario.id;
         this.route.params.subscribe((params) => {
             this.canal1.id = params['id'];
             this.suscripcion.canal!.id = this.canal1.id;
         });
         this.service.getSuscripcionByIdUsuario(this.suscripcion).subscribe(
-            (data: any) => {
+            (data) => {
                 this.suscripcionCheck = data;
                 if (this.suscripcionCheck) {
                     this.estado_suscripcion = true;
                 }
             },
-            (error: any) => {
+            (error) => {
                 console.error('no funciona', error);
             }
         );
@@ -96,13 +95,7 @@ export class BotonSuscripcionComponent implements OnInit {
         this.service.activarSuscripcion(this.suscripcionCheck.id).subscribe(
             (response) => {
                 console.log(response); // Manejo de la respuesta del backend
-                this.router
-                    .navigateByUrl(`/apollo/canal/${this.canal.id}`, {
-                        skipLocationChange: true,
-                    })
-                    .then(() => {
-                        this.router.navigate([this.router.url]);
-                    });
+                this.router.navigateByUrl(`/apollo/canal/${this.canal.id}`);
             },
             (error) => {
                 console.error(error); // Manejo de errores

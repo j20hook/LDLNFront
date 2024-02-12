@@ -33,6 +33,7 @@ import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { EditarVideoComponent } from './components/editar-video/editar-video.component';
+import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
 
 @NgModule({
     declarations: [
@@ -52,21 +53,22 @@ import { EditarVideoComponent } from './components/editar-video/editar-video.com
         VideosCanalComponent,
         SucriptoresCanalComponent,
         BotonSuscripcionComponent,
+        EditarCanalComponent,
         ChatComponent,
         EditarVideoComponent,
     ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    CommonModule,
-    YouTubePlayerModule,
-    FontAwesomeModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        RouterModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        CommonModule,
+        YouTubePlayerModule,
+        FontAwesomeModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
