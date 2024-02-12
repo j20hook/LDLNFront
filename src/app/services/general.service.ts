@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Observable, BehaviorSubject} from 'rxjs';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 import {Usuario} from '../models/Usuario';
 import {Video} from '../models/Video';
 import {Canal} from '../models/Canal';
