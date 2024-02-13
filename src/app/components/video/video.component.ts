@@ -139,6 +139,24 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 
+  enviarComentario(){
+
+    this.comentario.id_video = Number(this.id_video);
+    this.comentario.id_usuario = this.id_usuario;
+
+    this.service.crearComentario(this.comentario)
+      .subscribe(
+        data => {
+          console.log(data)
+          window.location.reload()
+        },
+        error => {
+          console.error("no funciona", error);
+        }
+      )
+
+  }
+
   // eliminarVideo(){
   //
   //     this.service.eliminarVideo(this.video.id).subscribe(data=>{
