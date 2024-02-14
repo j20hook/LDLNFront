@@ -3,8 +3,8 @@ import {Usuario} from "./Usuario";
 export class Mensaje {
   id?: bigint;
   texto: string = '';
-  tipo: number;
+  tipo?: number;
   fecha_notificacion: string = '';
   usuario: Usuario = new Usuario();
-  activo: boolean;
+  activo?: boolean;
 }
