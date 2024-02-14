@@ -1,114 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="video.component.css" />
+        <title>Video - Apollo LDLN</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="video.component.css">
-  <title>Video - Apollo LDLN</title>
-</head>
+    <body>
+        <app-header></app-header>
 
-<body>
-
-<app-header></app-header>
-
-  <div id="container">
-
-    <div class="bloque1">
-
-      <div class="ratio ratio-16x9" #demoYouTubePlayer>
-        <youtube-player *ngIf="video"
+        <div id="container">
+            <div class="bloque1">
+                <div class="ratio ratio-16x9" #demoYouTubePlayer>
+                    <youtube-player
+                        *ngIf="video"
                         videoId="{{ obtenerIdDeVideo(video.url) }}"
                         suggestedQuality="highres"
                         [height]="videoHeight"
                         [width]="videoWidth"
-                        [startSeconds]="0">
-        </youtube-player>
-      </div>
-
-      <div id="details" *ngIf="video">
-
-        <div class="titulo_canal">
-
-          <h1>{{ video.titulo }}</h1>
-
-          <div id="info_canal">
-
-            <div class="info_canal1">
-
-              <div id="imagen_canal">
-                <img class="imagen_user" src="assets/img/user_default.png">
-              </div>
-
-              <div class="nombre_canal_suscripciones">
-                <h4>{{video.canal.nombreCanal}}</h4>
-                <p>{{suscriptores.suscriptores}} suscriptores</p>
-              </div>
-
-              <button class="suscribirse">Suscribirme</button>
-
-            </div>
-
-            <div class="botones_likes">
-
-              <div class="like_dislike">
-                <button class="like">Like</button>
-                <button class="dislike">Dislike</button>
-              </div>
-
-              <button class="compartir">Compartir</button>
-              <button class="guardar">Guardar</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="descripcion">
-          <p>{{ formatearFecha(video.fechaPublicacion) }}</p>
-          <p>{{ video.descripcion }}</p>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="bloque2">
-
-      <div id="recommended">
-
-        <ul class="recomendado">
-
-          <li *ngFor="let v of videosRecomendados">
-
-            <a *ngIf="v.id != video.id" href="/apollo/video/{{v.id}}">
-
-              <div class="containerv">
-
-                <div class="image">
-                  <img src="{{ v.miniatura }}">
+                        [startSeconds]="0"
+                    >
+                    </youtube-player>
                 </div>
 
-                <div class="content">
-                  <h4>{{v.titulo}}</h4>
-<!--                  <p>{{v.canal.nombreCanal}}</p>-->
+                <div id="details" *ngIf="video">
+                    <div class="titulo_canal">
+                        <h1>{{ video.titulo }}</h1>
+
+                        <div id="info_canal">
+                            <div class="info_canal1">
+                                <div id="imagen_canal">
+                                    <img
+                                        class="imagen_user"
+                                        src="assets/img/user_default.png"
+                                    />
+                                </div>
+
+                                <div class="nombre_canal_suscripciones">
+                                    <h4>{{ video.canal.nombreCanal }}</h4>
+                                    <p>
+                                        {{ suscriptores.suscriptores }}
+                                        suscriptores
+                                    </p>
+                                </div>
+
+                                <app-boton-suscripcion></app-boton-suscripcion>
+                            </div>
+
+                            <div class="botones_likes">
+                                <app-like-dislike
+                                    class="like_dislike"
+                                ></app-like-dislike>
+
+                                <button class="compartir">Compartir</button>
+                                <button class="guardar">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="descripcion">
+                        <p>{{ formatearFecha(video.fechaPublicacion) }}</p>
+                        <p>{{ video.descripcion }}</p>
+                    </div>
                 </div>
+            </div>
 
-              </div>
+            <div class="bloque2">
+                <div id="recommended">
+                    <ul class="recomendado">
+                        <li *ngFor="let v of videosRecomendados">
+                            <a
+                                *ngIf="v.id != video.id"
+                                href="/apollo/video/{{ v.id }}"
+                            >
+                                <div class="containerv">
+                                    <div class="image">
+                                        <img src="{{ v.miniatura }}" />
+                                    </div>
 
-            </a>
-
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</body>
-
+                                    <div class="content">
+                                        <h4>{{ v.titulo }}</h4>
+                                        <!--                  <p>{{v.canal.nombreCanal}}</p>-->
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
