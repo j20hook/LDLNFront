@@ -19,16 +19,19 @@
     <h3>TUS DATOS</h3>
 
     <div class="box">
-      
+
       <p>Correo Electrónico: {{usuario.email}}</p>
       <p>Ubicación: {{ usuario.comunidad_autonoma }}</p>
-      <p *ngIf="canal" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
+      <p *ngIf="canal.id == 0" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
 
     </div>
 
-    <h3 *ngIf="!canal">¿Quieres crearte un canal?</h3>
+    <h3 *ngIf="canal.id == 0">¿Quieres crearte un canal?</h3>
 
-    <a *ngIf="!canal" href="/apollo/canal/crear">Vamos!</a>
+    <a *ngIf="canal.id == 0" href="/apollo/canal/crear">Vamos!</a>
+
+    <a *ngIf="canal.id != 0" href="/apollo/canal/{{canal.id}}">Vamos a tu canal {{usuario.username}}!</a>
+
 
   </div>
 

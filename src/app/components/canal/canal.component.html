@@ -1,165 +1,152 @@
 <div>
-    <app-header></app-header>
-    <!-- End of header -->
+<app-header></app-header>
+<!-- End of header -->
 
-    <!-- Channel Banner -->
-    <section class="channel-banner">
-        <div class="channel-social-links">
-            <ul>
-                <li class="btn google-plus">
-                    <i aria-hidden="true"
-                        ><fa-icon [icon]="icon_instagram"></fa-icon
-                    ></i>
-                </li>
+<!-- Channel Banner -->
+<section class="channel-banner">
 
-                <li class="btn twitter">
-                    <i aria-hidden="true"
-                        ><fa-icon [icon]="icon_twitter"></fa-icon
-                    ></i>
-                </li>
+  <div class="channel-social-links">
 
-                <li class="btn facebook">
-                    <i aria-hidden="true"
-                        ><fa-icon [icon]="icon_facebook"></fa-icon
-                    ></i>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- End of channel banner -->
+    <ul>
+      <li class="btn google-plus">
+        <i aria-hidden="true"><fa-icon [icon]="icon_instagram"></fa-icon></i>
+      </li>
+
+      <li class="btn twitter">
+        <i aria-hidden="true"><fa-icon [icon]="icon_twitter"></fa-icon></i>
+      </li>
+
+      <li class="btn facebook">
+        <i aria-hidden="true"><fa-icon [icon]="icon_facebook"></fa-icon></i>
+      </li>
+    </ul>
+
+  </div>
+
+</section>
+<!-- End of channel banner -->
 </div>
 
 <!-- Channel Info -->
 <section class="channel-info">
-    <div class="container">
-        <div class="channel-icon">
-            <a><img class="imagen_user" src="assets/img/user_default.png" /></a>
-        </div>
 
-        <div class="channel-title">
-            <h1>{{ canal.nombreCanal }}</h1>
+  <div class="container">
 
-            <div
-                class="channel-subscriber-count"
-                *ngIf="suscriptores.suscriptores == 1"
-            >
-                {{ suscriptores.suscriptores }} suscriptor
-            </div>
-            <div
-                class="channel-subscriber-count"
-                *ngIf="suscriptores.suscriptores != 1"
-            >
-                {{ suscriptores.suscriptores }} suscriptores
-            </div>
-        </div>
+    <div class="channel-icon">
+      <a><img class="imagen_user" src="assets/img/user_default.png"/></a>
 
-        <div class="channel-subscribe">
-            <app-boton-suscripcion></app-boton-suscripcion>
-            <button
-                class="notification-btn btn"
-                aria-label="Enable Notifications"
-            >
-                <i class="fas fa-bell" aria-hidden="true"></i>
-            </button>
-        </div>
-        <div class="editar-canal" *ngIf="canal.usuario.id == usuario.id">
-            <button class="editar-canal-buton" (click)="editarCanal()">
-                Editar Canal
-            </button>
-        </div>
     </div>
+
+    <div class="channel-title">
+
+      <h1>{{canal.nombreCanal}}</h1>
+
+      <div class="channel-subscriber-count" *ngIf="suscriptores.suscriptores == 1">{{suscriptores.suscriptores}} suscriptor</div>
+      <div class="channel-subscriber-count" *ngIf="suscriptores.suscriptores != 1">{{suscriptores.suscriptores}} suscriptores</div>
+
+    </div>
+
+    <div class="channel-subscribe">
+
+      <app-boton-suscripcion></app-boton-suscripcion>
+      <button class="notification-btn btn" aria-label="Enable Notifications"><i class="fas fa-bell" aria-hidden="true"></i></button>
+
+    </div>
+
+    <button >Chatea conmigo!</button>
+
+
+  </div>
+
 </section>
 <!-- End of channel info section -->
 
 <!-- Channel navigation -->
 <nav class="channel-nav">
-    <div class="container">
-        <ul>
-            <li class="nav-item">
-                <a href="#" class="current">Home</a>
-            </li>
 
-            <li class="nav-item">
-                <a href="#">Videos</a>
-            </li>
+  <div class="container">
 
-            <li class="nav-item">
-                <a href="#">Suscriptores</a>
-            </li>
-        </ul>
-    </div>
+    <ul>
+      <li class="nav-item">
+        <a href="#" class="current">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#">Videos</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#">Suscriptores</a>
+      </li>
+    </ul>
+
+  </div>
+
 </nav>
 <!-- End of channel navigation -->
 
 <!-- Channel main content -->
 <main class="channel-content">
-    <div class="container">
-        <!-- Channel videos -->
-        <section class="channel-videos">
-            <div class="featured-video">
-                <h3>El contenido de este canal es:</h3>
-                <div class="video-thumbnail">
-                    <div *ngFor="let etiqueta of etiquetas">
-                        <a class="etiqueta">{{ etiqueta.descripcion }}</a>
-                    </div>
-                </div>
 
-                <div
-                    class="vlogs-playlist playlist"
-                    *ngFor="let etiqueta of etiquetas"
-                >
-                    <h2 class="playlist-title">{{ etiqueta.descripcion }}</h2>
+  <div class="container">
 
-                    <div class="playlist-videos">
-                        <div class="playlist-video" tabindex="0">
-                            <div class="video-thumbnail">
-                                <img
-                                    src="https://images.unsplash.com/photo-1506960002266-9cebbf4e9549?w=210&h=118&fit=crop"
-                                    alt=""
-                                />
-                            </div>
+    <!-- Channel videos -->
+    <section class="channel-videos">
 
-                            <div class="video-info">
-                                <h3 class="video-title">Really Cool Vlog 8</h3>
-                                <ul class="video-meta-data">
-                                    <li class="video-creator">
-                                        ReallyCoolVlogs
-                                        <i class="fas fa-check-circle"></i>
-                                    </li>
-                                    <li class="video-views">252K views</li>
-                                    <li class="video-upload-date">1 day ago</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <!-- End of main content container -->
-
-    <div class="container">
-        <div class="row" *ngFor="let videos_canal of videos_id_canal">
-            <a
-                class="card"
-                routerLink="/apollo/video/{{ videos_canal.id }}"
-                [style.background-image]="'url(' + videos_canal.miniatura + ')'"
-            >
-                <div class="title">{{ videos_canal.titulo }}</div>
-
-                <a href="#"
-                    ><div
-                        class="catagory"
-                        routerLink="/apollo/canal/{{ videos_canal.id_canal }}"
-                    >
-                        {{ videos_canal.nombre_canal
-                        }}<i class="fas fa-film"></i></div
-                ></a>
-                <a href="#"
-                    ><div class="views">Fecha<i class="far fa-eye"></i></div
-                ></a>
-            </a>
+      <div class="featured-video">
+        <h3>El contenido de este canal es:</h3>
+        <div class="video-thumbnail">
+          <div *ngFor="let etiqueta of etiquetas">
+            <a class="etiqueta">{{etiqueta.descripcion}}</a>
+          </div>
         </div>
+
+        <div class="vlogs-playlist playlist" *ngFor="let etiqueta of etiquetas">
+
+          <h2 class="playlist-title">{{etiqueta.descripcion}}</h2>
+
+          <div class="playlist-videos">
+
+            <div class="playlist-video" tabindex="0">
+
+              <div class="video-thumbnail">
+                <img src="https://images.unsplash.com/photo-1506960002266-9cebbf4e9549?w=210&h=118&fit=crop" alt="">
+              </div>
+
+              <div class="video-info">
+                <h3 class="video-title">Really Cool Vlog 8</h3>
+                <ul class="video-meta-data">
+                  <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
+                  <li class="video-views">252K views</li>
+                  <li class="video-upload-date">1 day ago</li>
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+  <!-- End of main content container -->
+
+  <div class="container">
+    <div class="row" *ngFor="let videos_canal of videos_id_canal">
+      <a class="card" routerLink="/apollo/video/{{videos_canal.id}}" [style.background-image]="'url(' + videos_canal.miniatura + ')'">
+
+        <div class="title">{{videos_canal.titulo}}</div>
+
+        <a href="#"><div class="catagory" routerLink="/apollo/canal/{{videos_canal.id_canal}}">{{videos_canal.nombre_canal}}<i class="fas fa-film"></i></div></a>
+        <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+
+      </a>
     </div>
+  </div>
+
 </main>
 <!-- End of main content -->
