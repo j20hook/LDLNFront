@@ -38,15 +38,28 @@ export class RegistroComponent implements OnInit{
     this.service.crearUsuario(this.usuario).subscribe((data :any)=>{
       console.log(data)
 
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: '¡Usuario Registrado!',
-        showConfirmButton: false,
-        timer: 1000,
-      })
+      if (data['message'] == 'Necesita un mínimo de 3 carácteres'){
 
-      this.router.navigate(['/apollo/login'])
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...!',
+          text: data['message'],
+        });
+
+      }else if(data['message'] == 'Usuario registrado con éxito'){
+
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: data['message'],
+          showConfirmButton: false,
+          timer: 1000,
+        })
+
+
+        this.router.navigate(['/apollo/login'])
+
+      }
 
     }, (error)=> {
       console.error(error);

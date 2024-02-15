@@ -81,8 +81,8 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
           .getUsuarioByUsername(this.usuario)
           .subscribe((data: any) => {
               console.log(data);
-              this.id_usuario = data['id']
-              this.usuario.id = 3;
+              this.id_usuario = data['id'];
+              this.usuario.id = data['id'];
               this.service
                   .getVideosRecomendados(this.usuario)
                   .subscribe((data) => {
@@ -118,24 +118,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
                 console.error('no funciona', error);
             }
         );
-
-  }
-
-  enviarComentario(){
-
-    this.comentario.id_video = Number(this.id_video);
-    this.comentario.id_usuario = this.id_usuario;
-
-    this.service.crearComentario(this.comentario)
-      .subscribe(
-        data => {
-          console.log(data)
-          window.location.reload()
-        },
-        error => {
-          console.error("no funciona", error);
-        }
-      )
 
   }
 
