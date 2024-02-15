@@ -249,23 +249,15 @@ body {
 }
 
 .compartir{
-
   margin: 10px 0;
-
 }
 
 .guardar{
-
   margin: 10px 0;
-
-
 }
 
 .like_dislike{
-
-  display: flex;
-  align-items: center;
-
+  width: 400px;
 }
 
 .comentarios{

@@ -50,25 +50,19 @@
 
               </div>
 
-              <button class="suscribirse">Suscribirme</button>
+                                <app-boton-suscripcion></app-boton-suscripcion>
+                            </div>
 
-            </div>
+                            <div class="botones_likes">
+                                <app-like-dislike
+                                    class="like_dislike"
+                                ></app-like-dislike>
 
-            <div class="botones_likes">
-
-              <div class="like_dislike">
-                <button class="like">Like</button>
-                <button class="dislike">Dislike</button>
-              </div>
-
-              <button class="compartir">Compartir</button>
-              <button class="guardar">Guardar</button>
-
-            </div>
-
-          </div>
-
-        </div>
+                                <button class="compartir">Compartir</button>
+                                <button class="guardar">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
 
         <div class="descripcion">
           <p>{{ formatearFecha(video.fechaPublicacion) }}</p>

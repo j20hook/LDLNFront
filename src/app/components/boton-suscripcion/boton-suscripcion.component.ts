@@ -32,31 +32,24 @@ export class BotonSuscripcionComponent implements OnInit {
         this.service.getUsuarioByUsername(this.usuario1).subscribe((data) => {
             this.usuario = data;
             console.log(this.usuario);
-            this.comprobarSuscripcion();
+            this.service.getCanalPorUsuario(this.usuario).subscribe(
+                (data) => {
+                    this.canal = data;
+                    console.log(this.canal);
+                    this.comprobarSuscripcion();
+                },
+                (error) => {
+                    console.error('no funciona', error);
+                }
+            );
         });
-        this.route.params.subscribe((params) => {
-            const canalId = +params['id'];
-            if (canalId) {
-                this.service.getCanalPorId(canalId).subscribe(
-                    (data) => {
-                        this.canal = data;
-                        console.log(this.canal);
-                    },
-                    (error) => {
-                        console.error('no funciona', error);
-                    }
-                );
-            }
-        });
+
         this.comprobarSuscripcion();
     }
 
-    comprobarSuscripcion() {
+    async comprobarSuscripcion() {
         this.suscripcion.usuario = this.usuario.id;
-        this.route.params.subscribe((params) => {
-            this.canal1.id = params['id'];
-            this.suscripcion.canal!.id = this.canal1.id;
-        });
+        this.suscripcion.canal = this.canal.id;
         this.service.getSuscripcionByIdUsuario(this.suscripcion).subscribe(
             (data) => {
                 this.suscripcionCheck = data;
@@ -70,7 +63,7 @@ export class BotonSuscripcionComponent implements OnInit {
         );
     }
 
-    async suscribirse() {
+    suscribirse() {
         this.suscripcion.usuario = this.usuario.id;
         this.suscripcion.canal = this.canal.id;
 
@@ -91,7 +84,7 @@ export class BotonSuscripcionComponent implements OnInit {
         );
     }
 
-    async activarSuscripcion() {
+    activarSuscripcion() {
         this.service.activarSuscripcion(this.suscripcionCheck.id).subscribe(
             (response) => {
                 console.log(response); // Manejo de la respuesta del backend
@@ -102,7 +95,7 @@ export class BotonSuscripcionComponent implements OnInit {
             }
         );
     }
-    async desuscribirse() {
+    desuscribirse() {
         this.service.desactivarSuscripcion(this.suscripcionCheck.id).subscribe(
             (response) => {
                 console.log(response); // Manejo de la respuesta del backend

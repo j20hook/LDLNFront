@@ -34,6 +34,10 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
 import { ChatComponent } from './components/chat/chat.component';
 import { EditarVideoComponent } from './components/editar-video/editar-video.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
+import { BotonLikeComponent } from './components/like-dislike/boton-like/boton-like.component';
+import { LikeDislikeComponent } from './components/like-dislike/like-dislike.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
 
 @NgModule({
     declarations: [
@@ -56,6 +60,9 @@ import { EditarCanalComponent } from './components/canal/editar-canal/editar-can
         EditarCanalComponent,
         ChatComponent,
         EditarVideoComponent,
+        BotonLikeComponent,
+        LikeDislikeComponent,
+        BotonDislikeComponent,
     ],
 
     imports: [
@@ -68,6 +75,7 @@ import { EditarCanalComponent } from './components/canal/editar-canal/editar-can
         CommonModule,
         YouTubePlayerModule,
         FontAwesomeModule,
+        BrowserAnimationsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

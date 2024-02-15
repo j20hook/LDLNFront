@@ -1,0 +1,20 @@
+body{
+  display: grid;
+  background: none;
+  grid-template-colums: repeat(2, 1fr);
+}
+
+.like{
+  background: none;
+  color: #f0f0f0;
+  border: none;
+  border-top-left-radius: 20px ;
+  border-bottom-left-radius: 20px ;
+}
+.dislike{
+  background: none;
+  color: #f0f0f0;
+  border: none;
+  border-top-right-radius: 20px ;
+  border-bottom-right-radius: 20px ;
+}
