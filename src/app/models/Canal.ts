@@ -10,5 +10,5 @@ export class Canal{
   fecha_creacion?: string = '';
   etiquetas?: string[] = [];
   usuario: Usuario = new Usuario();
-  activo: boolean = true;
+  activo?: boolean = true;
 }

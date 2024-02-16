@@ -34,6 +34,10 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
 import { ChatComponent } from './components/chat/chat.component';
 import { EditarVideoComponent } from './components/editar-video/editar-video.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
     declarations: [
@@ -57,18 +61,22 @@ import { EditarCanalComponent } from './components/canal/editar-canal/editar-can
         ChatComponent,
         EditarVideoComponent,
     ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule,
+    YouTubePlayerModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule
 
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        RouterModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        CommonModule,
-        YouTubePlayerModule,
-        FontAwesomeModule,
-    ],
+
+  ],
     providers: [],
     bootstrap: [AppComponent],
 })

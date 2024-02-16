@@ -13,6 +13,13 @@ import {Suscripcion} from '../models/Suscripcion';
 export class GeneralService {
     private apiUrl = 'http://127.0.0.1:8000/api';
 
+  private id_canal = new BehaviorSubject<any>(null);
+  currentVariable = this.id_canal.asObservable();
+
+  mandarIdCanal(idCanal: any){
+    this.id_canal.next(idCanal);
+  }
+
     constructor(private http: HttpClient) {}
 
     tipoNotificaciones(): Observable<JSON> {
@@ -47,9 +54,13 @@ export class GeneralService {
         return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
     }
 
-  listarMensaje(data: Usuario, id_canal: number) :Observable<JSON> {
+  listarMensaje(canal_loggeado: Usuario, canal: Usuario) :Observable<JSON> {
+    let jsonCanales = {
+      id_canal1: canal_loggeado.id,
+      id_canal2: canal.id
+    };
 
-    return this.http.post<JSON>(`${this.apiUrl}/chat`, data);
+    return this.http.post<JSON>(`${this.apiUrl}/chat`, jsonCanales);
 
   }
 
@@ -180,14 +191,14 @@ export class GeneralService {
 
   }
 
-  getVideosEtiquetasCanalId(id_canal:number, etiqueta:string):Observable<JSON> {
+  getVideosEtiquetasCanalId(id_canal:number, etiqueta:any):Observable<JSON> {
 
     let jsonCanal = {
-      "id_canal": id_canal,
-      "etiqueta": etiqueta
+      "id": id_canal,
+      "etiqueta": etiqueta.descripcion
     };
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetacanal`, jsonCanal );
+    return this.http.post<JSON>(`${this.apiUrl}/video/poretiquetacanal?XDEBUG_SESSION_START=17804`, jsonCanal );
 
   }
 
@@ -204,7 +215,18 @@ export class GeneralService {
   }
 
 
-    editarCanal(data: Canal): Observable<JSON> {
+  editarCanal(data: Canal): Observable<JSON> {
         return this.http.put<JSON>(`${this.apiUrl}/canal/${data.id}`, data);
     }
+
+  getVideosSuscritos(usuario: Usuario):Observable<JSON> {
+
+    let jsonCanal = {
+      "id": usuario.id,
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/canalessuscritos`, jsonCanal );
+
+  }
+
 }

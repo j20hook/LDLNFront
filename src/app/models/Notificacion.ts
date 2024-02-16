@@ -6,5 +6,5 @@ export class Mensaje {
   tipo: number;
   fecha_notificacion: string = '';
   usuario: Usuario = new Usuario();
-  activo: boolean;
+  activo?: boolean;
 }
