@@ -34,6 +34,7 @@ import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-
 import { ChatComponent } from './components/chat/chat.component';
 import { EditarVideoComponent } from './components/editar-video/editar-video.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
     declarations: [
@@ -56,6 +57,7 @@ import { EditarCanalComponent } from './components/canal/editar-canal/editar-can
         EditarCanalComponent,
         ChatComponent,
         EditarVideoComponent,
+        ResetPasswordComponent,
     ],
 
     imports: [

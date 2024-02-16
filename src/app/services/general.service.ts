@@ -11,7 +11,7 @@ import {Suscripcion} from '../models/Suscripcion';
     providedIn: 'root',
 })
 export class GeneralService {
-    private apiUrl = 'http://127.0.0.1:8000/api';
+    private apiUrl = '/api';
 
     constructor(private http: HttpClient) {}
 
@@ -68,7 +68,7 @@ export class GeneralService {
 
         console.log(body);
         return this.http.post<Video[]>(
-            'http://127.0.0.1:8000/api/video/poretiquetas',
+            'http:/api/video/poretiquetas',
             body
         );
     }
@@ -87,7 +87,14 @@ export class GeneralService {
         );
     }
 
-    crearCanal(data: Canal): Observable<JSON> {
+  // En el servicio GeneralService
+  resetearContrasena(email: string): Observable<any> {
+    const data = { email: email };
+    return this.http.post(`${this.apiUrl}/reset-password`, data);
+  }
+
+
+  crearCanal(data: Canal): Observable<JSON> {
         return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
     }
 

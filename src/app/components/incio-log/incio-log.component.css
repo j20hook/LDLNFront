@@ -9,18 +9,27 @@
 .listado_etiquetas{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
 
 }
 
 .palabra_lista{
-  margin-left: 20px;
-  color: black;
+
+  color: white;
+  border:none;
   background-color: #4B0082;
   text-transform: lowercase;
-  font-size: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 15px;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 10px;
+
 }
+
 
 .palabra_lista:first-letter {
   text-transform: uppercase;
@@ -30,7 +39,7 @@
 .palabra_lista:hover{
   border-color:black ;
   color: white;
-  background-color: #000000;
+  background-color: #5b1092;
   transition: 0.5s ;
 }
 
@@ -46,6 +55,8 @@
 
 .texto_videos{
   margin-bottom: 3%;
+  display: flex;
+  height: 316px;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
@@ -53,7 +64,7 @@
 
 
 .texto_videos h2{
-  width: 100%;
+
   border-bottom: 1px solid #000;
   line-height: 0.1em;
   margin: 10px 0 20px;
@@ -86,6 +97,7 @@
   transition: .5s;
   cursos: pointer;
   margin-left: 20px;
+  scroll-snap-align: center;
 }
 
 .card:hover {
@@ -98,8 +110,8 @@
   width: 100%;
   bottom: 0;
   left: 0;
-  font-size: 26px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 100;
   padding: 30px 0;
   background: linear-gradient(to top, #000, transparent);
   text-transform: uppercase;
@@ -133,7 +145,7 @@
   position: absolute;
   left: 10px;
   top: 175px;
-  padding: 3px 10px;
+  padding: -7px 10px;
   font-size: 15px;
   font-weight: 700;
   text-align: center;
