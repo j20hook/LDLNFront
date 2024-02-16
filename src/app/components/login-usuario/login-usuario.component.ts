@@ -17,20 +17,24 @@ export class LoginUsuarioComponent {
 
   inciarSesion(){
 
-    this.service.login(this.usuario).subscribe((data:any)=>{
+    this.service.login(this.usuario).subscribe({
+      next: (respuesta:any) => {
 
-      localStorage.setItem('token', data)
+        console.log(respuesta);
 
-      this.service.getUsuarioByUsername(this.usuario).subscribe((data:any)=>{
+        if(respuesta.token != null){
 
-        localStorage.setItem('username', data['username'])
+          localStorage.setItem('token' , respuesta.token);
+          localStorage.setItem('username', this.usuario.username);
+            this.router.navigate(['apollo/inicio_log']);
 
-      })
+        }
 
-      this.router.navigate(['/apollo/inicio_log'])
+      },
 
-    })
+      error: (e) => console.error(e),
 
+    });
   }
 
 }

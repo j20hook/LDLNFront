@@ -16,7 +16,8 @@ export class IncioLogComponent implements OnInit{
   etiqueta_elegida: any;
 
   videosData: any;
-  videos: Video[] = [];
+  videos_por_etiqueta: Video[] = [];
+  videos_suscritos: Video[] = [];
 
   videos_usuarios: any;
   usuari1 = new Usuario()
@@ -46,6 +47,14 @@ export class IncioLogComponent implements OnInit{
             console.error("no funciona", error);
           }
         )
+
+      this.service.getVideosSuscritos(this.usuario).subscribe(
+        (data:any)=>{
+          this.videos_suscritos = data;
+          console.log(this.videos_suscritos);
+        }
+      )
+
     });
 
 
@@ -65,9 +74,9 @@ export class IncioLogComponent implements OnInit{
 
     this.service.mandarEtiquetaQuery(this.etiqueta_elegida).subscribe((data:any) => {
 
-      this.videos=data;
+      this.videos_por_etiqueta=data;
 
-      console.log(this.videos)
+      console.log(this.videos_por_etiqueta)
 
     });
   }

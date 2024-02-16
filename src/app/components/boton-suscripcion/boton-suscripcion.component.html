@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <body>
         <button
-            *ngIf="estado_suscripcion == false"
+            *ngIf="!estado_suscripcion"
             type="submit"
             value="Suscribirse"
             (click)="suscribirse()"

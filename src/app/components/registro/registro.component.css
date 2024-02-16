@@ -172,6 +172,16 @@ body {
   border-radius: 5px;
 }
 
+.signup-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  gap: 5px;
+}
+
 .signup-form input[type="submit"] {
   background-color: #4B0082;
   color: white;

@@ -3,4 +3,7 @@ button{
   color: #f0f0f0;
   border: none;
   border-radius: 20px;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bolder;
 }

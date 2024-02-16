@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <body>
+        <button
+            (click)="toggleDislikeState()"
+            [@heart]="likeState"
+            size="large"
+            [name]="iconName"
+        >
+            <img src="../../../../assets/img/disgusto.png" />
+        </button>
+    </body>
+</html>

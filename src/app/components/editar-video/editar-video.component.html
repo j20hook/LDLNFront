@@ -10,15 +10,7 @@
 
 <body>
 
-<div class="navbar">
-  <li class="logo">
-    <a href="#">
-      <img src="../../../assets/img/logoApolloSinBG.png" alt="Apollo Logo">
-    </a>
-  </li>
-  <a href="#" class="buttons">Login</a>
-</div>
-
+<app-header></app-header>
 
 <div class="login-container">
   <form class="login-form" (submit)="editarVideo()">
@@ -38,13 +30,9 @@
       <option *ngFor="let etiqueta of etiquetas">{{ etiqueta }}</option>
     </select>
 
-    <input type="datetime-local" id="fecha_publicacion" name="fecha_publicacion" placeholder="Fecha Publicación" [(ngModel)]="video.fecha_publicacion" required>
-
-    <input type="url" id="url" name="url" placeholder="Url" [(ngModel)]="video.url" required>
-
     <input type="url" id="miniatura" name="miniatura" placeholder="Url de la miniatura" [(ngModel)]="video.miniatura" required>
 
-    <button type="submit" id="subir-button">Subir</button>
+    <button type="submit" id="subir-button">Editar Video</button>
   </form>
 
   <div class="modal" id="progress-modal">
