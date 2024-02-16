@@ -41,33 +41,68 @@
               </div>
 
               <div class="nombre_canal_suscripciones">
-                <h4>{{video.canal.nombreCanal}}</h4>
-                <p>{{suscriptores.suscriptores}} suscriptores</p>
+                <a href="apollo/canal/{{video.canal.id}}">
+                  <h4>{{video.canal.nombreCanal}}</h4>
+                </a>
+
+                <p *ngIf="suscriptores.suscriptores == 1">{{suscriptores.suscriptores}} suscriptor</p>
+                <p *ngIf="suscriptores.suscriptores != 1">{{suscriptores.suscriptores}} suscriptores</p>
+
               </div>
 
-              <button class="suscribirse">Suscribirme</button>
+              <app-boton-suscripcion></app-boton-suscripcion>
 
             </div>
 
             <div class="botones_likes">
 
-              <div class="like_dislike">
-                <button class="like">Like</button>
-                <button class="dislike">Dislike</button>
-              </div>
+              <app-like-dislike class="like_dislike">
+              </app-like-dislike>
 
               <button class="compartir">Compartir</button>
               <button class="guardar">Guardar</button>
 
             </div>
-
           </div>
-
         </div>
 
         <div class="descripcion">
           <p>{{ formatearFecha(video.fechaPublicacion) }}</p>
-          <p>{{ video.descripcion }}</p>
+          <p id="descripcion">{{ video.descripcion }}</p>
+        </div>
+
+        <button id="verMas" (click)="verMas()">Ver más</button>
+
+        <div class="comentarios">
+
+          <h3>{{comentarios.length}} comentarios</h3>
+
+          <form name="form" id="form" (ngSubmit)="enviarComentario()">
+
+            <input type="text" name="texto" id="texto" placeholder="Comentario" [(ngModel)]="comentario.texto" required>
+
+            <button id="boton" type="submit">Comentar</button>
+
+          </form>
+
+          <div id="comentario" *ngFor="let c of comentarios">
+
+            <img src="assets/img/user_default.png">
+
+            <div class="nombretexto">
+
+              <div class="username">
+                @{{ c.usuario.username }}
+                {{ c.fechaPublicacion }}
+              </div>
+              <div class="texto">
+                {{ c.texto }}
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -92,7 +127,7 @@
 
                 <div class="content">
                   <h4>{{v.titulo}}</h4>
-<!--                  <p>{{v.canal.nombreCanal}}</p>-->
+                  <p>{{v.nombre_canal}}</p>
                 </div>
 
               </div>

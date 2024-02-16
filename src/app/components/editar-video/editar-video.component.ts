@@ -23,6 +23,12 @@ export class EditarVideoComponent {
 
   ngOnInit() {
 
+    this.service.getVideoPorId(this.id_video).subscribe((data:any)=>{
+
+      this.video = data;
+
+    })
+
     this.service.tipoVideos().subscribe((data:any) => {
 
       for (var desc of data)

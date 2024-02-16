@@ -1,8 +1,9 @@
-import {Usuario} from "./Usuario";
+import { Usuario } from './Usuario';
+import { Video } from './Video';
 
 export class ValoracionNegativa {
-  id?: number;
-  dislike?:boolean;
-  video?: number;
-  usuario: Usuario = new Usuario();
+    id?: number;
+    dislike?: boolean;
+    video: Video = new Video();
+    usuario: Usuario = new Usuario();
 }

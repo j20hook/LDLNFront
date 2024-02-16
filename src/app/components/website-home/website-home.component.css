@@ -15,12 +15,9 @@ body {
   position: relative;
   align-items: center;
   width: 100%;
-  height: 50px;
   min-height: 100px;
-  align-items: center;
   justify-content: space-between;
-  background-color: transparent;
-  align-self: center;
+  background-color: black;
 }
 
 .navbar li {
@@ -58,7 +55,8 @@ body {
   display: flex;
   flex-direction: row;
   border-radius: 3px;
-  margin-right: 10px;
+  margin-right: 50px;
+  text-decoration: none;
 }
 
 .main {
@@ -113,6 +111,14 @@ body {
 .box {
   width: 50%;
   min-height: 50px;
+  padding: 10px;
+  outline: none;
+}
+
+.box:focus{
+
+  border: 2px solid #2a0059;
+
 }
 
 .try {
@@ -332,8 +338,6 @@ body {
     margin-bottom: 30px;
 
   }
-
-
 
   .search {
     display: flex;
