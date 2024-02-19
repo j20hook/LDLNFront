@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Video } from '../../models/Video';
 import { Usuario } from '../../models/Usuario';
 import {Comentario} from "../../models/Comentario";
+import {Visita} from "../../models/Visita";
 
 @Component({
     selector: 'app-video',
@@ -64,15 +65,39 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   comentario = new Comentario();
 
+  visita = new Visita();
+  visita2 = new Visita();
+  visitas : any;
+
+  mostrarComentarios(){
+
+    this.videoComentario.id = Number(this.id_video);
+    this.service.comentariosPorVideo(this.videoComentario).subscribe(data=>{
+      this.comentarios = data;
+      console.log(data)
+
+    })
+
+  }
+
+  getVisitas(){
+
+    this.visita2.id_video = Number(this.id_video)
+
+    this.service.visitasPorVideo(this.visita2).subscribe(data=>{
+
+      console.log(data)
+
+      this.visitas = data;
+
+    })
+
+  }
+
     ngOnInit() {
 
-      this.videoComentario.id = Number(this.id_video);
-      this.service.comentariosPorVideo(this.videoComentario).subscribe(data=>{
-
-        this.comentarios = data;
-        console.log(data)
-
-      })
+      this.mostrarComentarios()
+      this.getVisitas()
 
       this.usuario.username = localStorage.getItem('username') || '';
       this.service
@@ -81,6 +106,7 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
               console.log(data);
               this.id_usuario = data['id'];
               this.usuario.id = data['id'];
+              this.crearVisita(Number(this.usuario.id));
               this.service
                   .getVideosRecomendados(this.usuario)
                   .subscribe((data) => {
@@ -119,6 +145,19 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 
+  crearVisita(id:number){
+
+    this.visita.id_video = Number(this.id_video);
+    this.visita.id_usuario = id;
+
+    this.service.crearVisita(this.visita).subscribe(data=>{
+
+      console.log(data)
+
+    })
+
+  }
+
   enviarComentario(){
 
     this.comentario.id_video = Number(this.id_video);
@@ -128,6 +167,7 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe(
         data => {
           console.log(data)
+          this.mostrarComentarios()
         },
         error => {
           console.error("no funciona", error);

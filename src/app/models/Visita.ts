@@ -3,7 +3,7 @@ import {Usuario} from "./Usuario";
 export class Visita {
   id?: number;
   fecha_visita?: string = '';
-  video?: number;
-  usuario: Usuario = new Usuario();
+  id_video?: number;
+  id_usuario?: number;
   activo?: boolean;
 }

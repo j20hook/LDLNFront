@@ -3,6 +3,10 @@ import {GeneralService} from "../../services/general.service";
 import {Router} from "@angular/router";
 import {Tipos} from "../../models/Tipos";
 import {Video} from "../../models/Video";
+import {Usuario} from "../../models/Usuario";
+import {Canal} from "../../models/Canal";
+import {error} from "@angular/compiler-cli/src/transformers/util";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-subir-video',
@@ -17,6 +21,8 @@ export class SubirVideoComponent implements OnInit{
   video= new Video();
   tiposVideo : string[] = [];
   etiquetas : string[] = [];
+  usuario = new Usuario();
+  canal : any;
 
   ngOnInit() {
 
@@ -40,11 +46,27 @@ export class SubirVideoComponent implements OnInit{
 
   crearVideo(){
 
-    this.video.id_canal = 1;
+    this.usuario.username = localStorage.getItem('username') || ''
 
-    this.service.subirVideo(this.video).subscribe(data=>{
+    this.service.getCanalPorUsername(this.usuario).subscribe(data=>{
 
-      this.router.navigate(['/apollo']);
+      this.canal = data;
+      this.video.id_canal = this.canal.id;
+      this.video.tipo = (<HTMLInputElement>document.getElementById('tipo')).value
+
+      this.service.subirVideo(this.video).subscribe(data=>{
+
+        this.router.navigate(['/apollo']);
+
+      })
+
+    },error=>{
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...!',
+        text: error,
+      });
 
     })
 

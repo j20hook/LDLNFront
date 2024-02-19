@@ -8,6 +8,7 @@ import { Suscripcion } from '../models/Suscripcion';
 import { ValoracionPositiva } from '../models/ValoracionPositiva';
 import { ValoracionNegativa } from '../models/ValoracionNegativa';
 import {Comentario} from "../models/Comentario";
+import {Visita} from "../models/Visita";
 
 
 @Injectable({
@@ -50,7 +51,7 @@ export class GeneralService {
     }
 
     subirVideo(data: Video): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
+        return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=19821`, data);
     }
 
     login(data: Usuario): Observable<JSON> {
@@ -285,6 +286,24 @@ export class GeneralService {
     };
 
     return this.http.post<JSON>(`${this.apiUrl}/video/canalessuscritos`, jsonCanal );
+
+  }
+
+  getCanalPorUsername(usuario:Usuario):Observable<JSON> {
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/porusername`, usuario );
+
+  }
+
+  crearVisita(visita:Visita):Observable<JSON>{
+
+    return this.http.post<JSON>(`${this.apiUrl}/visita/crear`, visita );
+
+  }
+
+  visitasPorVideo(visita:Visita):Observable<JSON>{
+
+      return this.http.post<JSON>(`${this.apiUrl}/visita/porvideo`, visita );
 
   }
 
