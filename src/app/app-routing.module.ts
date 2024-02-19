@@ -13,7 +13,7 @@ import { CanalComponent } from './components/canal/canal.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
 import {ChatComponent} from "./components/chat/chat.component";
 import {VideosCanalComponent} from "./components/canal/videos-canal/videos-canal.component";
-import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {ResetPasswordComponent} from "./components/reset-password/reset-password.component";
 
 const routes: Routes = [
     { path: 'apollo', component: WebsiteHomeComponent },

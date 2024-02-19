@@ -11,8 +11,6 @@ import {
 import { GeneralService } from '../../services/general.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Video } from '../../models/Video';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
 import { Usuario } from '../../models/Usuario';
 import {Comentario} from "../../models/Comentario";
 
@@ -130,7 +128,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe(
         data => {
           console.log(data)
-          window.location.reload()
         },
         error => {
           console.error("no funciona", error);

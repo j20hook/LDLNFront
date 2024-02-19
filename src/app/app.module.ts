@@ -38,9 +38,9 @@ import { BotonLikeComponent } from './components/like-dislike/boton-like/boton-l
 import { LikeDislikeComponent } from './components/like-dislike/like-dislike.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
-import {MatButtonModule} from "@angular/material/button";
+import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
     declarations: [

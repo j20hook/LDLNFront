@@ -1,16 +1,12 @@
-import {Component, Inject, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GeneralService } from '../../services/general.service';
-import { Canal } from '../../models/Canal';
 import { Usuario } from '../../models/Usuario';
-import { Suscripcion } from '../../models/Suscripcion';
-import { ErrorcuatrocientoscuatroComponent } from '../errorcuatrocientoscuatro/errorcuatrocientoscuatro.component';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import {ChatComponent} from "../chat/chat.component";
-import {SharedService} from "../../services/shared/shared.service";
 
 
 
@@ -39,8 +35,7 @@ export class CanalComponent implements OnInit {
         private route: ActivatedRoute,
         private dataservice: GeneralService,
         private router: Router,
-        public chat: MatDialog,
-        public shared: SharedService) {}
+        public chat: MatDialog) {}
 
   ngOnInit() {
 
@@ -52,7 +47,6 @@ export class CanalComponent implements OnInit {
               data => {
                 this.canal = data;
                 console.log(this.canal)
-                this.shared.setIdCanal(this.canal)
               },
               error => {
                 console.error("no funciona", error);

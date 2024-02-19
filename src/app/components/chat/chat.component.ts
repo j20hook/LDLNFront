@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Usuario} from "../../models/Usuario";
 import {GeneralService} from "../../services/general.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import { SharedService } from '../../services/shared.service';
-import { Subscription } from 'rxjs';
 
 
 
@@ -22,15 +20,10 @@ export class ChatComponent implements OnInit {
 
   listamensajes: any;
 
-  abrirComponente2 = false;
-  private subscription: Subscription;
+
   constructor(private dataservice: GeneralService,
               private route: ActivatedRoute,
-              private router: Router,
-              private sharedService: SharedService) {
-    this.subscription = this.sharedService.abrirChat$.subscribe(
-      (value) => (this.abrirComponente2 = value)
-    );
+              private router: Router) {
   }
   ngOnInit() {
 
