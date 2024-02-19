@@ -23,6 +23,7 @@ export class IncioLogComponent implements OnInit{
   usuari1 = new Usuario()
 
   usuario: any;
+  videos_recomendados: Video[] = [];
   constructor(private service: GeneralService, private _route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
@@ -52,6 +53,13 @@ export class IncioLogComponent implements OnInit{
         (data:any)=>{
           this.videos_suscritos = data;
           console.log(this.videos_suscritos);
+        }
+      )
+
+      this.service.getVideosRecomendados(this.usuario).subscribe(
+        (data:any)=>{
+          this.videos_recomendados = data;
+          console.log(this.videos_recomendados);
         }
       )
 

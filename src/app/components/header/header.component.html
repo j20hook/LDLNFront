@@ -47,7 +47,7 @@
 
       <div class="desplegable">
         <a href="/apollo/perfil/datos">Mi Perfil</a>
-        <a href="/apollo/canal/{{ canal.id }}">Mi Canal</a>
+        <div *ngIf="canal && canal.id"><a href="/apollo/canal/{{ canal.id }}">Mi Canal</a></div>
         <a>ETC</a>
         <a>ETC</a>
       </div>

@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit{
       .getUsuarioByUsername(this.usuario)
       .subscribe((data: any) => {
         // console.log(data);
-        this.usuario = data
+        this.usuario = data;
 
         this.service.getCanalPorUsuario(this.usuario).subscribe((data:any)=>{
 

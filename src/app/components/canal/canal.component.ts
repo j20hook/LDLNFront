@@ -139,17 +139,4 @@ export class CanalComponent implements OnInit {
     )
   }
 
-  abrirChat(){
-
-    const dialogRef = this.chat.open(ChatComponent);
-
-    // Utiliza afterOpened para ejecutar acciones después de que el modal se abre
-    dialogRef.afterOpened().subscribe(() => {
-      console.log('Modal abierto');
-      // Puedes realizar acciones adicionales aquí si es necesario
-    });
-
-  }
-
-
 }

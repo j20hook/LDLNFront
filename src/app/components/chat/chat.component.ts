@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject } from '@angular/core';
 import {Usuario} from "../../models/Usuario";
 import {GeneralService} from "../../services/general.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import { SharedService } from '../../services/shared.service';
 import { Subscription } from 'rxjs';
-
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {SharedService} from "../../services/shared/shared.service";
 
 
 @Component({
@@ -14,59 +14,60 @@ import { Subscription } from 'rxjs';
 })
 export class ChatComponent implements OnInit {
 
-  usuari1 = new Usuario()
+  canalId: any;
+  usuario: any;
+  usuari1 = new Usuario();
+  canal: any;
 
-  id_usuario: any;
-
-  id_canal: any;
-
-  listamensajes: any;
-
-  abrirComponente2 = false;
-  private subscription: Subscription;
   constructor(private dataservice: GeneralService,
               private route: ActivatedRoute,
               private router: Router,
-              private sharedService: SharedService) {
-    this.subscription = this.sharedService.abrirChat$.subscribe(
-      (value) => (this.abrirComponente2 = value)
-    );
-  }
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private shared: SharedService) {}
+
+
   ngOnInit() {
 
-    this.usuari1.username = localStorage.getItem('username') || '';
-    this.dataservice.getUsuarioByUsername(this.usuari1).subscribe((data: any) => {
-      this.id_usuario = data;
-      console.log(this.id_usuario);
-
-      this.route.params.subscribe(params => {
-        const canalId = +params['id'];
-        if (canalId) {
-          this.dataservice.getCanalPorId(canalId)
-            .subscribe(
-              data => {
-                this.id_canal = data;
-                console.log(this.id_canal)
-              },
-              error => {
-                console.error("no funciona", error);
-              }
-            )
-        }
+    this.canal = this.shared.getIdCanal();
+    console.log(this.canal)
 
 
-        this.dataservice.listarMensaje(this.id_canal, this.id_usuario)
+  /*  this.route.params.subscribe(params => {
+      const canalId = +params['id'];
+      if (canalId) {
+        this.dataservice.getCanalPorId(canalId)
           .subscribe(
             data => {
-              this.listamensajes = data;
-              console.log(this.listamensajes);
+              this.canal = data;
+              console.log(this.canal)
             },
             error => {
               console.error("no funciona", error);
             }
           )
 
-      })
-    })
+        this.usuari1.username = localStorage.getItem('username') || '';
+        this.dataservice.getUsuarioByUsername(this.usuari1).subscribe((data) => {
+          this.usuario = data;
+          console.log(this.usuario);
+
+          this.dataservice.getCanalPorUsuario(this.usuario).subscribe(
+            data => {
+              this.canal_loggeado = data;
+              console.log(this.canal_loggeado)
+
+              this.dataservice.listarMensaje(this.canal_loggeado, this.canal).subscribe(
+                data => {
+                  this.lista_mensajes = data;
+                  console.log(this.lista_mensajes)
+                }
+              )
+
+            }
+          )
+
+        });
+      }
+    })*/
   }
 }
