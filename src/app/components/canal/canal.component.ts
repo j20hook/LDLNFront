@@ -2,11 +2,9 @@ import {Component, OnInit } from '@angular/core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { GeneralService } from '../../services/general.service';
 import { Usuario } from '../../models/Usuario';
-import {MatDialog} from '@angular/material/dialog';
-import {ChatComponent} from "../chat/chat.component";
 
 
 
@@ -34,8 +32,6 @@ export class CanalComponent implements OnInit {
   constructor(
         private route: ActivatedRoute,
         private dataservice: GeneralService,
-        private router: Router,
-        public chat: MatDialog,
         ) {}
 
   ngOnInit() {
