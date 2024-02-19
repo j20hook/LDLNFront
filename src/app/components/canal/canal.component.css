@@ -18,6 +18,7 @@ body {
   min-height: 100vh;
 }
 
+
 a {
   display: inline-block;
   text-decoration: none;
@@ -648,6 +649,11 @@ body {
   margin: 0;
 }
 
+.todo_chat{
+  border-radius: 10px 10px 0 0;
+
+}
+
 a { text-decoration: none; }
 
 fieldset {
@@ -790,6 +796,17 @@ p { margin: 0; }
   margin: 16px 0;
 }
 
+.mensajes_recibidos{
+  float: right;
+  width: 50%;
+  border: 2px black solid;
+}
+
+.mensajes_enviados{
+  width: 50%;
+  border: 2px black solid;
+}
+
 .chat-message img {
   border-radius: 50%;
   float: left;
@@ -807,6 +824,10 @@ p { margin: 0; }
 .chat-feedback {
   font-style: italic;
   margin: 0 0 0 80px;
+}
+
+.mensaje_a_enviar{
+  width: 100%;
 }
 
 

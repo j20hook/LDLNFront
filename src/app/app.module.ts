@@ -31,7 +31,6 @@ import { CanalComponent } from './components/canal/canal.component';
 import { VideosCanalComponent } from './components/canal/videos-canal/videos-canal.component';
 import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/sucriptores-canal.component';
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
-import { ChatComponent } from './components/chat/chat.component';
 import { EditarVideoComponent } from './components/editar-video/editar-video.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
 import { BotonLikeComponent } from './components/like-dislike/boton-like/boton-like.component';
@@ -61,7 +60,6 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
         SucriptoresCanalComponent,
         BotonSuscripcionComponent,
         EditarCanalComponent,
-        ChatComponent,
         EditarVideoComponent,
         BotonLikeComponent,
         LikeDislikeComponent,

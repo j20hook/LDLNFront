@@ -11,7 +11,6 @@ import { CrearCanalComponent } from './components/crear-canal/crear-canal.compon
 import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { CanalComponent } from './components/canal/canal.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
-import {ChatComponent} from "./components/chat/chat.component";
 import {VideosCanalComponent} from "./components/canal/videos-canal/videos-canal.component";
 import {ResetPasswordComponent} from "./components/reset-password/reset-password.component";
 
@@ -29,7 +28,6 @@ const routes: Routes = [
     { path: 'apollo/canal/:id', component: CanalComponent },
     { path: 'apollo/reset_password', component: ResetPasswordComponent },
     { path: 'apollo/canal/:id/editar', component: EditarCanalComponent },
-    { path:'apollo/chat', component: ChatComponent},
     { path:'apollo/videos', component: VideosCanalComponent},
     { path:'apollo/video/editar/:id', component: VideosCanalComponent},
 ];
