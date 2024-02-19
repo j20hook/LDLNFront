@@ -13,6 +13,7 @@ import { CanalComponent } from './components/canal/canal.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
 import {ChatComponent} from "./components/chat/chat.component";
 import {VideosCanalComponent} from "./components/canal/videos-canal/videos-canal.component";
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 
 const routes: Routes = [
     { path: 'apollo', component: WebsiteHomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'apollo/canal/crear', component: CrearCanalComponent },
     { path: 'apollo/inicio_log', component: IncioLogComponent },
     { path: 'apollo/canal/:id', component: CanalComponent },
+    { path: 'apollo/reset_password', component: ResetPasswordComponent },
     { path: 'apollo/canal/:id/editar', component: EditarCanalComponent },
     { path:'apollo/chat', component: ChatComponent},
     { path:'apollo/videos', component: VideosCanalComponent},

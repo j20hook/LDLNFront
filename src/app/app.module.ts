@@ -40,7 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
 import {MatButtonModule} from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
     declarations: [
@@ -66,6 +66,7 @@ import { MatDialogModule } from '@angular/material/dialog';
         BotonLikeComponent,
         LikeDislikeComponent,
         BotonDislikeComponent,
+        ResetPasswordComponent,
     ],
   imports: [
     BrowserModule,
