@@ -96,8 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Asocia la función startProgressBar al evento click del botón "Subir"
-  const subirButton = document.getElementById('subir-button');
-  subirButton!.addEventListener('click', startProgressBar);
+  document.addEventListener('DOMContentLoaded', () => {
+    const subirButton = document.getElementById('subir-button');
+    subirButton!.addEventListener('click', startProgressBar);
+  });
 });
 
 function setProgressBarWidth(percent: number) {

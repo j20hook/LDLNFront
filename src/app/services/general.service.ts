@@ -51,7 +51,7 @@ export class GeneralService {
     }
 
     subirVideo(data: Video): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/video/crear?XDEBUG_SESSION_START=19821`, data);
+        return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
     }
 
     login(data: Usuario): Observable<JSON> {
@@ -208,7 +208,7 @@ export class GeneralService {
     };
 
         return this.http.post<JSON>(
-            `${this.apiUrl}/video/poretiquetacanal?XDEBUG_SESSION_START=17804`,
+            `${this.apiUrl}/video/poretiquetacanal`,
             jsonCanal
         );
     }
@@ -304,6 +304,12 @@ export class GeneralService {
   visitasPorVideo(visita:Visita):Observable<JSON>{
 
       return this.http.post<JSON>(`${this.apiUrl}/visita/porvideo`, visita );
+
+  }
+
+  notificacionesPorUsuario(data:Usuario):Observable<JSON>{
+
+    return this.http.post<JSON>(`${this.apiUrl}/notificacion/porusuario`, data );
 
   }
 

@@ -25,12 +25,13 @@ export class HeaderComponent implements OnInit{
   usuario = new Usuario();
   canal = new Canal();
 
+  notificaciones :any;
+
   constructor(private router: Router, private service: GeneralService) {
 
   }
 
   ngOnInit() {
-
     this.usuario.username = localStorage.getItem('username') || '';
 
     console.log(localStorage.getItem('username'))
@@ -40,6 +41,7 @@ export class HeaderComponent implements OnInit{
       .subscribe((data: any) => {
         // console.log(data);
         this.usuario = data;
+        this.getNotificacionesPorUsuario();
 
         this.service.getCanalPorUsuario(this.usuario).subscribe((data:any)=>{
 
@@ -63,6 +65,17 @@ export class HeaderComponent implements OnInit{
     localStorage.removeItem('username');
 
     this.router.navigate(['/apollo']);
+
+  }
+
+  getNotificacionesPorUsuario(){
+
+    this.service.notificacionesPorUsuario(this.usuario).subscribe(data=>{
+
+      this.notificaciones = data;
+      console.log(data)
+
+    })
 
   }
 
