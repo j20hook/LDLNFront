@@ -14,7 +14,7 @@
 <div class="main">
   <div class="area">
 
-    <h1>Hola {{usuario.username}} !</h1>
+    <h1>Hola! {{usuario.username}}</h1>
 
     <h3>TUS DATOS</h3>
 
@@ -23,14 +23,15 @@
       <p>Correo Electrónico: {{usuario.email}}</p>
       <p>Ubicación: {{ usuario.comunidad_autonoma }}</p>
       <p *ngIf="canal.id == 0" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
+      <img src="{{usuario.foto}}" Foto personal>
 
     </div>
 
     <h3 *ngIf="canal.id == null">¿Quieres crearte un canal?</h3>
 
-    <a *ngIf="canal.id == null" href="/apollo/canal/crear" class="boton">Vamos!</a>
+    <a *ngIf="canal.id == null" href="/apollo/canal/crear">Vamos!</a>
 
-    <a *ngIf="canal.id != null" href="/apollo/canal/{{canal.id}}" class="boton">Vamos a tu canal {{usuario.username}}!</a>
+    <a *ngIf="canal.id != null" href="/apollo/canal/{{canal.id}}">Vamos a tu canal {{usuario.username}}!</a>
 
 
   </div>

@@ -66,6 +66,8 @@ export class CrearCanalComponent implements OnInit {
           title: 'Oops...!',
           text: '¡Algo salio mal!',
         });
+
+        this.router.navigate(['apollo/inicio_log'])
       }
     );
   }
