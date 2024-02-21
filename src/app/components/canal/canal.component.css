@@ -184,7 +184,7 @@ a {
 
 .channel-social-links {
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: transparent;
 }
 
 .channel-social-links li {

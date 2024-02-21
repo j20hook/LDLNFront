@@ -3,7 +3,8 @@
 <!-- End of header -->
 
 <!-- Channel Banner -->
-<section class="channel-banner" [style.background-image]="'url(' + canal_loggeado.banner + ')'">
+  <div *ngIf="canal?.banner">
+<section class="channel-banner" [style.background-image]="'url(' + canal.banner + ')'">
 
   <div class="channel-social-links">
 
@@ -32,8 +33,9 @@
 
   <div class="container">
 
-    <div class="channel-icon">
-      <a><img class="imagen_user" src="{{usuario.foto}}"/></a>
+    <div class="channel-icon" *ngIf="canal?.foto!=''">
+
+      <a><img class="imagen_user" src="{{canal.foto}}"/></a>
 
     </div>
 
@@ -207,7 +209,7 @@
 
             <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
               <div *ngIf="canal_loggeado.id == mensaje.id_canal_receptor" class="mensajes_enviados">
-                <img src="" alt="" width="32" height="32">
+                <img src="{{usuario.foto}}" alt="" width="32" height="32">
                 <div class="chat-message-content clearfix">
                   <h3 class="chat-time">13:35</h3>
                   <h3>{{mensaje.texto}}</h3>
