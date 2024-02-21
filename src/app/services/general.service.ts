@@ -288,4 +288,25 @@ export class GeneralService {
 
   }
 
-}
+  EnviarMensajeBackend(canal_emisor: Usuario, canal_receptor: Usuario, texto: string): Observable<JSON>{
+      let jsonChat = {
+        "texto": texto,
+        "id_canal_emisor": canal_emisor.id,
+        "id_canal_receptor": canal_receptor.id
+      }
+
+    return this.http.post<JSON>(`${this.apiUrl}/chat/enviar`, jsonChat);
+
+
+  }
+
+  getSucriptoresPorIdCanal(id:any): Observable<JSON> {
+    let jsonSuscriptores = {
+      "id": id
+    }
+
+    return this.http.post<JSON>(`${this.apiUrl}/suscripcion/suscriptoresporcanal`, jsonSuscriptores);
+  }
+
+
+  }

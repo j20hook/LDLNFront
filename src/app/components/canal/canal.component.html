@@ -47,10 +47,18 @@
       </div>
     </div>
 
-    <div class="channel-subscribe">
+    <div class="channel-subscribe" *ngIf="canal_loggeado?.id && canal?.id">
+      <div *ngIf="canal_loggeado.id == canal.id; else canalAjeno" class="tamayo">
+        <mat-dialog-actions>
+          <button mat-raised-button (click)="editarCanal()" class="bton_edit">Editar canal</button>
+        </mat-dialog-actions>
+        <button class="bton_subir"><i><mat-icon>backup</mat-icon></i> Subir video</button>
+      </div>
 
-      <app-boton-suscripcion></app-boton-suscripcion>
-      <button class="notification-btn btn" aria-label="Enable Notifications"><i class="fas fa-bell" aria-hidden="true"></i></button>
+      <ng-template #canalAjeno>
+        <app-boton-suscripcion></app-boton-suscripcion>
+        <button class="notification-btn btn" aria-label="Enable Notifications"><i class="fas fa-bell" aria-hidden="true"></i></button>
+      </ng-template>
 
     </div>
 
@@ -62,21 +70,45 @@
 <!-- Channel navigation -->
 <nav class="channel-nav">
 
-  <div class="container">
+  <div class="container" *ngIf="canal_loggeado?.id && canal?.id">
 
-    <ul>
-      <li class="nav-item">
-        <a href="#" class="current">Home</a>
-      </li>
+    <div *ngIf="canal_loggeado.id == canal.id; else canalNoLog">
 
-      <li class="nav-item">
-        <a href="#">Videos</a>
-      </li>
+      <ul>
 
-      <li class="nav-item">
-        <a href="#">Suscriptores</a>
-      </li>
-    </ul>
+        <li class="nav-item" [class.pestana_seleccionada]="pestana_canal === 'home'">
+          <a (click)="abrirHome()">Home</a>
+        </li>
+
+        <li class="nav-item" [class.pestana_seleccionada]="pestana_canal === 'videos'">
+          <a (click)="abrirVideos()">Videos</a>
+        </li>
+
+        <li class="nav-item" [class.pestana_seleccionada]="pestana_canal === 'suscriptores'">
+          <a (click)="abrirSuscriptores()">Suscriptores</a>
+        </li>
+
+        <li class="nav-item" [class.pestana_seleccionada]="pestana_canal === 'data'">
+          <a (click)="abrirData()"><mat-icon>assessment</mat-icon>Data</a>
+
+        </li>
+
+      </ul>
+
+    </div>
+    <ng-template #canalNoLog>
+      <ul>
+
+        <li class="nav-item" [class.pestana_seleccionada]="pestana_canal === 'home'">
+          <a (click)="abrirHome()">Home</a>
+        </li>
+
+        <li class="nav-item" [class.pestana_seleccionada]="pestana_canal === 'videos'">
+          <a (click)="abrirVideos()">Videos</a>
+        </li>
+      </ul>
+    </ng-template>
+
 
   </div>
 
@@ -84,40 +116,46 @@
 <!-- End of channel navigation -->
 
 <!-- Channel main content -->
-<main class="channel-content">
+<div *ngIf="pestana_canal == 'home'">
 
-  <div class="container">
+    <main class="channel-content">
 
-    <!-- Channel videos -->
-    <section class="channel-videos">
+      <div class="container">
 
-      <div class="featured-video">
-        <h3>El contenido de este canal es:</h3>
-        <div class="video-thumbnail">
-          <div *ngFor="let etiqueta of etiquetas">
-            <a class="etiqueta">{{etiqueta.descripcion}}</a>
-          </div>
-        </div>
+        <!-- Channel videos -->
+        <section class="channel-videos">
 
-        <div class="vlogs-playlist playlist" *ngFor="let etiqueta of etiquetas">
-
-          <h2 class="playlist-title">{{etiqueta.descripcion}}</h2>
-
-          <div class="playlist-videos">
-
-            <div class="playlist-video" tabindex="0">
-
-              <div class="video-thumbnail">
-                <img src="https://images.unsplash.com/photo-1506960002266-9cebbf4e9549?w=210&h=118&fit=crop" alt="">
+          <div class="featured-video">
+            <h3>El contenido de este canal es:</h3>
+            <div class="video-thumbnail">
+              <div *ngFor="let etiqueta of etiquetas">
+                <a class="etiqueta">{{etiqueta.descripcion}}</a>
               </div>
+            </div>
 
-              <div class="video-info">
-                <h3 class="video-title">Really Cool Vlog 8</h3>
-                <ul class="video-meta-data">
-                  <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                  <li class="video-views">252K views</li>
-                  <li class="video-upload-date">1 day ago</li>
-                </ul>
+            <div class="vlogs-playlist playlist" *ngFor="let etiqueta of etiquetas">
+
+              <h2 class="playlist-title">{{etiqueta.descripcion}}</h2>
+
+              <div class="playlist-videos">
+
+                <div class="playlist-video" tabindex="0">
+
+                  <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1506960002266-9cebbf4e9549?w=210&h=118&fit=crop" alt="">
+                  </div>
+
+                  <div class="video-info">
+                    <h3 class="video-title">Really Cool Vlog 8</h3>
+                    <ul class="video-meta-data">
+                      <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
+                      <li class="video-views">252K views</li>
+                      <li class="video-upload-date">1 day ago</li>
+                    </ul>
+
+                  </div>
+
+                </div>
 
               </div>
 
@@ -125,88 +163,89 @@
 
           </div>
 
-        </div>
-
+        </section>
       </div>
+      <!-- End of main content container -->
 
-    </section>
+    </main>
+
   </div>
-  <!-- End of main content container -->
 
-  <div class="container">
-    <div class="row" *ngFor="let videos_canal of videos_id_canal">
-      <a class="card" routerLink="/apollo/video/{{videos_canal.id}}" [style.background-image]="'url(' + videos_canal.miniatura + ')'">
-
-        <div class="title">{{videos_canal.titulo}}</div>
-
-        <a href="#"><div class="catagory" routerLink="/apollo/canal/{{videos_canal.id_canal}}">{{videos_canal.nombre_canal}}<i class="fas fa-film"></i></div></a>
-        <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
-
-      </a>
-    </div>
+  <div *ngIf="pestana_canal == 'videos' ">
+    <app-videos-canal></app-videos-canal>
   </div>
+
+  <div *ngIf="pestana_canal == 'suscriptores' ">
+    <app-sucriptores-canal></app-sucriptores-canal>
+  </div>
+
+  <div *ngIf="pestana_canal == 'data' ">
+    <app-data></app-data>
+  </div>
+
 
   <!-- Chat -->
+<div *ngIf="canal_loggeado?.id && canal?.id">
+  <div *ngIf="canal_loggeado.id != canal.id">
+      <body>
 
-  <body>
+      <div id="live-chat" class="todo_chat">
 
-  <div id="live-chat" class="todo_chat">
+        <header class="clearfix">
 
-    <header class="clearfix">
+          <a href="#" class="chat-close">x</a>
 
-      <a href="#" class="chat-close">x</a>
+          <div *ngIf="canal_loggeado && canal_loggeado.username"><h4>{{canal_loggeado.username}}</h4></div>
 
-      <div *ngIf="canal_loggeado && canal_loggeado.username"><h4>{{canal_loggeado.username}}</h4></div>
+          <span class="chat-message-counter">3</span>
 
-      <span class="chat-message-counter">3</span>
+        </header>
 
-    </header>
+        <div class="chat">
 
-    <div class="chat">
+          <div class="chat-history">
 
-      <div class="chat-history">
+            <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
+              <div *ngIf="canal_loggeado.id == mensaje.id_canal_receptor" class="mensajes_enviados">
+                <img src="" alt="" width="32" height="32">
+                <div class="chat-message-content clearfix">
+                  <h3 class="chat-time">13:35</h3>
+                  <h3>{{mensaje.texto}}</h3>
+                </div> <!-- end chat-message-content -->
+              </div>
+            </div> <!-- end chat-message -->
 
-        <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
-          <div *ngIf="canal_loggeado.id == mensaje.id_canal_receptor" class="mensajes_recibidos">
-            <img src="" alt="" width="32" height="32">
-            <div class="chat-message-content clearfix">
-              <span class="chat-time">13:35</span>
-              <p>{{mensaje.texto}}</p>
-            </div> <!-- end chat-message-content -->
-          </div>
-        </div> <!-- end chat-message -->
+            <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
+              <div *ngIf="canal_loggeado.id != mensaje.id_canal_receptor" class="mensajes_recibidos">
+                <img src="" alt="" width="32" height="32">
+                <div class="chat-message-content clearfix">
+                  <h3 class="chat-time">13:35</h3>
+                  <h3>{{mensaje.texto}}</h3>
+                </div> <!-- end chat-message-content -->
+              </div>
+            </div> <!-- end chat-message -->
 
-        <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
-          <div *ngIf="canal_loggeado.id != mensaje.id_canal_receptor" class="mensajes_enviados">
-            <img src="" alt="" width="32" height="32">
-            <div class="chat-message-content clearfix">
-              <span class="chat-time">13:35</span>
-              <p>{{mensaje.texto}}</p>
-            </div> <!-- end chat-message-content -->
-          </div>
-        </div> <!-- end chat-message -->
-
-      </div> <!-- end chat-history -->
-
-
-      <form action="#" method="post">
-
-        <div class="mensaje_a_enviar">
-
-          <input type="text" class="mensaje_a_enviar" placeholder="Escriba aquí su mensaje..." autofocus>
-
-        </div>
-
-      </form>
-
-    </div> <!-- end chat -->
-
-  </div> <!-- end live-chat -->
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-
-  </body>
+          </div> <!-- end chat-history -->
 
 
-</main>
-<!-- End of main content -->
+          <form (ngSubmit)="enviarFormulario()">
+            <div class="mensajeria">
+              <div class="mensaje_a_enviar">
+                <input type="text" id="mensaje_escrito" name="mensaje_escrito" class="mensaje_a_enviar" placeholder="Escriba aquí su mensaje..." [(ngModel)]="mensaje_escrito" autofocus/>
+              </div>
+              <button type="submit"><mat-icon>send</mat-icon></button>
+            </div>
+
+          </form>
+
+        </div> <!-- end chat -->
+
+      </div> <!-- end live-chat -->
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+      </body>
+
+    <!-- End of main content -->
+  </div>
+</div>

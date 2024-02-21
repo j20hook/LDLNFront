@@ -1,1 +1,31 @@
-<p>sucriptores-canal works!</p>
+<div class="container">
+    <div *ngIf="lista_suscriptores.length != 0; else sinSuscriptores">
+      <div *ngIf="canal.nombreCanal">
+        <h1 class="heading">Todos tus suscriptores</h1>
+      </div>
+
+      <div class="gallery">
+
+        <div class="gallery-item" *ngFor="let suscriptor of lista_suscriptores">
+
+          <div class="gallery-image">
+            <img src="assets/img/user_default.png" class="img_user">
+            <h3>{{suscriptor.username}}</h3>
+            <h3>Comunidad autónoma: {{suscriptor.comunidad_autonoma}}</h3>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <ng-template #sinSuscriptores>
+      <div *ngIf="canal.nombreCanal">
+        <h1 class="heading">Lo sentimos {{canal.nombreCanal}}, aún no tienes suscriptores</h1>
+      </div>
+    </ng-template>
+
+
+</div>

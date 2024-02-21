@@ -40,6 +40,11 @@ import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-d
 import {MatButtonModule} from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { MatIconModule } from '@angular/material/icon';
+import { DataComponent } from './components/canal/data/data.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+
 
 @NgModule({
     declarations: [
@@ -65,6 +70,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         LikeDislikeComponent,
         BotonDislikeComponent,
         ResetPasswordComponent,
+        DataComponent,
     ],
   imports: [
     BrowserModule,
@@ -78,7 +84,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     FontAwesomeModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule
 
 
   ],

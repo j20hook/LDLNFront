@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {GeneralService} from "../../../services/general.service";
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
   selector: 'app-videos-canal',
@@ -9,41 +10,41 @@ import {GeneralService} from "../../../services/general.service";
 })
 export class VideosCanalComponent implements OnInit{
 
-  id_canal: any;
-  etiquetas_canal:any;
+  canal: any;
+  canal_loggeado: any;
+  lista_videos: any;
 
   constructor(
     private route: ActivatedRoute,
     private dataservice: GeneralService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {}
+
+
+  listarVideosCanal(){
+    if(this.canal) {
+      this.dataservice.getVideosCanalId(this.canal.id).subscribe(
+        data => {
+          this.lista_videos = data;
+          console.log(this.lista_videos)
+        }
+      )
+    }
+
+  }
+
+
   ngOnInit() {
 
-   /* Probar traer info
+    this.canal = this.sharedService.getCanal();
 
-   this.dataservice.currentVariable.subscribe({
-      next: (v) => this.buscarVideosEtiquetas(v)
-    });
+    this.canal_loggeado = this.sharedService.getCanalLoggeado();
 
-    this.route.params.subscribe(params => {
-      const canalId = +params['id'];
-      if (canalId) {
-        this.dataservice.getCanalPorId(canalId)
-          .subscribe(
-            data => {
-              this.canal = data;
-              console.log(this.canal)
-            },
-            error => {
-              console.error("no funciona", error);
-            }
-          )
-      }
-    });
+    this.listarVideosCanal();
 
-    */
-}
+  }
 
-/*buscarVideosEtiquetas(etiquetas):void{}*/
+
 }
 

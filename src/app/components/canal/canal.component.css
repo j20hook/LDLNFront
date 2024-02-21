@@ -1,9 +1,11 @@
 
 :root {
   font-size: 10px;
-  --grey-text: #828282;
+  --grey-text: #2f2d2d;
   --black-text: #111;
 }
+
+
 
 *,
 *::before,
@@ -227,6 +229,7 @@ a {
   flex-basis: 8rem;
   height: auto;
   border-radius: 50%;
+  width: 20%;
   overflow: hidden;
 }
 
@@ -241,6 +244,7 @@ a {
 .channel-title {
   flex: 1 1 auto;
   margin: 0 2rem;
+  width: 60%;
 }
 
 .channel-title h1 {
@@ -265,8 +269,50 @@ a {
 .channel-subscribe {
   display: flex;
   flex-direction: row;
+  width:20%;
   height: 3.7rem;
   color: var(--grey-text);
+}
+
+.channel-subscribe{
+  width: 100%;
+}
+
+.bton_edit{
+  background-color: #313030;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor:pointer;
+  padding: 10px;
+  font-size: 22px;
+  margin-right: 10px;
+
+}
+
+.bton_subir{
+  background-color: #690505;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor:pointer;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.bton_subir i{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  font-size: 30px;
+
 }
 
 .subscribe-btn {
@@ -275,6 +321,8 @@ a {
   font-weight: 500;
   background-color: #eee;
   margin-right: 0.4rem;
+  padding: 10px;
+  font-size: 22px;
 }
 
 .notification-btn {
@@ -303,9 +351,10 @@ a {
   text-decoration: none;
   color: var(--grey-text);
   padding: 1.5rem 3.2rem;
+  cursor: pointer;
 }
 
-.nav-item a.current {
+.pestana_seleccionada {
   color: var(--black-text);
   border-bottom: 0.3rem solid #6e6e6e;
 }
@@ -514,16 +563,15 @@ Remove or comment-out the code block below to see how the browser will fall-back
   }
 
   .channel-info .container {
-    display: grid;
-    grid-template-columns: 8rem minmax(auto, 1fr) auto;
-    grid-column-gap: 2rem;
+    display:flex;
+    flex-direction: row;
   }
 
-  .channel-subscribe {
+  /*.channel-subscribe {
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-column-gap: 0.4rem;
-  }
+  }*/
 
   .channel-content .container {
     display: grid;
@@ -605,7 +653,6 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
   .channel-title,
   .channel-subscribe {
-    flex: 0 0 auto;
     margin: 0;
   }
 
@@ -650,8 +697,8 @@ body {
 }
 
 .todo_chat{
-  border-radius: 10px 10px 0 0;
-
+  border: 1px black;
+  border-radius: 20px 20px 0px 0px;
 }
 
 a { text-decoration: none; }
@@ -715,7 +762,7 @@ p { margin: 0; }
 
 #live-chat header {
   background: #293239;
-  border-radius: 5px 5px 0 0;
+  border-radius: 20px 20px 0px 0px;
   color: #fff;
   cursor: pointer;
   padding: 16px 24px;
@@ -748,7 +795,6 @@ p { margin: 0; }
   border-radius: 3px;
   padding: 8px;
   outline: none;
-  width: 234px;
 }
 
 .chat-message-counter {
@@ -788,8 +834,11 @@ p { margin: 0; }
 
 .chat-history {
   min-height: 600px;
+  max-height: 600px;
   padding: 8px 24px;
   overflow-y: scroll;
+  border: 2px solid black;
+  background-image: url('src/assets/img/fondo.jpeg');
 }
 
 .chat-message {
@@ -799,12 +848,16 @@ p { margin: 0; }
 .mensajes_recibidos{
   float: right;
   width: 50%;
+  background-color: white;
   border: 2px black solid;
 }
 
 .mensajes_enviados{
   width: 50%;
   border: 2px black solid;
+  border-radius:0 2px 0 2px;
+  background-color: white;
+
 }
 
 .chat-message img {
@@ -826,8 +879,22 @@ p { margin: 0; }
   margin: 0 0 0 80px;
 }
 
-.mensaje_a_enviar{
-  width: 100%;
+.chat form{
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+
 }
+
+.mensajeria{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.mensaje_a_enviar{
+  width: 95%;
+}
+
+
 
 

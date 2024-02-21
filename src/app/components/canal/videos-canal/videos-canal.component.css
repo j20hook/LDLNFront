@@ -66,7 +66,6 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   transition: transform 400ms ease-out;
 }
 
@@ -93,4 +92,84 @@ Remove or comment-out the code block below to see how the browser will fall-back
   .gallery-item {
     margin: 0;
   }
+}
+
+/*Tarjeta pelicula*/
+.tarjeta {
+  position: relative;
+  overflow: hidden;
+  width: 300px !important;
+  height: 200px !important;
+  /*background: url('https://television.mxdwn.com/wp-content/uploads/2016/08/stranger-things1-770x470.jpeg');*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  border: transparent;
+  box-shadow: 0 10px 25px 0 black;
+  transform: translateX(-50%);
+  transition: .5s;
+  cursos: pointer;
+  margin-left: 20px;
+  scroll-snap-align: center;
+}
+
+.tarjeta:hover {
+  transition: .5s;
+  cursor: pointer;
+}
+
+
+.title {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 30px 0;
+  background: linear-gradient(to top, #000, transparent);
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0;
+  transition: .5s;
+}
+
+.tarjeta:hover .title{
+  padding-bottom: 50px;
+  opacity: 1;
+  transition: .5s;
+  color: white;
+}
+
+.catagory {
+  position: absolute;
+  left: 10px;
+  top: 140px;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease;
+}
+
+.views {
+  position: absolute;
+  left: 10px;
+  top: 175px;
+  padding: -7px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  background: #8b2463;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease 0.15s;
+}
+.tarjeta:hover .views,
+.tarjeta:hover .catagory{
+  transform: translate(0);
 }
