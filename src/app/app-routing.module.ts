@@ -12,7 +12,9 @@ import { IncioLogComponent } from './components/incio-log/incio-log.component';
 import { CanalComponent } from './components/canal/canal.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
 import {VideosCanalComponent} from "./components/canal/videos-canal/videos-canal.component";
-import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {ResetPasswordComponent} from "./components/reset-password/reset-password.component";
+import {EditarVideoComponent} from "./components/editar-video/editar-video.component";
+import {EditarPerfilComponent} from "./components/editar-perfil/editar-perfil.component";
 
 const routes: Routes = [
     { path: 'apollo', component: WebsiteHomeComponent },
@@ -29,7 +31,8 @@ const routes: Routes = [
     { path: 'apollo/reset_password', component: ResetPasswordComponent },
     { path: 'apollo/canal/:id/editar', component: EditarCanalComponent },
     { path:'apollo/videos', component: VideosCanalComponent},
-    { path:'apollo/video/editar/:id', component: VideosCanalComponent},
+    { path:'apollo/video/editar/:id', component: EditarVideoComponent},
+    { path:'apollo/usuario/editar/:id', component: EditarPerfilComponent},
 ];
 
 @NgModule({

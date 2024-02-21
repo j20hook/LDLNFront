@@ -3,7 +3,7 @@
 <!-- End of header -->
 
 <!-- Channel Banner -->
-<section class="channel-banner">
+<section class="channel-banner" [style.background-image]="'url(' + canal_loggeado.banner + ')'">
 
   <div class="channel-social-links">
 
@@ -33,7 +33,7 @@
   <div class="container">
 
     <div class="channel-icon">
-      <a><img class="imagen_user" src="assets/img/user_default.png"/></a>
+      <a><img class="imagen_user" src="{{usuario.foto}}"/></a>
 
     </div>
 

@@ -51,7 +51,7 @@ export class EditarVideoComponent {
 
     this.service.editarVideo(this.id_video, this.video).subscribe(data=>{
 
-      this.router.navigate(['/apollo']);
+      this.router.navigate(['/apollo/canal/$this.video.canal.id' ]);
 
     })
 
@@ -96,8 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Asocia la función startProgressBar al evento click del botón "Subir"
-  const subirButton = document.getElementById('subir-button');
-  subirButton!.addEventListener('click', startProgressBar);
+  document.addEventListener('DOMContentLoaded', () => {
+    const subirButton = document.getElementById('subir-button');
+    subirButton!.addEventListener('click', startProgressBar);
+  });
 });
 
 function setProgressBarWidth(percent: number) {

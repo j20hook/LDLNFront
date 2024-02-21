@@ -37,14 +37,15 @@ import { BotonLikeComponent } from './components/like-dislike/boton-like/boton-l
 import { LikeDislikeComponent } from './components/like-dislike/like-dislike.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
-import {MatButtonModule} from "@angular/material/button";
+import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MatIconModule } from '@angular/material/icon';
 import { DataComponent } from './components/canal/data/data.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 @NgModule({
     declarations: [
@@ -71,6 +72,8 @@ import {MatInputModule} from "@angular/material/input";
         BotonDislikeComponent,
         ResetPasswordComponent,
         DataComponent,
+        EditarPerfilComponent,
+        NotificacionesComponent,
     ],
   imports: [
     BrowserModule,

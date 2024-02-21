@@ -112,7 +112,6 @@ body {
   height: 200px;
   display: flex;
   flex-direction: column;
-  align-items: start;
   justify-content: space-around;
 }
 
@@ -310,7 +309,6 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  justify-content: start;
 
 }
 

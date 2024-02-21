@@ -178,7 +178,6 @@ a {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  background: url("https://images.unsplash.com/photo-1486597622250-f997d79907f8?w=1400&h=600&fit=crop") no-repeat center 35%;
   background-size: cover;
   padding: 11% 5% 0.5% 5%;
 }

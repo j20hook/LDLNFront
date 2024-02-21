@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import {faBell, faSearch} from '@fortawesome/free-solid-svg-icons';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import {Router} from "@angular/router";
 import {GeneralService} from "../../services/general.service";
@@ -25,12 +24,13 @@ export class HeaderComponent implements OnInit{
   usuario = new Usuario();
   canal = new Canal();
 
+  notificaciones :any;
+
   constructor(private router: Router, private service: GeneralService) {
 
   }
 
   ngOnInit() {
-
     this.usuario.username = localStorage.getItem('username') || '';
 
     console.log(localStorage.getItem('username'))
@@ -40,10 +40,11 @@ export class HeaderComponent implements OnInit{
       .subscribe((data: any) => {
         // console.log(data);
         this.usuario = data;
+        this.getNotificacionesPorUsuario();
 
         this.service.getCanalPorUsuario(this.usuario).subscribe((data:any)=>{
 
-          this.canal = data[0];
+          this.canal = data;
 
           // console.log(data)
 
@@ -66,4 +67,26 @@ export class HeaderComponent implements OnInit{
 
   }
 
+  getNotificacionesPorUsuario(){
+
+    this.service.notificacionesPorUsuario(this.usuario).subscribe(data=>{
+
+      this.notificaciones = data;
+      console.log(data)
+
+    })
+
+  }
+
 }
+
+// declare var $: any;
+// $(document).ready(function() {
+//
+//   $(".notification-drop .item").on('click', function() {
+//
+//     $.find('ul').toggle();
+//
+//   });
+//
+// });
