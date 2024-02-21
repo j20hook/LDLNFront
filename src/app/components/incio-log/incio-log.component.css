@@ -54,10 +54,8 @@
 
 .texto_videos{
   padding-bottom: 5%;
-  margin-left: 4%;
-  overflow-x: scroll;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
+
+
 }
 
 
@@ -80,10 +78,9 @@
 
 
 /*Tarjeta pelicula*/
-.tarjeta {
+.card {
   position: relative;
   overflow: hidden;
-  width: 300px;
   height: 200px;
   /* background: url('https://television.mxdwn.com/wp-content/uploads/2016/08/stranger-things1-770x470.jpeg');*/
   background-repeat: no-repeat;
@@ -91,11 +88,11 @@
   border-radius: 10px;
   border: transparent;
   box-shadow: 0 10px 25px 0 black;
-  transform: translateX(-50%);
   transition: .5s;
-  cursos: pointer;
+  cursor: pointer;
   margin-left: 20px;
-  scroll-snap-align: center;
+  min-width: 300px;
+
 }
 
 .card:hover {
@@ -162,14 +159,18 @@
 .videos{
   display: flex;
   flex-direction: row ;
-  justify-content: space-around;
   align-items: center;
-  margin-right: 4%;
-  margin-left: 4%;
-  margin-top:2%;
+  justify-content: space-between;
+  padding: 30px;
+  overflow: hidden;
+  overflow-x: auto;
+  object-position: left;
+  min-width: 1200px;
+  margin-left: 50px;
+
 }
 
 .video{
   display: flex;
-}
 
+}
