@@ -8,6 +8,7 @@ import { Usuario } from '../../models/Usuario';
 import { MatDialog } from "@angular/material/dialog";
 import {EditarCanalComponent} from "./editar-canal/editar-canal.component";
 import {SharedService} from "../../services/shared.service";
+import {Video} from "../../models/Video";
 
 @Component({
     selector: 'app-canal',
@@ -27,7 +28,7 @@ export class CanalComponent implements OnInit {
   canal_loggeado: any;
   etiquetas: any;
   videos_id_canal: any;
-  videos_etiquetas_canal: EtiquetaListaVideo[] = [];
+  videos_etiquetas_canal: Video[] = [];
   lista_mensajes: any;
   mensaje_escrito: string = "";
   pestana_canal: string = 'home';
@@ -111,11 +112,11 @@ export class CanalComponent implements OnInit {
               console.log(this.etiquetas);
 
 
-             /* for (var eti of this.etiquetas) {
+             /*for (var eti of this.etiquetas) {
                 this.dataservice.getVideosEtiquetasCanalId(canalId, eti).
                 subscribe(
                   (videosEtiqueta) => {
-                    this.videos_etiquetas_canal.push(new EtiquetaListaVideo(eti.descripcion, videosEtiqueta))
+                    this.videos_etiquetas_canal.push(videosEtiqueta)
                     console.log(this.videos_etiquetas_canal);
 
                   }
