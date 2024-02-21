@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import {faBell, faSearch} from '@fortawesome/free-solid-svg-icons';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import {Router} from "@angular/router";
 import {GeneralService} from "../../services/general.service";
@@ -80,3 +79,14 @@ export class HeaderComponent implements OnInit{
   }
 
 }
+
+// declare var $: any;
+// $(document).ready(function() {
+//
+//   $(".notification-drop .item").on('click', function() {
+//
+//     $.find('ul').toggle();
+//
+//   });
+//
+// });
