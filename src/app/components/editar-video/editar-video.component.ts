@@ -51,7 +51,7 @@ export class EditarVideoComponent {
 
     this.service.editarVideo(this.id_video, this.video).subscribe(data=>{
 
-      this.router.navigate(['/apollo']);
+      this.router.navigate(['/apollo/canal/$this.video.canal.id' ]);
 
     })
 

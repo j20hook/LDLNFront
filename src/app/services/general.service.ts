@@ -50,6 +50,12 @@ export class GeneralService {
         return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
     }
 
+  editarPerfil(id_usuario: number, data: Usuario): Observable<JSON> {
+    return this.http.put<JSON>(`${this.apiUrl}/usuario/${id_usuario}`, data);
+  }
+
+
+
     subirVideo(data: Video): Observable<JSON> {
         return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
     }

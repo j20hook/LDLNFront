@@ -7,4 +7,5 @@ export class Usuario {
   etiquetas?: string[] = [];
   id_rol_usuario?: number;
   activo?: boolean;
+  foto:string = '';
 }

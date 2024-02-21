@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit{
 
         this.service.getCanalPorUsuario(this.usuario).subscribe((data:any)=>{
 
-          this.canal = data[0];
+          this.canal = data;
 
           // console.log(data)
 

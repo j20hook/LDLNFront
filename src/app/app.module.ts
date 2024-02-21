@@ -40,6 +40,7 @@ import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-d
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 @NgModule({
@@ -66,6 +67,7 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
         LikeDislikeComponent,
         BotonDislikeComponent,
         ResetPasswordComponent,
+        EditarPerfilComponent,
         NotificacionesComponent,
     ],
   imports: [

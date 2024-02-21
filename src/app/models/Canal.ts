@@ -11,4 +11,6 @@ export class Canal{
   etiquetas?: string[] = [];
   usuario: Usuario = new Usuario();
   activo?: boolean = true;
+  canal: string = '';
+  banner: string = ''
 }
