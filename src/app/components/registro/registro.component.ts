@@ -36,7 +36,6 @@ export class RegistroComponent implements OnInit{
     this.usuario.id_rol_usuario = 1;
 
     this.service.crearUsuario(this.usuario).subscribe((data :any)=>{
-      console.log(data)
 
       if (data['message'] == 'Necesita un mínimo de 3 carácteres'){
 

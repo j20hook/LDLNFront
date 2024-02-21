@@ -39,7 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { MatIconModule } from '@angular/material/icon';
 import { DataComponent } from './components/canal/data/data.component';
 import {MatFormFieldModule} from "@angular/material/form-field";

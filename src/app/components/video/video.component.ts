@@ -74,7 +74,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.videoComentario.id = Number(this.id_video);
     this.service.comentariosPorVideo(this.videoComentario).subscribe(data=>{
       this.comentarios = data;
-      console.log(data)
 
     })
 
@@ -85,8 +84,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.visita2.id_video = Number(this.id_video)
 
     this.service.visitasPorVideo(this.visita2).subscribe(data=>{
-
-      console.log(data)
 
       this.visitas = data;
 
@@ -103,7 +100,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
       this.service
           .getUsuarioByUsername(this.usuario)
           .subscribe((data: any) => {
-              console.log(data);
               this.id_usuario = data['id'];
               this.usuario.id = data['id'];
               this.crearVisita(Number(this.usuario.id));
@@ -123,13 +119,11 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
         this.service.getVideoPorId(Number(this.id_video)).subscribe(
             (data) => {
                 this.video = data;
-                console.log(data)
 
               this.service.getNumSuscriptoresCanal(Number(this.video.canal.id))
                 .subscribe(
                   data => {
                     this.suscriptores = data;
-                    console.log(this.suscriptores)
                   },
                   error => {
                     console.error("no funciona", error);
@@ -152,8 +146,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.service.crearVisita(this.visita).subscribe(data=>{
 
-      console.log(data)
-
     })
 
   }
@@ -166,7 +158,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.service.crearComentario(this.comentario)
       .subscribe(
         data => {
-          console.log(data)
           this.mostrarComentarios()
         },
         error => {
@@ -175,16 +166,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
       )
 
   }
-
-  // eliminarVideo(){
-  //
-  //     this.service.eliminarVideo(this.video.id).subscribe(data=>{
-  //
-  //       console.log(data)
-  //
-  //     })
-  //
-  // }
 
   protected readonly obtenerIdDeVideo = obtenerIdDeVideo;
   protected readonly window = window;

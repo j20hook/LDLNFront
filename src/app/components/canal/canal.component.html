@@ -3,27 +3,35 @@
 <!-- End of header -->
 
 <!-- Channel Banner -->
-<section class="channel-banner" [style.background-image]="'url(' + canal_loggeado.banner + ')'">
+  <div *ngIf="canal?.banner">
+    <section class="channel-banner" [style.background-image]="'url(' + canal.banner + ')'">
 
-  <div class="channel-social-links">
+      <div class="channel-social-links">
 
-    <ul>
-      <li class="btn google-plus">
-        <i aria-hidden="true"><fa-icon [icon]="icon_instagram"></fa-icon></i>
-      </li>
+        <ul>
+          <li class="btn google-plus">
+            <i aria-hidden="true">
+              <fa-icon [icon]="icon_instagram"></fa-icon>
+            </i>
+          </li>
 
-      <li class="btn twitter">
-        <i aria-hidden="true"><fa-icon [icon]="icon_twitter"></fa-icon></i>
-      </li>
+          <li class="btn twitter">
+            <i aria-hidden="true">
+              <fa-icon [icon]="icon_twitter"></fa-icon>
+            </i>
+          </li>
 
-      <li class="btn facebook">
-        <i aria-hidden="true"><fa-icon [icon]="icon_facebook"></fa-icon></i>
-      </li>
-    </ul>
+          <li class="btn facebook">
+            <i aria-hidden="true">
+              <fa-icon [icon]="icon_facebook"></fa-icon>
+            </i>
+          </li>
+        </ul>
 
+      </div>
+
+    </section>
   </div>
-
-</section>
 <!-- End of channel banner -->
 </div>
 
@@ -32,8 +40,8 @@
 
   <div class="container">
 
-    <div class="channel-icon">
-      <a><img class="imagen_user" src="{{usuario.foto}}"/></a>
+    <div class="channel-icon" *ngIf="canal?.foto">
+      <a><img class="imagen_user" src="{{canal.foto}}"/></a>
 
     </div>
 
@@ -52,7 +60,7 @@
         <mat-dialog-actions>
           <button mat-raised-button (click)="editarCanal()" class="bton_edit">Editar canal</button>
         </mat-dialog-actions>
-        <button class="bton_subir"><i><mat-icon>backup</mat-icon></i> Subir video</button>
+        <a href="apollo/video/subir" class="bton_subir"><i><mat-icon>backup</mat-icon></i> Subir video</a>
       </div>
 
       <ng-template #canalAjeno>

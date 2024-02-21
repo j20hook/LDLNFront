@@ -31,7 +31,6 @@ export class BotonSuscripcionComponent implements OnInit {
         this.usuario1.username = localStorage.getItem('username') || '';
         this.service.getUsuarioByUsername(this.usuario1).subscribe((data) => {
             this.usuario = data;
-            console.log(this.usuario);
         });
 
         this.route.params.subscribe((params) => {
@@ -40,7 +39,6 @@ export class BotonSuscripcionComponent implements OnInit {
                 this.service.getCanalPorId(canalId).subscribe(
                     (data) => {
                         this.canal = data;
-                        console.log(this.canal);
                     },
                     (error) => {
                         console.error('no funciona', error);
@@ -53,8 +51,8 @@ export class BotonSuscripcionComponent implements OnInit {
     }
 
     async comprobarSuscripcion() {
-        this.suscripcion.usuario = this.usuario.id;
-        this.suscripcion.canal = this.canal.id;
+        this.suscripcion.usuario = this?.usuario?.id;
+        this.suscripcion.canal = this?.canal?.id;
         this.service.getSuscripcionByIdUsuario(this.suscripcion).subscribe(
             (data) => {
                 this.suscripcionCheck = data;
@@ -74,7 +72,6 @@ export class BotonSuscripcionComponent implements OnInit {
 
         this.service.crearSuscripcion(this.suscripcion).subscribe(
             (response) => {
-                console.log(response); // Manejo de la respuesta del backend
                 this.router
                     .navigateByUrl(`/apollo/canal/${this.canal.id}`, {
                         skipLocationChange: true,
@@ -92,7 +89,6 @@ export class BotonSuscripcionComponent implements OnInit {
     activarSuscripcion() {
         this.service.activarSuscripcion(this.suscripcionCheck.id).subscribe(
             (response) => {
-                console.log(response); // Manejo de la respuesta del backend
                 this.router.navigateByUrl(`/apollo/canal/${this.canal.id}`);
             },
             (error) => {
@@ -103,7 +99,6 @@ export class BotonSuscripcionComponent implements OnInit {
     desuscribirse() {
         this.service.desactivarSuscripcion(this.suscripcionCheck.id).subscribe(
             (response) => {
-                console.log(response); // Manejo de la respuesta del backend
                 this.router
                     .navigateByUrl(`/apollo/canal/${this.canal.id}`, {
                         skipLocationChange: true,

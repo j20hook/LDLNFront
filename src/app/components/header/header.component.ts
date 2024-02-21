@@ -33,8 +33,6 @@ export class HeaderComponent implements OnInit{
   ngOnInit() {
     this.usuario.username = localStorage.getItem('username') || '';
 
-    console.log(localStorage.getItem('username'))
-    console.log(this.token)
     this.service
       .getUsuarioByUsername(this.usuario)
       .subscribe((data: any) => {
@@ -46,11 +44,7 @@ export class HeaderComponent implements OnInit{
 
           this.canal = data;
 
-          // console.log(data)
-
         }, error => {
-
-          // console.log(error)
 
         })
 
@@ -72,7 +66,6 @@ export class HeaderComponent implements OnInit{
     this.service.notificacionesPorUsuario(this.usuario).subscribe(data=>{
 
       this.notificaciones = data;
-      console.log(data)
 
     })
 

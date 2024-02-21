@@ -25,12 +25,10 @@ export class MiPerfilComponent implements OnInit{
     this.usuario1.username = localStorage.getItem('username') || '';
     this.service.getUsuarioByUsername(this.usuario1).subscribe((data:any) => {
       this.usuario = data;
-      console.log(this.usuario);
       this.service.getDatos(this.usuario)
         .subscribe(
           data => {
             this.usuario = data;
-            console.log(this.usuario);
           },
           error => {
             console.error("no funciona", error);
@@ -38,7 +36,6 @@ export class MiPerfilComponent implements OnInit{
         )
       this.service.getCanalPorUsuario(this.usuario).subscribe((data:any) => {
           this.canal = data;
-          console.log(this.canal);
         },
         error => {
           console.error("no funciona", error);

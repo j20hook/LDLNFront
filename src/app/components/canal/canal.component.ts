@@ -54,7 +54,6 @@ export class CanalComponent implements OnInit {
       this.dataservice.listarMensaje(this.canal_loggeado, this.canal).subscribe(
         data => {
           this.lista_mensajes = data;
-          console.log(this.lista_mensajes)
         }
       )
   }
@@ -70,7 +69,6 @@ export class CanalComponent implements OnInit {
             .subscribe(
               data => {
                 this.canal = data;
-                console.log(this.canal)
                 this.sharedService.setCanal(this.canal);
               }
             )
@@ -79,12 +77,10 @@ export class CanalComponent implements OnInit {
           this.usuari1.username = localStorage.getItem('username') || '';
           this.dataservice.getUsuarioByUsername(this.usuari1).subscribe((data) => {
             this.usuario = data;
-            console.log(this.usuario);
 
             this.dataservice.getCanalPorUsuario(this.usuario).subscribe(
               data=>{
                 this.canal_loggeado = data;
-                console.log(this.canal_loggeado)
                 this.sharedService.setCanalLoggeado(this.canal_loggeado);
 
 
@@ -99,7 +95,6 @@ export class CanalComponent implements OnInit {
                 this.dataservice.getNumSuscriptoresCanal(canalId).subscribe(
                     (data) => {
                         this.suscriptores = data;
-                        console.log(this.suscriptores);
                     },
                     (error) => {
                         console.error('no funciona', error);
@@ -109,8 +104,6 @@ export class CanalComponent implements OnInit {
           this.dataservice.getEtiquetasCanal(canalId).subscribe(
             (data) => {
               this.etiquetas = data;
-              console.log(this.etiquetas);
-
 
              /*for (var eti of this.etiquetas) {
                 this.dataservice.getVideosEtiquetasCanalId(canalId, eti).
@@ -132,7 +125,6 @@ export class CanalComponent implements OnInit {
                 this.dataservice.getVideosCanalId(canalId).subscribe(
                     (data) => {
                         this.videos_id_canal = data;
-                        console.log(this.videos_id_canal);
                     },
                     (error) => {
                         console.error('no funciona', error);
@@ -150,10 +142,9 @@ export class CanalComponent implements OnInit {
 
 
   enviarFormulario() {
-    console.log(this.mensaje_escrito);
-
     this.dataservice.EnviarMensajeBackend(this.canal_loggeado, this.canal, this.mensaje_escrito).subscribe({
-      complete:()=>console.log("Mensaje enviado")});
+      complete: () => console.log("Mensaje enviado")
+    });
 
 
     setTimeout(() => {

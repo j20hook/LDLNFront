@@ -30,7 +30,6 @@ export class CrearCanalComponent implements OnInit {
     this.usuario1.username = localStorage.getItem('username') || '';
     this.service.getUsuarioByUsername(this.usuario1).subscribe((data) => {
       this.usuario = data;
-      console.log(this.usuario);
     });
 
     this.service.getEtiquetas().subscribe((data:any) => {
@@ -48,7 +47,6 @@ export class CrearCanalComponent implements OnInit {
 
     this.service.crearCanal(this.nuevoCanal).subscribe(
       (response) => {
-        console.log(response); // Manejo de la respuesta del backend
         Swal.fire({
           position: 'center',
           icon: 'success',

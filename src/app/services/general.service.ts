@@ -84,7 +84,6 @@ export class GeneralService {
 
         let body = JSON.stringify(json);
 
-        console.log(body);
         return this.http.post<Video[]>(
             'http:/api/video/poretiquetas',
             body
