@@ -27,6 +27,10 @@
 
     </div>
 
+    <h3>¿Quieres editar tu perfil?</h3>
+
+    <a href="/apollo/usuario/editar/{{usuario.id}}">Vamos a editarlo {{usuario.username}}!</a>
+
     <h3 *ngIf="canal.id == null">¿Quieres crearte un canal?</h3>
 
     <a *ngIf="canal.id == null" href="/apollo/canal/crear">Vamos!</a>
