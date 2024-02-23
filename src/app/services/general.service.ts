@@ -336,4 +336,22 @@ export class GeneralService {
 
   }
 
+  notificacionesNuevas(data:Usuario):Observable<JSON>{
+
+    return this.http.post<JSON>(`${this.apiUrl}/notificacion/nuevas`, data );
+
+  }
+
+  quitarAlerta(data:Usuario):Observable<JSON>{
+
+    return this.http.post<JSON>(`${this.apiUrl}/notificacion/alerta`, data );
+
+  }
+
+  getHistorial(data:Usuario):Observable<JSON>{
+
+    return this.http.post<JSON>(`${this.apiUrl}/visita/historial`, data );
+
+  }
+
 }

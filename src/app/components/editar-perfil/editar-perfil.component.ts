@@ -1,10 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Usuario} from "../../models/Usuario";
-import {Canal} from "../../models/Canal";
 import {GeneralService} from "../../services/general.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import Swal from "sweetalert2";
-import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 
 @Component({
   selector: 'app-editar-perfil',

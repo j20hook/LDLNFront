@@ -14,6 +14,17 @@
 
 }
 
+.textoerror{
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 70px;
+
+}
+
 .palabra_lista{
 
   color: white;

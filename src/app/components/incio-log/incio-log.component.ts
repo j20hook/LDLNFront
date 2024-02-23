@@ -17,7 +17,7 @@ export class IncioLogComponent implements OnInit{
 
   videosData: any;
   videos_por_etiqueta: Video[] = [];
-  videos_suscritos: Video[] = [];
+  videos_suscritos: any;
 
   videos_usuarios: any;
   usuari1 = new Usuario()

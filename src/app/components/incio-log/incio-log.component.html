@@ -33,19 +33,30 @@
       </div>
       <ng-template #sin_etiqueta>
         <div class="texto_videos">
-        <h2><span>Los videos según tus suscripciones</span></h2>
+          <h2><span>Los videos según tus suscripciones</span></h2>
 
-        <div *ngFor="let vd of videos_suscritos" class="video">
+          <div *ngFor="let vd of videos_suscritos" class="video">
 
-          <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
-            <div class="title">{{vd.titulo}}</div>
-            <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
-            <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
-          </a>
+            <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
+              <div class="title">{{ vd.titulo }}</div>
+              <a href="#">
+                <div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{ vd.nombre_canal }}<i
+                  class="fas fa-film"></i></div>
+              </a>
+              <a href="#">
+                <div class="views">Fecha<i class="far fa-eye"></i></div>
+              </a>
+            </a>
+
+          </div>
+
+          <div *ngIf="videos_suscritos == null" class="textoerror">
+
+            <h3>Los canales a los que estas suscrito no han subido ningun video</h3>
+
+          </div>
 
         </div>
-
-      </div>
       </ng-template>
       <div class="texto_videos">
         <h2><span>Te recomendamos los siguientes videos</span></h2>

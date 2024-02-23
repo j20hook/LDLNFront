@@ -24,8 +24,6 @@ export class HeaderComponent implements OnInit{
   usuario = new Usuario();
   canal = new Canal();
 
-  notificaciones :any;
-
   constructor(private router: Router, private service: GeneralService) {
 
   }
@@ -38,7 +36,6 @@ export class HeaderComponent implements OnInit{
       .subscribe((data: any) => {
         // console.log(data);
         this.usuario = data;
-        this.getNotificacionesPorUsuario();
 
         this.service.getCanalPorUsuario(this.usuario).subscribe((data:any)=>{
 
@@ -61,25 +58,4 @@ export class HeaderComponent implements OnInit{
 
   }
 
-  getNotificacionesPorUsuario(){
-
-    this.service.notificacionesPorUsuario(this.usuario).subscribe(data=>{
-
-      this.notificaciones = data;
-
-    })
-
-  }
-
 }
-
-// declare var $: any;
-// $(document).ready(function() {
-//
-//   $(".notification-drop .item").on('click', function() {
-//
-//     $.find('ul').toggle();
-//
-//   });
-//
-// });
