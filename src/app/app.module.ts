@@ -33,48 +33,46 @@ import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 import { EditarVideoComponent } from './components/editar-video/editar-video.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
-import { BotonLikeComponent } from './components/like-dislike/boton-like/boton-like.component';
 import { LikeDislikeComponent } from './components/like-dislike/like-dislike.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
-import { MatButtonModule } from "@angular/material/button";
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { MatIconModule } from '@angular/material/icon';
 import { DataComponent } from './components/canal/data/data.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        RegistroComponent,
-        ErrorcuatrocientoscuatroComponent,
-        WebsiteHomeComponent,
-        SubirVideoComponent,
-        VideoComponent,
-        LoginUsuarioComponent,
-        HeaderComponent,
-        IncioLogComponent,
-        CrearCanalComponent,
-        FooterComponent,
-        MiPerfilComponent,
-        CanalComponent,
-        VideosCanalComponent,
-        SucriptoresCanalComponent,
-        BotonSuscripcionComponent,
-        EditarCanalComponent,
-        EditarVideoComponent,
-        BotonLikeComponent,
-        LikeDislikeComponent,
-        BotonDislikeComponent,
-        ResetPasswordComponent,
-        DataComponent,
-        EditarPerfilComponent,
-        NotificacionesComponent,
-    ],
+  declarations: [
+    AppComponent,
+    RegistroComponent,
+    ErrorcuatrocientoscuatroComponent,
+    WebsiteHomeComponent,
+    SubirVideoComponent,
+    VideoComponent,
+    LoginUsuarioComponent,
+    HeaderComponent,
+    IncioLogComponent,
+    CrearCanalComponent,
+    FooterComponent,
+    MiPerfilComponent,
+    CanalComponent,
+    VideosCanalComponent,
+    SucriptoresCanalComponent,
+    BotonSuscripcionComponent,
+    EditarCanalComponent,
+    EditarVideoComponent,
+
+    LikeDislikeComponent,
+
+    ResetPasswordComponent,
+    DataComponent,
+    EditarPerfilComponent,
+    NotificacionesComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -90,11 +88,9 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     MatDialogModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
-
-
+    MatInputModule,
   ],
-    providers: [],
-    bootstrap: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

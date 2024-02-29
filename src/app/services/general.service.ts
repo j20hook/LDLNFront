@@ -7,48 +7,47 @@ import { Canal } from '../models/Canal';
 import { Suscripcion } from '../models/Suscripcion';
 import { ValoracionPositiva } from '../models/ValoracionPositiva';
 import { ValoracionNegativa } from '../models/ValoracionNegativa';
-import {Comentario} from "../models/Comentario";
-import {Visita} from "../models/Visita";
-
+import { Comentario } from '../models/Comentario';
+import { Visita } from '../models/Visita';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class GeneralService {
-    private apiUrl = '/api';
+  private apiUrl = '/api';
 
   private id_canal = new BehaviorSubject<any>(null);
   currentVariable = this.id_canal.asObservable();
 
-  mandarIdCanal(idCanal: any){
+  mandarIdCanal(idCanal: any) {
     this.id_canal.next(idCanal);
   }
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-    tipoNotificaciones(): Observable<JSON> {
-        return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
-    }
+  tipoNotificaciones(): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
+  }
 
-    tipoVideos(): Observable<JSON> {
-        return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);
-    }
+  tipoVideos(): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);
+  }
 
-    getEtiquetas(): Observable<JSON> {
-        return this.http.get<JSON>(`${this.apiUrl}/tipos/etiquetas`);
-    }
+  getEtiquetas(): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/tipos/etiquetas`);
+  }
 
-    getDatos(id_perfil: number): Observable<JSON> {
-        return this.http.get<JSON>(`${this.apiUrl}/usuario/${id_perfil}`);
-    }
+  getDatos(id_perfil: number): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/usuario/${id_perfil}`);
+  }
 
-    listarUsuario(): Observable<Usuario[]> {
-        return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
-    }
+  listarUsuario(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.apiUrl}/usuario/listar`);
+  }
 
-    crearUsuario(data: Usuario): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
-    }
+  crearUsuario(data: Usuario): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/registro`, data);
+  }
 
   editarPerfil(id_usuario: number, data: Usuario): Observable<JSON> {
     return this.http.put<JSON>(`${this.apiUrl}/usuario/${id_usuario}`, data);
@@ -58,31 +57,31 @@ export class GeneralService {
         return this.http.post<JSON>(`${this.apiUrl}/video/crear`, data);
     }
 
-    login(data: Usuario): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
-    }
+  login(data: Usuario): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/login_check`, data);
+  }
 
-    listarMensaje(canal_loggeado: Usuario, canal: Usuario) :Observable<JSON> {
+  listarMensaje(canal_loggeado: Usuario, canal: Usuario): Observable<JSON> {
     let jsonCanales = {
       id_canal1: canal_loggeado.id,
-      id_canal2: canal.id
+      id_canal2: canal.id,
     };
 
     return this.http.post<JSON>(`${this.apiUrl}/chat`, jsonCanales);
-    }
+  }
 
-    getVideoPorId(id_video: number): Observable<JSON> {
-        return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
-    }
+  getVideoPorId(id_video: number): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/video/${id_video}`);
+  }
 
-    etiqueta_json: any;
+  etiqueta_json: any;
 
-    mandarEtiquetaQuery(etiqueta: string): Observable<Video[]> {
-        let json = {
-            etiqueta: etiqueta,
-        };
+  mandarEtiquetaQuery(etiqueta: string): Observable<Video[]> {
+    let json = {
+      etiqueta: etiqueta,
+    };
 
-        let body = JSON.stringify(json);
+    let body = JSON.stringify(json);
 
         return this.http.post<Video[]>(
             'http:/api/video/poretiquetas',
@@ -90,19 +89,19 @@ export class GeneralService {
         );
     }
 
-    getUsuarioByUsername(data: Usuario): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
-    }
+  getUsuarioByUsername(data: Usuario): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
+  }
 
-    getCanalIdByUsuario(data: Usuario): Observable<JSON> {
-        let jsonCanal = {
-            id: data.id,
-        };
-        return this.http.post<JSON>(
-            `${this.apiUrl}/canal/idcanalporusuario`,
-            jsonCanal
-        );
-    }
+  getCanalIdByUsuario(data: Usuario): Observable<JSON> {
+    let jsonCanal = {
+      id: data.id,
+    };
+    return this.http.post<JSON>(
+      `${this.apiUrl}/canal/idcanalporusuario`,
+      jsonCanal,
+    );
+  }
 
   // En el servicio GeneralService
   resetearContrasena(email: string): Observable<any> {
@@ -110,104 +109,95 @@ export class GeneralService {
     return this.http.post(`${this.apiUrl}/reset-password`, data);
   }
 
-
   crearCanal(data: Canal): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
-    }
+    return this.http.post<JSON>(`${this.apiUrl}/canal/crear`, data);
+  }
 
-    getCanalByName(data: Canal): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/canal/busquedanombre`,
-            data
-        );
-    }
+  getCanalByName(data: Canal): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/canal/busquedanombre`, data);
+  }
 
-    crearSuscripcion(data: Suscripcion): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/suscripcion/crear`, data);
-    }
+  crearSuscripcion(data: Suscripcion): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/suscripcion/crear`, data);
+  }
 
-    getVideosRecomendados(data: Usuario): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/video/poretiquetausuario`,
-            data
-        );
-    }
+  getVideosRecomendados(data: Usuario): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/video/poretiquetausuario`,
+      data,
+    );
+  }
 
-    getCanalPorId(id_canal: number): Observable<JSON> {
-        return this.http.get<JSON>(`${this.apiUrl}/canal/${id_canal}`);
-    }
+  getCanalPorId(id_canal: number): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/canal/${id_canal}`);
+  }
 
-    getNumSuscriptoresCanal(id_canal: number): Observable<JSON> {
-        let jsonCanal = {
-            id: id_canal,
-        };
-
-        return this.http.post<JSON>(
-            `${this.apiUrl}/canal/numsuscriptoresporcanal`,
-            jsonCanal
-        );
-    }
-
-    getEtiquetasCanal(id_canal: number): Observable<JSON> {
-        let jsonCanal = {
-            id: id_canal,
-        };
-
-        return this.http.post<JSON>(
-            `${this.apiUrl}/canal/etiquetasporcanal`,
-            jsonCanal
-        );
-    }
-
-    getSuscripcionByIdUsuario(data: Suscripcion): Observable<JSON> {
-        return this.http.post<JSON>(`${this.apiUrl}/suscripcion/buscar`, data);
-    }
-
-    desactivarSuscripcion(id: number): Observable<any> {
-        return this.http.put<any>(
-            `http://127.0.0.1:8000/api/suscripcion/borrar/${id}`,
-            id
-        );
-    }
-
-    activarSuscripcion(id: number): Observable<any> {
-        return this.http.put<any>(
-            `http://127.0.0.1:8000/api/suscripcion/activar/${id}`,
-            id
-        );
-    }
-
-    getVideosRecomendados1(usuario: Usuario): Observable<JSON> {
-        let json_id = {
-            id: usuario.id,
-        };
-
-        return this.http.post<JSON>(
-            `${this.apiUrl}/video/poretiquetausuario`,
-            json_id
-        );
-    }
-
-    getCanalPorUsuario(data: Usuario): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/canal/canalporusuario`,
-            data
-        );
-    }
-
-    getVideosCanalId(id_canal: number): Observable<JSON> {
-        let jsonCanal = {
-            id_canal: id_canal,
-        };
-
-        return this.http.post<JSON>(`${this.apiUrl}/video/porcanal`, jsonCanal);
-    }
-
-  getVideosEtiquetasCanalId(id_canal:number, etiqueta:any):Observable<JSON> {
-
+  getNumSuscriptoresCanal(id_canal: number): Observable<JSON> {
     let jsonCanal = {
-      "id": id_canal,
-      "etiqueta": etiqueta.descripcion
+      id: id_canal,
+    };
+
+    return this.http.post<JSON>(
+      `${this.apiUrl}/canal/numsuscriptoresporcanal`,
+      jsonCanal,
+    );
+  }
+
+  getEtiquetasCanal(id_canal: number): Observable<JSON> {
+    let jsonCanal = {
+      id: id_canal,
+    };
+
+    return this.http.post<JSON>(
+      `${this.apiUrl}/canal/etiquetasporcanal`,
+      jsonCanal,
+    );
+  }
+
+  getSuscripcionByIdUsuario(data: Suscripcion): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/suscripcion/buscar`, data);
+  }
+
+  desactivarSuscripcion(id: number): Observable<any> {
+    return this.http.delete<any>(
+      `http://127.0.0.1:8000/api/suscripcion/borrar/${id}`,
+    );
+  }
+
+  activarSuscripcion(id: number): Observable<any> {
+    return this.http.put<any>(
+      `http://127.0.0.1:8000/api/suscripcion/activar/${id}`,
+      id,
+    );
+  }
+
+  getVideosRecomendados1(usuario: Usuario): Observable<JSON> {
+    let json_id = {
+      id: usuario.id,
+    };
+
+    return this.http.post<JSON>(
+      `${this.apiUrl}/video/poretiquetausuario`,
+      json_id,
+    );
+  }
+
+  getCanalPorUsuario(data: Usuario): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/canal/canalporusuario`, data);
+  }
+
+  getVideosCanalId(id_canal: number): Observable<JSON> {
+    let jsonCanal = {
+      id_canal: id_canal,
+    };
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/porcanal`, jsonCanal);
+  }
+
+  getVideosEtiquetasCanalId(id_canal: number, etiqueta: any): Observable<JSON> {
+    let jsonCanal = {
+      id: id_canal,
+      etiqueta: etiqueta.descripcion,
     };
 
         return this.http.post<JSON>(
@@ -216,80 +206,75 @@ export class GeneralService {
         );
     }
 
-    editarVideo(id_video: number, data: Video): Observable<JSON> {
-        return this.http.put<JSON>(`${this.apiUrl}/video/${id_video}`, data);
-    }
-
-  eliminarVideo(id_video: number):Observable<JSON> {
-
-    return this.http.put<JSON>(`${this.apiUrl}/video/borrar/${ id_video }`, '')
-
+  editarVideo(id_video: number, data: Video): Observable<JSON> {
+    return this.http.put<JSON>(`${this.apiUrl}/video/${id_video}`, data);
   }
 
-  comentariosPorVideo(data:Video):Observable<JSON> {
-
-    return this.http.post<JSON>(`${this.apiUrl}/comentario/video`, data)
-
+  eliminarVideo(id_video: number): Observable<JSON> {
+    return this.http.put<JSON>(`${this.apiUrl}/video/borrar/${id_video}`, '');
   }
 
-  crearComentario(data:Comentario):Observable<JSON> {
+  comentariosPorVideo(data: Video): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/comentario/video`, data);
+  }
 
-    return this.http.post<JSON>(`${this.apiUrl}/comentario/crear`, data)
-
+  crearComentario(data: Comentario): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/comentario/crear`, data);
   }
 
   editarCanal(data: Canal): Observable<JSON> {
-        return this.http.put<JSON>(`${this.apiUrl}/canal/${data.id}`, data);
-    }
+    return this.http.put<JSON>(`${this.apiUrl}/canal/${data.id}`, data);
+  }
 
-    darLike(data: ValoracionPositiva): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/valoracion_positiva/crear`,
-            data
-        );
-    }
+  darLike(data: ValoracionPositiva): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_positiva/crear`,
+      data,
+    );
+  }
 
-    quitarLike(data: number): Observable<any> {
-        return this.http.delete<any>(
-            `${this.apiUrl}/valoracion_positiva/borrar/${data}`
-        );
-    }
+  quitarLike(data: number): Observable<any> {
+    return this.http.delete<any>(
+      `${this.apiUrl}/valoracion_positiva/borrar/${data}`,
+    );
+  }
 
-    getLikeId(data: ValoracionPositiva): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/valoracion_positiva/buscar`,
-            data
-        );
-    }
+  getLikeId(data: ValoracionPositiva): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_positiva/buscar`,
+      data,
+    );
+  }
 
-    darDislike(data: ValoracionNegativa): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/valoracion_negativa/crear`,
-            data
-        );
-    }
+  darDislike(data: ValoracionNegativa): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_negativa/crear`,
+      data,
+    );
+  }
 
-    quitarDislike(data: number): Observable<any> {
-        return this.http.delete<any>(
-            `${this.apiUrl}/valoracion_negativa/borrar/${data}`
-        );
-    }
+  quitarDislike(data: number): Observable<any> {
+    return this.http.delete<any>(
+      `${this.apiUrl}/valoracion_negativa/borrar/${data}`,
+    );
+  }
 
-    getDislikeId(data: ValoracionNegativa): Observable<JSON> {
-        return this.http.post<JSON>(
-            `${this.apiUrl}/valoracion_negativa/buscar`,
-            data
-        );
-    }
+  getDislikeId(data: ValoracionNegativa): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_negativa/buscar`,
+      data,
+    );
+  }
 
-  getVideosSuscritos(usuario: Usuario):Observable<JSON> {
-
+  getVideosSuscritos(usuario: Usuario): Observable<JSON> {
     let jsonCanal = {
-      "id": usuario.id,
+      id: usuario.id,
     };
 
-    return this.http.post<JSON>(`${this.apiUrl}/video/canalessuscritos`, jsonCanal );
-
+    return this.http.post<JSON>(
+      `${this.apiUrl}/video/canalessuscritos`,
+      jsonCanal,
+    );
   }
 
   EnviarMensajeBackend(canal_emisor: Usuario, canal_receptor: Usuario, texto: string): Observable<JSON>{
@@ -318,16 +303,22 @@ export class GeneralService {
 
   }
 
-  crearVisita(visita:Visita):Observable<JSON>{
-
-    return this.http.post<JSON>(`${this.apiUrl}/visita/crear`, visita );
-
+  crearVisita(visita: Visita): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/visita/crear`, visita);
   }
 
-  visitasPorVideo(visita:Visita):Observable<JSON>{
+  visitasPorVideo(visita: Visita): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/visita/porvideo`, visita);
+  }
+  getCanalByVideoId(id: number): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/video/${id}`);
+  }
 
-      return this.http.post<JSON>(`${this.apiUrl}/visita/porvideo`, visita );
-
+  likesPorVideo(data: number): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_positiva/porvideo`,
+      data,
+    );
   }
 
   notificacionesPorUsuario(data:Usuario):Observable<JSON>{
@@ -336,4 +327,10 @@ export class GeneralService {
 
   }
 
+  dislikesPorVideo(data: number): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_negativa/porvideo`,
+      data,
+    );
+  }
 }
