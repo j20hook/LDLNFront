@@ -14,6 +14,7 @@ import { Video } from '../../models/Video';
 import { Usuario } from '../../models/Usuario';
 import {Comentario} from "../../models/Comentario";
 import {Visita} from "../../models/Visita";
+import Swal from "sweetalert2";
 
 @Component({
     selector: 'app-video',
@@ -172,6 +173,7 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
   protected readonly setTimeout = setTimeout;
   protected readonly formatearFecha = formatearFecha;
   protected readonly verMas = verMas;
+  protected readonly copyUrlToClipboard = copyUrlToClipboard;
 }
 
 function obtenerIdDeVideo(url: string): string | null {
@@ -216,5 +218,15 @@ function verMas() {
     description!.style.maxHeight = description!.scrollHeight + 'px';
     button!.textContent = 'Ver menos';
   }
+
+}
+
+function copyUrlToClipboard() {
+
+  navigator.clipboard.writeText(window.location.href);
+  Swal.fire({
+    icon: 'success',
+    title: 'URL copied to clipboard!',
+  });
 
 }
