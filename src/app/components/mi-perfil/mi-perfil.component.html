@@ -20,8 +20,8 @@
       <img src="{{usuario.foto}}" alt="Foto personal">
       <h3>TUS DATOS</h3>
       <p>Correo Electrónico: {{usuario.email}}</p>
-      <p>Ubicación: {{ usuario.comunidad_autonoma }}</p>
-      <p *ngIf="canal.id == 0" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
+      <p>Ubicación: {{ usuario.comunidadAutonoma }}</p>
+      <p *ngIf="canal.id != null" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
     </div>
 
     <div class="action-buttons">

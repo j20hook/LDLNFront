@@ -7,14 +7,29 @@
 
     <div class="gallery">
 
-      <div class="gallery-item" *ngFor="let video of lista_videos">
-
-        <div class="gallery-image">
-          <a class="tarjeta" routerLink="/apollo/video/{{video.id}}">
-            {{video.titulo}}
-          </a>
+      <div class="videos">
+        <div *ngFor="let v of lista_videos" class="video">
+          <div class="card" [style.background-image]="'url(' + v.miniatura + ')'">
+            <div class="thumbnail">
+              <!-- Miniatura del video -->
+            </div>
+            <div class="info">
+              <div class="title">{{v.titulo}}</div>
+              <div class="category" routerLink="/apollo/canal/{{v.id_canal}}">
+                {{v.nombre_canal}}
+                <i class="fas fa-film"></i>
+              </div>
+              <div class="views">
+                Fecha: {{v.fecha}}
+                <i class="far fa-eye"></i>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="edit-button" (click)="editarVideo(v.id)">Editar</button>
+              <button class="delete-button" (click)="eliminarVideo(v.id)">Eliminar</button>
+            </div>
+          </div>
         </div>
-
       </div>
 
     </div>

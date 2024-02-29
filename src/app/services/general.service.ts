@@ -30,6 +30,10 @@ export class GeneralService {
         return this.http.get<JSON>(`${this.apiUrl}/tipos/notificaciones`);
     }
 
+  getUsuarioPorId(id_usuario:number): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/usuario/${id_usuario}`);
+  }
+
     tipoVideos(): Observable<JSON> {
         return this.http.get<JSON>(`${this.apiUrl}/tipos/videos`);
     }
@@ -260,6 +264,12 @@ export class GeneralService {
             `${this.apiUrl}/valoracion_positiva/buscar`,
             data
         );
+    }
+
+    getLikePorVideo(data: Video): Observable<JSON> {
+
+      return this.http.post<JSON>(`${this.apiUrl}/valoracion_positiva/porvideo`, data);
+
     }
 
     darDislike(data: ValoracionNegativa): Observable<JSON> {

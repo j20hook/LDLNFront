@@ -45,6 +45,7 @@ export class BotonLikeComponent implements OnInit {
     like1 = new ValoracionPositiva();
     revisionLike: any;
     estado_like = false;
+    numero_likes:any;
     public likeState: string = 'unliked';
     public iconName: string = 'heart-empty';
 
@@ -68,6 +69,7 @@ export class BotonLikeComponent implements OnInit {
                         this.video = data;
                         console.log(this.video);
                         this.comprobarLike();
+                        this.getLikesPorVideo()
                     },
                     (error) => {
                         console.error('no funciona', error);
@@ -90,6 +92,17 @@ export class BotonLikeComponent implements OnInit {
                 }
             );
         }
+    }
+
+    getLikesPorVideo(){
+
+      this.service.getLikePorVideo(this.video).subscribe((data:any)=>{
+
+        this.numero_likes = data[0];
+        console.log(this.numero_likes)
+
+      })
+
     }
 
     darLike() {
@@ -130,5 +143,6 @@ export class BotonLikeComponent implements OnInit {
             this.quitarLike();
             await this.comprobarLike();
         }
+        this.getLikesPorVideo()
     }
 }

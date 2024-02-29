@@ -30,6 +30,7 @@ export class MiPerfilComponent implements OnInit{
         .subscribe(
           data => {
             this.usuario = data;
+            console.log(data)
             this.getHistorial()
           },
           error => {
