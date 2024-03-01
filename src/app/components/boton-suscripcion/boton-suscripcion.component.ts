@@ -32,6 +32,10 @@ export class BotonSuscripcionComponent implements OnInit {
     this.obtenerUsuario();
 
     this.obtenerCanal();
+
+    setInterval(() => {
+      this.comprobarSuscripcion();
+    }, 5000);
   }
 
   obtenerUsuario() {
@@ -89,6 +93,8 @@ export class BotonSuscripcionComponent implements OnInit {
         this.suscripcionCheck = data;
         if (this.suscripcionCheck.exists == true) {
           this.estado_suscripcion = true;
+        } else {
+          this.estado_suscripcion = false;
         }
       },
       (error) => {
@@ -104,13 +110,6 @@ export class BotonSuscripcionComponent implements OnInit {
     this.service.crearSuscripcion(this.suscripcion).subscribe(
       (response) => {
         console.log(response); // Manejo de la respuesta del backend
-        this.router
-          .navigateByUrl(`/apollo/canal/${this.canal.id}`, {
-            skipLocationChange: true,
-          })
-          .then(() => {
-
-          });
       },
       (error) => {
         console.error(error); // Manejo de errores
@@ -122,13 +121,6 @@ export class BotonSuscripcionComponent implements OnInit {
     this.service.desactivarSuscripcion(this.suscripcionCheck.id).subscribe(
       (response) => {
         console.log(response); // Manejo de la respuesta del backend
-        this.router
-          .navigateByUrl(`/apollo/canal/${this.canal.id}`, {
-            skipLocationChange: true,
-          })
-          .then(() => {
-
-          });
       },
       (error) => {
         console.error(error); // Manejo de errores
