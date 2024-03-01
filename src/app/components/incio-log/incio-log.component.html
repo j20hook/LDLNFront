@@ -19,14 +19,14 @@
 
           <div class="videos">
 
-            <div *ngFor="let video of videos_por_etiqueta" class="video">
+            <div *ngFor="let vid of videos_por_etiqueta" class="video">
 
-                <a class="tarjeta" routerLink="/apollo/video/{{video.id}}" [style.background-image]="'url(' + video.miniatura + ')'">
+                <a class="tarjeta" routerLink="/apollo/video/{{vid.id}}" [style.background-image]="'url(' + vid.miniatura + ')'">
 
-                  <div class="title">{{video.titulo}}</div>
+                  <div class="title">{{vid.titulo}}</div>
 
-                  <a href="/apollo/canal/{{video.id_canal}}"><div class="catagory" routerLink="/apollo/canal/{{video.id_canal}}">{{video.nombre_canal}}<i class="fas fa-film"></i></div></a>
-                  <a href="#"><div class="views">{{video.fecha_publicacion}}<i class="far fa-eye"></i></div></a>
+                  <a href="/apollo/canal/{{vid.id_canal}}"><div class="catagory" routerLink="/apollo/canal/{{vid.id_canal}}">{{vid.nombre_canal}}<i class="fas fa-film"></i></div></a>
+                  <a href="#"><div class="views">{{vid.fecha_publicacion}}<i class="far fa-eye"></i></div></a>
 
                 </a>
             </div>
@@ -35,14 +35,17 @@
         <ng-template #sin_etiqueta>
           <div class="texto_videos">
           <h2><span>Los videos según tus suscripciones</span></h2>
+          <div class="videos">
 
-          <div *ngFor="let vd of videos_suscritos" class="video">
+            <div *ngFor="let vd of videos_suscritos" class="video">
 
-            <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
-              <div class="title">{{vd.titulo}}</div>
-              <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
-              <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
-            </a>
+              <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
+                <div class="title">{{vd.titulo}}</div>
+                <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
+                <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+              </a>
+
+            </div>
 
           </div>
 
@@ -90,15 +93,17 @@
         <ng-template #sin_etiqueta>
           <div class="texto_videos">
             <h2><span>Los videos más virales</span></h2>
+            <div class="videos">
 
-            <div *ngFor="let vd of videos_suscritos" class="video">
+              <div *ngFor="let vd of videos_suscritos" class="video">
 
-              <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
-                <div class="title">{{vd.titulo}}</div>
-                <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
-                <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
-              </a>
+                <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
+                  <div class="title">{{vd.titulo}}</div>
+                  <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
+                  <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+                </a>
 
+              </div>
             </div>
 
           </div>

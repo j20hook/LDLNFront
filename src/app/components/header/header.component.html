@@ -27,7 +27,8 @@
     <div class="dropdown">
 
       <a class="btn_user">
-        <img class="imagen_user" src="{{usuario.foto}}"/>
+        <img *ngIf="usuario.foto != 'valor_predeterminado'" class="imagen_user" src="{{usuario.foto}}"/>
+        <img *ngIf="usuario.foto == 'valor_predeterminado'" class="imagen_user" src="assets/img/user_default.png"/>
       </a>
 
       <div class="desplegable">

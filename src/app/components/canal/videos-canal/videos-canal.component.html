@@ -1,6 +1,6 @@
 <div class="container">
 <div *ngIf="canal_loggeado.id != canal.id; else tusVideos">
-  <div *ngIf="lista_videos.length != 0; else sinVideos">
+  <div *ngIf="lista_videos && lista_videos.length != 0; else sinVideos">
     <div *ngIf="canal.nombreCanal">
     <h1 class="heading">Todos los videos de {{canal.nombreCanal}}</h1>
     </div>

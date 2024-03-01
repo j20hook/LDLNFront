@@ -58,8 +58,8 @@ export class CanalComponent implements OnInit {
   obtenerCanalLoggeado(){
 
     this.dataservice.getCanalPorUsuario(this.usuario).subscribe(
-      data=> {
-        this.canal_loggeado = data;
+      (data:any)=> {
+        this.canal_loggeado = data[0];
         this.sharedService.setCanalLoggeado(this.canal_loggeado);
         this.listar_mensaje();
       }
@@ -95,7 +95,6 @@ export class CanalComponent implements OnInit {
     subscribe(
       (videosEtiqueta) => {
         this.videos_etiquetas_canal = videosEtiqueta;
-        console.log(this.videos_etiquetas_canal)
       }
     )
 
@@ -168,7 +167,6 @@ export class CanalComponent implements OnInit {
 
 
   enviarFormulario() {
-    console.log(this.mensaje_escrito);
 
     this.dataservice.EnviarMensajeBackend(this.canal_loggeado, this.canal, this.mensaje_escrito).subscribe({
       complete:()=>console.log("Mensaje enviado")});

@@ -88,7 +88,6 @@ export class GeneralService {
 
         let body = JSON.stringify(json);
 
-        console.log(body);
         return this.http.post<Video[]>(
             'http:/api/video/poretiquetas',
             body
@@ -215,7 +214,7 @@ export class GeneralService {
     };
 
         return this.http.post<JSON>(
-            `${this.apiUrl}/video/poretiquetacanal`,
+            `${this.apiUrl}/video/videosEtiquetas2`,
             jsonCanal
         );
     }

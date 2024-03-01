@@ -55,7 +55,6 @@ export class IncioLogComponent implements OnInit{
     this.service.getVideosRecomendados(this.usuario).subscribe(
       (data:any)=>{
         this.videos_recomendados = data;
-        console.log(this.videos_recomendados);
       }
     )
 
@@ -100,6 +99,7 @@ export class IncioLogComponent implements OnInit{
     this.service.mandarEtiquetaQuery(this.etiqueta_elegida).subscribe((data:any) => {
 
       this.videos_por_etiqueta=data;
+      console.log(data)
 
     });
   }

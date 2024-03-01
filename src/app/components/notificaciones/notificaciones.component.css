@@ -1,6 +1,7 @@
 .notification-container {
   position: relative;
   display: inline-block;
+  margin-right: 50px;
 }
 
 #notification-dropdown {

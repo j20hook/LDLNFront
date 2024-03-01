@@ -109,7 +109,7 @@ export class BotonSuscripcionComponent implements OnInit {
             skipLocationChange: true,
           })
           .then(() => {
-            this.router.navigate([this.router.url]);
+
           });
       },
       (error) => {
@@ -127,7 +127,7 @@ export class BotonSuscripcionComponent implements OnInit {
             skipLocationChange: true,
           })
           .then(() => {
-            this.router.navigate([this.router.url]);
+
           });
       },
       (error) => {
