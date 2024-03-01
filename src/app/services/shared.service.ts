@@ -8,9 +8,10 @@ import {Usuario} from "../models/Usuario";
 export class SharedService {
   canal= new Usuario();
   canal_loggeado = new Usuario();
+  usuario_loggeado = new Usuario();
+  busqueda: string = '';
 
-  constructor() {
-  }
+  constructor() {}
 
   /*Canal por URL*/
   setCanal(data: Usuario){
@@ -30,6 +31,27 @@ export class SharedService {
 
   getCanalLoggeado(){
     return this.canal_loggeado;
+  }
+
+  /*Usuario loggeado*/
+  setUsuarioLoggeado(data: Usuario){
+    console.log(data)
+    this.usuario_loggeado=data;
+  }
+
+  getUsuarioLoggeado(){
+    return this.usuario_loggeado;
+  }
+
+
+  /*Búsqueda*/
+  setBusqueda(data: string){
+    this.busqueda=data;
+    console.log(this.busqueda)
+  }
+
+  getBusqueda(){
+    return this.busqueda;
   }
 
 }

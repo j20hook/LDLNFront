@@ -204,11 +204,10 @@ export class GeneralService {
         return this.http.post<JSON>(`${this.apiUrl}/video/porcanal`, jsonCanal);
     }
 
-  getVideosEtiquetasCanalId(id_canal:number, etiqueta:any):Observable<JSON> {
+  getVideosEtiquetasCanalId(id_canal:number):Observable<JSON> {
 
     let jsonCanal = {
       "id": id_canal,
-      "etiqueta": etiqueta.descripcion
     };
 
         return this.http.post<JSON>(
@@ -313,6 +312,14 @@ export class GeneralService {
     return this.http.post<JSON>(`${this.apiUrl}/suscripcion/suscriptoresporcanal`, jsonSuscriptores);
   }
 
+  getCanalesSuscritosPorUsuario(usuario_loggeado: Usuario): Observable<JSON> {
+    let jsonCanalesSuscritos = {
+      "id": usuario_loggeado.id
+    }
+
+    return this.http.post<JSON>(`${this.apiUrl}/suscripcion/canalessuscritosporusuario`, jsonCanalesSuscritos);
+  }
+
   getCanalPorUsername(usuario:Usuario):Observable<JSON> {
 
     return this.http.post<JSON>(`${this.apiUrl}/canal/porusername`, usuario );
@@ -336,5 +343,44 @@ export class GeneralService {
     return this.http.post<JSON>(`${this.apiUrl}/notificacion/porusuario`, data );
 
   }
+
+  BusquedaVideos(texto:string): Observable<JSON> {
+    let jsonBusqueda = {
+      "texto": texto
+    }
+
+    return this.http.post<JSON>(`${this.apiUrl}/video/videobuscador`, jsonBusqueda);
+  }
+
+  BusquedaCanales(texto:string): Observable<JSON> {
+    let jsonBusqueda = {
+      "texto": texto
+    }
+
+    return this.http.post<JSON>(`${this.apiUrl}/canal/canalbuscador`, jsonBusqueda);
+  }
+
+  RegistrarBusqueda(usuario_loggeado: Usuario, texto: string): Observable<JSON> {
+    let jsonHistorialBusqueda = {
+      "texto": texto,
+      "id": usuario_loggeado.id
+    }
+
+    return this.http.post<JSON>(`${this.apiUrl}/historial_busquedas/insertar`, jsonHistorialBusqueda);
+  }
+
+  listarBusuqeda(usuario_loggeado: Usuario): Observable<JSON> {
+    let jsonHistorialBusqueda = {
+      "id": usuario_loggeado.id
+    }
+
+    return this.http.post<JSON>(`${this.apiUrl}/historial_busquedas/listar`, jsonHistorialBusqueda);
+  }
+
+  videosVirales(): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/videos/topvideosvirales`);
+  }
+
+
 
 }

@@ -39,13 +39,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { MatIconModule } from '@angular/material/icon';
 import { DataComponent } from './components/canal/data/data.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { PruebaComponent } from './components/prueba/prueba.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ModalBuscadorComponent } from './components/buscador/modal-buscador/modal-buscador.component';
+import { HistorialBusquedaComponent } from './components/header/historial-busqueda/historial-busqueda.component';
+import { HistorialVideosComponent } from './components/header/historial-videos/historial-videos.component';
 
 @NgModule({
     declarations: [
@@ -74,6 +79,11 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
         DataComponent,
         EditarPerfilComponent,
         NotificacionesComponent,
+        PruebaComponent,
+        BuscadorComponent,
+        ModalBuscadorComponent,
+        HistorialBusquedaComponent,
+        HistorialVideosComponent,
     ],
   imports: [
     BrowserModule,

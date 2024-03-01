@@ -11,14 +11,70 @@
     </div>
 
     <div class="listado_videos">
+      <div *ngIf="canales_suscritos_por_usuario.length != 0; else sinSuscripciones">
 
-      <div class="texto_videos" *ngIf="etiqueta_elegida; else sin_etiqueta">
+        <div class="texto_videos" *ngIf="etiqueta_elegida; else sin_etiqueta">
 
-        <h2><span>Los videos de {{etiqueta_elegida | lowercase}}</span></h2>
+          <h2><span>Los videos de {{etiqueta_elegida | lowercase}}</span></h2>
 
-        <div class="videos">
+          <div class="videos">
 
-          <div *ngFor="let video of videos_por_etiqueta" class="video">
+            <div *ngFor="let video of videos_por_etiqueta" class="video">
+
+                <a class="tarjeta" routerLink="/apollo/video/{{video.id}}" [style.background-image]="'url(' + video.miniatura + ')'">
+
+                  <div class="title">{{video.titulo}}</div>
+
+                  <a href="/apollo/canal/{{video.id_canal}}"><div class="catagory" routerLink="/apollo/canal/{{video.id_canal}}">{{video.nombre_canal}}<i class="fas fa-film"></i></div></a>
+                  <a href="#"><div class="views">{{video.fecha_publicacion}}<i class="far fa-eye"></i></div></a>
+
+                </a>
+            </div>
+          </div>
+        </div>
+        <ng-template #sin_etiqueta>
+          <div class="texto_videos">
+          <h2><span>Los videos según tus suscripciones</span></h2>
+
+          <div *ngFor="let vd of videos_suscritos" class="video">
+
+            <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
+              <div class="title">{{vd.titulo}}</div>
+              <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
+              <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+            </a>
+
+          </div>
+
+        </div>
+        </ng-template>
+        <div class="texto_videos">
+          <h2><span>Te recomendamos los siguientes videos</span></h2>
+
+          <div class="videos">
+
+            <div *ngFor="let v of videos_recomendados" class="video">
+
+              <a class="card" routerLink="/apollo/video/{{v.id}}" [style.background-image]="'url(' + v.miniatura + ')'">
+
+                <div class="title">{{v.titulo}}</div>
+
+                <a href="#"><div class="catagory" routerLink="/apollo/canal/{{v.id_canal}}">{{v.nombre_canal}}<i class="fas fa-film"></i></div></a>
+                <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #sinSuscripciones>
+        <div class="texto_videos" *ngIf="etiqueta_elegida; else sin_etiqueta">
+
+          <h2><span>Los videos de {{etiqueta_elegida | lowercase}}</span></h2>
+
+          <div class="videos">
+
+            <div *ngFor="let video of videos_por_etiqueta" class="video">
 
               <a class="tarjeta" routerLink="/apollo/video/{{video.id}}" [style.background-image]="'url(' + video.miniatura + ')'">
 
@@ -28,45 +84,44 @@
                 <a href="#"><div class="views">{{video.fecha_publicacion}}<i class="far fa-eye"></i></div></a>
 
               </a>
+            </div>
           </div>
         </div>
-      </div>
-      <ng-template #sin_etiqueta>
+        <ng-template #sin_etiqueta>
+          <div class="texto_videos">
+            <h2><span>Los videos más virales</span></h2>
+
+            <div *ngFor="let vd of videos_suscritos" class="video">
+
+              <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
+                <div class="title">{{vd.titulo}}</div>
+                <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
+                <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
+              </a>
+
+            </div>
+
+          </div>
+        </ng-template>
         <div class="texto_videos">
-        <h2><span>Los videos según tus suscripciones</span></h2>
+          <h2><span>Te recomendamos los siguientes videos</span></h2>
 
-        <div *ngFor="let vd of videos_suscritos" class="video">
+          <div class="videos">
 
-          <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
-            <div class="title">{{vd.titulo}}</div>
-            <a href="#"><div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{vd.nombre_canal}}<i class="fas fa-film"></i></div></a>
-            <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
-          </a>
+            <div *ngFor="let v of videos_recomendados" class="video">
 
-        </div>
+              <a class="card" routerLink="/apollo/video/{{v.id}}" [style.background-image]="'url(' + v.miniatura + ')'">
 
-      </div>
-      </ng-template>
-      <div class="texto_videos">
-        <h2><span>Te recomendamos los siguientes videos</span></h2>
+                <div class="title">{{v.titulo}}</div>
 
-        <div class="videos">
+                <a href="#"><div class="catagory" routerLink="/apollo/canal/{{v.id_canal}}">{{v.nombre_canal}}<i class="fas fa-film"></i></div></a>
+                <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
 
-          <div *ngFor="let v of videos_recomendados" class="video">
-
-            <a class="card" routerLink="/apollo/video/{{v.id}}" [style.background-image]="'url(' + v.miniatura + ')'">
-
-              <div class="title">{{v.titulo}}</div>
-
-              <a href="#"><div class="catagory" routerLink="/apollo/canal/{{v.id_canal}}">{{v.nombre_canal}}<i class="fas fa-film"></i></div></a>
-              <a href="#"><div class="views">Fecha<i class="far fa-eye"></i></div></a>
-
-            </a>
+              </a>
+            </div>
           </div>
         </div>
-
-
-      </div>
+      </ng-template>
     </div>
   </div>
 </div>
