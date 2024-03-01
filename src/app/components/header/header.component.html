@@ -10,14 +10,7 @@
   <div class="dispo_botones">
 
     <div class="buscador">
-
-      <input class="lupa_text" type="text"/>
-
-      <button class="lupa">
-        <i>
-          <fa-icon [icon]="icon_lupa"></fa-icon>
-        </i>
-      </button>
+      <button class="lupa" (click)="abrirBuscador()"><i><fa-icon [icon]="icon_lupa"></fa-icon></i></button>
 
       <button class="logout-button" *ngIf="token !=''" (click)="logout()">Cerrar Sesión</button>
 
@@ -38,10 +31,14 @@
       </a>
 
       <div class="desplegable">
-        <a href="/apollo/perfil/datos">Mi Perfil</a>
-        <div *ngIf="canal && canal.id"><a href="/apollo/canal/{{ canal.id }}">Mi Canal</a></div>
-        <a>ETC</a>
-        <a>ETC</a>
+        <a href="/apollo/perfil/datos">Mi perfil</a>
+        <div *ngIf="canal && canal.id"><a href="/apollo/canal/{{ canal.id }}">Mi canal</a></div>
+        <mat-dialog-actions>
+          <button mat-raised-button (click)="abrirHistorialBusqueda()" class="btn_desplegable">Historial búsquedas</button>
+        </mat-dialog-actions>
+        <mat-dialog-actions>
+          <button mat-raised-button (click)="abrirHistorialVideos()" class="btn_desplegable">Historial videos</button>
+        </mat-dialog-actions>
       </div>
 
     </div>

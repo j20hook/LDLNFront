@@ -267,6 +267,7 @@ a {
 .channel-subscribe {
   display: flex;
   flex-direction: row;
+  justify-content: end;
   width:20%;
   height: 3.7rem;
   color: var(--grey-text);
@@ -476,6 +477,13 @@ a {
 
 .playlist-video .video-creator {
   display: block;
+}
+
+
+.sinVideos{
+  display:flex;
+  width: 100%;
+  justify-content: center;
 }
 
 /* Recommended channels */
@@ -848,6 +856,8 @@ p { margin: 0; }
   width: 50%;
   background-color: white;
   border: 2px black solid;
+  display: flex;
+  flex-direction: row;
 }
 
 .mensajes_enviados{
@@ -855,6 +865,8 @@ p { margin: 0; }
   border: 2px black solid;
   border-radius:0 2px 0 2px;
   background-color: white;
+  display: flex;
+  flex-direction: row;
 
 }
 
@@ -865,11 +877,20 @@ p { margin: 0; }
 
 .chat-message-content {
   margin-left: 56px;
+  display: flex;
+  flex-direction: row;
+  aling-items: center;
+  width: 100%;
+}
+.mensaje_en_si{
+  width: 70%;
+  aling-items: center;
 }
 
 .chat-time {
-  float: right;
-  font-size: 10px;
+  width: 30%;
+  font-size: 17px;
+  aling-items: end;
 }
 
 .chat-feedback {

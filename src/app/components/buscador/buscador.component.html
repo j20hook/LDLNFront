@@ -1,0 +1,50 @@
+
+
+<div class="pagina_entera">
+  <app-header></app-header>
+  <div *ngIf="lista_busqueda_canales?.length != 0 && lista_busqueda_video?.length != 0; else sinResultados" class="centrar">
+    <h2>Tus resultados para "{{busqueda}}" son:</h2>
+    <div class="contain">
+
+      <div class="resultado_canales" [ngClass]="{'border-canal': lista_busqueda_canales?.length > lista_busqueda_video?.length}">
+
+        <div *ngIf="lista_busqueda_canales?.length != 0; else sinCanales">
+
+          <div *ngFor="let canal of lista_busqueda_canales">
+
+            <div class="bucle">
+              <img src="assets/img/user_default.png" class="imagen_canal">
+              <h3>{{canal.nombre_canal}}</h3>
+            </div>
+          </div>
+
+        </div>
+
+        <ng-template #sinCanales>
+          <h2>No se han obtenidos canales para tu busqueda.</h2>
+        </ng-template>
+      </div>
+
+      <div class="resultado_videos" [ngClass]="{'border-videos': lista_busqueda_canales?.length < lista_busqueda_video?.length}">
+        <div *ngIf="lista_busqueda_video?.length != 0; else sinVideos">
+          <div *ngFor="let video of lista_busqueda_video">
+            <div class="bucle">
+              <img src="{{video.miniatura}}" class="imagen_video">
+              <h3>{{video.titulo}}</h3>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #sinVideos>
+          <h2>No se han obtenidos videos para tu busqueda.</h2>
+        </ng-template>
+      </div>
+
+    </div>
+
+  </div>
+  <ng-template #sinResultados>
+    <div class="sin_result"><h2>Su búsqueda "{{busqueda}}" no ha obtenido ningún resultado</h2></div>
+  </ng-template>
+  <app-footer class="footer"></app-footer>
+</div>

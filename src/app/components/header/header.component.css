@@ -131,6 +131,17 @@ body {
   margin-left: 10px;
 }
 
+.btn_desplegable{
+  text-decoration: none;
+  background-color: transparent !important;
+  color: white !important;
+  transition: 0.5s;
+}
+
+.btn_desplegable:hover {
+  color: #3b5999 !important;
+}
+
 /* Agregado para el botón de logout */
 .logout-button {
   background-color: #4B0082;
@@ -252,3 +263,5 @@ ul {
 .notification-text span{
   float: right;
 }
+
+

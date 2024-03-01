@@ -28,12 +28,15 @@ export class CanalComponent implements OnInit {
   canal_loggeado: any;
   etiquetas: any;
   videos_id_canal: any;
-  videos_etiquetas_canal: Video[] = [];
+  videos_etiquetas_canal: any;
+  lista_videos_etiquetas: Video[][] = [];
   lista_mensajes: any;
+  num_etiquetas: any;
   mensaje_escrito: string = "";
   pestana_canal: string = 'home';
   name:any;
   animal: any;
+  chatExpandido: boolean = true;
 
   constructor(
         private route: ActivatedRoute,
@@ -43,10 +46,25 @@ export class CanalComponent implements OnInit {
         ) {}
 
 
+  toggleChat() {
+    this.chatExpandido = !this.chatExpandido;
+  }
   editarCanal(): void{
     this.dialog.open(EditarCanalComponent),{
       width:'70%'
     }
+  }
+
+  obtenerCanalLoggeado(){
+
+    this.dataservice.getCanalPorUsuario(this.usuario).subscribe(
+      data=> {
+        this.canal_loggeado = data;
+        this.sharedService.setCanalLoggeado(this.canal_loggeado);
+        this.listar_mensaje();
+      }
+    )
+
   }
 
 
@@ -56,95 +74,104 @@ export class CanalComponent implements OnInit {
           this.lista_mensajes = data;
         }
       )
+
   }
 
+  obtenerEtiquetasCanal(){
+
+    this.dataservice.getEtiquetasCanal(this.canal.id).
+    subscribe(
+      (data) => {
+        this.etiquetas = data;
+        this.num_etiquetas = this.etiquetas.length;
+      }
+    )
+
+  }
+
+  obtenerVideosCanalEtiquetas(){
+
+    this.dataservice.getVideosEtiquetasCanalId(this.canal.id).
+    subscribe(
+      (videosEtiqueta) => {
+        this.videos_etiquetas_canal = videosEtiqueta;
+        console.log(this.videos_etiquetas_canal)
+      }
+    )
+
+  }
+
+  numeroSuscriptoresCanal(){
+
+    this.dataservice.getNumSuscriptoresCanal(this.canal.id).
+    subscribe(
+      (data) => {
+        this.suscriptores = data;
+      }
+    )
+
+  }
+
+  obtenerVideosCanal(){
+
+    this.dataservice.getVideosCanalId(this.canal.id).subscribe(
+      (data) => {
+        this.videos_id_canal = data;
+      }
+    )
+
+  }
 
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-        const canalId = +params['id'];
+      const canalId = +params['id'];
         if (canalId) {
           this.dataservice.getCanalPorId(canalId)
             .subscribe(
               data => {
                 this.canal = data;
                 this.sharedService.setCanal(this.canal);
+
+
+                /*Metodos a cargar*/
+
+                this.obtenerEtiquetasCanal();
+                this.obtenerVideosCanalEtiquetas();
+                this.numeroSuscriptoresCanal();
+                this.obtenerVideosCanal();
               }
             )
-
-
-          this.usuari1.username = localStorage.getItem('username') || '';
-          this.dataservice.getUsuarioByUsername(this.usuari1).subscribe((data) => {
-            this.usuario = data;
-
-            this.dataservice.getCanalPorUsuario(this.usuario).subscribe(
-              (data:any)=>{
-                this.canal_loggeado = data[0];
-                this.sharedService.setCanalLoggeado(this.canal_loggeado);
-
-
-                this.listar_mensaje();
-
-              }
-            )
-
-          });
-
-
-                this.dataservice.getNumSuscriptoresCanal(canalId).subscribe(
-                    (data) => {
-                        this.suscriptores = data;
-                    },
-                    (error) => {
-                        console.error('no funciona', error);
-                    }
-                );
-
-          this.dataservice.getEtiquetasCanal(canalId).subscribe(
-            (data) => {
-              this.etiquetas = data;
-
-             /*for (var eti of this.etiquetas) {
-                this.dataservice.getVideosEtiquetasCanalId(canalId, eti).
-                subscribe(
-                  (videosEtiqueta) => {
-                    this.videos_etiquetas_canal.push(videosEtiqueta)
-                    console.log(this.videos_etiquetas_canal);
-
-                  }
-
-              )
-              }*/
-            },
-
-          );
-
-        /*  this.dataservice.enviarEtiquetas(this.etiquetas) */
-
-                this.dataservice.getVideosCanalId(canalId).subscribe(
-                    (data) => {
-                        this.videos_id_canal = data;
-                    },
-                    (error) => {
-                        console.error('no funciona', error);
-                    }
-                );
-
-
-
-
         }
+    })
+
+    this.usuari1.username = localStorage.getItem('username') || '';
+      this.dataservice.getUsuarioByUsername(this.usuari1).
+      subscribe((
+        data) => {
+        if(data){
+          this.usuario = data;
+        }
+
+        /*Metodos a cargar*/
+
+        this.obtenerCanalLoggeado();
+
       }
     )
+
+
+
+
   }
 
 
-
   enviarFormulario() {
+    console.log(this.mensaje_escrito);
+
     this.dataservice.EnviarMensajeBackend(this.canal_loggeado, this.canal, this.mensaje_escrito).subscribe({
-      complete: () => console.log("Mensaje enviado")
-    });
+      complete:()=>console.log("Mensaje enviado")});
 
 
     setTimeout(() => {
@@ -167,4 +194,34 @@ export class CanalComponent implements OnInit {
     this.pestana_canal = 'data';
   }
 
+  formatearFecha(fechaString: string): string {
+    // Crear un objeto de fecha a partir de la cadena proporcionada
+    const fecha = new Date(fechaString);
+
+    // Obtener día, mes y año
+
+    const hora = fecha.getHours();
+    const minutos= fecha.getMinutes()
+
+    // Crear la cadena de fecha formateada
+    const fechaFormateada = `${hora} : ${minutos} `;
+
+    return fechaFormateada;
+  }
+
+}
+
+function formatearFecha(fechaString: string): string {
+  // Crear un objeto de fecha a partir de la cadena proporcionada
+  const fecha = new Date(fechaString);
+
+  // Obtener día, mes y año
+
+  const hora = fecha.getHours();
+  const minutos= fecha.getMinutes()
+
+  // Crear la cadena de fecha formateada
+  const fechaFormateada = `${hora} : ${minutos} `;
+
+  return fechaFormateada;
 }

@@ -3,36 +3,31 @@
 <!-- End of header -->
 
 <!-- Channel Banner -->
-  <div *ngIf="canal?.banner">
-    <section class="channel-banner" [style.background-image]="'url(' + canal.banner + ')'">
+<div *ngIf="canal?.banner">
+<section class="channel-banner" [style.background-image]="'url(' + canal.banner + ')'">
 
-      <div class="channel-social-links">
+  <div class="channel-social-links">
 
-        <ul>
-          <li class="btn google-plus">
-            <i aria-hidden="true">
-              <fa-icon [icon]="icon_instagram"></fa-icon>
-            </i>
-          </li>
+    <ul>
+      <li class="btn google-plus">
+        <i aria-hidden="true"><fa-icon [icon]="icon_instagram"></fa-icon></i>
+      </li>
 
-          <li class="btn twitter">
-            <i aria-hidden="true">
-              <fa-icon [icon]="icon_twitter"></fa-icon>
-            </i>
-          </li>
+      <li class="btn twitter">
+        <i aria-hidden="true"><fa-icon [icon]="icon_twitter"></fa-icon></i>
+      </li>
 
-          <li class="btn facebook">
-            <i aria-hidden="true">
-              <fa-icon [icon]="icon_facebook"></fa-icon>
-            </i>
-          </li>
-        </ul>
+      <li class="btn facebook">
+        <i aria-hidden="true"><fa-icon [icon]="icon_facebook"></fa-icon></i>
+      </li>
+    </ul>
 
-      </div>
-
-    </section>
   </div>
-<!-- End of channel banner -->
+
+</section>
+</div>
+
+  <!-- End of channel banner -->
 </div>
 
 <!-- Channel Info -->
@@ -40,8 +35,8 @@
 
   <div class="container">
 
-    <div class="channel-icon" *ngIf="canal?.foto">
-      <a><img class="imagen_user" src="{{canal.foto}}"/></a>
+    <div class="channel-icon" *ngIf="usuario?.foto">
+      <a><img class="imagen_user" src="{{usuario.foto}}"/></a>
 
     </div>
 
@@ -60,7 +55,7 @@
         <mat-dialog-actions>
           <button mat-raised-button (click)="editarCanal()" class="bton_edit">Editar canal</button>
         </mat-dialog-actions>
-        <a href="apollo/video/subir" class="bton_subir"><i><mat-icon>backup</mat-icon></i> Subir video</a>
+        <button class="bton_subir"><i><mat-icon>backup</mat-icon></i> Subir video</button>
       </div>
 
       <ng-template #canalAjeno>
@@ -141,34 +136,40 @@
               </div>
             </div>
 
-            <div class="vlogs-playlist playlist" *ngFor="let etiqueta of etiquetas">
 
-              <h2 class="playlist-title">{{etiqueta.descripcion}}</h2>
+            <div *ngIf="videos_id_canal!=0; else sinVideos">
+              <div class="vlogs-playlist playlist" *ngFor="let etiqueta of etiquetas">
 
-              <div class="playlist-videos">
+                <h2 class="playlist-title">{{etiqueta.descripcion}}</h2>
 
-                <div class="playlist-video" tabindex="0">
+                <div class="playlist-videos">
 
-                  <div class="video-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1506960002266-9cebbf4e9549?w=210&h=118&fit=crop" alt="">
-                  </div>
 
-                  <div class="video-info">
-                    <h3 class="video-title">Really Cool Vlog 8</h3>
-                    <ul class="video-meta-data">
-                      <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                      <li class="video-views">252K views</li>
-                      <li class="video-upload-date">1 day ago</li>
-                    </ul>
+                      <div class="playlist-video" tabindex="0" *ngFor="let videos_etiquetados of videos_etiquetas_canal">
+                        <div *ngIf="videos_etiquetados.descripcion == etiqueta.descripcion">
 
-                  </div>
+                          <div class="video-thumbnail">
+                            <img src="{{videos_etiquetados.miniatura}}" alt="">
+                          </div>
+
+                          <div class="video-info">
+                            <h3 class="video-title">{{videos_etiquetados.titulo}}</h3>
+                            <ul class="video-meta-data">
+                              <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
+                              <li class="video-views">252K views</li>
+                              <li class="video-upload-date">Fecha de publicación {{videos_etiquetados.fecha_publicacion}}</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
 
                 </div>
 
-              </div>
-
+                </div>
             </div>
-
+            <ng-template #sinVideos>
+              <div class="sinVideos"><h1>Este canal aún no ha subido videos</h1></div>
+            </ng-template>
           </div>
 
         </section>
@@ -197,9 +198,9 @@
   <div *ngIf="canal_loggeado.id != canal.id">
       <body>
 
-      <div id="live-chat" class="todo_chat">
+      <div id="live-chat" class="todo_chat" [ngClass]="{'minimizado': !chatExpandido}">
 
-        <header class="clearfix">
+        <header class="clearfix" (click)="toggleChat()">
 
           <a href="#" class="chat-close">x</a>
 
@@ -209,7 +210,7 @@
 
         </header>
 
-        <div class="chat">
+        <div class="chat" *ngIf="chatExpandido">
 
           <div class="chat-history">
 
@@ -217,18 +218,19 @@
               <div *ngIf="canal_loggeado.id == mensaje.id_canal_receptor" class="mensajes_enviados">
                 <img src="" alt="" width="32" height="32">
                 <div class="chat-message-content clearfix">
-                  <h3 class="chat-time">13:35</h3>
-                  <h3>{{mensaje.texto}}</h3>
+                  <div class="mensaje_en_si"><h3>{{mensaje.texto}}</h3></div>
+                  <div class="chat-time"><h4>{{ formatearFecha(mensaje.fecha_envio) }}</h4></div>
                 </div> <!-- end chat-message-content -->
               </div>
-            </div> <!-- end chat-message -->
+              </div>
+            <!-- end chat-message -->
 
             <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
               <div *ngIf="canal_loggeado.id != mensaje.id_canal_receptor" class="mensajes_recibidos">
                 <img src="" alt="" width="32" height="32">
                 <div class="chat-message-content clearfix">
-                  <h3 class="chat-time">13:35</h3>
-                  <h3>{{mensaje.texto}}</h3>
+                  <div class="mensaje_en_si"><h3>{{mensaje.texto}}</h3></div>
+                  <div class="chat-time"><h4>{{ formatearFecha(mensaje.fecha_envio) }}</h4></div>
                 </div> <!-- end chat-message-content -->
               </div>
             </div> <!-- end chat-message -->
@@ -243,7 +245,6 @@
               </div>
               <button type="submit"><mat-icon>send</mat-icon></button>
             </div>
-
           </form>
 
         </div> <!-- end chat -->

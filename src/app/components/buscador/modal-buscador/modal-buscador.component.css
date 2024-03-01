@@ -1,0 +1,9 @@
+
+.contain{
+  min-width: 20vw !important;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
