@@ -1,0 +1,20 @@
+<div *ngIf="historial_busqueda.length !=0; else sinBusquedas">
+  <div class="modal_historial_busqueda">
+    <h1>Este es tu historial de búsquedas</h1>
+    <br>
+    <hr>
+    <br>
+    <div class="contain" *ngFor="let busquedas of historial_busqueda">
+      <div class="busqueda">
+        <p>{{busquedas.texto}}</p>
+        <p>{{busquedas.fecha_busqueda}}</p>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #sinBusquedas>
+  <div class="sinBusquedas"><h1>Aún no has realizado ninguna búsqueda</h1></div>
+</ng-template>
