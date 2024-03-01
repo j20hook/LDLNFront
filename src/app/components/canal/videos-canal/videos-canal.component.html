@@ -9,7 +9,7 @@
 
       <div class="videos">
         <div *ngFor="let v of lista_videos" class="video">
-          <div class="card" [style.background-image]="'url(' + v.miniatura + ')'">
+          <a routerLink="/apollo/video/{{v.id}}" class="card" [style.background-image]="'url(' + v.miniatura + ')'">
             <div class="thumbnail">
               <!-- Miniatura del video -->
             </div>
@@ -24,11 +24,11 @@
                 <i class="far fa-eye"></i>
               </div>
             </div>
-            <div class="buttons">
+            <div class="buttons" *ngIf="canal_loggeado.id == canal.id">
               <button class="edit-button" (click)="editarVideo(v.id)">Editar</button>
               <button class="delete-button" (click)="eliminarVideo(v.id)">Eliminar</button>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
