@@ -1,20 +1,22 @@
 body{
-  display: grid;
-  background: none;
-  grid-template-colums: repeat(2, 1fr);
+display: flex;
+  flex-direction: row;
+  align-content: center;
 }
 
-.like{
+button{
   background: none;
   color: #f0f0f0;
   border: none;
   border-top-left-radius: 20px ;
   border-bottom-left-radius: 20px ;
 }
-.dislike{
-  background: none;
-  color: #f0f0f0;
-  border: none;
-  border-top-right-radius: 20px ;
-  border-bottom-right-radius: 20px ;
+span{
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+img{
+  height: 25px;
+  width: 25px;
 }

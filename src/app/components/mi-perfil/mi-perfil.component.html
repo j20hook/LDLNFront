@@ -14,32 +14,30 @@
 <div class="main">
   <div class="area">
 
-    <h1>Hola! {{usuario.username}}</h1>
-
-    <h3>TUS DATOS</h3>
+    <h1>Bienvenido, {{usuario.username}}!</h1>
 
     <div class="box">
-
+      <img src="{{usuario.foto}}" alt="Foto personal">
+      <h3>TUS DATOS</h3>
       <p>Correo Electrónico: {{usuario.email}}</p>
       <p>Ubicación: {{ usuario.comunidad_autonoma }}</p>
       <p *ngIf="canal.id == 0" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
-      <img src="{{usuario.foto}}" Foto personal>
-
     </div>
 
-    <h3>¿Quieres editar tu perfil?</h3>
+    <div class="action-buttons">
+      <a href="/apollo/usuario/editar/{{usuario.id}}">Editar Perfil</a>
 
-    <a href="/apollo/usuario/editar/{{usuario.id}}">Vamos a editarlo {{usuario.username}}!</a>
+      <ng-container *ngIf="canal.id == null">
+        <h3>¿Quieres crearte un canal?</h3>
+        <a href="/apollo/canal/crear">Crear Canal</a>
+      </ng-container>
 
-    <h3 *ngIf="canal.id == null">¿Quieres crearte un canal?</h3>
-
-    <a *ngIf="canal.id == null" href="/apollo/canal/crear">Vamos!</a>
-
-    <a *ngIf="canal.id != null" href="/apollo/canal/{{canal.id}}">Vamos a tu canal {{usuario.username}}!</a>
-
+      <ng-container *ngIf="canal.id != null">
+        <a href="/apollo/canal/{{canal.id}}">Ir a tu Canal</a>
+      </ng-container>
+    </div>
 
   </div>
-
 </div>
 
 <app-footer></app-footer>

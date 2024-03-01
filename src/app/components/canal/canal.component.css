@@ -184,7 +184,7 @@ a {
 
 .channel-social-links {
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: transparent;
 }
 
 .channel-social-links li {
@@ -229,7 +229,6 @@ a {
   height: auto;
   border-radius: 50%;
   width: 20%;
-  overflow: hidden;
 }
 
 .imagen_user{

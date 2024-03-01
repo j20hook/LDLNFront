@@ -27,7 +27,6 @@ export class VideosCanalComponent implements OnInit{
       this.dataservice.getVideosCanalId(this.canal.id).subscribe(
         data => {
           this.lista_videos = data;
-          console.log(this.lista_videos)
         }
       )
     }

@@ -15,7 +15,6 @@ export class SharedService {
 
   /*Canal por URL*/
   setCanal(data: Usuario){
-    console.log(data)
     this.canal=data;
   }
 
@@ -25,7 +24,6 @@ export class SharedService {
 
   /*Canal loggeadoL*/
   setCanalLoggeado(data: Usuario){
-    console.log(data)
     this.canal_loggeado=data;
   }
 

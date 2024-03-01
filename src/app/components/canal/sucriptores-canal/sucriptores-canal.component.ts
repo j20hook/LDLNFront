@@ -26,7 +26,6 @@ export class SucriptoresCanalComponent {
       this.dataservice.getSucriptoresPorIdCanal(this.canal.id).subscribe(
         data => {
           this.lista_suscriptores = data;
-          console.log(this.lista_suscriptores)
         }
       )
     }

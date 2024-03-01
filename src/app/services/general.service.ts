@@ -332,10 +332,18 @@ export class GeneralService {
 
   }
 
-  visitasPorVideo(visita:Visita):Observable<JSON>{
+  visitasPorVideo(visita: Visita): Observable<JSON> {
+    return this.http.post<JSON>(`${this.apiUrl}/visita/porvideo`, visita);
+  }
+  getCanalByVideoId(id: number): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/video/${id}`);
+  }
 
-      return this.http.post<JSON>(`${this.apiUrl}/visita/porvideo`, visita );
-
+  likesPorVideo(data: number): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_positiva/porvideo`,
+      data,
+    );
   }
 
   notificacionesPorUsuario(data:Usuario):Observable<JSON>{
@@ -383,4 +391,10 @@ export class GeneralService {
 
 
 
+  dislikesPorVideo(data: number): Observable<JSON> {
+    return this.http.post<JSON>(
+      `${this.apiUrl}/valoracion_negativa/porvideo`,
+      data,
+    );
+  }
 }

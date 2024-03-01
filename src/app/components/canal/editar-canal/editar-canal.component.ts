@@ -30,7 +30,6 @@ export class EditarCanalComponent implements OnInit {
                 this.dataservice.getCanalPorId(canalId).subscribe(
                     (data) => {
                         this.nuevoCanal = data;
-                        console.log(this.nuevoCanal);
                     },
                     (error) => {
                         console.error('no funciona', error);
@@ -46,7 +45,6 @@ export class EditarCanalComponent implements OnInit {
     editarCanal() {
         this.dataservice.editarCanal(this.nuevoCanal).subscribe(
             (response) => {
-                console.log(response); // Manejo de la respuesta del backend
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
