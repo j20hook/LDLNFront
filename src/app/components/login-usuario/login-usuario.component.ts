@@ -30,7 +30,7 @@ export class LoginUsuarioComponent {
 
       },
 
-      error: (e) => console.error(e),
+      error: (e) => console.error(e)
 
     });
   }

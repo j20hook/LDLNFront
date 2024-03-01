@@ -76,7 +76,7 @@ import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
         DataComponent,
         EditarPerfilComponent,
         NotificacionesComponent,
-        RecaptchaComponent,
+        RecaptchaComponent
     ],
   imports: [
     BrowserModule,
@@ -94,7 +94,8 @@ import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    RecaptchaModule
+    RecaptchaModule,
+
 
 
   ],

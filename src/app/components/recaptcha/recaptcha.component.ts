@@ -16,10 +16,17 @@ export class RecaptchaComponent {
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response: ${captchaResponse}`);
 
-    this.router.navigate(['/apollo/login'])
+
+
+    }
+
 
   }
 
 
 
-}
+
+
+
+
+

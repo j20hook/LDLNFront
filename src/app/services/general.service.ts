@@ -94,6 +94,7 @@ export class GeneralService {
         return this.http.post<JSON>(`${this.apiUrl}/usuario/buscar`, data);
     }
 
+
     getCanalIdByUsuario(data: Usuario): Observable<JSON> {
         let jsonCanal = {
             id: data.id,
@@ -109,6 +110,8 @@ export class GeneralService {
     const data = { email: email };
     return this.http.post(`${this.apiUrl}/reset-password`, data);
   }
+
+
 
 
   crearCanal(data: Canal): Observable<JSON> {

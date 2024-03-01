@@ -35,7 +35,7 @@ const routes: Routes = [
     { path:'apollo/videos', component: VideosCanalComponent},
     { path:'apollo/video/editar/:id', component: EditarVideoComponent},
     { path:'apollo/usuario/editar/:id', component: EditarPerfilComponent},
-    { path:'apollo/recaptcha', component: RecaptchaComponent}
+
 
 ];
 
