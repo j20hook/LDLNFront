@@ -46,6 +46,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { RecaptchaModule } from "ng-recaptcha";
+import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
 
 @NgModule({
     declarations: [
@@ -74,6 +76,7 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
         DataComponent,
         EditarPerfilComponent,
         NotificacionesComponent,
+        RecaptchaComponent,
     ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     MatDialogModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    RecaptchaModule
 
 
   ],

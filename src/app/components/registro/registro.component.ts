@@ -56,8 +56,6 @@ export class RegistroComponent implements OnInit{
         })
 
 
-        this.router.navigate(['/apollo/login'])
-
       }
 
     }, (error)=> {
@@ -69,6 +67,8 @@ export class RegistroComponent implements OnInit{
       });
 
     })
+
+    this.router.navigate(['/apollo/recaptcha'])
   }
 
 }

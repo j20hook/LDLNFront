@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> robot </title>
+  <link rel="stylesheet" type="text/css" href="recaptcha.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+A
+
+<body>
+<div class="container">
+  <div class="captcha-container">
+    <re-captcha (resolved)="resolved($event)" (errored)="onError($event)" errorMode="handled"></re-captcha>
+  </div>
+  <div class="additional-content">
+    <img src="https://png.pngtree.com/png-clipart/20200328/ourmid/pngtree-hand-drawn-cartoon-blue-robot-png-image_2165265.jpg" alt="Robot">
+    <p>¿Seguro que no eres un robot?</p>
+  </div>
+</div>
+</body>
+</html>
