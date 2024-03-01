@@ -79,8 +79,8 @@ export class CanalComponent implements OnInit {
             this.usuario = data;
 
             this.dataservice.getCanalPorUsuario(this.usuario).subscribe(
-              data=>{
-                this.canal_loggeado = data;
+              (data:any)=>{
+                this.canal_loggeado = data[0];
                 this.sharedService.setCanalLoggeado(this.canal_loggeado);
 
 

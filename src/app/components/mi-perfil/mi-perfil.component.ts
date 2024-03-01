@@ -38,7 +38,8 @@ export class MiPerfilComponent implements OnInit{
           }
         )
       this.service.getCanalPorUsuario(this.usuario).subscribe((data:any) => {
-          this.canal = data;
+          this.canal = data[0];
+          console.log(data)
         },
         error => {
           console.error("no funciona", error);
