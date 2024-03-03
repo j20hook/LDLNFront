@@ -11,33 +11,70 @@
 
 <app-header></app-header>
 
-<div class="main">
-  <div class="area">
+<div class="contenedor">
 
-    <h1>Bienvenido, {{usuario.username}}!</h1>
+  <div class="main">
+    <div class="area">
 
-    <div class="box">
-      <img src="{{usuario.foto}}" alt="Foto personal">
-      <h3>TUS DATOS</h3>
-      <p>Correo Electrónico: {{usuario.email}}</p>
-      <p>Ubicación: {{ usuario.comunidad_autonoma }}</p>
-      <p *ngIf="canal.id == 0" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
+      <h1 *ngIf="usuario">Bienvenido, {{usuario.username}}!</h1>
+
+      <div class="box">
+        <img *ngIf="usuario && usuario.foto != 'valor_predeterminado'" class="imagen_user" src="{{usuario.foto}}"/>
+        <img *ngIf="usuario && usuario.foto == 'valor_predeterminado'" class="imagen_user" src="assets/img/user_default.png"/>
+        <h3>TUS DATOS</h3>
+        <p *ngIf="usuario">Correo Electrónico: {{usuario.email}}</p>
+        <p *ngIf="usuario">Ubicación: {{ usuario.comunidadAutonoma }}</p>
+        <p *ngIf="canal.id != null" >Fecha de Nacimiento: {{ canal.fecha_nacimiento }}</p>
+      </div>
+
+      <div class="action-buttons">
+        <a *ngIf="usuario" href="/apollo/usuario/editar/{{usuario.id}}">Editar Perfil</a>
+
+        <ng-container *ngIf="canal.id == null">
+          <h3>¿Quieres crearte un canal?</h3>
+          <a href="/apollo/canal/crear">Crear Canal</a>
+        </ng-container>
+
+        <ng-container *ngIf="canal.id != null">
+          <a href="/apollo/canal/{{canal.id}}">Ir a tu Canal</a>
+        </ng-container>
+      </div>
+
     </div>
+  </div>
 
-    <div class="action-buttons">
-      <a href="/apollo/usuario/editar/{{usuario.id}}">Editar Perfil</a>
+  <div class="historial">
+    <div id="recommended">
 
-      <ng-container *ngIf="canal.id == null">
-        <h3>¿Quieres crearte un canal?</h3>
-        <a href="/apollo/canal/crear">Crear Canal</a>
-      </ng-container>
+      <ul class="recomendado">
 
-      <ng-container *ngIf="canal.id != null">
-        <a href="/apollo/canal/{{canal.id}}">Ir a tu Canal</a>
-      </ng-container>
+        <li *ngFor="let v of historial">
+
+          <a *ngIf="v.id" href="/apollo/video/{{v.id}}">
+
+            <div class="containerv">
+
+              <div class="image">
+                <img src="{{ v.miniatura }}">
+              </div>
+
+              <div class="content">
+                <h4>{{v.titulo}}</h4>
+                <p>{{v.nombre_canal}}</p>
+              </div>
+
+            </div>
+
+          </a>
+
+        </li>
+
+      </ul>
+
     </div>
 
   </div>
+
 </div>
 
 <app-footer></app-footer>

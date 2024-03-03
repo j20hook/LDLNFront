@@ -27,7 +27,7 @@ export class EditarPerfilComponent {
 
   ngOnInit() {
 
-    this.service.getUsuarioByUsername(this.id_usuario).subscribe((data:any)=>{
+    this.service.getUsuarioPorId(this.id_usuario).subscribe((data:any)=>{
 
       this.usuario = data;
 
@@ -77,7 +77,7 @@ export class EditarPerfilComponent {
 
       });
 
-      this.router.navigate(['apollo/inicio_log']);
+      this.router.navigate(['apollo/perfil/datos']);
 
     })
 

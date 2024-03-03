@@ -1,0 +1,8 @@
+<div class="contain" xmlns="http://www.w3.org/1999/html">
+  <mat-form-field>
+    <form (ngSubmit)="enviarBusqueda()" #miFormulario="ngForm">
+      <mat-label>Introduzca video o canal</mat-label>
+      <input matInput type="text" [(ngModel)]="busqueda" name="busqueda" id="busqueda">
+    </form>
+  </mat-form-field>
+</div>

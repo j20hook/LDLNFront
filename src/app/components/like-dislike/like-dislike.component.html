@@ -1,8 +1,24 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-    <body>
-        <app-boton-like class="like"></app-boton-like>
+<body>
+<button
+  (click)="toggleLikeState()"
+  [@heart]="likeState"
+  size="large"
+  [name]="likeIconName"
+>
+  <img src="../../../assets/img/me-gusta.png"  alt=""/>
 
-        <app-boton-dislike class="dislike"></app-boton-dislike>
-    </body>
+</button>
+<span *ngIf="likes">{{ likes.length }}</span>
+
+<button
+  (click)="toggleDislikeState()"
+  [@dislike]="disLikeState"
+size="large"
+[name]="dislikeIconName"
+>
+<img src="../../../assets/img/disgusto.png"  alt=""/>
+</button>
+</body>
 </html>

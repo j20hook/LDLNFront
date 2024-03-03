@@ -122,12 +122,24 @@ body {
 }
 
 .imagen_user {
-  width: 40px;
+  width: 60px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin-left: 20px;
+  margin-left: 10px;
+}
+
+.btn_desplegable{
+  text-decoration: none;
+  background-color: transparent !important;
+  color: white !important;
+  transition: 0.5s;
+}
+
+.btn_desplegable:hover {
+  color: #3b5999 !important;
 }
 
 /* Agregado para el botón de logout */
@@ -251,3 +263,5 @@ ul {
 .notification-text span{
   float: right;
 }
+
+

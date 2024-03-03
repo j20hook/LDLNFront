@@ -9,14 +9,6 @@
         >
             Suscribirse
         </button>
-        <button
-            *ngIf="suscripcionCheck?.activo == false"
-            type="submit"
-            value="Suscribirse"
-            (click)="activarSuscripcion()"
-        >
-            Suscribirse
-        </button>
 
         <button
             *ngIf="suscripcionCheck?.activo == true"

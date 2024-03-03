@@ -37,7 +37,7 @@ export class MiPerfilComponent implements OnInit{
           }
         )
       this.service.getCanalPorUsuario(this.usuario).subscribe((data:any) => {
-          this.canal = data;
+          this.canal = data[0];
         },
         error => {
           console.error("no funciona", error);
@@ -52,7 +52,6 @@ export class MiPerfilComponent implements OnInit{
     this.service.getHistorial(this.usuario).subscribe(data=>{
 
       this.historial = data;
-      console.log(data)
 
     });
 

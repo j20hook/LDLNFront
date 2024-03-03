@@ -15,6 +15,7 @@ import {VideosCanalComponent} from "./components/canal/videos-canal/videos-canal
 import {ResetPasswordComponent} from "./components/reset-password/reset-password.component";
 import {EditarVideoComponent} from "./components/editar-video/editar-video.component";
 import {EditarPerfilComponent} from "./components/editar-perfil/editar-perfil.component";
+import {BuscadorComponent} from "./components/buscador/buscador.component";
 
 const routes: Routes = [
     { path: 'apollo', component: WebsiteHomeComponent },
@@ -33,6 +34,9 @@ const routes: Routes = [
     { path:'apollo/videos', component: VideosCanalComponent},
     { path:'apollo/video/editar/:id', component: EditarVideoComponent},
     { path:'apollo/usuario/editar/:id', component: EditarPerfilComponent},
+  { path:'apollo/buscador', component: BuscadorComponent},
+
+
 ];
 
 @NgModule({
