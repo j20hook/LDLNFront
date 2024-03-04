@@ -45,6 +45,7 @@ export class EditarPerfilComponent {
   editarPerfil(){
 
     this.service.editarPerfil(this.id_usuario, this.usuario).subscribe(data=>{
+      localStorage.setItem('username', this.usuario.username);
 
 
       this.cdr.detectChanges();

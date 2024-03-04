@@ -2,7 +2,7 @@
 
 <div class="pagina_entera">
   <app-header></app-header>
-  <div *ngIf="lista_busqueda_canales?.length != 0 && lista_busqueda_video?.length != 0; else sinResultados" class="centrar">
+  <div *ngIf="lista_busqueda_canales?.length != 0 || lista_busqueda_video?.length != 0; else sinResultados" class="centrar">
     <h2>Tus resultados para "{{busqueda}}" son:</h2>
     <div class="contain">
 
