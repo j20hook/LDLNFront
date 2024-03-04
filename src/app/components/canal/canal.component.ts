@@ -2,7 +2,7 @@ import {Component, OnInit, Inject } from '@angular/core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { GeneralService } from '../../services/general.service';
 import { Usuario } from '../../models/Usuario';
 import { MatDialog } from "@angular/material/dialog";
@@ -42,7 +42,8 @@ export class CanalComponent implements OnInit {
         private route: ActivatedRoute,
         private dataservice: GeneralService,
         private dialog: MatDialog,
-        private sharedService: SharedService
+        private sharedService: SharedService,
+        private router: Router,
         ) {}
 
 
@@ -50,9 +51,7 @@ export class CanalComponent implements OnInit {
     this.chatExpandido = !this.chatExpandido;
   }
   editarCanal(): void{
-    this.dialog.open(EditarCanalComponent),{
-      width:'70%'
-    }
+    this.router.navigate([`apollo/canal/${this.canal_loggeado.id}/editar`])
   }
 
   obtenerCanalLoggeado(){

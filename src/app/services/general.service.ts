@@ -223,7 +223,7 @@ export class GeneralService {
     }
 
     editarVideo(id_video: number, data: Video): Observable<JSON> {
-        return this.http.put<JSON>(`${this.apiUrl}/video/${id_video}`, data);
+        return this.http.put<JSON>(`${this.apiUrl}/video/${id_video}?XDEBUG_SESSION_START=10894`, data);
     }
 
   eliminarVideo(id_video: number):Observable<JSON> {
@@ -244,8 +244,8 @@ export class GeneralService {
 
   }
 
-  editarCanal(data: Canal): Observable<JSON> {
-        return this.http.put<JSON>(`${this.apiUrl}/canal/${data.id}`, data);
+  editarCanal(id_canal:number, data: Canal): Observable<JSON> {
+        return this.http.put<JSON>(`${this.apiUrl}/canal/${id_canal}`, data);
     }
 
     darLike(data: ValoracionPositiva): Observable<JSON> {

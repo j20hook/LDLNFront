@@ -146,8 +146,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 70vh;
-  margin: 0 0 150px 0;
   background-color: #f0f0f0;
+  margin: 40px 0 150px;
 }
 
 .forms {
@@ -156,7 +156,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 300px;
+  width: 550px;
 }
 
 .signup-form .titulo {
