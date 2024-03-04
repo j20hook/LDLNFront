@@ -1,0 +1,21 @@
+.modal_historial_busqueda{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px 30px 20px 30px;
+}
+
+.busqueda{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid black;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.sinBusquedas{
+  padding: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

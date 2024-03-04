@@ -33,10 +33,8 @@ import { SucriptoresCanalComponent } from './components/canal/sucriptores-canal/
 import { BotonSuscripcionComponent } from './components/boton-suscripcion/boton-suscripcion.component';
 import { EditarVideoComponent } from './components/editar-video/editar-video.component';
 import { EditarCanalComponent } from './components/canal/editar-canal/editar-canal.component';
-import { BotonLikeComponent } from './components/like-dislike/boton-like/boton-like.component';
 import { LikeDislikeComponent } from './components/like-dislike/like-dislike.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BotonDislikeComponent } from './components/like-dislike/dislike/boton-dislike.component';
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
@@ -46,6 +44,10 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ModalBuscadorComponent } from './components/buscador/modal-buscador/modal-buscador.component';
+import { HistorialBusquedaComponent } from './components/header/historial-busqueda/historial-busqueda.component';
+import { HistorialVideosComponent } from './components/header/historial-videos/historial-videos.component';
 import { RecaptchaModule } from "ng-recaptcha";
 import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
 
@@ -69,13 +71,15 @@ import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
         BotonSuscripcionComponent,
         EditarCanalComponent,
         EditarVideoComponent,
-        BotonLikeComponent,
         LikeDislikeComponent,
-        BotonDislikeComponent,
         ResetPasswordComponent,
         DataComponent,
         EditarPerfilComponent,
         NotificacionesComponent,
+        BuscadorComponent,
+        ModalBuscadorComponent,
+        HistorialBusquedaComponent,
+        HistorialVideosComponent,
         RecaptchaComponent
     ],
   imports: [
@@ -94,7 +98,7 @@ import { RecaptchaComponent } from './components/recaptcha/recaptcha.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    RecaptchaModule,
+    RecaptchaModule
 
 
 

@@ -1,10 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Usuario} from "../../models/Usuario";
-import {Canal} from "../../models/Canal";
 import {GeneralService} from "../../services/general.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import Swal from "sweetalert2";
-import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 
 @Component({
   selector: 'app-editar-perfil',
@@ -29,7 +27,7 @@ export class EditarPerfilComponent {
 
   ngOnInit() {
 
-    this.service.getUsuarioByUsername(this.id_usuario).subscribe((data:any)=>{
+    this.service.getUsuarioPorId(this.id_usuario).subscribe((data:any)=>{
 
       this.usuario = data;
 
@@ -79,7 +77,7 @@ export class EditarPerfilComponent {
 
       });
 
-      this.router.navigate(['apollo/inicio_log']);
+      this.router.navigate(['apollo/perfil/datos']);
 
     })
 

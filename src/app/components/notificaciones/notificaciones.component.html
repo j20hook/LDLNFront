@@ -1,1 +1,11 @@
-<p>notificaciones works!</p>
+<div class="notification-container">
+  <button id="notification-btn" (click)="quitarAlerta()">
+    <i>
+      <fa-icon [icon]="icon_notificacion"></fa-icon>
+      <span class="notification-count" *ngIf="notificacionesNuevasNumber != 0">{{notificacionesNuevasNumber}}</span>
+    </i>
+  </button>
+  <div id="notification-dropdown" class="dropdown-content">
+    <div *ngFor="let noti of notificaciones" class="notification">{{ noti.texto }}</div>
+  </div>
+</div>

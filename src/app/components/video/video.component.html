@@ -45,8 +45,8 @@
                   <h4>{{video.canal.nombreCanal}}</h4>
                 </a>
 
-                <p *ngIf="suscriptores.suscriptores == 1">{{suscriptores.suscriptores}} suscriptor</p>
-                <p *ngIf="suscriptores.suscriptores != 1">{{suscriptores.suscriptores}} suscriptores</p>
+                <p *ngIf="suscriptores && suscriptores.suscriptores == 1">{{suscriptores.suscriptores}} suscriptor</p>
+                <p *ngIf="suscriptores && suscriptores.suscriptores != 1">{{suscriptores.suscriptores}} suscriptores</p>
 
               </div>
 
@@ -59,7 +59,7 @@
               <app-like-dislike class="like_dislike">
               </app-like-dislike>
 
-              <button class="compartir">Compartir</button>
+              <button class="compartir" (click)="copyUrlToClipboard()">Compartir</button>
               <button class="guardar">Guardar</button>
 
             </div>
@@ -67,7 +67,7 @@
         </div>
 
         <div class="descripcion">
-          <p>{{ visitas.length }} visitas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ formatearFecha(video.fechaPublicacion) }}</p>
+          <p *ngIf="visitas">{{ visitas.length }} visitas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ formatearFecha(video.fechaPublicacion) }}</p>
           <p id="descripcion">{{ video.descripcion }}</p>
         </div>
 
