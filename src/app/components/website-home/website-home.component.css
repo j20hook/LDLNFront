@@ -51,18 +51,19 @@ body {
 
 .buttons {
   background-color: #4B0082;
-  padding: 7px 17px;
+  padding: 10px 30px;
   color: white;
   display: flex;
   flex-direction: row;
   border-radius: 3px;
   margin-right: 50px;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .main {
   width: 100%;
-  margin-top: -100px;
+  margin-top: 20px;
   background-size: cover;
   align-items: center;
   overflow-x: hidden;

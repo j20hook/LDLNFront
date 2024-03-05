@@ -144,6 +144,10 @@ export class GeneralService {
         return this.http.get<JSON>(`${this.apiUrl}/canal/${id_canal}`);
     }
 
+  getResetPassword(id_canal: number): Observable<JSON> {
+    return this.http.get<JSON>(`${this.apiUrl}/reset-password`);
+  }
+
     getNumSuscriptoresCanal(id_canal: number): Observable<JSON> {
         let jsonCanal = {
             id: id_canal,
