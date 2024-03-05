@@ -42,7 +42,6 @@ export class BotonSuscripcionComponent implements OnInit {
     this.usuario1.username = localStorage.getItem('username') || '';
     this.service.getUsuarioByUsername(this.usuario1).subscribe((data) => {
       this.usuario = data;
-      console.log(this.usuario);
     });
   }
 
@@ -57,7 +56,6 @@ export class BotonSuscripcionComponent implements OnInit {
           this.service.getCanalPorId(canalId).subscribe(
             (data) => {
               this.canal = data;
-              console.log(this.canal);
               this.comprobarSuscripcion();
             },
             (error) => {

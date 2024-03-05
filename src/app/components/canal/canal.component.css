@@ -446,6 +446,7 @@ a {
   padding-bottom: 1rem;
   overflow-x: auto;
   margin-top: 2rem;
+  overflow-x: scroll;
 }
 
 .playlist-title {
@@ -461,6 +462,14 @@ a {
 
 .playlist-videos {
   display: flex;
+  overflow-x: auto;
+  overflow: auto;
+}
+
+.playlist-video a {
+
+  text-decoration: none;
+  color: black;
 }
 
 .playlist-video {
@@ -602,6 +611,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
     grid-auto-flow: column;
     grid-auto-columns: 21rem;
     grid-column-gap: 0.5rem;
+    overflow-x: scroll;
   }
 
   .recommended-channel {

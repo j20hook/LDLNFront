@@ -12,10 +12,10 @@
 
           <div *ngFor="let canal of lista_busqueda_canales">
 
-            <div class="bucle">
+            <a class="bucle" href="apollo/canal/{{canal.id}}">
               <img src="assets/img/user_default.png" class="imagen_canal">
               <h3>{{canal.nombre_canal}}</h3>
-            </div>
+            </a>
           </div>
 
         </div>
@@ -28,10 +28,10 @@
       <div class="resultado_videos" [ngClass]="{'border-videos': lista_busqueda_canales?.length < lista_busqueda_video?.length}">
         <div *ngIf="lista_busqueda_video?.length != 0; else sinVideos">
           <div *ngFor="let video of lista_busqueda_video">
-            <div class="bucle">
+            <a class="bucle" href="apollo/video/{{video.id}}">
               <img src="{{video.miniatura}}" class="imagen_video">
               <h3>{{video.titulo}}</h3>
-            </div>
+            </a>
           </div>
         </div>
 

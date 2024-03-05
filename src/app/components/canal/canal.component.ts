@@ -6,7 +6,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { GeneralService } from '../../services/general.service';
 import { Usuario } from '../../models/Usuario';
 import { MatDialog } from "@angular/material/dialog";
-import {EditarCanalComponent} from "./editar-canal/editar-canal.component";
 import {SharedService} from "../../services/shared.service";
 import {Video} from "../../models/Video";
 
