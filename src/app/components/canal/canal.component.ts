@@ -68,14 +68,15 @@ export class CanalComponent implements OnInit {
 
   listar_mensaje(){
     let input = document.getElementById('mensaje_escrito') as HTMLInputElement
-    this.dataservice.listarMensaje(this.canal_loggeado, this.canal).subscribe(
-        data => {
-          this.lista_mensajes = data;
-          input.value = '';
-        }
-      )
-
-  }
+    this.dataservice.listarMensaje(this.canal_loggeado, this.canal).subscribe({
+      next: (d: any) => {
+        d.forEach((c: any) => c.fecha_envio = new Date(c.fecha_envio));
+        this.lista_mensajes = d.sort((a: any, b: any) => a.fecha_envio - b.fecha_envio);
+        console.log(this.lista_mensajes)
+        input.value = '';
+      }
+    })
+  };
 
   obtenerEtiquetasCanal(){
 

@@ -6,6 +6,9 @@
     </i>
   </button>
   <div id="notification-dropdown" class="dropdown-content">
-    <div *ngFor="let noti of notificaciones" class="notification">{{ noti.texto }}</div>
+    <div *ngFor="let noti of notificaciones" class="notification">
+      {{ noti.texto }}
+      <span>{{noti.fecha_notificacion}}</span>
+    </div>
   </div>
 </div>

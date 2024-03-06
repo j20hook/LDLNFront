@@ -47,7 +47,7 @@
             <a class="card" routerLink="/apollo/video/{{vd.id}}"
                [style.background-image]="'url(' + vd.miniatura + ')'">
               <div class="title">{{ vd.titulo }}</div>
-              <a href="#">
+              <a href="/apollo/canal/{{vd.id_canal}}">
                 <div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{ vd.nombre_canal }}<i
                   class="fas fa-film"></i></div>
               </a>
@@ -69,7 +69,7 @@
 
             <a class="card" routerLink="/apollo/video/{{vd.id}}" [style.background-image]="'url(' + vd.miniatura + ')'">
               <div class="title">{{ vd.titulo }}</div>
-              <a href="#">
+              <a href="/apollo/canal/{{vd.id_canal}}">
                 <div class="catagory" routerLink="/apollo/canal/{{vd.id_canal}}">{{ vd.nombre_canal }}<i
                   class="fas fa-film"></i></div>
               </a>
@@ -95,7 +95,7 @@
 
               <div class="title">{{ v.titulo }}</div>
 
-              <a href="#">
+              <a href="/apollo/canal/{{v.id_canal}}">
                 <div class="catagory" routerLink="/apollo/canal/{{v.id_canal}}">{{ v.nombre_canal }}<i
                   class="fas fa-film"></i></div>
               </a>
