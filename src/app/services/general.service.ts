@@ -429,4 +429,13 @@ export class GeneralService {
       data,
     );
   }
+
+  obtenerUsuarioPorCanal1(id_canal: number): Observable<JSON> {
+    let Canal_id = {
+      "id_canal": id_canal
+    }
+
+    return this.http.post<JSON>(`${this.apiUrl}/usuario/usuarioporcanal`, Canal_id);
+  }
+
 }

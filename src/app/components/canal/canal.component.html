@@ -35,10 +35,9 @@
 
   <div class="container">
 
-    <div class="channel-icon" *ngIf="usuario?.foto">
-      <a><img *ngIf="usuario && usuario.foto != 'valor_predeterminado'" class="imagen_user" src="{{usuario.foto}}"/>
-        <img *ngIf="usuario && usuario.foto == 'valor_predeterminado'" class="imagen_user" src="assets/img/user_default.png"/></a>
-
+    <div class="channel-icon" *ngIf="usuario_canal?.foto">
+      <img *ngIf="usuario_canal && usuario_canal.foto != 'valor_predeterminado'" class="imagen_user" src="{{usuario_canal.foto}}"/>
+      <img *ngIf="usuario_canal && usuario_canal.foto == 'valor_predeterminado'" class="imagen_user" src="assets/img/user_default.png"/>
     </div>
 
     <div class="channel-title">
@@ -216,46 +215,45 @@
           <div class="chat-history">
 
             <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
-              <div *ngIf="canal_loggeado.id == mensaje.id_canal_receptor" class="mensajes_enviados">
-                <img src="" alt="" width="32" height="32">
-                <div class="chat-message-content clearfix">
+
+              <div *ngIf="canal_loggeado.id == mensaje.id_canal_receptor; else elOtro" class="mensajes_enviados">
+                <div class="imagen_receptor">
+                  <img *ngIf="usuario_canal && usuario_canal.foto != 'valor_predeterminado'" class="imagen_usurio_chat" src="{{usuario_canal.foto}}" width="32" height="32"/>
+                  <img *ngIf="usuario_canal && usuario_canal.foto == 'valor_predeterminado'" class="imagen_chat" src="assets/img/user_default.png" width="32" height="32"/>
+                </div>
+                <div class="chat-message-content border_recibidos clearfix">
                   <div class="mensaje_en_si"><h3>{{mensaje.texto}}</h3></div>
                   <div class="chat-time"><h4>{{ formatearFecha(mensaje.fecha_envio) }}</h4></div>
                 </div> <!-- end chat-message-content -->
-              </div>
               </div>
             <!-- end chat-message -->
 
-            <div class="chat-message clearfix" *ngFor="let mensaje of lista_mensajes">
-              <div *ngIf="canal_loggeado.id != mensaje.id_canal_receptor" class="mensajes_recibidos">
-                <img src="" alt="" width="32" height="32">
-                <div class="chat-message-content clearfix">
-                  <div class="mensaje_en_si"><h3>{{mensaje.texto}}</h3></div>
+              <ng-template #elOtro>
+                <div class="chat-message-content border_enviados mensajes_recibidos clearfix">
+                  <div class="mensaje_en_si "><h3>{{mensaje.texto}}</h3></div>
                   <div class="chat-time"><h4>{{ formatearFecha(mensaje.fecha_envio) }}</h4></div>
                 </div> <!-- end chat-message-content -->
-              </div>
-            </div> <!-- end chat-message -->
-
-          </div> <!-- end chat-history -->
-
-
-          <form (ngSubmit)="enviarFormulario()">
-            <div class="mensajeria">
-              <div class="mensaje_a_enviar">
-                <input type="text" id="mensaje_escrito" name="mensaje_escrito" class="mensaje_a_enviar" placeholder="Escriba aquí su mensaje..." [(ngModel)]="mensaje_escrito" autofocus/>
-              </div>
-              <button type="submit"><mat-icon>send</mat-icon></button>
+              </ng-template>
             </div>
-          </form>
+          </div> <!-- end chat-message -->
+        </div> <!-- end chat-history -->
+        <div class="input_mensajeria">
+            <form (ngSubmit)="enviarFormulario()">
+              <div class="mensajeria">
+                <div class="mensaje_a_enviar">
+                  <input type="text" id="mensaje_escrito" name="mensaje_escrito" class="mensaje_a_enviar" placeholder="Escriba aquí su mensaje..." [(ngModel)]="mensaje_escrito" autofocus/>
+                </div>
+                <button type="submit"><mat-icon>send</mat-icon></button>
+              </div>
+            </form>
+        </div>
+      </div> <!-- end chat -->
 
-        </div> <!-- end chat -->
-
-      </div> <!-- end live-chat -->
+      </body>
+  </div> <!-- end live-chat -->
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-      </body>
-
     <!-- End of main content -->
-  </div>
 </div>
+

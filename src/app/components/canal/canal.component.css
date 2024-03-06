@@ -228,15 +228,19 @@ a {
   flex-basis: 8rem;
   height: auto;
   border-radius: 50%;
-  width: 20%;
+  width: 80%;
+  margin-right: 20px;
 }
 
 .imagen_user{
-  width: 50%;
   border-radius: 50%;
   border: 3px black solid;
   padding: 4px;
   background-color: white;
+  display:flex;
+  justify-content: center;
+  heigth: 42px;
+  width: auto;
 }
 
 .channel-title {
@@ -671,7 +675,6 @@ Remove or comment-out the code block below to see how the browser will fall-back
   }
 
   .recommended-channels,
-  .channel-icon,
   .site-search {
     display: none;
   }
@@ -801,6 +804,8 @@ p { margin: 0; }
   border-radius: 3px;
   padding: 8px;
   outline: none;
+  height: 50px;
+  font-size: 20px;
 }
 
 .chat-message-counter {
@@ -853,18 +858,14 @@ p { margin: 0; }
 
 .mensajes_recibidos{
   float: right;
-  width: 50%;
-  background-color: white;
-  border: 2px black solid;
+  width: 45% !important;
   display: flex;
   flex-direction: row;
+  justify-content: end;
 }
 
 .mensajes_enviados{
-  width: 50%;
-  border: 2px black solid;
-  border-radius:0 2px 0 2px;
-  background-color: white;
+  width: 55%;
   display: flex;
   flex-direction: row;
 
@@ -872,25 +873,65 @@ p { margin: 0; }
 
 .chat-message img {
   border-radius: 50%;
-  float: left;
+}
+
+.imagen_receptor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+
+}
+
+.imagen_usurio_chat{
+  border-radius: 50%;
+  border: 2px black solid;
+  padding: 1px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.imagen_chat{
+  float: right;
+  height: 42px;
+  width: 100%;
+  background-color: white;
+  border: 2px solid black;
+  padding: 3%;
 }
 
 .chat-message-content {
-  margin-left: 56px;
+  margin-left: 30px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
-  aling-items: center;
-  width: 100%;
+  align-items: center;
+  width: 80%;
+  border: 2px black solid;
+  background-color: white;
 }
+
+.border_recibidos{
+  border-radius:10px 10px 40px 10px;
+}
+
+.border_enviados{
+  border-radius:10px 10px 10px 40px;
+}
+
 .mensaje_en_si{
   width: 70%;
-  aling-items: center;
+  height: 70px;
+  align-self: center;
 }
 
 .chat-time {
   width: 30%;
   font-size: 17px;
-  aling-items: end;
+  align-self: end;
 }
 
 .chat-feedback {
@@ -907,11 +948,17 @@ p { margin: 0; }
 .mensajeria{
   display: flex;
   flex-direction: row;
+  heigth: 20px;
 
 }
 
 .mensaje_a_enviar{
   width: 95%;
+}
+
+.input_mensajeria{
+  background-color: white;
+  border: 2px solid black;
 }
 
 

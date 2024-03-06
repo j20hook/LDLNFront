@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -17,6 +17,8 @@ import {Video} from "../../models/Video";
 
 })
 export class CanalComponent implements OnInit {
+
+
 
   icon_twitter = faTwitter;
   icon_facebook = faFacebook;
@@ -37,6 +39,7 @@ export class CanalComponent implements OnInit {
   name:any;
   animal: any;
   chatExpandido: boolean = true;
+  usuario_canal: any;
 
   constructor(
         private route: ActivatedRoute,
@@ -71,10 +74,21 @@ export class CanalComponent implements OnInit {
       this.dataservice.listarMensaje(this.canal_loggeado, this.canal).subscribe(
         data => {
           this.lista_mensajes = data;
+          console.log(this.lista_mensajes)
         }
       )
 
+   // this.listar_mensajes_automatico();
+
   }
+
+  listar_mensajes_automatico(){
+    setTimeout(() => {
+      this.listar_mensaje();
+    }, 4000);
+  }
+
+
 
   obtenerEtiquetasCanal(){
 
@@ -120,6 +134,15 @@ export class CanalComponent implements OnInit {
 
   }
 
+  obtenerUsuarioCanalActual(){
+    this.dataservice.obtenerUsuarioPorCanal1(this.canal.id).subscribe(
+      (data:any) => {
+        this.usuario_canal = data[0];
+        console.log(this.usuario_canal)
+      }
+    )
+  }
+
 
   ngOnInit() {
 
@@ -139,6 +162,7 @@ export class CanalComponent implements OnInit {
                 this.obtenerVideosCanalEtiquetas();
                 this.numeroSuscriptoresCanal();
                 this.obtenerVideosCanal();
+                this.obtenerUsuarioCanalActual();
               }
             )
         }
@@ -206,19 +230,4 @@ export class CanalComponent implements OnInit {
     return fechaFormateada;
   }
 
-}
-
-function formatearFecha(fechaString: string): string {
-  // Crear un objeto de fecha a partir de la cadena proporcionada
-  const fecha = new Date(fechaString);
-
-  // Obtener día, mes y año
-
-  const hora = fecha.getHours();
-  const minutos= fecha.getMinutes()
-
-  // Crear la cadena de fecha formateada
-  const fechaFormateada = `${hora} : ${minutos} `;
-
-  return fechaFormateada;
 }

@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 /.prettierrc.json
 /src/custom-theme.scss
+/src/custom-theme.scss
