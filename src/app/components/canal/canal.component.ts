@@ -132,6 +132,7 @@ export class CanalComponent implements OnInit {
               data => {
                 this.canal = data;
                 this.sharedService.setCanal(this.canal);
+                console.log(data)
 
 
                 /*Metodos a cargar*/

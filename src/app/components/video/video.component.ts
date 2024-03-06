@@ -75,6 +75,7 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
     let comentario = document.getElementById('texto') as HTMLInputElement
     this.service.comentariosPorVideo(this.videoComentario).subscribe((data) => {
       this.comentarios = data;
+      console.log(data);
       comentario.value = '';
     });
   }
@@ -109,7 +110,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.service.getVideoPorId(Number(this.id_video)).subscribe(
       (data) => {
         this.video = data;
-
         this.service
           .getNumSuscriptoresCanal(Number(this.video.canal.id))
           .subscribe(
