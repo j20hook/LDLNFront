@@ -63,8 +63,6 @@ export class EditarPerfilComponent {
 
         next: (respuesta:any) => {
 
-          console.log(respuesta);
-
           if(respuesta.token != null){
 
             localStorage.setItem('token' , respuesta.token);

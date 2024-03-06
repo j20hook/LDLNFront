@@ -98,7 +98,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
       this.crearVisita(Number(this.usuario.id));
       this.service.getVideosRecomendados(this.usuario).subscribe((data) => {
         this.videosRecomendados = data;
-        console.log(this.videosRecomendados);
       });
     });
 

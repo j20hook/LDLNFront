@@ -44,7 +44,6 @@ export class SharedService {
   /*Búsqueda*/
   setBusqueda(data: string){
     this.busqueda=data;
-    console.log(this.busqueda)
   }
 
   getBusqueda(){

@@ -72,7 +72,6 @@ export class CanalComponent implements OnInit {
       next: (d: any) => {
         d.forEach((c: any) => c.fecha_envio = new Date(c.fecha_envio));
         this.lista_mensajes = d.sort((a: any, b: any) => a.fecha_envio - b.fecha_envio);
-        console.log(this.lista_mensajes)
         input.value = '';
       }
     })

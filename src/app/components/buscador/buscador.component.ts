@@ -30,7 +30,6 @@ export class BuscadorComponent implements OnInit{
     this.dataService.BusquedaCanales(this.busqueda).subscribe(
       data=>{
         this.lista_busqueda_canales = data;
-        console.log(this.lista_busqueda_canales)
       }
     )
 
@@ -41,7 +40,6 @@ export class BuscadorComponent implements OnInit{
     this.dataService.BusquedaVideos(this.busqueda).subscribe(
       data=>{
         this.lista_busqueda_video = data;
-        console.log(this.lista_busqueda_video)
       }
     )
 

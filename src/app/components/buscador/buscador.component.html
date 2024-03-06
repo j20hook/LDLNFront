@@ -26,7 +26,7 @@
       </div>
 
       <div class="resultado_videos" [ngClass]="{'border-videos': lista_busqueda_canales?.length < lista_busqueda_video?.length}">
-        <div *ngIf="lista_busqueda_video?.length != 0; else sinVideos">
+        <div class="wepaaa" *ngIf="lista_busqueda_video?.length != 0; else sinVideos">
 
           <div class="videos" *ngFor="let video of lista_busqueda_video">
             <a class="videos2" href="apollo/video/{{video.id}}">

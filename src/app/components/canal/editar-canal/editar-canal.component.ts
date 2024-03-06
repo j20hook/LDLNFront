@@ -35,7 +35,6 @@ export class EditarCanalComponent implements OnInit {
                 this.dataservice.getCanalPorId(canalId).subscribe(
                     (data:any) => {
                         this.nuevoCanal = data;
-                        console.log(data)
                     },
                     (error) => {
                         console.error('no funciona', error);

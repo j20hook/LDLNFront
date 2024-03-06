@@ -33,7 +33,6 @@ export class HistorialVideosComponent implements OnInit{
     this.service.getHistorial(this.usuario).subscribe(data=>{
 
       this.historial = data;
-      console.log(data)
 
     });
 
