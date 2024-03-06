@@ -16,7 +16,7 @@ export class VideosCanalComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
-    private dataservice: GeneralService,
+    private service: GeneralService,
     private router: Router,
     private sharedService: SharedService
   ) {}
@@ -24,7 +24,7 @@ export class VideosCanalComponent implements OnInit{
 
   listarVideosCanal(){
     if(this.canal) {
-      this.dataservice.getVideosCanalId(this.canal.id).subscribe(
+      this.service.getVideosCanalId(this.canal.id).subscribe(
         data => {
           this.lista_videos = data;
         }
@@ -41,6 +41,22 @@ export class VideosCanalComponent implements OnInit{
     this.canal_loggeado = this.sharedService.getCanalLoggeado();
 
     this.listarVideosCanal();
+
+  }
+
+  editarVideo(id_video:number){
+
+    this.router.navigate([`apollo/video/editar/${id_video}`]);
+
+  }
+
+  eliminarVideo(id_video:number){
+
+    this.service.eliminarVideo(id_video).subscribe(data=>{
+
+      this.listarVideosCanal();
+
+    })
 
   }
 

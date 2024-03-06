@@ -173,3 +173,75 @@ Remove or comment-out the code block below to see how the browser will fall-back
 .tarjeta:hover .catagory{
   transform: translate(0);
 }
+
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.video {
+  margin: 10px;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.thumbnail {
+  /* Ajusta el estilo de la miniatura según tus necesidades */
+  width: 100%;
+  height: 60%;
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.category {
+  font-size: 14px;
+}
+
+.views {
+  font-size: 12px;
+}
+
+.buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #2980b9;
+}

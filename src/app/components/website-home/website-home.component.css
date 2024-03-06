@@ -7,6 +7,7 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   background-color: rgba(8, 8, 8, 0.89);
+  background-color: white;
 }
 
 .navbar {
@@ -50,18 +51,19 @@ body {
 
 .buttons {
   background-color: #4B0082;
-  padding: 7px 17px;
+  padding: 10px 30px;
   color: white;
   display: flex;
   flex-direction: row;
   border-radius: 3px;
   margin-right: 50px;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .main {
   width: 100%;
-  margin-top: -100px;
+  margin-top: 20px;
   background-size: cover;
   align-items: center;
   overflow-x: hidden;
@@ -69,7 +71,7 @@ body {
   display: flex;
   background-position: center;
   min-height: 100vh;
-  background-color: black;
+  background-color:#f0f0f0;
 }
 
 .area {
@@ -87,13 +89,14 @@ body {
   font-size: 60px;
   word-spacing: 15px;
   line-height: 75px;
-  color: #FF4500;
+  color:#FF4500;
 
 }
 
 .area h3 {
   font-size: 27px;
   font-weight: normal;
+  color: black;
 }
 
 .search {
@@ -136,17 +139,19 @@ body {
 .area h4 {
   margin-top: 10px;
   font-weight: normal;
+  color: black;
 }
 .container1 {
   width: 100%;
   min-height: 460px;
-  background-color: black;
+  background-color:#f0f0f0;
   margin-top: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   text-align: left;
+
 }
 
 .container1 img {
@@ -182,6 +187,7 @@ body {
 .text p {
   font-size: 1.5rem;
   margin-top: 5px;
+  color: black;
 }
 
 .text h1 {
@@ -192,20 +198,20 @@ body {
 .question {
   width: 100%;
   min-height: 950px;
-  background-color: #000;
-  margin-top: 10px;
+  background-color: #f0f0f0;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   text-align: center;
+
 }
 
 .question h1 {
   text-align: center;
   color: #FF4500;
   margin-bottom: 50px;
-  text-align: center;
   font-size: 40px;
   display: flex;
   flex-direction: column;
@@ -216,8 +222,8 @@ body {
 .quest {
   width: 51%;
   min-height: 75px;
-  background-color: #4B0082;
-  color: white;
+  background-color: white;
+  color: black;
   align-items: center;
   justify-content: space-between;
   display: flex;
@@ -239,7 +245,8 @@ body {
   word-spacing: 5px;
   text-align: left;
   cursor: pointer;
-  color: white;
+  color: black;
+  border-radius: 10px;
 }
 
 .quest i {
@@ -254,7 +261,6 @@ body {
 
 .search1 {
   width: 50%;
-  background-color: none;
   min-height: 80px;
   display: flex;
   flex-direction: row;
@@ -269,18 +275,19 @@ body {
   min-height: 65px;
 }
 
-.try1 {
+.try {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: #4B0082;
   min-height: 70px;
-  width: 70%;
+  width: 20%;
   color: white;
   font-size: 30px;
   margin: 50px 0;
   text-transform: uppercase;
+  border-radius: 10px;
 }
 
 .question h4 {
@@ -291,8 +298,9 @@ body {
 
 .try a{
   cursor: pointer;
-  color:#FF4500 !important;
+  color:white !important;
   text-decoration: none !important;
+
 }
 .try a :hover{
 

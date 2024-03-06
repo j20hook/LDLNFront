@@ -14,6 +14,17 @@
 
 }
 
+.textoerror{
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 70px;
+
+}
+
 .palabra_lista{
 
   color: white;
@@ -160,7 +171,6 @@
   display: flex;
   flex-direction: row ;
   align-items: center;
-  justify-content: space-between;
   padding: 30px;
   overflow: hidden;
   overflow-x: auto;

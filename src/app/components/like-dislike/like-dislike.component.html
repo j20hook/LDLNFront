@@ -10,7 +10,7 @@
   <img src="../../../assets/img/me-gusta.png"  alt=""/>
 
 </button>
-<span>{{ likes.length }}</span>
+<span *ngIf="likes">{{ likes.length }}</span>
 
 <button
   (click)="toggleDislikeState()"

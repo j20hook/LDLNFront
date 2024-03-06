@@ -3,6 +3,8 @@
   font-size: 10px;
   --grey-text: #2f2d2d;
   --black-text: #111;
+
+
 }
 
 
@@ -11,6 +13,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  display: unset;
+
 }
 
 body {
@@ -267,6 +271,7 @@ a {
 .channel-subscribe {
   display: flex;
   flex-direction: row;
+  justify-content: end;
   width:20%;
   height: 3.7rem;
   color: var(--grey-text);
@@ -277,15 +282,15 @@ a {
 }
 
 .bton_edit{
-  background-color: #313030;
+  background-color: #690505 !important;
   border-radius: 20px;
   border: none;
-  color: white;
+  color: white !important;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   cursor:pointer;
-  padding: 10px;
+  padding: 26px;
   font-size: 22px;
   margin-right: 10px;
 
@@ -302,6 +307,8 @@ a {
   cursor:pointer;
   padding: 10px;
   font-size: 22px;
+  display: flex;
+  gap: 8px;
 }
 
 .bton_subir i{
@@ -445,21 +452,31 @@ a {
   padding-bottom: 1rem;
   overflow-x: auto;
   margin-top: 2rem;
+  overflow-x: scroll;
+
 }
+
 
 .playlist-title {
   font-size: 1.6rem;
   font-weight: 500;
-  position: -webkit-sticky;
   position: sticky;
   left: 0;
   border-top: 0.1rem solid #eee;
-  padding: 2rem 0;
   color: var(--black-text);
+
 }
 
 .playlist-videos {
   display: flex;
+  overflow-x: auto;
+  overflow: auto;
+}
+
+.playlist-video a {
+
+  text-decoration: none;
+  color: black;
 }
 
 .playlist-video {
@@ -467,6 +484,16 @@ a {
   margin-right: 0.5rem;
   cursor: pointer;
 }
+
+.tamayo{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+}
+
 
 .playlist-video .video-title {
   font-size: 1.4rem;
@@ -476,6 +503,13 @@ a {
 
 .playlist-video .video-creator {
   display: block;
+}
+
+
+.sinVideos{
+  display:flex;
+  width: 100%;
+  justify-content: center;
 }
 
 /* Recommended channels */
@@ -594,6 +628,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
     grid-auto-flow: column;
     grid-auto-columns: 21rem;
     grid-column-gap: 0.5rem;
+    overflow-x: scroll;
   }
 
   .recommended-channel {
@@ -616,7 +651,8 @@ Remove or comment-out the code block below to see how the browser will fall-back
   .recommended-channels,
   .recommended-channel-icon,
   .recommended-channel-subscribe {
-    margin: 0;
+    margin-top: 10px;
+
   }
 
   @media screen and (max-width: 60rem) {
@@ -727,6 +763,8 @@ img {
   display: block;
   height: auto;
   max-width: 100%;
+  width: 90%;
+  padding-bottom: 20px;
 }
 
 input {
@@ -848,6 +886,8 @@ p { margin: 0; }
   width: 50%;
   background-color: white;
   border: 2px black solid;
+  display: flex;
+  flex-direction: row;
 }
 
 .mensajes_enviados{
@@ -855,6 +895,8 @@ p { margin: 0; }
   border: 2px black solid;
   border-radius:0 2px 0 2px;
   background-color: white;
+  display: flex;
+  flex-direction: row;
 
 }
 
@@ -865,11 +907,20 @@ p { margin: 0; }
 
 .chat-message-content {
   margin-left: 56px;
+  display: flex;
+  flex-direction: row;
+  aling-items: center;
+  width: 100%;
+}
+.mensaje_en_si{
+  width: 70%;
+  aling-items: center;
 }
 
 .chat-time {
-  float: right;
-  font-size: 10px;
+  width: 30%;
+  font-size: 17px;
+  aling-items: end;
 }
 
 .chat-feedback {

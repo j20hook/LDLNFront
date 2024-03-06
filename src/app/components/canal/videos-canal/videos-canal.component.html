@@ -1,20 +1,35 @@
 <div class="container">
 <div *ngIf="canal_loggeado.id != canal.id; else tusVideos">
-  <div *ngIf="lista_videos.length != 0; else sinVideos">
+  <div *ngIf="lista_videos && lista_videos.length != 0; else sinVideos">
     <div *ngIf="canal.nombreCanal">
     <h1 class="heading">Todos los videos de {{canal.nombreCanal}}</h1>
     </div>
 
     <div class="gallery">
 
-      <div class="gallery-item" *ngFor="let video of lista_videos">
-
-        <div class="gallery-image">
-          <a class="tarjeta" routerLink="/apollo/video/{{video.id}}">
-            {{video.titulo}}
+      <div class="videos">
+        <div *ngFor="let v of lista_videos" class="video">
+          <a routerLink="/apollo/video/{{v.id}}" class="card" [style.background-image]="'url(' + v.miniatura + ')'">
+            <div class="thumbnail">
+              <!-- Miniatura del video -->
+            </div>
+            <div class="info">
+              <div class="title">{{v.titulo}}</div>
+              <div class="category" routerLink="/apollo/canal/{{v.id_canal}}">
+                {{v.nombre_canal}}
+                <i class="fas fa-film"></i>
+              </div>
+              <div class="views">
+                Fecha: {{v.fecha}}
+                <i class="far fa-eye"></i>
+              </div>
+            </div>
+            <div class="buttons" *ngIf="canal_loggeado.id == canal.id">
+              <button class="edit-button" (click)="editarVideo(v.id)">Editar</button>
+              <button class="delete-button" (click)="eliminarVideo(v.id)">Eliminar</button>
+            </div>
           </a>
         </div>
-
       </div>
 
     </div>
@@ -37,14 +52,29 @@
 
       <div class="gallery">
 
-        <div class="gallery-item" *ngFor="let video of lista_videos">
-
-          <div class="gallery-image">
-            <a class="tarjeta" routerLink="/apollo/video/{{video.id}}">
-              <img src="{{video.miniatura}}">
+        <div class="videos">
+          <div *ngFor="let v of lista_videos" class="video">
+            <a class="card" [style.background-image]="'url(' + v.miniatura + ')'">
+              <div class="thumbnail">
+                <!-- Miniatura del video -->
+              </div>
+              <div class="info">
+                <a routerLink="/apollo/video/{{v.id}}"  class="title">{{v.titulo}}</a>
+                <div class="category" routerLink="/apollo/canal/{{v.id_canal}}">
+                  {{v.nombre_canal}}
+                  <i class="fas fa-film"></i>
+                </div>
+                <div class="views">
+                  Fecha: {{v.fecha}}
+                  <i class="far fa-eye"></i>
+                </div>
+              </div>
+              <div class="buttons" *ngIf="canal_loggeado.id == canal.id">
+                <a class="edit-button" href="apollo/video/editar/{{v.id}}">Editar</a>
+                <button class="delete-button" (click)="eliminarVideo(v.id)">Eliminar</button>
+              </div>
             </a>
           </div>
-
         </div>
 
       </div>

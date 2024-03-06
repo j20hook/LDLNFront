@@ -5,6 +5,8 @@ import {Usuario} from "../../models/Usuario";
 import {HttpErrorResponse} from "@angular/common/http";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import Swal from "sweetalert2";
+import {MatDialog} from "@angular/material/dialog";
+import {RecaptchaComponent} from "../recaptcha/recaptcha.component";
 
 @Component({
   selector: 'app-registro',
@@ -18,7 +20,7 @@ export class RegistroComponent implements OnInit{
 
   etiquetas : string[] = [];
 
-  constructor(private service:GeneralService, public router: Router) {
+  constructor(private service:GeneralService, public router: Router , private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -56,8 +58,6 @@ export class RegistroComponent implements OnInit{
         })
 
 
-        this.router.navigate(['/apollo/login'])
-
       }
 
     }, (error)=> {
@@ -69,6 +69,23 @@ export class RegistroComponent implements OnInit{
       });
 
     })
+
+  }
+
+  abrirRecaptcha(){
+
+    const dialogRef = this.dialog.open(RecaptchaComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+
+
+        this.router.navigate(['/apollo/login']);
+
+    });
+
+
+
+
   }
 
 }

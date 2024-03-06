@@ -1,0 +1,23 @@
+
+.container {
+  text-align: center;
+}
+
+.captcha-container {
+  margin-bottom: 20px;
+}
+
+.additional-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.additional-content img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.additional-content p {
+  font-size: 18px;
+}

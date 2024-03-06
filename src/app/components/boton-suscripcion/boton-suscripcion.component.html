@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <body>
         <button
-            *ngIf="false==estado_suscripcion"
+            *ngIf="!estado_suscripcion"
             type="submit"
             value="Suscribirse"
             (click)="suscribirse()"
@@ -11,7 +11,7 @@
         </button>
 
         <button
-            *ngIf="suscripcionCheck.activo == true"
+            *ngIf="suscripcionCheck?.activo == true"
             type="submit"
             value="Suscrito"
             (click)="desuscribirse()"

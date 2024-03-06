@@ -5,6 +5,11 @@ import {Router} from "@angular/router";
 import {GeneralService} from "../../services/general.service";
 import {Usuario} from "../../models/Usuario";
 import {Canal} from "../../models/Canal";
+import {MatDialog} from "@angular/material/dialog";
+import {EditarCanalComponent} from "../canal/editar-canal/editar-canal.component";
+import {ModalBuscadorComponent} from "../buscador/modal-buscador/modal-buscador.component";
+import {HistorialBusquedaComponent} from "./historial-busqueda/historial-busqueda.component";
+import {HistorialVideosComponent} from "./historial-videos/historial-videos.component";
 
 
 @Component({
@@ -26,7 +31,9 @@ export class HeaderComponent implements OnInit{
 
   notificaciones :any;
 
-  constructor(private router: Router, private service: GeneralService) {
+  constructor(private router: Router,
+              private service: GeneralService,
+              private dialog: MatDialog) {
 
   }
 
@@ -38,11 +45,10 @@ export class HeaderComponent implements OnInit{
       .subscribe((data: any) => {
         // console.log(data);
         this.usuario = data;
-        this.getNotificacionesPorUsuario();
 
         this.service.getCanalPorUsuario(this.usuario).subscribe((data:any)=>{
 
-          this.canal = data;
+          this.canal = data[0];
 
         }, error => {
 
@@ -61,25 +67,25 @@ export class HeaderComponent implements OnInit{
 
   }
 
-  getNotificacionesPorUsuario(){
+  abrirBuscador(){
+    this.dialog.open(ModalBuscadorComponent,{
+      panelClass: 'custom-modal',
+      position:{top:'10px'}
+    });
 
-    this.service.notificacionesPorUsuario(this.usuario).subscribe(data=>{
+  }
 
-      this.notificaciones = data;
+  abrirHistorialBusqueda(){
+    this.dialog.open(HistorialBusquedaComponent),{
+      width:'70%'
+    }
+  }
 
-    })
-
+  abrirHistorialVideos(){
+    this.dialog.open(HistorialVideosComponent),{
+      width:'70%'
+    }
   }
 
 }
 
-// declare var $: any;
-// $(document).ready(function() {
-//
-//   $(".notification-drop .item").on('click', function() {
-//
-//     $.find('ul').toggle();
-//
-//   });
-//
-// });

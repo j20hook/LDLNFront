@@ -32,13 +32,16 @@ export class BotonSuscripcionComponent implements OnInit {
     this.obtenerUsuario();
 
     this.obtenerCanal();
+
+    setInterval(() => {
+      this.comprobarSuscripcion();
+    }, 5000);
   }
 
   obtenerUsuario() {
     this.usuario1.username = localStorage.getItem('username') || '';
     this.service.getUsuarioByUsername(this.usuario1).subscribe((data) => {
       this.usuario = data;
-      console.log(this.usuario);
     });
   }
 
@@ -53,7 +56,6 @@ export class BotonSuscripcionComponent implements OnInit {
           this.service.getCanalPorId(canalId).subscribe(
             (data) => {
               this.canal = data;
-              console.log(this.canal);
               this.comprobarSuscripcion();
             },
             (error) => {
@@ -89,6 +91,8 @@ export class BotonSuscripcionComponent implements OnInit {
         this.suscripcionCheck = data;
         if (this.suscripcionCheck.exists == true) {
           this.estado_suscripcion = true;
+        } else {
+          this.estado_suscripcion = false;
         }
       },
       (error) => {
@@ -103,14 +107,6 @@ export class BotonSuscripcionComponent implements OnInit {
 
     this.service.crearSuscripcion(this.suscripcion).subscribe(
       (response) => {
-        console.log(response); // Manejo de la respuesta del backend
-        this.router
-          .navigateByUrl(`/apollo/canal/${this.canal.id}`, {
-            skipLocationChange: true,
-          })
-          .then(() => {
-            this.router.navigate([this.router.url]);
-          });
       },
       (error) => {
         console.error(error); // Manejo de errores
@@ -121,14 +117,7 @@ export class BotonSuscripcionComponent implements OnInit {
   desuscribirse() {
     this.service.desactivarSuscripcion(this.suscripcionCheck.id).subscribe(
       (response) => {
-        console.log(response); // Manejo de la respuesta del backend
-        this.router
-          .navigateByUrl(`/apollo/canal/${this.canal.id}`, {
-            skipLocationChange: true,
-          })
-          .then(() => {
-            this.router.navigate([this.router.url]);
-          });
+        this.comprobarSuscripcion()
       },
       (error) => {
         console.error(error); // Manejo de errores

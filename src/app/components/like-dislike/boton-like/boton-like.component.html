@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <body>
+        <p>{{numero_likes.likes}} likes</p>
+        <button
+            (click)="toggleLikeState()"
+            [@heart]="likeState"
+            size="large"
+            [name]="iconName"
+        >
+            <img src="../../../../assets/img/me-gusta.png" />
+        </button>
+    </body>
+</html>

@@ -102,7 +102,10 @@ export class LikeDislikeComponent implements OnInit {
         );
       }
     });
-    this.likesPorVideo();
+
+    setInterval(() => {
+      this.likesPorVideo();
+    }, 10000);
   }
 
   // Aqui estan todas las funcionalidades del Like
