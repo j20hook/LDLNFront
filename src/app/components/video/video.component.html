@@ -37,7 +37,7 @@
             <div class="info_canal1">
 
               <div id="imagen_canal">
-                <img class="imagen_user" src="assets/img/user_default.png">
+                <img class="imagen_user" src="{{video.canal.usuario.foto}}">
               </div>
 
               <div class="nombre_canal_suscripciones">
@@ -87,7 +87,7 @@
 
           <div id="comentario" *ngFor="let c of comentarios">
 
-            <img src="assets/img/user_default.png">
+            <img src="{{c.usuario.foto}}">
 
             <div class="nombretexto">
 

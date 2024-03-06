@@ -313,7 +313,8 @@ body {
 
 #comentario img {
 
-  width: 65px;
+  width: 5%;
+  height: 60px;
   border-radius: 50% ;
   padding: 6px;
 

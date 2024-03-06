@@ -36,7 +36,7 @@
   <div class="container">
 
     <div class="channel-icon" *ngIf="usuario?.foto">
-      <a><img *ngIf="usuario && usuario.foto != 'valor_predeterminado'" class="imagen_user" src="{{usuario.foto}}"/>
+      <a><img *ngIf="usuario && usuario.foto != 'valor_predeterminado'" class="imagen_user" src="{{canal.usuario.foto}}"/>
         <img *ngIf="usuario && usuario.foto == 'valor_predeterminado'" class="imagen_user" src="assets/img/user_default.png"/></a>
 
     </div>
