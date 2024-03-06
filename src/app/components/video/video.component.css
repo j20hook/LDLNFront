@@ -27,7 +27,6 @@ body {
 
 #recommended {
   box-sizing: border-box;
-  overflow-y: auto;
 }
 
 #details {

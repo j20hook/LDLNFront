@@ -37,7 +37,6 @@ export class IncioLogComponent implements OnInit{
     this.service.getCanalesSuscritosPorUsuario(this.usuario).subscribe(
       (data: any) => {
         this.canales_suscritos_por_usuario = data;
-        console.log(this.canales_suscritos_por_usuario);
       }
     )
 
@@ -47,6 +46,7 @@ export class IncioLogComponent implements OnInit{
     this.service.getVideosSuscritos(this.usuario).subscribe(
       (data:any)=>{
         this.videos_suscritos = data;
+        console.log(this.videos_suscritos)
       }
     )
 

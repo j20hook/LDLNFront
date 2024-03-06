@@ -1,1 +1,31 @@
-<p>historial-videos works!</p>
+<div class="historial">
+  <div id="recommended">
+
+    <ul class="recomendado">
+
+      <li *ngFor="let v of historial">
+
+        <a *ngIf="v.id" href="/apollo/video/{{v.id}}">
+
+          <div class="containerv">
+
+            <div class="image">
+              <img src="{{ v.miniatura }}">
+            </div>
+
+            <div class="content">
+              <h4>{{v.titulo}}</h4>
+              <p>{{v.nombre_canal}}</p>
+            </div>
+
+          </div>
+
+        </a>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>

@@ -33,7 +33,6 @@ export class SharedService {
 
   /*Usuario loggeado*/
   setUsuarioLoggeado(data: Usuario){
-    console.log(data)
     this.usuario_loggeado=data;
   }
 
@@ -45,7 +44,6 @@ export class SharedService {
   /*Búsqueda*/
   setBusqueda(data: string){
     this.busqueda=data;
-    console.log(this.busqueda)
   }
 
   getBusqueda(){

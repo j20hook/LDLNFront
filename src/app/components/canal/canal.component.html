@@ -138,29 +138,31 @@
 
 
             <div *ngIf="videos_id_canal!=0; else sinVideos">
-              <div class="vlogs-playlist playlist" *ngFor="let etiqueta of etiquetas">
+              <div class="vlogs-playlist playlist" *ngFor="let videos_por_etiqueta of videos_etiquetas_canal">
 
-                <h2 class="playlist-title">{{etiqueta.descripcion}}</h2>
+                <h2 class="playlist-title">{{videos_por_etiqueta.etiqueta}}</h2>
 
                 <div class="playlist-videos">
 
+                      <div class="playlist-video" tabindex="0" *ngFor="let video of videos_por_etiqueta.videos">
 
-                      <div class="playlist-video" tabindex="0" *ngFor="let videos_etiquetados of videos_etiquetas_canal">
-                        <div *ngIf="videos_etiquetados.descripcion == etiqueta.descripcion">
+                        <a href="apollo/video/{{video.id}}">
 
                           <div class="video-thumbnail">
-                            <img src="{{videos_etiquetados.miniatura}}" alt="">
+                            <img src="{{video.miniatura}}" alt="">
                           </div>
 
                           <div class="video-info">
-                            <h3 class="video-title">{{videos_etiquetados.titulo}}</h3>
+                            <h3 class="video-title">{{video.titulo}}</h3>
                             <ul class="video-meta-data">
-                              <li class="video-creator">ReallyCoolVlogs <i class="fas fa-check-circle"></i></li>
-                              <li class="video-views">252K views</li>
-                              <li class="video-upload-date">Fecha de publicación {{videos_etiquetados.fecha_publicacion}}</li>
+                              <li class="video-creator">{{ video.nombre_canal }} <i class="fas fa-check-circle"></i></li>
+                              <li class="video-views">{{video.visitas}} visitas</li>
+                              <li class="video-upload-date">Fecha de publicación {{video.fecha_publicacion}}</li>
                             </ul>
                           </div>
-                        </div>
+
+                        </a>
+
                       </div>
 
                 </div>

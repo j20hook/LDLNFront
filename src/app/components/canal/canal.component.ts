@@ -6,7 +6,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { GeneralService } from '../../services/general.service';
 import { Usuario } from '../../models/Usuario';
 import { MatDialog } from "@angular/material/dialog";
-import {EditarCanalComponent} from "./editar-canal/editar-canal.component";
 import {SharedService} from "../../services/shared.service";
 import {Video} from "../../models/Video";
 
@@ -17,8 +16,6 @@ import {Video} from "../../models/Video";
 
 })
 export class CanalComponent implements OnInit {
-
-
 
   icon_twitter = faTwitter;
   icon_facebook = faFacebook;
@@ -192,7 +189,8 @@ export class CanalComponent implements OnInit {
   enviarFormulario() {
 
     this.dataservice.EnviarMensajeBackend(this.canal_loggeado, this.canal, this.mensaje_escrito).subscribe({
-      complete:()=>console.log("Mensaje enviado")});
+      complete:()=>console.log("Mensaje enviado")
+    });
 
 
     setTimeout(() => {

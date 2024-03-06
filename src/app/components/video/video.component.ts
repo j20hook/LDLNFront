@@ -72,8 +72,10 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   mostrarComentarios() {
     this.videoComentario.id = Number(this.id_video);
+    let comentario = document.getElementById('texto') as HTMLInputElement
     this.service.comentariosPorVideo(this.videoComentario).subscribe((data) => {
       this.comentarios = data;
+      comentario.value = '';
     });
   }
 
@@ -96,7 +98,6 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
       this.crearVisita(Number(this.usuario.id));
       this.service.getVideosRecomendados(this.usuario).subscribe((data) => {
         this.videosRecomendados = data;
-        console.log(this.videosRecomendados);
       });
     });
 

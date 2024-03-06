@@ -19,8 +19,16 @@
 .notification {
   padding: 32px 17px;
   text-decoration: none;
-  display: block;
   color: black;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.notification span {
+
+  color: #2a0059;
+
 }
 
 .notification:hover {
