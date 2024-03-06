@@ -67,9 +67,11 @@ export class CanalComponent implements OnInit {
 
 
   listar_mensaje(){
-      this.dataservice.listarMensaje(this.canal_loggeado, this.canal).subscribe(
+    let input = document.getElementById('mensaje_escrito') as HTMLInputElement
+    this.dataservice.listarMensaje(this.canal_loggeado, this.canal).subscribe(
         data => {
           this.lista_mensajes = data;
+          input.value = '';
         }
       )
 
@@ -167,7 +169,8 @@ export class CanalComponent implements OnInit {
   enviarFormulario() {
 
     this.dataservice.EnviarMensajeBackend(this.canal_loggeado, this.canal, this.mensaje_escrito).subscribe({
-      complete:()=>console.log("Mensaje enviado")});
+      complete:()=>console.log("Mensaje enviado")
+    });
 
 
     setTimeout(() => {

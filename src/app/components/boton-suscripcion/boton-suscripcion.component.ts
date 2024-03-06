@@ -119,6 +119,7 @@ export class BotonSuscripcionComponent implements OnInit {
     this.service.desactivarSuscripcion(this.suscripcionCheck.id).subscribe(
       (response) => {
         console.log(response); // Manejo de la respuesta del backend
+        this.comprobarSuscripcion()
       },
       (error) => {
         console.error(error); // Manejo de errores

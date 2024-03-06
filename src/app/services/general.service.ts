@@ -175,9 +175,8 @@ export class GeneralService {
     }
 
     desactivarSuscripcion(id: number): Observable<any> {
-        return this.http.put<any>(
-            `http://127.0.0.1:8000/api/suscripcion/borrar/${id}`,
-            id
+        return this.http.delete<any>(
+            `http://127.0.0.1:8000/api/suscripcion/borrar/${id}`
         );
     }
 

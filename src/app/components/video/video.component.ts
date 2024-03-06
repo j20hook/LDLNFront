@@ -72,8 +72,10 @@ export class VideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   mostrarComentarios() {
     this.videoComentario.id = Number(this.id_video);
+    let comentario = document.getElementById('texto') as HTMLInputElement
     this.service.comentariosPorVideo(this.videoComentario).subscribe((data) => {
       this.comentarios = data;
+      comentario.value = '';
     });
   }
 
