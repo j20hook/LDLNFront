@@ -56,7 +56,7 @@ export class SubirVideoComponent implements OnInit{
 
       this.service.subirVideo(this.video).subscribe(data=>{
 
-        this.router.navigate(['/apollo']);
+        this.router.navigate(['apollo/inicio_log']);
 
       })
 
