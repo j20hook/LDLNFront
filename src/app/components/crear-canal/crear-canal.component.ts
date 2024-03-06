@@ -55,7 +55,7 @@ export class CrearCanalComponent implements OnInit {
           timer: 1000,
         });
 
-        this.router.navigateByUrl(`apollo`);
+        this.router.navigateByUrl(`apollo/inicio_log`);
       },
       (error) => {
         console.error(error); // Manejo de errores
@@ -65,7 +65,7 @@ export class CrearCanalComponent implements OnInit {
           text: '¡Algo salio mal!',
         });
 
-        this.router.navigate(['/apollo/inicio_log'])
+        this.router.navigate(['/error404'])
       }
     );
   }

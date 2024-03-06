@@ -3,6 +3,8 @@
   font-size: 10px;
   --grey-text: #2f2d2d;
   --black-text: #111;
+
+
 }
 
 
@@ -11,6 +13,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  display: unset;
+
 }
 
 body {
@@ -449,17 +453,18 @@ a {
   overflow-x: auto;
   margin-top: 2rem;
   overflow-x: scroll;
+
 }
+
 
 .playlist-title {
   font-size: 1.6rem;
   font-weight: 500;
-  position: -webkit-sticky;
   position: sticky;
   left: 0;
   border-top: 0.1rem solid #eee;
-  padding: 2rem 0;
   color: var(--black-text);
+
 }
 
 .playlist-videos {
@@ -488,6 +493,7 @@ a {
   gap: 15px;
 
 }
+
 
 .playlist-video .video-title {
   font-size: 1.4rem;
@@ -645,7 +651,8 @@ Remove or comment-out the code block below to see how the browser will fall-back
   .recommended-channels,
   .recommended-channel-icon,
   .recommended-channel-subscribe {
-    margin: 0;
+    margin-top: 10px;
+
   }
 
   @media screen and (max-width: 60rem) {
@@ -756,6 +763,8 @@ img {
   display: block;
   height: auto;
   max-width: 100%;
+  width: 90%;
+  padding-bottom: 20px;
 }
 
 input {
